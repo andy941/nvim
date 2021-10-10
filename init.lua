@@ -1,35 +1,25 @@
-local o = vim.o
-local wo = vim.wo
-local bo = vim.bo
-local cmd = vim.cmd
-local map = vim.api.nvim_set_keymap
+local fn = vim.fn
+local execute = vim.api.nvim_command
 
--- global options
+-- Sensible defaults
+require('settings')
 
--- window-local options
+-- Auto install packer.nvim if not exists
+local install_path = fn.stdpath('data')..'/site/pack/packer/opt/packer.nvim'
+if fn.empty(fn.glob(install_path)) > 0 then
+  execute('!git clone https://github.com/wbthomason/packer.nvim '..install_path)
+end
+vim.cmd [[packadd packer.nvim]]
+vim.cmd 'autocmd BufWritePost plugins.lua PackerCompile' -- Auto compile when there are changes in plugins.lua
 
--- buffer-local options
-
--- maps.lua
-
+-- Install plugins
 require('plugins')
 
--- colorscheme
-cmd [[
+-- Key mappings
+require('keymappings')
 
-" Enable truecolor
-if exists('+termguicolors')
-	let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
-	let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
-	set termguicolors
-	endif
+-- Setup Lua language server using submodule
+require('lsp_lua')
 
-"set termguicolors
-let g:gruvbox_material_enable_bold = 1
-let g:gruvbox_material_enable_italic = 1
-let g:gruvbox_material_disable_italic_comment = 1
-let g:gruvbox_material_background = 'hard'
-set background=dark
-colorscheme gruvbox-material
-let g:airline_theme = 'gruvbox_material'
-]]
+-- Another option is to groups configuration in one folder
+require('config')

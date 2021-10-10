@@ -69,13 +69,46 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  ["completion-nvim"] = {
+    loaded = true,
+    path = "/Users/andrea/.local/share/nvim/site/pack/packer/start/completion-nvim"
+  },
   ["gruvbox-material"] = {
     loaded = true,
     path = "/Users/andrea/.local/share/nvim/site/pack/packer/start/gruvbox-material"
   },
-  ["packer.nvim"] = {
+  ["nlua.nvim"] = {
     loaded = true,
-    path = "/Users/andrea/.local/share/nvim/site/pack/packer/start/packer.nvim"
+    path = "/Users/andrea/.local/share/nvim/site/pack/packer/start/nlua.nvim"
+  },
+  ["nvim-lspconfig"] = {
+    loaded = true,
+    path = "/Users/andrea/.local/share/nvim/site/pack/packer/start/nvim-lspconfig"
+  },
+  ["packer.nvim"] = {
+    loaded = false,
+    needs_bufread = false,
+    path = "/Users/andrea/.local/share/nvim/site/pack/packer/opt/packer.nvim"
+  },
+  ["plenary.nvim"] = {
+    loaded = true,
+    path = "/Users/andrea/.local/share/nvim/site/pack/packer/start/plenary.nvim"
+  },
+  ["popup.nvim"] = {
+    loaded = true,
+    path = "/Users/andrea/.local/share/nvim/site/pack/packer/start/popup.nvim"
+  },
+  ["telescope.nvim"] = {
+    loaded = true,
+    path = "/Users/andrea/.local/share/nvim/site/pack/packer/start/telescope.nvim"
+  },
+  ["vim-dispatch"] = {
+    loaded = true,
+    path = "/Users/andrea/.local/share/nvim/site/pack/packer/start/vim-dispatch"
+  },
+  ["vim-fugitive"] = {
+    loaded = true,
+    path = "/Users/andrea/.local/share/nvim/site/pack/packer/start/vim-fugitive"
   }
 }
 
