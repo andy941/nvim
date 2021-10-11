@@ -1,26 +1,47 @@
 local utils = require('utils')
 
-local cmd = vim.cmd
-local indent = 4
+-- change cursor shape in insert/normal mode
+vim.cmd [[
+let &t_SI = "\<Esc>[6 q" " INSERT - solid line
+let &t_SR = "\<Esc>[4 q" " REPLACE - solid underscore
+let &t_EI = "\<Esc>[2 q" " NORMAL(else) - solid square
+]]
 
-cmd 'syntax enable'
-cmd 'filetype plugin indent on'
-utils.opt('b', 'expandtab', true)
-utils.opt('b', 'shiftwidth', indent)
+vim.cmd 'syntax enable'
+vim.cmd 'filetype plugin indent on'
+
+utils.opt('b', 'tabstop', 4)
+utils.opt('b', 'softtabstop', 4)
+utils.opt('b', 'shiftwidth', 4)
+utils.opt('b', 'expandtab', false)
 utils.opt('b', 'smartindent', true)
-utils.opt('b', 'tabstop', indent)
-utils.opt('o', 'hidden', true)
-utils.opt('o', 'ignorecase', true)
-utils.opt('o', 'scrolloff', 4 )
-utils.opt('o', 'shiftround', true)
-utils.opt('o', 'smartcase', true)
+utils.opt('b', 'autoindent', true)
+
+utils.opt('o', 'encoding', 'utf-8')
 utils.opt('o', 'splitbelow', true)
 utils.opt('o', 'splitright', true)
-utils.opt('o', 'wildmode', 'list:longest')
+utils.opt('o', 'hidden', true)
+utils.opt('o', 'autowriteall', true)
+utils.opt('o', 'updatetime', 20)
+utils.opt('o', 'shortmess', 'c')
+utils.opt('o', 'hlsearch', true)
+utils.opt('o', 'incsearch', true)
+utils.opt('o', 'wildmenu', true)
+utils.opt('o', 'wildignore', '*.o')
+utils.opt('o', 'wildmode', 'full')
+utils.opt('o', 'scrolloff', 4)
+
+utils.opt('w', 'cursorline', true)
 utils.opt('w', 'number', true)
 utils.opt('w', 'relativenumber', true)
-utils.opt('o', 'clipboard','unnamed,unnamedplus')
-vim.o.inccommand = 'nosplit'
+utils.opt('w', 'foldenable', false)
+utils.opt('w', 'foldmethod', 'syntax')
 
 -- Highlight on yank
 vim.cmd 'au TextYankPost * lua vim.highlight.on_yank {on_visual = false}'
+
+-- Compile and run with g++
+local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
+local opts = { noremap=true, silent=true }
+utils.map('n', '<C-c>', ':!clear; g++ -o  %:r.o % && ./%:r.o<Enter>', opts)
+

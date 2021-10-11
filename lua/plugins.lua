@@ -1,16 +1,23 @@
 return require('packer').startup(function()
     
   -- Packer can manage itself as an optional plugin
-  use {'wbthomason/packer.nvim', opt = true}
+  use { 'wbthomason/packer.nvim', opt = true}
+
+  -- Icons lua fork for nvim
+  use { 'kyazdani42/nvim-web-devicons'}
 
   -- Color scheme
   use { 'sainnhe/gruvbox-material' }
 
+  -- Lualine
+  use { 'hoob3rt/lualine.nvim' }
+
   -- Fuzzy finder
-  use {
-      'nvim-telescope/telescope.nvim',
-      requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
-  }
+  use { 'nvim-telescope/telescope.nvim',
+      requires = {
+      {'nvim-lua/popup.nvim'}, 
+      {'nvim-lua/plenary.nvim'}}
+    }
 
   -- LSP and completion
   use { 'neovim/nvim-lspconfig' }
@@ -19,13 +26,11 @@ return require('packer').startup(function()
   use { 'hrsh7th/cmp-buffer' }
   use { 'hrsh7th/cmp-vsnip' }
   use { 'hrsh7th/vim-vsnip' }
-
-  -- Lua development
-  use { 'tjdevries/nlua.nvim' }
-
-
-  -- Vim dispatch
-  use { 'tpope/vim-dispatch' }
+  use { 'onsails/lspkind-nvim' }
+  use {
+        'nvim-treesitter/nvim-treesitter',
+        run = ':TSUpdate'
+  }
 
   -- Fugitive for Git
   use { 'tpope/vim-fugitive' }
