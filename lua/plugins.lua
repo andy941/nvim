@@ -6,6 +6,9 @@ return require('packer').startup(function()
   -- Icons lua fork for nvim
   use { 'kyazdani42/nvim-web-devicons'}
 
+  use {'akinsho/bufferline.nvim', 
+  requires = 'kyazdani42/nvim-web-devicons'}
+
   -- Color scheme
   use { 'sainnhe/gruvbox-material' }
 
@@ -15,6 +18,7 @@ return require('packer').startup(function()
   -- Fuzzy finder
   use { 'nvim-telescope/telescope.nvim',
       requires = {
+      {'kyazdani42/nvim-web-devicons'}, 
       {'nvim-lua/popup.nvim'}, 
       {'nvim-lua/plenary.nvim'}}
     }
