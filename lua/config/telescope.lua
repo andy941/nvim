@@ -11,6 +11,13 @@ require('telescope').setup {
       case_mode = "smart_case",        -- or "ignore_case" or "respect_case"
                                        -- the default case_mode is "smart_case"
     }
+  },
+  defaults = {
+	  file_ignore_patterns = { 
+		  'Pictures',
+		  'Drives',
+          'vpnconfigs'
+	  }
   }
 }
 -- To get fzf loaded and working with telescope, you need to call
@@ -19,6 +26,7 @@ require('telescope').load_extension('fzf')
 
 -- KeyBindings
 utils.map('n', '<leader>ff', '<cmd>Telescope find_files<CR>')
+utils.map('n', '<leader>tt', '<cmd>Telescope treesitter<cr>')
 utils.map('n', '<leader>fg', '<cmd>Telescope live_grep<cr>')
 utils.map('n', '<leader>fb', '<cmd>Telescope buffers<cr>')
 utils.map('n', '<leader>fh', '<cmd>Telescope help_tags<cr>')

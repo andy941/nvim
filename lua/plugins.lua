@@ -10,7 +10,9 @@ return require('packer').startup(function()
   requires = 'kyazdani42/nvim-web-devicons'}
 
   -- Color scheme
-  use { 'sainnhe/gruvbox-material' }
+  --use { 'sainnhe/gruvbox-material' }
+  --use 'eddyekofo94/gruvbox-flat.nvim'
+  use {"ellisonleao/gruvbox.nvim", requires = {"rktjmp/lush.nvim"}}
 
   -- Lualine
   use { 'hoob3rt/lualine.nvim' }
