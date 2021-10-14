@@ -11,8 +11,7 @@ return require('packer').startup(function()
 
   -- Color scheme
   --use { 'sainnhe/gruvbox-material' }
-  --use 'eddyekofo94/gruvbox-flat.nvim'
-  use {"ellisonleao/gruvbox.nvim", requires = {"rktjmp/lush.nvim"}}
+  use 'eddyekofo94/gruvbox-flat.nvim'
 
   -- Lualine
   use { 'hoob3rt/lualine.nvim' }
