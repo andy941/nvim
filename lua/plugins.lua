@@ -16,6 +16,7 @@ return require('packer').startup(function()
   use { 'hoob3rt/lualine.nvim' }
 
   -- Fuzzy finder
+  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
   use { 'nvim-telescope/telescope.nvim',
       requires = {
       {'kyazdani42/nvim-web-devicons'}, 
