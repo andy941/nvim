@@ -3,7 +3,8 @@ In a nvim session:
 ``` vim
 :PackerInstall
 ```
-Wait for Treesitter to download and compile the parsers.
+# Treesitter setup
+Wait for Treesitter to download and compile the parsers, It should happen automatically the first time you open the nvim session.
 If it doesn't start automatically force it with:
 ```
 :TSupdate
