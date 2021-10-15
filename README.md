@@ -1,3 +1,15 @@
+# Run Packer
+In a nvim session:
+``` vim
+:PackerInstall
+```
+Wait for Treesitter to download and compile the parsers.
+If it doesn't start automatically force it with:
+```
+:TSupdate
+```
+
+
 # Install Language servers 
 ### C/C++
 ``` bash
