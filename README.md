@@ -1,5 +1,5 @@
 # Install Language servers 
-## C/C++
+### C/C++
 ``` bash
 sudo pamac install llvm
 ```
