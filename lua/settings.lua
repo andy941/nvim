@@ -36,6 +36,7 @@ utils.opt('w', 'number', true)
 utils.opt('w', 'relativenumber', true)
 utils.opt('w', 'foldenable', false)
 utils.opt('w', 'foldmethod', 'syntax')
+utils.opt('w', 'wrap', false)
 
 -- Highlight on yank
 vim.cmd 'au TextYankPost * lua vim.highlight.on_yank {on_visual = false}'
@@ -43,5 +44,5 @@ vim.cmd 'au TextYankPost * lua vim.highlight.on_yank {on_visual = false}'
 -- Compile and run with g++
 local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
 local opts = { noremap=true, silent=true }
-utils.map('n', '<C-c>', ':!clear; g++ -std=c++14 -o  %:r.o % && ./%:r.o<Enter>', opts)
+utils.map('n', '<C-c>', ':!g++ -std=c++14 -o  %:r.o % && ./%:r.o<Enter>', opts)
 

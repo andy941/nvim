@@ -89,6 +89,10 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/andrea/.local/share/nvim/site/pack/packer/start/gruvbox-flat.nvim"
   },
+  ["gruvbox-material"] = {
+    loaded = true,
+    path = "/home/andrea/.local/share/nvim/site/pack/packer/start/gruvbox-material"
+  },
   ["lspkind-nvim"] = {
     loaded = true,
     path = "/home/andrea/.local/share/nvim/site/pack/packer/start/lspkind-nvim"

@@ -1,10 +1,10 @@
 return require('packer').startup(function()
     
   -- Packer can manage itself as an optional plugin
-  use { 'wbthomason/packer.nvim', opt = true}
+  use { 'wbthomason/packer.nvim', opt = true }
 
   -- Icons lua fork for nvim
-  use { 'kyazdani42/nvim-web-devicons'}
+  use { 'kyazdani42/nvim-web-devicons' }
 
   use {'akinsho/bufferline.nvim', 
   requires = 'kyazdani42/nvim-web-devicons'}
@@ -17,12 +17,12 @@ return require('packer').startup(function()
   use { 'hoob3rt/lualine.nvim' }
 
   -- Fuzzy finder
-  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+  use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
   use { 'nvim-telescope/telescope.nvim',
       requires = {
-      {'kyazdani42/nvim-web-devicons'}, 
-      {'nvim-lua/popup.nvim'}, 
-      {'nvim-lua/plenary.nvim'}}
+      { 'kyazdani42/nvim-web-devicons' }, 
+      { 'nvim-lua/popup.nvim' }, 
+      { 'nvim-lua/plenary.nvim' }}
     }
 
   -- LSP and completion

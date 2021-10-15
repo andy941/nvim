@@ -25,8 +25,10 @@ require('telescope').setup {
 require('telescope').load_extension('fzf')
 
 -- KeyBindings
-utils.map('n', '<leader>ff', '<cmd>Telescope find_files<CR>')
+utils.map('n', '<leader>ff', '<cmd>Telescope find_files<cr>')
+utils.map('n', '<leader>fb', '<cmd>Telescope file_browser<cr>')
 utils.map('n', '<leader>tt', '<cmd>Telescope treesitter<cr>')
 utils.map('n', '<leader>fg', '<cmd>Telescope live_grep<cr>')
-utils.map('n', '<leader>fb', '<cmd>Telescope buffers<cr>')
+utils.map('n', '<leader>bb', '<cmd>Telescope buffers<cr>')
 utils.map('n', '<leader>fh', '<cmd>Telescope help_tags<cr>')
+
