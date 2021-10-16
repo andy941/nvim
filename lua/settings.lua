@@ -16,6 +16,7 @@ utils.opt('b', 'shiftwidth', 4)
 utils.opt('b', 'expandtab', false)
 utils.opt('b', 'smartindent', true)
 utils.opt('b', 'autoindent', true)
+utils.opt('b', 'swapfile', false)
 
 utils.opt('o', 'encoding', 'utf-8')
 utils.opt('o', 'splitbelow', true)
