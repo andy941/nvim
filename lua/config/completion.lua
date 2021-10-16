@@ -1,5 +1,5 @@
 local utils = require('utils')
-utils.opt('o', 'completeopt','menuone,noinsert,noselect')
+utils.opt('o', 'completeopt','menuone,noinsert')
 vim.cmd [[set shortmess+=c]]
 vim.g.completion_confirm_key = ""
 vim.g.completion_matching_strategy_list = {'exact', 'substring', 'fuzzy'} -- <Tab> to navigate the completion menu
@@ -51,6 +51,8 @@ cmp.setup({
 local lspkind = require('lspkind')
 cmp.setup {
 	formatting = {
-		format = lspkind.cmp_format({with_text = false, maxwidth = 50})
+		format = lspkind.cmp_format({
+			with_text = true, 
+			maxwidth = 50})
 	}
 }
