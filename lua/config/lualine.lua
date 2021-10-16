@@ -1,7 +1,7 @@
 require'lualine'.setup {
 
 	options = {
-		theme = 'gruvbox',
+		theme = 'gruvbox-flat',
 		section_separators = { ' ', ' ' },
 		component_separators = { ' ', ' ' },
 	},
