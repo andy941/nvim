@@ -12,6 +12,7 @@ return require('packer').startup(function()
   -- Color scheme
   use { 'sainnhe/gruvbox-material' }
   use { 'eddyekofo94/gruvbox-flat.nvim' }
+  use { 'frenzyexists/aquarium-vim' }
 
   -- Lualine
   use { 'hoob3rt/lualine.nvim' }
