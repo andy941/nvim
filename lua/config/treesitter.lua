@@ -24,6 +24,18 @@ require'nvim-treesitter.configs'.setup {
 
 }
 
+-- format on save
+
+vim.cmd [[
+autocmd BufWritePre *.py lua vim.lsp.buf.formatting_sync(nil, 1000)
+autocmd BufWritePre *.cpp lua vim.lsp.buf.formatting_sync(nil, 1000)
+autocmd BufWritePre *.c lua vim.lsp.buf.formatting_sync(nil, 1000)
+autocmd BufWritePre *.sh lua vim.lsp.buf.formatting_sync(nil, 1000)
+autocmd BufWritePre *.R lua vim.lsp.buf.formatting_sync(nil, 1000)
+autocmd BufWritePre *.r lua vim.lsp.buf.formatting_sync(nil, 1000)
+autocmd BufWritePre DockerFile lua vim.lsp.buf.formatting_sync(nil, 1000)
+]]
+
 -- NOT WORKING well with highlighting for some reason
 --utils.opt('w', 'foldmethod', 'expr')
 --utils.opt('w', 'foldexpr', 'nvim_treesitter#foldexpr()')

@@ -47,3 +47,4 @@ local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
 local opts = { noremap=true, silent=true }
 utils.map('n', '<C-c>', ':!g++ -std=c++14 -o  %:r.o % && ./%:r.o<Enter>', opts)
 
+
