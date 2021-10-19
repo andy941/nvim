@@ -18,8 +18,15 @@ end
 
 -- Setup nvim-cmp.
 local cmp = require'cmp'
+local lspkind = require('lspkind')
 
 cmp.setup({
+	formatting = {
+		format = lspkind.cmp_format({
+			with_text = true, 
+			maxwidth = 50,})
+	},
+
 	snippet = {
 		expand = function(args)
 			-- For `vsnip` user.
@@ -79,11 +86,5 @@ cmp.setup({
 	}
 })
 
-local lspkind = require('lspkind')
 cmp.setup {
-	formatting = {
-		format = lspkind.cmp_format({
-			with_text = true, 
-			maxwidth = 50})
-	}
 }

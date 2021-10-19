@@ -3,8 +3,9 @@ return require('packer').startup(function()
   -- Packer can manage itself as an optional plugin
   use { 'wbthomason/packer.nvim', opt = true }
 
-  -- Icons lua fork for nvim
+  -- Icons support
   use { 'kyazdani42/nvim-web-devicons' }
+  use { 'mortepau/codicons.nvim' }
 
   use {'akinsho/bufferline.nvim', 
   requires = 'kyazdani42/nvim-web-devicons'}

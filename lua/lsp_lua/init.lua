@@ -48,6 +48,7 @@ local on_attach = function(client, bufnr)
   end
 end
 
+
 require'lspconfig'.pyright.setup{
     capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 }
