@@ -10,9 +10,9 @@ let &t_EI = "\<Esc>[2 q" " NORMAL(else) - solid square
 vim.cmd 'syntax enable'
 vim.cmd 'filetype plugin indent on'
 
-utils.opt('b', 'tabstop', 4)
-utils.opt('b', 'softtabstop', 4)
-utils.opt('b', 'shiftwidth', 4)
+utils.opt('b', 'tabstop', 2)
+utils.opt('b', 'softtabstop', 2)
+utils.opt('b', 'shiftwidth', 2)
 utils.opt('b', 'expandtab', false)
 utils.opt('b', 'smartindent', true)
 utils.opt('b', 'autoindent', true)
