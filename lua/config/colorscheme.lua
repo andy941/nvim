@@ -14,8 +14,8 @@ vim.g.acqua_bold = 1
 vim.cmd [[
 let g:gruvbox_material_enable_bold = 1
 let g:gruvbox_material_enable_italic = 1
-let g:gruvbox_material_background = 'medium'
+let g:gruvbox_material_background = 'hard'
 let g:gruvbox_material_palette = 'material'
-colorscheme gruvbox-flat
+colorscheme gruvbox-material
 ]]
 
