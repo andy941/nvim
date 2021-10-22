@@ -133,6 +133,10 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/andrea/.local/share/nvim/site/pack/packer/start/nvim-web-devicons"
   },
+  ["onedark.nvim"] = {
+    loaded = true,
+    path = "/home/andrea/.local/share/nvim/site/pack/packer/start/onedark.nvim"
+  },
   ["packer.nvim"] = {
     loaded = false,
     needs_bufread = false,

@@ -41,6 +41,7 @@ cmp.setup({
 			-- vim.fn["UltiSnips#Anon"](args.body)
 		end,
 	},
+
 	mapping = {
 		['<C-n>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
 		['<C-p>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
@@ -76,13 +77,13 @@ cmp.setup({
 	sources = {
 		{ name = 'path' },
 		{ name = 'nvim_lsp' },
-		{ name = 'nvim-lua' }, -- knows to activate only in Lua
+		{ name = 'nvim_lua' }, -- knows to activate only in Lua
 
 		-- For vsnip user.
-		{ name = 'vsnip' },
+		-- { name = 'vsnip' },
 
 		-- For luasnip user.
-		-- { name = 'luasnip' },
+		{ name = 'luasnip' },
 
 		-- For ultisnips user.
 		-- { name = 'ultisnips' },
@@ -91,5 +92,9 @@ cmp.setup({
 	}
 })
 
-cmp.setup {
+require'cmp'.setup {
+  sources = {
+    { name = 'nvim_lua' }
+  }
 }
+
