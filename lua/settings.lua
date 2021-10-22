@@ -10,9 +10,9 @@ let &t_EI = "\<Esc>[2 q" " NORMAL(else) - solid square
 vim.cmd 'syntax enable'
 vim.cmd 'filetype plugin indent on'
 
-utils.opt('b', 'tabstop', 2)
-utils.opt('b', 'softtabstop', 2)
-utils.opt('b', 'shiftwidth', 2)
+utils.opt('b', 'tabstop', 4)
+utils.opt('b', 'softtabstop', 4)
+utils.opt('b', 'shiftwidth', 4)
 utils.opt('b', 'expandtab', false)
 utils.opt('b', 'smartindent', true)
 utils.opt('b', 'autoindent', true)
@@ -30,7 +30,7 @@ utils.opt('o', 'incsearch', true)
 utils.opt('o', 'wildmenu', true)
 utils.opt('o', 'wildignore', '*.o')
 utils.opt('o', 'wildmode', 'full')
-utils.opt('o', 'scrolloff', 4)
+utils.opt('o', 'scrolloff', 6)
 
 utils.opt('w', 'cursorline', true)
 utils.opt('w', 'number', true)
@@ -42,10 +42,5 @@ utils.opt('w', 'wrap', false)
 -- Highlight on yank
 vim.cmd 'au TextYankPost * lua vim.highlight.on_yank {on_visual = false}'
 
--- Compile and run with g++
-local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
-local opts = { noremap=true, silent=true }
-utils.map('n', '<C-c>', ':!gcc  -o  %:r.o % && ./%:r.o<Enter>', opts)
-utils.map('n', '<C-C>', ':!g++  -std=c++14 -o  %:r.o % && ./%:r.o<Enter>', opts)
 
 

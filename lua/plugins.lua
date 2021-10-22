@@ -20,6 +20,7 @@ return require('packer').startup(function()
   use { 'eddyekofo94/gruvbox-flat.nvim' }
   use { 'frenzyexists/aquarium-vim' }
 	use { 'embark-theme/vim' }
+	use { 'monsonjeremy/onedark.nvim' }
 
   -- Lualine
   use { 'hoob3rt/lualine.nvim' }

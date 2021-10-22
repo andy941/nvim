@@ -69,6 +69,10 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  LuaSnip = {
+    loaded = true,
+    path = "/home/andrea/.local/share/nvim/site/pack/packer/start/LuaSnip"
+  },
   ["aquarium-vim"] = {
     loaded = true,
     path = "/home/andrea/.local/share/nvim/site/pack/packer/start/aquarium-vim"
@@ -89,9 +93,9 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/andrea/.local/share/nvim/site/pack/packer/start/cmp-nvim-lua"
   },
-  ["cmp-vsnip"] = {
+  cmp_luasnip = {
     loaded = true,
-    path = "/home/andrea/.local/share/nvim/site/pack/packer/start/cmp-vsnip"
+    path = "/home/andrea/.local/share/nvim/site/pack/packer/start/cmp_luasnip"
   },
   ["codicons.nvim"] = {
     loaded = true,
@@ -157,10 +161,6 @@ _G.packer_plugins = {
   ["vim-fugitive"] = {
     loaded = true,
     path = "/home/andrea/.local/share/nvim/site/pack/packer/start/vim-fugitive"
-  },
-  ["vim-vsnip"] = {
-    loaded = true,
-    path = "/home/andrea/.local/share/nvim/site/pack/packer/start/vim-vsnip"
   }
 }
 
