@@ -32,9 +32,14 @@ return require('packer').startup(function()
   use { 'neovim/nvim-lspconfig' }
   use { 'hrsh7th/nvim-cmp' }
   use { 'hrsh7th/cmp-nvim-lsp' }
+  use { 'hrsh7th/cmp-nvim-lua' }
   use { 'hrsh7th/cmp-buffer' }
-  use { 'hrsh7th/cmp-vsnip' }
-  use { 'hrsh7th/vim-vsnip' }
+	use { 'L3MON4D3/LuaSnip' }
+	use { 'saadparwaiz1/cmp_luasnip' }
+
+	-- for vsnip
+  --use { 'hrsh7th/cmp-vsnip' }
+  --use { 'hrsh7th/vim-vsnip' }
   use { 'onsails/lspkind-nvim' }
   use {
         'nvim-treesitter/nvim-treesitter',
