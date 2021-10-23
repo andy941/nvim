@@ -55,6 +55,13 @@ require'lspconfig'.pyright.setup{
 require'lspconfig'.clangd.setup{
     capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 }
+require'lspconfig'.cmake.setup{
+    capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
+	cmd = { "cmake-language-server" },
+    filetypes = { "cmake" },
+    init_options = { buildDirectory = "build"},
+    --root_dir = root_pattern(".git", "compile_commands.json", "build")
+}
 require'lspconfig'.bashls.setup{
     capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 }

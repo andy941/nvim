@@ -1,6 +1,6 @@
 local utils = require('utils')
 
-utils.opt('o', 'completeopt','menuone','noinsert', 'noselect','preview')
+utils.opt('o', 'completeopt','menuone,noinsert,noselect,preview')
 vim.cmd [[set shortmess+=c]]
 vim.g.completion_confirm_key = ""
 vim.g.completion_matching_strategy_list = {'exact', 'substring', 'fuzzy'} -- <Tab> to navigate the completion menu
@@ -88,13 +88,13 @@ cmp.setup({
 		-- For ultisnips user.
 		-- { name = 'ultisnips' },
 
-		{ name = 'buffer', keyword_length = 3 },
+		{ name = 'buffer'},
 	}
 })
 
-require'cmp'.setup {
-  sources = {
-    { name = 'nvim_lua' }
-  }
-}
+--require'cmp'.setup {
+--  sources = {
+--    { name = 'nvim_lua' }
+--  }
+--}
 
