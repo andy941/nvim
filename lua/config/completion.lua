@@ -19,9 +19,9 @@ end
 
 
 -- Setup nvim-cmp.
+local lspkind = require('lspkind')
 local luasnip = require('luasnip')
 local cmp = require'cmp'
-local lspkind = require('lspkind')
 
 cmp.setup({
 	formatting = {
