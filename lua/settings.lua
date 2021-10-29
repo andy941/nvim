@@ -44,6 +44,6 @@ utils.opt('w', 'wrap', false)
 vim.cmd 'au TextYankPost * lua vim.highlight.on_yank {on_visual = false}'
 
 -- No numbers in terminal
-autocmd TermOpen * setlocal nonumber norelativenumber
+vim.cmd 'autocmd TermOpen * setlocal nonumber norelativenumber'
 
 
