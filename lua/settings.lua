@@ -43,5 +43,7 @@ utils.opt('w', 'wrap', false)
 -- Highlight on yank
 vim.cmd 'au TextYankPost * lua vim.highlight.on_yank {on_visual = false}'
 
+-- No numbers in terminal
+autocmd TermOpen * setlocal nonumber norelativenumber
 
 
