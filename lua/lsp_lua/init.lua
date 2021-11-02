@@ -1,3 +1,5 @@
+local utils = require('utils')
+
 local nvim_lsp = require('lspconfig')
 
 local on_attach = function(client, bufnr)
@@ -34,7 +36,6 @@ end
 
 local servers = { 
 	'pyright', 
-	'clangd', 
 	'cmake',
 	'bashls', 
 	'r_language_server',
@@ -45,7 +46,7 @@ for _, lsp in ipairs(servers) do
     on_attach = on_attach,
     capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
     flags = {
-      debounce_text_changes = 250,
+      debounce_text_changes = 150,
     }
   }
 end
@@ -54,11 +55,12 @@ end
 --	on_attach = on_attach,
 --    capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 --}
---require'lspconfig'.clangd.setup{
---    capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
---}
+require'lspconfig'.clangd.setup{
+    capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
+	root_dir = require'lspconfig'.util.root_pattern("compile_commands.json", "build/compile_commands.json", "compile_flags.txt", ".git")
+}
 --require'lspconfig'.cmake.setup{
---    capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
+--    capabilitiesc= require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
 --}
 --require'lspconfig'.bashls.setup{
 --    capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
