@@ -31,19 +31,21 @@ return require('packer').startup(function()
 
   -- LSP and completion
   use { 'neovim/nvim-lspconfig' }
-  use { 'hrsh7th/nvim-cmp' }
-  use { 'hrsh7th/cmp-nvim-lsp' }
-  use { 'hrsh7th/cmp-nvim-lua' }
-  use { 'hrsh7th/cmp-buffer' }
-  use { 'hrsh7th/cmp-path' }
-  use { 'hrsh7th/cmp-cmdline' }
-  use { 'L3MON4D3/LuaSnip' }
-  use { 'saadparwaiz1/cmp_luasnip' }
+  use { 'hrsh7th/nvim-cmp', 
+		requires = 
+		'saadparwaiz1/cmp_luasnip',
+		'hrsh7th/cmp-path',
+		'hrsh7th/cmp-nvim-lsp',
+		'hrsh7th/cmp-nvim-lua',
+		'hrsh7th/cmp-buffer',
+		'hrsh7th/cmp-cmdline',
+		'L3MON4D3/LuaSnip',
+		'onsails/lspkind-nvim'
+		}
 
 	-- for vsnip
   --use { 'hrsh7th/cmp-vsnip' }
   --use { 'hrsh7th/vim-vsnip' }
-  use { 'onsails/lspkind-nvim' }
   use {
         'nvim-treesitter/nvim-treesitter',
         run = ':TSUpdate'

@@ -74,6 +74,10 @@ cmp.setup({
 		end, { "i", "s" })
 	},
 
+	experimental = {
+      ghost_text = true,
+    },
+
 	sources = {
 		{ name = 'path' },
 		{ name = 'nvim_lsp' },
@@ -88,14 +92,8 @@ cmp.setup({
 		-- For ultisnips user.
 		-- { name = 'ultisnips' },
 
+		{ name = 'cmdline'},
 		{ name = 'buffer'},
 	}
 })
-
-
---require'cmp'.setup {
---  sources = {
---    { name = 'nvim_lua' }
---  }
---}
 

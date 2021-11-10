@@ -51,23 +51,8 @@ for _, lsp in ipairs(servers) do
   }
 end
 
---require'lspconfig'.pyright.setup{
---	on_attach = on_attach,
---    capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
---}
 require'lspconfig'.clangd.setup{
+    on_attach = on_attach,
     capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
 	root_dir = require'lspconfig'.util.root_pattern("compile_commands.json", "build/compile_commands.json", "compile_flags.txt", ".git")
 }
---require'lspconfig'.cmake.setup{
---    capabilitiesc= require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
---}
---require'lspconfig'.bashls.setup{
---    capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
---}
---require'lspconfig'.r_language_server.setup{
---    capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
---}
---require'lspconfig'.dockerls.setup{
---    capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
---}
