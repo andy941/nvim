@@ -25,8 +25,9 @@ local cmp = require'cmp'
 cmp.setup({
 	formatting = {
 		format = lspkind.cmp_format({
-			with_text = true})
-			--maxwidth = 50,})
+			with_text = true,
+			preset = 'default',
+			maxwidth = 50})
 	},
 
 	snippet = {
@@ -122,3 +123,4 @@ cmp.setup.cmdline('"', {
         { name = 'path' }
     })
 })
+
