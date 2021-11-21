@@ -10,6 +10,11 @@ let &t_EI = "\<Esc>[2 q" " NORMAL(else) - solid square
 vim.cmd 'syntax enable'
 vim.cmd 'filetype plugin indent on'
 
+vim.cmd[[ 
+set ssop-=options    " do not store global and local values in a session
+set ssop-=folds      " do not store folds
+]]
+
 utils.opt('b', 'tabstop', 4)
 utils.opt('b', 'softtabstop', 4)
 utils.opt('b', 'shiftwidth', 4)
