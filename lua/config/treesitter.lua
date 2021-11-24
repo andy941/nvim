@@ -35,5 +35,6 @@ autocmd BufWritePre *.c lua vim.lsp.buf.formatting_sync(nil, 1000)
 autocmd BufWritePre *.sh lua vim.lsp.buf.formatting_sync(nil, 1000)
 autocmd BufWritePre *.R lua vim.lsp.buf.formatting_sync(nil, 1000)
 autocmd BufWritePre *.r lua vim.lsp.buf.formatting_sync(nil, 1000)
+autocmd BufWritePre *.lua lua vim.lsp.buf.formatting_sync(nil, 1000)
 autocmd BufWritePre DockerFile lua vim.lsp.buf.formatting_sync(nil, 1000)
 ]]
