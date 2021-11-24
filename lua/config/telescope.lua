@@ -16,7 +16,7 @@ require('telescope').setup {
 	  file_ignore_patterns = { 
 		  'Pictures',
 		  'Drives',
-      'vpnconfigs',
+		'vpnconfigs',
 			'.git'
 	  }
   }
