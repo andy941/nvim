@@ -34,6 +34,10 @@ in an R session:
 ``` r
 install.packages('languageserver')
 ```
+### CMAKE
+``` bash 
+pip install cmake-language-server
+```
 
 
 # Telescope speed improvement
