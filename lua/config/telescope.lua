@@ -30,9 +30,11 @@ utils.map('n', '<leader>f', '<cmd>Telescope find_files<cr>')
 utils.map('n', '<leader>g', '<cmd>Telescope live_grep<cr>')
 utils.map('n', '<leader>t', '<cmd>Telescope treesitter<cr>')
 utils.map('n', '<leader>b', '<cmd>Telescope buffers<cr>')
-utils.map('n', '<leader>e', '<cmd>Telescope file_browser<cr>')
+utils.map('n', '<leader>w', '<cmd>Telescope file_browser<cr>')
 utils.map('n', '<leader>ht', '<cmd>Telescope help_tags<cr>')
 
 utils.map('n', '<leader>wf', '<cmd>Telescope find_files cwd=%:p:h<cr>')
 utils.map('n', '<leader>wg', '<cmd>Telescope live_grep cwd=%:p:h<cr>')
+utils.map('n', '<leader>ww', '<cmd>Telescope file_browser<cr>')
+
 utils.map('n', '<leader>rc', '<cmd>Telescope find_files cwd=~/.config/nvim<cr>')    -- go to neovim directory for quick config changes
