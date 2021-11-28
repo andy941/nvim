@@ -42,3 +42,4 @@ install.packages('languageserver')
 ``` bash
 pamac install fd ripgrep
 ```
+
