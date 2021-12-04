@@ -3,6 +3,21 @@ local utils = require('utils')
 -- You dont need to set any of these options. These are the default ones. Only
 -- the loading is important
 require('telescope').setup {
+	defaults = {
+		hidden = true,
+		file_ignore_patterns = { 
+			'Pictures/',
+			'Drives/',
+			'vpnconfigs/',
+			'.git/'
+		},
+
+		layout_config = {
+			width = 0.99,
+			height = 0.99,
+			preview_width = 0.50
+		}
+	},
 	extensions = {
 		fzf = {
 			fuzzy = true,                    -- false will only do exact matching
@@ -12,19 +27,6 @@ require('telescope').setup {
 			-- the default case_mode is "smart_case"
 		}
 	},
-	defaults = {
-		file_ignore_patterns = { 
-			'Pictures',
-			'Drives',
-			'vpnconfigs',
-			'.git'
-		},
-
-		layout_config = {
-			width = 0.95,
-			height = 0.95
-		}
-	}
 }
 -- To get fzf loaded and working with telescope, you need to call
 -- load_extension, somewhere after setup function:
