@@ -4,7 +4,6 @@ local utils = require('utils')
 -- the loading is important
 require('telescope').setup {
 	defaults = {
-		hidden = true,
 		file_ignore_patterns = { 
 			'Pictures/',
 			'Drives/',
@@ -16,6 +15,17 @@ require('telescope').setup {
 			width = 0.99,
 			height = 0.99,
 			preview_width = 0.50
+		}
+	},
+	pickers = {
+		find_files = {
+			hidden = true
+		},
+		live_grep = {
+			hidden = true
+		},
+		file_browser = {
+			hidden = true
 		}
 	},
 	extensions = {
