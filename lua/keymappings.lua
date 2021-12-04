@@ -14,8 +14,3 @@ local opts = { noremap=true, silent=true }
 -- utils.map('n', '<C-m>p', ':!g++  -std=c++14 ~/Bioinformatics_Algorithms/lib/Tools.cpp -o  %:r.o % && ./%:r.o<Enter>', opts)
 -- utils.map('n', '<C-m><C-m>', ':!cmake --build build -j$(getconf _NPROCESSORS_ONLN) && cmake --install build && ./%:r.o<Enter>', opts)
 utils.map('t', '<leader><Esc>', '<C-\\><C-n> <C-w><C-w>', opts)
-
--- Fugitive
-utils.map('t', '<leader><Esc>', '<C-\\><C-n> <C-w><C-w>', opts)
-utils.map('t', '<leader><Esc>', '<C-\\><C-n> <C-w><C-w>', opts)
-utils.map('t', '<leader><Esc>', '<C-\\><C-n> <C-w><C-w>', opts)
