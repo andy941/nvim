@@ -98,29 +98,3 @@ cmp.setup({
 	}
 })
 
--- Use buffer source for `/`.
-cmp.setup.cmdline('/', {
-    completion = { autocomplete = false },
-    sources = {
-        -- { name = 'buffer' }
-        { name = 'buffer', opts = { keyword_pattern = [=[[^[:blank:]].*]=] } }
-    }
-})
-
--- Use cmdline & path source for ':'.
-cmp.setup.cmdline(':', {
-    completion = { autocomplete = false },
-    sources = cmp.config.sources({
-        { name = 'path' }
-        }, {
-        { name = 'cmdline' }
-    })
-})
-
--- Use cmdline & path source for ':'.
-cmp.setup.cmdline('"', {
-    sources = cmp.config.sources({
-        { name = 'path' }
-    })
-})
-
