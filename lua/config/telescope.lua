@@ -54,6 +54,6 @@ utils.map('n', '<leader>wf',  	'<cmd>Telescope 	find_files			cwd=%:p:h<cr>')
 utils.map('n', '<leader>wg',  	'<cmd>Telescope 	live_grep			cwd=%:p:h<cr>')
 utils.map('n', '<leader>we',  	'<cmd>Telescope 	file_browser		cwd=%:p:h<cr>')
 
-utils.map('n', '<leader>rc',  	'<cmd>Telescope 	find_files			cwd=~/.config/nvim<cr>')    -- go to neovim directory for quick config changes
-utils.map('n', '<leader>col', 	'<cmd>Telescope 	colorscheme<cr>')    -- go to neovim directory for quick config changes
+utils.map('n', '<leader>rc',  	'<cmd>Telescope 	find_files			cwd=~/.config/nvim<cr>')
+utils.map('n', '<leader>CS', 	'<cmd>Telescope 	colorscheme<cr>')
 
