@@ -31,6 +31,7 @@ return require('packer').startup(function()
 
   -- LSP and completion
   use { 'neovim/nvim-lspconfig' }
+  use { 'windwp/nvim-autopairs' }
   use { 'hrsh7th/nvim-cmp', 
 		requires = 
 		'saadparwaiz1/cmp_luasnip',
