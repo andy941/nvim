@@ -17,10 +17,9 @@ return require('packer').startup(function()
 
   -- Color scheme
   use { 'sainnhe/gruvbox-material' }
+  use { 'sainnhe/everforest' }
+  use { 'savq/melange' }
   use { 'eddyekofo94/gruvbox-flat.nvim' }
-  use { 'frenzyexists/aquarium-vim' }
-  use { 'embark-theme/vim' }
-  use { 'marko-cerovac/material.nvim' }
   use { 'EdenEast/nightfox.nvim' }
 
   -- Lualine

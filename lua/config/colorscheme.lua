@@ -8,11 +8,7 @@ vim.g.gruvbox_terminal_colors = false
 vim.g.gruvbox_italic_functions = true
 vim.g.gruvbox_flat_style = "hard"
 
-vim.g.acquarium_style = "dark"
-vim.g.acqua_bold = 1
-
 local nightfox = require('nightfox')
-
 -- This function set the configuration of nightfox. If a value is not passed in the setup function
 -- it will be taken from the default configuration above
 nightfox.setup({
@@ -34,7 +30,6 @@ nightfox.setup({
     LspCodeLens = { bg = "#000000", style = "italic" },
   }
 })
-
 -- Load the configuration set above and apply the colorscheme
 nightfox.load()
 
@@ -45,4 +40,14 @@ let g:gruvbox_material_background = 'hard'
 let g:gruvbox_material_palette = 'material'
 colorscheme nordfox
 ]]
+
+vim.cmd [[
+let g:everforest_enable_bold = 1
+let g:everforest_enable_italic = 1
+let g:everforest_background = 'hard'
+let g:everforest_palette = 'material'
+]]
+
+
+vim.cmd [[ colorscheme melange ]]
 
