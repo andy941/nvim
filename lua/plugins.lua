@@ -17,10 +17,9 @@ return require('packer').startup(function()
 
   -- Color scheme
   use { 'sainnhe/gruvbox-material' }
+  use { 'sainnhe/everforest' }
+  use { 'savq/melange' }
   use { 'eddyekofo94/gruvbox-flat.nvim' }
-  use { 'frenzyexists/aquarium-vim' }
-  use { 'embark-theme/vim' }
-  use { 'marko-cerovac/material.nvim' }
   use { 'EdenEast/nightfox.nvim' }
 
   -- Lualine
@@ -32,6 +31,7 @@ return require('packer').startup(function()
 
   -- LSP and completion
   use { 'neovim/nvim-lspconfig' }
+  use { 'windwp/nvim-autopairs' }
   use { 'hrsh7th/nvim-cmp', 
 		requires = 
 		'saadparwaiz1/cmp_luasnip',
