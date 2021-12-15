@@ -7,8 +7,9 @@ let &t_SR = "\<Esc>[4 q" " REPLACE - solid underscore
 let &t_EI = "\<Esc>[2 q" " NORMAL(else) - solid square
 ]]
 
-vim.cmd 'syntax enable'
+vim.cmd 'filetype plugin on'
 vim.cmd 'filetype plugin indent on'
+vim.cmd 'syntax enable'
 
 vim.cmd[[ 
 set ssop-=options    " do not store global and local values in a session

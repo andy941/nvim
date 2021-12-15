@@ -11,6 +11,7 @@ require'lualine'.setup {
 				file_status = true, -- displays file status (readonly status, modified status)
 				path = 2
 			}
-		}
+		},
+		lualine_x = {'encoding', 'fileformat', 'filetype', 'filesize'},
 	}
 }

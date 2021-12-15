@@ -52,4 +52,7 @@ return require('packer').startup(function()
   -- Fugitive for Git
   use { 'tpope/vim-fugitive' }
 
+  -- Work with csv files and other tables easily
+  use { 'chrisbra/csv.vim' }
+
 end)
