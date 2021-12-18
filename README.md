@@ -16,7 +16,9 @@ If it doesn't start automatically force it with:
 ``` bash
 sudo pamac install llvm
 ```
-Check that clangd is in your PATH, On MacOS is most probably not.
+> MacOS: 
+you might have to add `export PATH=$PATH:/usr/local/opt/llvm/bin/` to your shell config file.
+
 ### python
 ``` bash
 npm i -g pyright
