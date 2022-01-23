@@ -1,4 +1,5 @@
 local utils = require('utils')
+local actions = require "telescope.actions"
 
 -- You dont need to set any of these options. These are the default ones. Only
 -- the loading is important
@@ -10,12 +11,18 @@ require('telescope').setup {
 			'vpnconfigs/',
 			'.git/'
 		},
-
 		layout_config = {
 			width = 0.99,
 			height = 0.99,
 			preview_width = 0.50
-		}
+		},
+		mappings = {
+			n = {
+				["<C-a>"] = actions.send_to_qflist + actions.open_qflist,
+				["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist
+			}
+		},
+
 	},
 	pickers = {
 		find_files = {
