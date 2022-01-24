@@ -59,6 +59,8 @@ utils.map('n', '<leader>gg',  	'<cmd>Telescope 	live_grep<cr>')
 utils.map('n', '<leader>tt',  	'<cmd>Telescope 	treesitter<cr>')
 utils.map('n', '<leader>ee',  	'<cmd>Telescope 	file_browser<cr>')
 utils.map('n', '<leader>ht',  	'<cmd>Telescope 	help_tags<cr>')
+utils.map('n', '<leader>kb',  	'<cmd>Telescope 	keymaps<cr>')
+utils.map('n', '<leader>di',  	'<cmd>Telescope 	diagnostics<cr>')
 
 utils.map('n', '<leader>wf',  	'<cmd>Telescope 	find_files			cwd=%:p:h<cr>')
 utils.map('n', '<leader>wg',  	'<cmd>Telescope 	live_grep			cwd=%:p:h<cr>')
