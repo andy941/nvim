@@ -7,3 +7,6 @@ require('config.telescope')
 require('config.bufferline')
 require('config.fugitive')
 require('config.autopairs')
+require('config.bufresize')
+vim.cmd 'source ~/.config/nvim/lua/config/nvimR.vim'
+

@@ -42,13 +42,16 @@ return require('packer').startup(function()
 		'onsails/lspkind-nvim'
 		}
 
-	-- for vsnip
-  --use { 'hrsh7th/cmp-vsnip' }
-  --use { 'hrsh7th/vim-vsnip' }
   use {
         'nvim-treesitter/nvim-treesitter',
         run = ':TSUpdate'
   }
+
+	-- Rstudio like environment for R
+  use { 'jalvesaq/Nvim-R' , branch = 'stable'}
+
+	-- resize buffers and keep proportions
+  use { 'kwkarlwang/bufresize.nvim' }
 
   -- Fugitive for Git
   use { 'tpope/vim-fugitive' }

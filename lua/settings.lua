@@ -38,6 +38,7 @@ utils.opt('o', 'wildmenu', true)
 utils.opt('o', 'wildignore', '*.o')
 utils.opt('o', 'wildmode', 'full')
 utils.opt('o', 'scrolloff', 6)
+utils.opt('o', 'equalalways', false)
 
 utils.opt('w', 'cursorline', true)
 utils.opt('w', 'number', true)
