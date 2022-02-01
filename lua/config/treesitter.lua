@@ -23,17 +23,3 @@ require'nvim-treesitter.configs'.setup {
 
 
 }
-
--- format on save
-vim.cmd [[
-autocmd BufWritePre *.py lua vim.lsp.buf.formatting_sync(nil, 10000)
-autocmd BufWritePre *.cpp lua vim.lsp.buf.formatting_sync(nil, 10000)
-autocmd BufWritePre *.h lua vim.lsp.buf.formatting_sync(nil, 10000)
-autocmd BufWritePre *.hpp lua vim.lsp.buf.formatting_sync(nil, 10000)
-autocmd BufWritePre *.c lua vim.lsp.buf.formatting_sync(nil, 10000)
-autocmd BufWritePre *.sh lua vim.lsp.buf.formatting_sync(nil, 10000)
-autocmd BufWritePre *.R lua vim.lsp.buf.formatting_sync(nil, 10000)
-autocmd BufWritePre *.r lua vim.lsp.buf.formatting_sync(nil, 10000)
-autocmd BufWritePre *.lua lua vim.lsp.buf.formatting_sync(nil, 10000)
-autocmd BufWritePre DockerFile lua vim.lsp.buf.formatting_sync(nil, 10000)
-]]
