@@ -77,8 +77,8 @@ utils.map('n', '<leader>wg',  	'<cmd>Telescope 	live_grep			cwd=%:p:h<cr>')
 utils.map('n', '<leader>G',		'<cmd>Telescope		git_status			cwd=%:p:h<cr>')
 utils.map('n', '<leader>gf',	'<cmd>Telescope		git_files			cwd=%:p:h<cr>')
 utils.map('n', '<leader>gb',	'<cmd>Telescope		git_branches		cwd=%:p:h<cr>')
-utils.map('n', '<leader>gl',	'<cmd>Telescope		git_commit		cwd=%:p:h<cr>')
-utils.map('n', '<leader>gd',	'<cmd>Telescope		git_bcommit		cwd=%:p:h<cr>')
+utils.map('n', '<leader>gl',	'<cmd>Telescope		git_commits<cr>')
+utils.map('n', '<leader>gd',	'<cmd>Telescope		git_bcommits<cr>')
 
 -- Useful additions
 utils.map('n', '<leader>rc',  	'<cmd>Telescope 	find_files			cwd=~/.config/nvim<cr>')

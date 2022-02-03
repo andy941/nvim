@@ -4,10 +4,10 @@ require("toggleterm").setup{
 	-- size can be a number or function which is passed the current terminal
 	size = function(term)
 		if term.direction == "horizontal" then
-			--return vim.cmd"set columns" * 0.2
-			return 20
+			return vim.o.lines * 0.3
+			--return 15
 		elseif term.direction == "vertical" then
-			return 40
+			return vim.o.columns * 0.3
 		end
 	end,
 
