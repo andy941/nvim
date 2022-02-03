@@ -5,6 +5,8 @@ require'lualine'.setup {
 		component_separators = { ' ', ' ' },
 	},
 	sections = {
+        lualine_a = {'mode'},
+        lualine_b = {'diff', 'branch', 'diagnostics'},
 		lualine_c = { 
 			{
 				'filename',
@@ -13,5 +15,6 @@ require'lualine'.setup {
 			}
 		},
 		lualine_x = {'encoding', 'fileformat', 'filetype', 'filesize'},
-	}
+	},
+		extensions = {'fugitive', 'symbols-outline'}
 }

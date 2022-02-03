@@ -8,5 +8,6 @@ require('config.bufferline')
 require('config.fugitive')
 require('config.autopairs')
 require('config.bufresize')
+require('config.toggleterm')
 vim.cmd 'source ~/.config/nvim/lua/config/nvimR.vim'
 
