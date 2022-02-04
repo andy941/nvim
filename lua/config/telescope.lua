@@ -5,11 +5,12 @@ local actions = require "telescope.actions"
 -- the loading is important
 require('telescope').setup {
 	defaults = {
-		file_ignore_patterns = { 
+		file_ignore_patterns = {
 			'Pictures/',
 			'Drives/',
 			'vpnconfigs/',
-			'.git/'
+			'.git/',
+			"lua-language-server/",
 		},
 		layout_config = {
 			width = 0.99,
