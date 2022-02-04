@@ -5,12 +5,12 @@ local actions = require "telescope.actions"
 -- the loading is important
 require('telescope').setup {
 	defaults = {
-		file_ignore_patterns = {
+		file_ignore_patterns = { -- % is an escape char in lua regex
 			'Pictures/',
 			'Drives/',
 			'vpnconfigs/',
 			'.git/',
-			"lua-language-server/",
+			'lua%-language%-server/',
 		},
 		layout_config = {
 			width = 0.99,
@@ -25,7 +25,7 @@ require('telescope').setup {
 				["<C-l>"] = actions.send_selected_to_qflist + actions.open_qflist
 			}
 		},
-
+		prompt_prefix = "    "
 	},
 	pickers = {
 		find_files = {
