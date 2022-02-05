@@ -18,14 +18,14 @@ end
 
 
 -- Setup nvim-cmp.
--- local lspkind = require('lspkind')
 local luasnip = require('luasnip')
 local cmp = require('cmp')
 
 cmp.setup({
 	formatting = {
 		format = require('lspkind').cmp_format({
-			--with_text = false,
+			--with_text = true,
+			mode = 'symbol_text',
 			preset = 'default',
 			maxwidth = 50})
 	},

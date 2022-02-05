@@ -23,4 +23,3 @@ require('lsp_lua')
 
 -- Group configuration in one folder
 require('config')
-
