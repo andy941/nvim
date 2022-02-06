@@ -9,8 +9,6 @@ If it doesn't start automatically force it with:
 ```
 :TSupdate
 ```
-
-
 # Install Language servers 
 ### C/C++
 ``` bash
@@ -36,7 +34,14 @@ in an R session:
 ``` r
 install.packages('languageserver')
 ```
-
+### Lua
+``` bash
+git submodule update --init --recursive
+cd 3rd/luamake
+./compile/install.sh
+cd ../..
+./3rd/luamake/luamake rebuild
+```
 
 # Telescope speed improvement
 - Install [fd](https://github.com/sharkdp/fd) for better file finding 
