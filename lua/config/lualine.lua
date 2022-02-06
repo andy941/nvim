@@ -1,10 +1,11 @@
 require'lualine'.setup {
 	options = {
 		theme = 'auto',
-		--section_separators = { ' ', ' ' },
-		--component_separators = { ' ', ' ' },
+		-- section_separators = { ' ', ' ' },
+		-- component_separators = { ' ', ' ' },
 		section_separators = { left = '', right = '' },
-		component_separators = { left = '', right = '' }
+		-- component_separators = { left = '', right = '' }
+		component_separators = { left = '', right = ' ' }
 	},
 	sections = {
 		lualine_a = {'mode'},

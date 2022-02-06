@@ -13,7 +13,11 @@ return require('packer').startup(function()
 
 
 	-- bufferline on top
-	use {'akinsho/bufferline.nvim', 
+	use {'akinsho/bufferline.nvim',
+		requires = 'kyazdani42/nvim-web-devicons'}
+
+	-- File Browser
+	use {'kyazdani42/nvim-tree.lua',
 		requires = 'kyazdani42/nvim-web-devicons'}
 
 	-- Make it easier to use the terminal
@@ -33,8 +37,8 @@ return require('packer').startup(function()
 	-- LSP and completion
 	use { 'neovim/nvim-lspconfig' }
 	use { 'windwp/nvim-autopairs' }
-	use { 'hrsh7th/nvim-cmp', 
-		requires = 
+	use { 'hrsh7th/nvim-cmp',
+		requires =
 			'saadparwaiz1/cmp_luasnip',
 		'hrsh7th/cmp-path',
 		'hrsh7th/cmp-nvim-lsp',
