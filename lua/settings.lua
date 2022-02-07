@@ -14,6 +14,7 @@ vim.cmd 'syntax enable'
 vim.cmd[[ 
 set ssop-=options    " do not store global and local values in a session
 set ssop-=folds      " do not store folds
+set ssop+=globals    " required by Bufferline
 ]]
 
 utils.opt('b', 'tabstop', 4)
