@@ -1,8 +1,6 @@
 require'lualine'.setup {
 	options = {
 		theme = 'auto',
-		-- section_separators = { ' ', ' ' },
-		-- component_separators = { ' ', ' ' },
 		section_separators = { left = '', right = '' },
 		-- component_separators = { left = '', right = '' }
 		component_separators = { left = '', right = ' ' }
@@ -19,5 +17,5 @@ require'lualine'.setup {
 	},
 	lualine_x = {'encoding', 'fileformat', 'filetype', 'filesize'},
 	},
-	extensions = {'fugitive', 'symbols-outline'}
+	extensions = {'fugitive', 'nvim-tree', 'toggleterm', 'quickfix'}
 }

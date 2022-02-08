@@ -14,7 +14,7 @@ nightfox.setup({
 		functions = "italic" -- styles can be a comma separated list
 	},
 	inverse = {
-		match_paren = false, -- inverse the highlighting of match_parens
+		match_paren = true, -- inverse the highlighting of match_parens
 		visual = true,
 		search = true
 	},
