@@ -77,7 +77,7 @@ utils.map('n', '<leader>wg',  	'<cmd>Telescope 	live_grep			cwd=%:p:h<cr>')
 -- Git
 utils.map('n', '<leader>G',		'<cmd>Telescope		git_status			cwd=%:p:h<cr>')
 utils.map('n', '<leader>gf',	'<cmd>Telescope		git_files			cwd=%:p:h<cr>')
-utils.map('n', '<leader>gb',	'<cmd>Telescope		git_branches		cwd=%:p:h<cr>')
+utils.map('n', '<leader>gb',	'<cmd>Telescope		git_branches<cr>')
 utils.map('n', '<leader>gl',	'<cmd>Telescope		git_commits<cr>')
 utils.map('n', '<leader>gd',	'<cmd>Telescope		git_bcommits<cr>')
 
