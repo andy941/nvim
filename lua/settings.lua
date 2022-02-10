@@ -7,7 +7,6 @@ let &t_SR = "\<Esc>[4 q" " REPLACE - solid underscore
 let &t_EI = "\<Esc>[2 q" " NORMAL(else) - solid square
 ]]
 
-vim.cmd 'filetype plugin on'
 vim.cmd 'filetype plugin indent on'
 vim.cmd 'syntax enable'
 
@@ -53,5 +52,3 @@ vim.cmd 'au TextYankPost * lua vim.highlight.on_yank {on_visual = false}'
 
 -- No numbers in terminal
 vim.cmd 'autocmd TermOpen * setlocal nonumber norelativenumber'
-
-
