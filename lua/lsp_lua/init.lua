@@ -39,13 +39,14 @@ local on_attach = function(client, bufnr)
 	end
 end
 
-local servers = { 
-	'pyright', 
+local servers = {
+	'pyright',
 	'cmake',
-	'bashls', 
+	'bashls',
 	'r_language_server',
 	'dockerls'
 }
+
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,
@@ -56,48 +57,5 @@ for _, lsp in ipairs(servers) do
   }
 end
 
-require'lspconfig'.clangd.setup{
-    on_attach = on_attach,
-    capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
-	root_dir = require'lspconfig'.util.root_pattern("compile_commands.json", "build/compile_commands.json", "compile_flags.txt", ".git")
-}
-
--- https://github.com/sumneko/lua-language-server/wiki/Build-and-Run-(Standalone)
-USER = vim.fn.expand('$USER')
-
-local sumneko_root_path = ""
-local sumneko_binary = ""
-
-if vim.fn.has("mac") == 1 then
-    sumneko_root_path = "/Users/" .. USER .. "/.config/nvim/lua-language-server"
-    sumneko_binary = "/Users/" .. USER .. "/.config/nvim/lua-language-server/bin/lua-language-server"
-elseif vim.fn.has("unix") == 1 then
-    sumneko_root_path = "/home/" .. USER .. "/.config/nvim/lua-language-server"
-    sumneko_binary = "/home/" .. USER .. "/.config/nvim/lua-language-server/bin/lua-language-server"
-else
-    print("Unsupported system for sumneko")
-end
-
-require'lspconfig'.sumneko_lua.setup {
-    on_attach = on_attach,
-    cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua"},
-    settings = {
-        Lua = {
-            runtime = {
-                -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
-                version = 'LuaJIT',
-                -- Setup your lua path
-                path = vim.split(package.path, ';')
-            },
-            diagnostics = {
-                -- Get the language server to recognize the `vim` global
-                globals = {'vim'}
-            },
-            workspace = {
-                -- Make the server aware of Neovim runtime files
-                library = {[vim.fn.expand('$VIMRUNTIME/lua')] = true, [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true}
-            }
-        }
-    }
-}
-
+require('lsp_lua.clangd')
+require('lsp_lua.sumneko')

@@ -1,4 +1,3 @@
-local utils = require('utils')
 
 require("toggleterm").setup{
 	-- size can be a number or function which is passed the current terminal
@@ -21,17 +20,17 @@ require("toggleterm").setup{
   insert_mappings = true, -- whether or not the open mapping applies in insert mode
   terminal_mappings = true, -- whether or not the open mapping applies in the opened terminals
   persist_size = true,
-  direction = 'horizontal', -- 'vertical' | 'horizontal' | 'window' | 'float',
+  direction = 'float', -- 'vertical' | 'horizontal' | 'window' | 'float',
   close_on_exit = false, -- close the terminal window when the process exits
   shell = vim.o.shell, -- change the default shell
-  float_opts = {
---    border = 'curved',
---		width = function(term)
---			return vim.o.rows * 0.9
---		end,
---		height = function(term)
---			return vim.o.columns * 0.9
---		end,
+	float_opts = {
+		border = 'curved',
+		width = function(term)
+			return math.floor(vim.o.columns * 0.7 + 0.5)
+		end,
+		height = function(term)
+			return math.floor(vim.o.lines * 0.9 + 0.5)
+		end,
     winblend = 3,
     highlights = {
       border = "Normal",
