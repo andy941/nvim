@@ -50,9 +50,9 @@ cmp.setup({
 		['<C-f>'] = cmp.mapping.scroll_docs(4),
 		['<C-Space>'] = cmp.mapping.complete(),
 		['<C-e>'] = cmp.mapping.close(),
-		['<CR>'] = cmp.mapping.confirm({ 
+		['<CR>'] = cmp.mapping.confirm({
 			behavior = cmp.ConfirmBehavior.Replace,
-			select = true 
+			select = true
 		}),
 		["<Tab>"] = cmp.mapping(function(fallback)
 			if cmp.visible() then
@@ -81,18 +81,10 @@ cmp.setup({
 
 	sources = {
 		{ name = 'path' },
+		{ name = 'nvim_lsp_signature_help' },
 		{ name = 'nvim_lsp' },
 		{ name = 'nvim_lua' }, -- knows to activate only in Lua
-
-		-- For vsnip user.
-		-- { name = 'vsnip' },
-
-		-- For luasnip user.
 		{ name = 'luasnip' },
-
-		-- For ultisnips user.
-		-- { name = 'ultisnips' },
-
 		{ name = 'cmdline'},
 		{ name = 'buffer'},
 	}
