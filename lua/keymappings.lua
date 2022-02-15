@@ -21,5 +21,8 @@ utils.map('t', '<leader><Esc>', '<c-\\><c-n>', opts)
 utils.map('n', 'L', ':BufferLineCycleNext<CR>', opts)
 utils.map('n', 'H', ':BufferLineCyclePrev<CR>', opts)
 
+-- Compile project
+utils.map('n', 'H', ':BufferLineCyclePrev<CR>', opts)
+
 
 

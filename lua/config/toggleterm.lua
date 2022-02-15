@@ -1,4 +1,3 @@
-
 require("toggleterm").setup{
 	-- size can be a number or function which is passed the current terminal
 	size = function(term)
@@ -38,3 +37,17 @@ require("toggleterm").setup{
     }
   }
 }
+
+local utils = require('utils')
+local opts = { noremap=true, silent=true }
+
+-- HTOP
+local Terminal  = require('toggleterm.terminal').Terminal
+local htop = Terminal:new({
+	cmd ="htop",
+	hidden = true,
+})
+function _HTOP()
+  htop:toggle()
+end
+utils.map("n", "<leader>top", ":lua _HTOP()<CR>", opts)
