@@ -18,11 +18,7 @@ utils.map('n', '<CR>', '<cmd>noh<CR>', opts)
 utils.map('t', '<leader><Esc>', '<c-\\><c-n>', opts)
 
 -- move between buffersat lightspeed
-utils.map('n', 'L', ':BufferLineCycleNext<CR>', opts)
-utils.map('n', 'H', ':BufferLineCyclePrev<CR>', opts)
-
--- Compile project
-utils.map('n', 'H', ':BufferLineCyclePrev<CR>', opts)
-
+utils.map('n', 'L', ':bnext<CR>', opts)
+utils.map('n', 'H', ':bprev<CR>', opts)
 
 
