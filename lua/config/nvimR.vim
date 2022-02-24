@@ -1,12 +1,12 @@
 let R_objbr_place = 'console,right'
+let R_objbr_h = winheight(0) / 2
 let R_objbr_w = winwidth(0) / 5
 let R_objbr_opendf = 0
-" let R_objbr_h = 30
 let Rout_more_colors = 1
 let R_hi_fun = 0
 let R_routnotab = 1
 let R_notmuxconf = 1
-let R_rconsole_width = 0
+let R_rconsole_width = winwidth(0) / 4
 let R_rconsole_height = winheight(0) / 5
 let R_clear_line = 1
 let R_insert_mode_cmds = 1
@@ -30,6 +30,7 @@ function! s:customNvimRMappings()
 	nmap <buffer> <Tab> <Plug>RDSendLine
 	vmap <buffer> <Tab> <Plug>RDSendSelection
 endfunction
+
 augroup myNvimR
 	au!
 	autocmd filetype r call s:customNvimRMappings()
