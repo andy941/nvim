@@ -39,7 +39,6 @@ return require('packer').startup(function()
 	use { 'windwp/nvim-autopairs' }
 	use { 'hrsh7th/nvim-cmp',
 		requires =
-			'saadparwaiz1/cmp_luasnip',
 		'hrsh7th/cmp-path',
 		'hrsh7th/cmp-nvim-lsp',
 		'hrsh7th/cmp-nvim-lsp-signature-help',
@@ -47,7 +46,8 @@ return require('packer').startup(function()
 		'hrsh7th/cmp-buffer',
 		'hrsh7th/cmp-cmdline',
 		'L3MON4D3/LuaSnip',
-		'onsails/lspkind-nvim'
+		'saadparwaiz1/cmp_luasnip',
+		'onsails/lspkind-nvim',
 	}
 
 	use {

@@ -1,6 +1,6 @@
 local utils = require('utils')
 
-utils.opt('o', 'completeopt','menu,menuone,noinsert,noselect')
+utils.opt('o', 'completeopt','menu,menuone,noselect')
 vim.cmd [[set shortmess+=c]]
 vim.g.completion_confirm_key = ""
 vim.g.completion_matching_strategy_list = {'exact', 'substring', 'fuzzy'} -- <Tab> to navigate the completion menu
@@ -11,11 +11,6 @@ local has_words_before = function()
   local line, col = unpack(vim.api.nvim_win_get_cursor(0))
   return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
 end
-
--- local feedkey = function(key, mode)
---   vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true), mode, true)
--- end
-
 
 -- Setup nvim-cmp.
 local luasnip = require('luasnip')
@@ -32,14 +27,8 @@ cmp.setup({
 
 	snippet = {
 		expand = function(args)
-			-- For `vsnip` user.
-			-- vim.fn["vsnip#anonymous"](args.body)
-
 			-- For `luasnip` user.
 			require('luasnip').lsp_expand(args.body)
-
-			-- For `ultisnips` user.
-			-- vim.fn["UltiSnips#Anon"](args.body)
 		end,
 	},
 
@@ -86,7 +75,6 @@ cmp.setup({
 		{ name = 'nvim_lua' }, -- knows to activate only in Lua
 		{ name = 'luasnip' },
 		{ name = 'cmdline'},
-		{ name = 'buffer'},
+		--{ name = 'buffer'},
 	}
 })
-
