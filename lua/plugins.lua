@@ -67,5 +67,8 @@ return require('packer').startup(function()
 	-- Work with csv files and other tables easily
 	use { 'chrisbra/csv.vim' }
 
+	-- markdown preview
+	use { 'iamcco/markdown-preview.nvim', run = ':call mkdp#util#install()' }
+
 end
 )

@@ -11,4 +11,5 @@ require('config.toggleterm')
 require('config.bufferline')
 require('config.nvim-tree')
 vim.cmd 'source ~/.config/nvim/lua/config/nvimR.vim'
+vim.cmd 'source ~/.config/nvim/lua/config/markdown-preview.vim'
 
