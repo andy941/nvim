@@ -12,7 +12,7 @@ require'nvim-tree'.setup {
 	hijack_netrw        = true,
 	open_on_setup       = false,
 	ignore_ft_on_setup  = {},
-	auto_close          = true,
+	auto_close          = false,
 	open_on_tab         = false,
 	hijack_cursor       = false,
 	update_cwd          = true,
@@ -48,7 +48,7 @@ require'nvim-tree'.setup {
 	timeout = 500,
 	},
 	view = {
-		width = 30,
+		width = 35,
 		height = 30,
 		hide_root_folder = false,
 		side = 'left',
