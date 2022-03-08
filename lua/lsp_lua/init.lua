@@ -1,4 +1,4 @@
-localcutils = require('utils')
+local utils = require('utils')
 
 local nvim_lsp = require('lspconfig')
 
