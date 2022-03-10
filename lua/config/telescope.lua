@@ -61,7 +61,7 @@ require('telescope').load_extension('project')
 utils.map('n', '<leader>b',   	'<cmd>Telescope 	buffers<cr>')
 
 -- Two characters
-utils.map('n', '<leader>ff',	'<cmd>Telescope		find_files<cr>')
+utils.map('n', '<leader>ff',		'<cmd>Telescope		find_files<cr>')
 utils.map('n', '<leader>fu',  	'<cmd>Telescope 	current_buffer_fuzzy_find<cr>')
 utils.map('n', '<leader>gg',  	'<cmd>Telescope 	live_grep<cr>')
 utils.map('n', '<leader>tt',  	'<cmd>Telescope 	treesitter<cr>')
@@ -70,9 +70,10 @@ utils.map('n', '<leader>kb',  	'<cmd>Telescope 	keymaps<cr>')
 utils.map('n', '<leader>di',  	'<cmd>Telescope 	diagnostics<cr>')
 utils.map('n', '<leader>pr',  	'<cmd>Telescope 	project<cr>')
 
--- Search with relative path "w-orking dir"
+-- Search with relative path 'w-orking dir' or relative to 'w-orkspace'
 utils.map('n', '<leader>wf',  	'<cmd>Telescope 	find_files			cwd=%:p:h<cr>')
 utils.map('n', '<leader>wg',  	'<cmd>Telescope 	live_grep			cwd=%:p:h<cr>')
+utils.map('n', '<leader>ws',  	'<cmd>Telescope 	workspace_symbols')
 
 -- Git
 utils.map('n', '<leader>G',		'<cmd>Telescope		git_status			cwd=%:p:h<cr>')
