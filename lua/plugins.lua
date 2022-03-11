@@ -70,5 +70,8 @@ return require('packer').startup(function()
 	-- markdown preview
 	use { 'iamcco/markdown-preview.nvim', run = ':call mkdp#util#install()' }
 
+	-- Debugger API
+	use { 'mfussenegger/nvim-dap' }
+
 end
 )

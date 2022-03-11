@@ -10,6 +10,7 @@ require('config.bufresize')
 require('config.toggleterm')
 require('config.bufferline')
 require('config.nvim-tree')
+require('config.nvim-dap')
 vim.cmd 'source ~/.config/nvim/lua/config/nvimR.vim'
 vim.cmd 'source ~/.config/nvim/lua/config/markdown-preview.vim'
 
