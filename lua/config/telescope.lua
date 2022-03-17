@@ -73,7 +73,7 @@ utils.map('n', '<leader>pr',  	'<cmd>Telescope 	project<cr>')
 -- Search with relative path 'w-orking dir' or relative to 'w-orkspace'
 utils.map('n', '<leader>wf',  	'<cmd>Telescope 	find_files			cwd=%:p:h<cr>')
 utils.map('n', '<leader>wg',  	'<cmd>Telescope 	live_grep			cwd=%:p:h<cr>')
-utils.map('n', '<leader>ws',  	'<cmd>Telescope 	workspace_symbols')
+utils.map('n', '<leader>ws',  	'<cmd>Telescope 	workspace_symbols<cr>')
 
 -- Git
 utils.map('n', '<leader>G',		'<cmd>Telescope		git_status			cwd=%:p:h<cr>')
