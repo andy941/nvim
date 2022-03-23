@@ -28,3 +28,9 @@ require('bufferline').setup {
     sort_by = 'directory', --'id' | 'extension' | 'relative_directory' | 'directory' | 'tabs' | function(buffer_a, buffer_b)
   }
 }
+
+-- move between buffer sat lightspeed
+local utils = require('utils')
+local opts = { noremap=true, silent=true }
+utils.map('n', 'L', ':BufferLineCycleNext<CR>', opts)
+utils.map('n', 'H', ':BufferLineCyclePrev<CR>', opts)

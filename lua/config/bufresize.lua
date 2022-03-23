@@ -6,10 +6,10 @@ require("bufresize").setup({
 			{ "n", ">", "<C-w>>", opts },
 			{ "n", "+", "<C-w>+", opts },
 			{ "n", "-", "<C-w>-", opts },
-			{ "n", "<C-w>h", "<C-w>h", opts },
-			{ "n", "<C-w>j", "<C-w>j", opts },
-			{ "n", "<C-w>k", "<C-w>k", opts },
-			{ "n", "<C-w>l", "<C-w>l", opts },
+			{ "n", "<C-w>H", "<C-w>H", opts },
+			{ "n", "<C-w>J", "<C-w>J", opts },
+			{ "n", "<C-w>K", "<C-w>K", opts },
+			{ "n", "<C-w>L", "<C-w>L", opts },
 			{ "n", "<C-w>_", "<C-w>_", opts },
 			{ "n", "<C-w>=", "<C-w>=", opts },
 			{ "n", "<C-w>|", "<C-w>|", opts },
@@ -19,7 +19,9 @@ require("bufresize").setup({
 		trigger_events = { "BufWinEnter", "WinEnter" },
 	},
 	resize = {
-		keys = {},
-		trigger_events = { "VimResized" },
+		keys = {
+		},
+		trigger_events = { "VimResized", "BufWipeout"},
+		increment = 1,
 	},
 })
