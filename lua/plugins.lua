@@ -35,26 +35,29 @@ return require('packer').startup(function()
 	use { 'nvim-telescope/telescope-project.nvim' }
 	use { 'nvim-telescope/telescope.nvim'}
 
-	-- LSP and completion
+	-- LSP
 	use { 'neovim/nvim-lspconfig' }
-	use { 'windwp/nvim-autopairs' }
-	use { 'hrsh7th/nvim-cmp',
-		requires =
-		'hrsh7th/cmp-path',
-		'hrsh7th/cmp-nvim-lsp',
-		'hrsh7th/cmp-nvim-lsp-signature-help',
-		'hrsh7th/cmp-nvim-lua',
-		'hrsh7th/cmp-buffer',
-		'hrsh7th/cmp-cmdline',
-		'L3MON4D3/LuaSnip',
-		'saadparwaiz1/cmp_luasnip',
-		'onsails/lspkind-nvim',
-	}
 
+	-- Completion
+	use { 'hrsh7th/nvim-cmp' }
+	use { 	'hrsh7th/cmp-path' }
+	use { 	'hrsh7th/cmp-nvim-lsp' }
+	use { 	'hrsh7th/cmp-nvim-lsp-signature-help' }
+	use { 	'hrsh7th/cmp-nvim-lua' }
+	use { 	'hrsh7th/cmp-buffer' }
+	use { 	'hrsh7th/cmp-cmdline' }
+	use { 	'L3MON4D3/LuaSnip' }
+	use { 	'saadparwaiz1/cmp_luasnip' }
+	use { 	'onsails/lspkind-nvim' }
+
+	-- Treesitter
 	use {
 		'nvim-treesitter/nvim-treesitter',
 		run = ':TSUpdate'
 		}
+
+	-- Auto close brackets
+	use { 'windwp/nvim-autopairs' }
 
 	-- Rstudio like environment for R
 	use { 'jalvesaq/Nvim-R' , branch = 'stable'}
@@ -73,6 +76,9 @@ return require('packer').startup(function()
 
 	-- Debugger API
 	use { 'mfussenegger/nvim-dap' }
+
+	-- Show hex colors in file
+	use { 'norcalli/nvim-colorizer.lua' }
 
 end
 )

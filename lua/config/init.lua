@@ -11,6 +11,7 @@ require('config.toggleterm')
 require('config.bufferline')
 require('config.nvim-tree')
 require('config.nvim-dap')
+require('config.colorizer')
 vim.cmd 'source ~/.config/nvim/lua/config/nvimR.vim'
 vim.cmd 'source ~/.config/nvim/lua/config/markdown-preview.vim'
 
