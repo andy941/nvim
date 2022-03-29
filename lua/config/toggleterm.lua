@@ -25,7 +25,7 @@ require("toggleterm").setup{
 	float_opts = {
 		border = 'curved',
 		width = function(term)
-			return math.floor(vim.o.columns * 0.7 + 0.5)
+			return math.floor(vim.o.columns * 0.8 + 0.5)
 		end,
 		height = function(term)
 			return math.floor(vim.o.lines * 0.9 + 0.5)
