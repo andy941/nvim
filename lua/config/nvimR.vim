@@ -1,4 +1,4 @@
-let R_objbr_place = 'script,right' " console, LEFT, RIGHT
+let R_objbr_place = 'RIGHT' " console, script, LEFT, RIGHT
 let R_objbr_h = winheight(0) / 4
 let R_objbr_w = winwidth(0) / 5
 let R_min_editor_width = winwidth(0) / 3

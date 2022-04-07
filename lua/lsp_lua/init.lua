@@ -47,13 +47,48 @@ for _, lsp in ipairs(servers) do
   }
 end
 
-require'lspconfig'.clangd.setup{
+nvim_lsp.clangd.setup{
     on_attach = on_attach,
     capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
-	root_dir = require'lspconfig'.util.root_pattern("compile_commands.json", "build/compile_commands.json", "compile_flags.txt", ".git"),
+	root_dir = nvim_lsp.util.root_pattern("compile_commands.json", "build/compile_commands.json", "compile_flags.txt", ".git"),
     flags = {
       debounce_text_changes = 150,
     }
+}
+
+
+nvim_lsp.texlab.setup{
+	on_attach = on_attach,
+	capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
+	flags = {
+		debounce_text_changes = 150,
+	},
+	filetypes = { "tex","plaintex", "bib" },
+	settings =  {
+		texlab = {
+			auxDirectory = ".",
+			bibtexFormatter = "texlab",
+			build = {
+				args = { "-pdf", "-interaction=nonstopmode", "-synctex=1", "%f" },
+				executable = "latexmk",
+				forwardSearchAfter = false,
+				onSave = false
+			},
+			chktex = {
+				onEdit = false,
+				onOpenAndSave = false
+			},
+			diagnosticsDelay = 300,
+			formatterLineLength = 80,
+			forwardSearch = {
+				args = {}
+			},
+			latexFormatter = "latexindent",
+			latexindent = {
+				modifyLineBreaks = false
+			}
+		}
+	}
 }
 
 -- https://github.com/sumneko/lua-language-server/wiki/Build-and-Run-(Standalone)
@@ -72,7 +107,7 @@ else
     print("Unsupported system for sumneko")
 end
 
-require'lspconfig'.sumneko_lua.setup {
+nvim_lsp.sumneko_lua.setup {
     on_attach = on_attach,
     cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua"},
     settings = {

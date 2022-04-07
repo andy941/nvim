@@ -52,7 +52,7 @@ require'nvim-tree'.setup {
 		height = 30,
 		hide_root_folder = false,
 		side = 'left',
-		auto_resize = true,
+		auto_resize = false,
 		mappings = {
 			custom_only = false,
 			list = {
