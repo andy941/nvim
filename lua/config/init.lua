@@ -14,4 +14,5 @@ require('config.nvim-dap')
 require('config.colorizer')
 vim.cmd 'source ~/.config/nvim/lua/config/nvimR.vim'
 vim.cmd 'source ~/.config/nvim/lua/config/markdown-preview.vim'
+vim.cmd 'source ~/.config/nvim/lua/config/csv.vim'
 
