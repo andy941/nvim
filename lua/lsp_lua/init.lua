@@ -57,39 +57,42 @@ nvim_lsp.clangd.setup{
 }
 
 
-nvim_lsp.texlab.setup{
-	on_attach = on_attach,
-	capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
-	flags = {
-		debounce_text_changes = 150,
-	},
-	filetypes = { "tex","plaintex", "bib" },
-	settings =  {
-		texlab = {
-			auxDirectory = ".",
-			bibtexFormatter = "texlab",
-			build = {
-				args = { "-pdf", "-interaction=nonstopmode", "-synctex=1", "%f" },
-				executable = "latexmk",
-				forwardSearchAfter = false,
-				onSave = false
-			},
-			chktex = {
-				onEdit = false,
-				onOpenAndSave = false
-			},
-			diagnosticsDelay = 300,
-			formatterLineLength = 80,
-			forwardSearch = {
-				args = {}
-			},
-			latexFormatter = "latexindent",
-			latexindent = {
-				modifyLineBreaks = false
-			}
-		}
-	}
-}
+--nvim_lsp.texlab.setup{
+--	on_attach = on_attach,
+--	capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
+--	flags = {
+--		debounce_text_changes = 150,
+--	},
+--	filetypes = { "tex","plaintex", "bib" },
+--	settings =  {
+--		texlab = {
+--			auxDirectory = ".",
+--			bibtexFormatter = "texlab",
+--			--build = {
+--			--	--args = { "-pdf", "-interaction=nonstopmode", "-synctex=1", "%f" },
+--			--	executable = "latexmk",
+--			--	forwardSearchAfter = true,
+--			--	onSave = true
+--			--},
+--			chktex = {
+--				onEdit = true,
+--				onOpenAndSave = true
+--			},
+--			diagnosticsDelay = 50,
+--			formatterLineLength = 80,
+--			--forwardSearch = {
+--			--	args = {
+--			--		args =  {"--synctex-forward", "%l:1:%f", "%p"},
+--			--		executable ="zathura",
+--			--	},
+--			--},
+--			latexFormatter = "latexindent",
+--			latexindent = {
+--				modifyLineBreaks = true
+--			}
+--		}
+--	}
+--}
 
 -- https://github.com/sumneko/lua-language-server/wiki/Build-and-Run-(Standalone)
 USER = vim.fn.expand('$USER')
