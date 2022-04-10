@@ -43,6 +43,23 @@ cd ../..
 ./3rd/luamake/luamake rebuild
 ```
 
+### Latex
+You need TexLive and `latexmk` in your PATH.
+install the rust cargo:
+> remember to add `~/.cargo/bin/` directory to your PATH.
+``` bash
+cargo install --git https://github.com/latex-lsp/texlab.git --locked
+```
+Most likely the luaindent command will not work out of the box:
+`Can't locate YAML/Tiny.pm in @INC (you may need to install the YAML::Tiny module)..........`
+You might need to run this:
+``` bash
+sudo cpan Unicode::GCString
+sudo cpan App::cpanminus
+sudo cpan YAML::Tiny
+sudo perl -MCPAN -e 'install "File::HomeDir"'
+```
+
 # Telescope speed improvement
 - Install [fd](https://github.com/sharkdp/fd) for better file finding 
 - Install  [ripgrep](https://github.com/BurntSushi/ripgrep) to enable live_grep functionality

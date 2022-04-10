@@ -75,7 +75,7 @@ return require('packer').startup(function()
 	use { 'iamcco/markdown-preview.nvim', run = ':call mkdp#util#install()' }
 
 	-- latex preview and more
-	use { 'lervag/vimtex' }
+	--use { 'lervag/vimtex' }
 
 	-- Debugger API
 	use { 'mfussenegger/nvim-dap' }
