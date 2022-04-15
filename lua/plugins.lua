@@ -33,6 +33,7 @@ return require('packer').startup(function()
 	-- Fuzzy finder
 	use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 	use { 'nvim-telescope/telescope-project.nvim' }
+	use { 'nvim-telescope/telescope-bibtex.nvim' }
 	use { 'nvim-telescope/telescope.nvim'}
 
 	-- LSP
