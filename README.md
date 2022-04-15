@@ -37,7 +37,7 @@ install.packages('languageserver')
 ### Lua
 ``` bash
 git submodule update --init --recursive
-cd 3rd/luamake
+cd lua-language-server/3rd/luamake
 ./compile/install.sh
 cd ../..
 ./3rd/luamake/luamake rebuild
