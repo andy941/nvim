@@ -60,6 +60,8 @@ sudo cpan YAML::Tiny
 sudo perl -MCPAN -e 'install "File::HomeDir"'
 ```
 
+On MacOS follow zathura installation steps outlined in vimtex manual `:h vimtex-faq-zathura-macos`
+
 # Telescope speed improvement
 - Install [fd](https://github.com/sharkdp/fd) for better file finding 
 - Install  [ripgrep](https://github.com/BurntSushi/ripgrep) to enable live_grep functionality
