@@ -13,7 +13,7 @@ require('bufferline').setup {
     right_trunc_marker = '',
     max_name_length = 400,
     max_prefix_length = 15, -- prefix used when a buffer is de-duplicated
-    tab_size = 18,
+    tab_size = 28,
     diagnostics = false, -- false | "nvim_lsp" | "coc",
     diagnostics_update_in_insert = false,
     offsets = {{filetype = "NvimTree", text = "File Explorer", text_align = "center"}},
