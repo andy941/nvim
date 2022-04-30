@@ -2,7 +2,7 @@ local utils = require('utils')
 
 
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  ensure_installed = "all",
   highlight = {
     enable = true,              -- false will disable the whole extension
 	additional_vim_regex_highlighting = false,
@@ -21,17 +21,3 @@ require'nvim-treesitter.configs'.setup {
   },
   textobjects = { enable = true },
 }
-
--- format on save
---vim.cmd [[
---autocmd BufWritePre *.py lua vim.lsp.buf.formatting_sync(nil, 10000)
---autocmd BufWritePre *.cpp lua vim.lsp.buf.formatting_sync(nil, 10000)
---autocmd BufWritePre *.h lua vim.lsp.buf.formatting_sync(nil, 10000)
---autocmd BufWritePre *.hpp lua vim.lsp.buf.formatting_sync(nil, 10000)
---autocmd BufWritePre *.c lua vim.lsp.buf.formatting_sync(nil, 10000)
---autocmd BufWritePre *.sh lua vim.lsp.buf.formatting_sync(nil, 10000)
---autocmd BufWritePre *.R lua vim.lsp.buf.formatting_sync(nil, 10000)
---autocmd BufWritePre *.r lua vim.lsp.buf.formatting_sync(nil, 10000)
---autocmd BufWritePre *.lua lua vim.lsp.buf.formatting_sync(nil, 10000)
---autocmd BufWritePre DockerFile lua vim.lsp.buf.formatting_sync(nil, 10000)
---]]
