@@ -53,7 +53,8 @@ tele.setup {
 			context = true,
 			-- Fallback to global/directory .bib files if context not found
 			-- This setting has no effect if context = false
-			context_fallback = true
+			context_fallback = true,
+			wrap = true
 		},
 	},
 }
