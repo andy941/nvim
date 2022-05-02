@@ -29,8 +29,8 @@ function! s:customNvimRMappings()
 	imap <buffer> <C-c> :RStop<cr>
 	vmap <buffer> <C-c> :RStop<cr>
 
-	nmap <buffer> <Tab> <Plug>RDSendLine
-	vmap <buffer> <Tab> <Plug>RDSendSelection
+	nmap <buffer> <C-s> <Plug>RDSendLine
+	vmap <buffer> <C-s> <Plug>RDSendSelection
 endfunction
 
 augroup myNvimR
