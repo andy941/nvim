@@ -66,7 +66,7 @@ nvim_lsp.texlab.setup{
 	filetypes = { "tex","plaintex", "bib" },
 	settings =  {
 		texlab = {
-			auxDirectory = ".",
+			auxDirectory = "./build",
 			bibtexFormatter = "texlab",
 			--build = {
 			--	args = { "-pdf", "-interaction=nonstopmode", "-synctex=1", "%f" },
