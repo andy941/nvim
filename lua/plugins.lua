@@ -25,7 +25,7 @@ return require('packer').startup(function()
 
 	-- Color scheme
 	use { 'EdenEast/nightfox.nvim' }
-	use { 'morhetz/gruvbox' }
+	use { 'ellisonleao/gruvbox.nvim' }
 
 	-- Lualine
 	use { 'hoob3rt/lualine.nvim' }
@@ -34,7 +34,7 @@ return require('packer').startup(function()
 	use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 	use { 'nvim-telescope/telescope-project.nvim' }
 	use { 'nvim-telescope/telescope-bibtex.nvim' }
-	use { 'nvim-telescope/telescope.nvim'}
+	use { 'nvim-telescope/telescope.nvim' }
 
 	-- LSP
 	use { 'neovim/nvim-lspconfig' }
@@ -87,6 +87,9 @@ return require('packer').startup(function()
 
 	-- Show hex colors in file
 	use { 'norcalli/nvim-colorizer.lua' }
+
+	-- Zen mode
+	use { 'folke/zen-mode.nvim' }
 
 end
 )

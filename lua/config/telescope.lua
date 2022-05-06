@@ -70,6 +70,7 @@ tele.load_extension('bibtex')
 
 -- KeyBindings -----------------------------------------------------------------------
 
+--require('telescope').extensions.dict.synonyms()
 -- One character
 utils.map('n', '<leader>b',   	'<cmd>Telescope 	buffers<cr>', opts)
 
