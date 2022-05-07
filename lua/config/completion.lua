@@ -23,6 +23,7 @@ cmp.setup({
 			mode = 'symbol_text',
 			menu = ({
 				spell = "[Spell]",
+				nuspell = "[NuSpell]",
 			}),
 			preset = 'default',
 			maxwidth = 50})
@@ -78,6 +79,7 @@ cmp.setup({
 		{ name = 'nvim_lua' }, -- knows to activate only in Lua
 		{ name = 'luasnip' },
 		{ name = 'cmdline'},
+		{ name = 'nuspell'},
 		{ name = 'spell'},
 		--{ name = 'buffer'},
 	}
