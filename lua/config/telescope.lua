@@ -56,6 +56,9 @@ tele.setup {
 			context_fallback = true,
 			wrap = true
 		},
+		heading = {
+			treesitter = true,
+		},
 	},
 }
 -- To get fzf loaded and working with telescope, you need to call
@@ -67,6 +70,9 @@ tele.load_extension('project')
 
 -- Bibtex citation search
 tele.load_extension('bibtex')
+
+-- Search in headings (if applicable)
+tele.load_extension('heading')
 
 -- KeyBindings -----------------------------------------------------------------------
 
@@ -96,6 +102,9 @@ utils.map('n', '<leader>gf',	'<cmd>Telescope		git_files			cwd=%:p:h<cr>', opts)
 utils.map('n', '<leader>gb',	'<cmd>Telescope		git_branches<cr>', opts)
 utils.map('n', '<leader>gl',	'<cmd>Telescope		git_commits<cr>', opts)
 utils.map('n', '<leader>gd',	'<cmd>Telescope		git_bcommits<cr>', opts)
+
+-- headings
+utils.map('n', '<leader>se',	'<cmd>Telescope		heading<cr>', opts)
 
 -- Useful additions
 utils.map('n', '<leader>rc',  	'<cmd>Telescope 	find_files			cwd=~/.config/nvim<cr>', opts)
