@@ -8,5 +8,5 @@ utils.opt('o', 'scrolloff', 12)
 
 utils.map('n', '<leader>cl',   	'<cmd>Telescope bibtex<cr>', opts)
 utils.map('n', '<leader>cp',   	'<cmd>Telescope bibtex format=plain<cr>', opts)
-utils.map('n', '<leader>pp',   	'<cmd>VimtexView<cr>', opts)
+utils.map('n', '<leader>vv',   	'<cmd>VimtexView<cr>', opts)
 
