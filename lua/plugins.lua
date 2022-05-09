@@ -47,11 +47,6 @@ return require('packer').startup(function()
 	use { 	'hrsh7th/cmp-nvim-lua' }
 	use { 	'hrsh7th/cmp-buffer' }
 	use { 	'hrsh7th/cmp-cmdline' }
-	--use {		'f3fora/cmp-spell', }
-	use {
-		'f3fora/cmp-nuspell',
-		rocks={'lua-nuspell'}
-	}
 	use { 	'L3MON4D3/LuaSnip' }
 	use { 	'saadparwaiz1/cmp_luasnip' }
 	use { 	'onsails/lspkind-nvim' }

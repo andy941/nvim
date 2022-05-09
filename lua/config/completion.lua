@@ -21,10 +21,7 @@ cmp.setup({
 		format = require('lspkind').cmp_format({
 			--with_text = true,
 			mode = 'symbol_text',
-			menu = ({
-				spell = "[Spell]",
-				nuspell = "[NuSpell]",
-			}),
+			--menu = ({}),
 			preset = 'default',
 			maxwidth = 50})
 	},
@@ -79,8 +76,6 @@ cmp.setup({
 		{ name = 'nvim_lua' }, -- knows to activate only in Lua
 		{ name = 'luasnip' },
 		{ name = 'cmdline'},
-		{ name = 'nuspell'},
-		{ name = 'spell'},
 		--{ name = 'buffer'},
 	}
 })
