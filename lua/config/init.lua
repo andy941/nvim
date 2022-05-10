@@ -14,6 +14,7 @@ require('config.nvim-tree')
 require('config.nvim-dap')
 require('config.colorizer')
 require('config.zen-mode')
+require('config.indent-line')
 vim.cmd 'source ~/.config/nvim/lua/config/nvimR.vim'
 vim.cmd 'source ~/.config/nvim/lua/config/markdown-preview.vim'
 vim.cmd 'source ~/.config/nvim/lua/config/csv.vim'
