@@ -104,7 +104,7 @@ utils.map('n', '<leader>gl',	'<cmd>Telescope		git_commits<cr>', opts)
 utils.map('n', '<leader>gd',	'<cmd>Telescope		git_bcommits<cr>', opts)
 
 -- headings
-utils.map('n', '<leader>se',	'<cmd>Telescope		heading<cr>', opts)
+utils.map('n', '<leader>sh',	'<cmd>Telescope		heading<cr>', opts)
 
 -- Useful additions
 utils.map('n', '<leader>rc',  	'<cmd>Telescope 	find_files			cwd=~/.config/nvim<cr>', opts)

@@ -81,9 +81,9 @@ nvim_lsp.texlab.setup{
 			diagnosticsDelay = 50,
 			--formatterLineLength = 80,
 			latexFormatter = "latexindent",
-			--latexindent = {
-			--	modifyLineBreaks = true
-			--}
+		latexindent = {
+			modifyLineBreaks = true
+		}
 			--forwardSearch = {
 			--	args = {
 			--		args =  {"--synctex-forward", "%l:1:%f", "%p"},
