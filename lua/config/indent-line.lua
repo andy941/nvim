@@ -5,7 +5,7 @@ require("indent_blankline").setup {
 	use_treesitter = true,
 	use_treesitter_scope = true,
 	max_indent_increase = 1,
-	show_first_indent_level = true,
+	--show_first_indent_level = true,
 	filetype_exclude = {
 		'lspinfo',
 		'packer',
