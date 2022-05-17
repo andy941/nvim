@@ -11,7 +11,7 @@ require('nightfox').setup({
     compile_file_suffix = "_compiled", -- Compiled file suffix
     transparent = false,    -- Disable setting background
     terminal_colors = false, -- Set terminal colors (vim.g.terminal_color_*)
-    dim_inactive = false,   -- Non focused panes set to alternative background
+    dim_inactive = true,   -- Non focused panes set to alternative background
 		styles = {              -- Style to be applied to different syntax groups
 			comments = "italic", -- change style of comments to be italic
 			keywords = "bold", -- change style of keywords to be bold
@@ -33,5 +33,5 @@ require('nightfox').setup({
 })
 
 -- setup must be called before loading
-vim.cmd("colorscheme nightfox")
+vim.cmd("colorscheme dawnfox")
 
