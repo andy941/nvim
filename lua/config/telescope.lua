@@ -74,9 +74,12 @@ tele.load_extension('bibtex')
 -- Search in headings (if applicable)
 tele.load_extension('heading')
 
+-- DAP integration
+tele.load_extension('dap')
+
+
 -- KeyBindings -----------------------------------------------------------------------
 
---require('telescope').extensions.dict.synonyms()
 -- One character
 utils.map('n', '<leader>b',   	'<cmd>Telescope 	buffers<cr>', opts)
 

@@ -69,3 +69,13 @@ On MacOS follow zathura installation steps outlined in vimtex manual `:h vimtex-
 pamac install fd ripgrep
 ```
 
+# Install debuggers
+
+### python
+``` bash
+mkdir .virtualenvs
+cd .virtualenvs
+python -m venv debugpy
+debugpy/bin/python -m pip install debugpy
+```
+

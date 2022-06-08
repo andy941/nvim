@@ -34,6 +34,7 @@ return require('packer').startup(function()
 	use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 	use { 'nvim-telescope/telescope-project.nvim' }
 	use { 'nvim-telescope/telescope-bibtex.nvim' }
+	use { 'nvim-telescope/telescope-dap.nvim' }
 	use { 'crispgm/telescope-heading.nvim' }
 	use { 'nvim-telescope/telescope.nvim' }
 
@@ -48,6 +49,7 @@ return require('packer').startup(function()
 	use { 	'hrsh7th/cmp-nvim-lua' }
 	use { 	'hrsh7th/cmp-buffer' }
 	use { 	'hrsh7th/cmp-cmdline' }
+	use { 	'rcarriga/cmp-dap' }
 	use { 	'L3MON4D3/LuaSnip' }
 	use { 	'saadparwaiz1/cmp_luasnip' }
 	use { 	'onsails/lspkind-nvim' }
@@ -82,8 +84,11 @@ return require('packer').startup(function()
 	-- latex preview and more
 	use { 'lervag/vimtex' }
 
-	-- Debugger API
+	-- Debugger API and sugar
 	use { 'mfussenegger/nvim-dap' }
+	use { 'rcarriga/nvim-dap-ui' }
+	use { 'theHamsta/nvim-dap-virtual-text' }
+	use { 'mfussenegger/nvim-dap-python' }
 
 	-- Show hex colors in file
 	use { 'norcalli/nvim-colorizer.lua' }
