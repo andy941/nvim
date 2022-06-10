@@ -71,6 +71,9 @@ pamac install fd ripgrep
 
 # Install debuggers
 
+### C/C++ and Rust
+`nvim-dap` is set up to use `/usr/bin/lldb-vscode`, you have to adjust it as needed in base of your llvm installation (it should come with it). It might be in a different location or have a slightly different name like `lldb-vscode-XX`, `XX` being a two digits number. MacOS could not have it in PATH.
+
 ### python
 ``` bash
 mkdir .virtualenvs
