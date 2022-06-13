@@ -26,7 +26,7 @@ require("dapui").setup({
   },
   tray = {
     elements = { "repl", "console" },
-    size = 10,
+    size = 15,
     position = "bottom", -- Can be "left", "right", "top", "bottom"
   },
   floating = {
@@ -39,7 +39,7 @@ require("dapui").setup({
   },
   windows = { indent = 1 },
   render = {
-    max_type_length = nil, -- Can be integer or nil.
+    max_type_length = 20, -- Can be integer or nil.
   }
 })
 
