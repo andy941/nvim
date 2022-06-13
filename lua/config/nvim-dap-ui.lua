@@ -16,7 +16,7 @@ require("dapui").setup({
     -- You can change the order of elements in the sidebar
     elements = {
       -- Provide as ID strings or tables with "id" and "size" keys
-      {id = "scopes", size = 0.25},
+      { id = "scopes", size = 0.25},
       { id = "breakpoints", size = 0.25 },
       { id = "stacks", size = 0.25 },
       { id = "watches", size = 0.25 },
@@ -25,7 +25,7 @@ require("dapui").setup({
     position = "left", -- Can be "left", "right", "top", "bottom"
   },
   tray = {
-    elements = { "repl", "console" },
+    elements = { "console" },
     size = 15,
     position = "bottom", -- Can be "left", "right", "top", "bottom"
   },
@@ -39,7 +39,7 @@ require("dapui").setup({
   },
   windows = { indent = 1 },
   render = {
-    max_type_length = 20, -- Can be integer or nil.
+    max_type_length = 10, -- Can be integer or nil.
   }
 })
 
