@@ -26,6 +26,7 @@ return require('packer').startup(function()
 	-- Color scheme
 	use { 'EdenEast/nightfox.nvim' }
 	use { 'ellisonleao/gruvbox.nvim' }
+	use { 'sainnhe/gruvbox-material' }
 
 	-- Lualine
 	use { 'hoob3rt/lualine.nvim' }
