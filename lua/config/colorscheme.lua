@@ -65,6 +65,12 @@ vim.cmd("let g:gruvbox_material_foreground='original'")
 vim.cmd("let g:gruvbox_material_enable_bold=1")
 vim.cmd("let g:gruvbox_material_enable_italic=1")
 
+vim.cmd("let g:gruvbox_bold=1")
+vim.cmd("let g:gruvbox_italic=1")
+vim.cmd("let g:gruvbox_transparent_bg=1")
+vim.cmd("let g:gruvbox_underline=1")
+vim.cmd("let g:gruvbox_sign_column='bg0'")
+
 -- setup must be called before loading
-vim.cmd("colorscheme nightfox")
+vim.cmd("colorscheme gruvbox")
 

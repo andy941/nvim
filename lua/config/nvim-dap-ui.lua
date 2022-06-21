@@ -27,17 +27,17 @@ require("dapui").setup({
         { id = "stacks", size = 0.25 },
         { id = "watches", size = 0.25 },
       },
-      size = 40,
-      position = "left",
-    },
-    {
-      elements = {
-        --"repl",
-        "console"
-      },
       size = 10,
       position = "bottom",
     },
+    --{
+    --  elements = {
+    --    --"repl",
+    --    --"console"
+    --  },
+    --  size = 10,
+    --  position = "bottom",
+    --},
   },
   floating = {
     max_height = nil, -- These can be integers or a float between 0 and 1.

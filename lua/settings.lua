@@ -43,7 +43,7 @@ utils.opt('o', 'laststatus', 3)								-- Global statusline
 
 utils.opt('w', 'cursorline', true)
 utils.opt('w', 'number', true)
-utils.opt('w', 'signcolumn', 'yes')
+utils.opt('w', 'signcolumn', 'auto:1-3')
 utils.opt('w', 'relativenumber', true)
 utils.opt('w', 'foldenable', false)
 utils.opt('w', 'foldmethod', 'syntax')
