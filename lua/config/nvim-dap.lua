@@ -84,9 +84,9 @@ else
 end
 
 dap.adapters.lldb = {
+  name = 'lldb',
   type = 'executable',
   command = path_to_lldb, -- adjust as needed, must be absolute path
-  name = 'lldb'
 }
 dap.configurations.cpp = {
   {
