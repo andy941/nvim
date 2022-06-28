@@ -60,16 +60,27 @@ require('nightfox').setup({
   }
 })
 
-vim.cmd("let g:gruvbox_material_background='hard'")
-vim.cmd("let g:gruvbox_material_foreground='original'")
-vim.cmd("let g:gruvbox_material_enable_bold=1")
-vim.cmd("let g:gruvbox_material_enable_italic=1")
+require("gruvbox").setup({
+  undercurl = true,
+  underline = true,
+  bold = true,
+  italic = true, -- will make italic comments and special strings
+  invert_selection = false,
+  invert_signs = false,
+  invert_tabline = false,
+  invert_indent_guides = false,
+  contrast = "light", -- can be "hard" or "light"
+  overrides = {
+		SignColumn = {bg = 'none'},
+		Normal = {guibg='none'}
+	},
+})
 
-vim.cmd("let g:gruvbox_bold=1")
-vim.cmd("let g:gruvbox_italic=1")
-vim.cmd("let g:gruvbox_transparent_bg=1")
-vim.cmd("let g:gruvbox_underline=1")
-vim.cmd("let g:gruvbox_sign_column='bg0'")
+--vim.cmd("let g:gruvbox_bold=1")
+--vim.cmd("let g:gruvbox_italic=1")
+--vim.cmd("let g:gruvbox_transparent_bg=1")
+--vim.cmd("let g:gruvbox_underline=1")
+--vim.cmd("let g:gruvbox_sign_column='bg0'")
 
 -- setup must be called before loading
 vim.cmd("colorscheme gruvbox")
