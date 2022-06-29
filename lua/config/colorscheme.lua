@@ -72,7 +72,7 @@ require("gruvbox").setup({
   contrast = "light", -- can be "hard" or "light"
   overrides = {
 		SignColumn = {bg = 'none'},
-		Normal = {guibg='none'}
+		--Normal = {bg='none'}
 	},
 })
 
