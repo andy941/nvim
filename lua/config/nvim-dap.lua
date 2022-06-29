@@ -66,7 +66,7 @@ utils.map('v',  '<leader>dc' , ':lua require("dap-python").debug_selection()<cr>
 local path_to_lldb = ""
 
 if vim.fn.has("mac") == 1 then
-    path_to_lldb = '/usr/local/Cellar/llvm/13.0.1_1/bin/lldb-vscode'
+    path_to_lldb = '/usr/local/Cellar/llvm/14.0.6/bin/lldb-vscode'
 		utils.map('n',  '<F6>', '<cmd>lua require("dap").step_back()<cr>', opts)
 		utils.map('n',  '<F7>', '<cmd>DapStepOut<cr>', opts)
 		utils.map('n',  '<F8>', '<cmd>DapStepOver<cr>', opts)
