@@ -12,7 +12,7 @@ let g:csv_start = 1
 let g:csv_end = 1000
 
 " left align when arranging/tabularizing
-let b:csv_arrange_align = 'l*'
+let g:csv_arrange_align = 'l*'
 
 " comments
 let g:csv_comment = '#'
