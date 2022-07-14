@@ -57,7 +57,11 @@ tele.setup {
 			-- This setting has no effect if context = false
 			context_fallback = true,
 			wrap = true,
-			search_keys = {'author', 'year', 'title', 'abstract'}
+			search_keys = {'author', 'year', 'title', 'abstract'},
+			custom_formats = {
+        {id = 'spaced_cite', cite_marker = '~\\cite{%s}'}
+      },
+      format = 'spaced_cite',
 		},
 		heading = {
 			treesitter = true,
