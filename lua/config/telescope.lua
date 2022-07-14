@@ -56,7 +56,8 @@ tele.setup {
 			-- Fallback to global/directory .bib files if context not found
 			-- This setting has no effect if context = false
 			context_fallback = true,
-			wrap = true
+			wrap = true,
+			search_keys = {'author', 'year', 'title', 'abstract'}
 		},
 		heading = {
 			treesitter = true,
