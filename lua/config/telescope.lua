@@ -7,17 +7,19 @@ local actions = require('telescope.actions')
 -- the loading is important
 tele.setup {
 	defaults = {
+		layout_strategy = 'vertical',
+		layout_config = {
+			width = 0.90,
+			height = 0.90,
+			--preview_width = 0.70,
+			preview_height = 0.80,
+		},
 		file_ignore_patterns = { -- % is an escape char in lua regex
 			'Pictures/',
 			'Drives/',
 			'vpnconfigs/',
 			'.git/',
 			'lua%-language%-server/',
-		},
-		layout_config = {
-			width = 0.90,
-			height = 0.95,
-			preview_width = 0.50
 		},
 		mappings = {
 			n = {
