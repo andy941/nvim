@@ -10,9 +10,9 @@ tele.setup {
 		layout_strategy = 'vertical',
 		layout_config = {
 			width = 0.90,
-			height = 0.90,
+			height = 0.95,
 			--preview_width = 0.70,
-			preview_height = 0.80,
+			preview_height = 0.75,
 		},
 		file_ignore_patterns = { -- % is an escape char in lua regex
 			'Pictures/',
