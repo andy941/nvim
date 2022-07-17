@@ -1,65 +1,7 @@
-local util = require('packer.util')
-
 vim.o.termguicolors = true
 vim.o.background = "dark" -- or "light" for light mode
 
--- Default options
-require('nightfox').setup({
-  options = {
-    -- Compiled file's destination location
-    compile_path = util.join_paths(vim.fn.stdpath("cache"), "nightfox"),
-    compile_file_suffix = "_compiled", -- Compiled file suffix
-    transparent = false,    -- Disable setting background
-    terminal_colors = false, -- Set terminal colors (vim.g.terminal_color_*)
-    dim_inactive = false,   -- Non focused panes set to alternative background
-		styles = {              -- Style to be applied to different syntax groups
-			comments = "italic", -- change style of comments to be italic
-			keywords = "bold", -- change style of keywords to be bold
-			functions = "italic", -- styles can be a comma separated list
-			numbers = "NONE",
-			strings = "NONE",
-			types = "NONE",
-			variables = "NONE",
-		},
-    inverse = {             -- Inverse highlight for different types
-      match_paren = true,
-      visual = true,
-      search = true,
-    },
-		modules = {             -- List of various plugins and additional options
-			aerial = true,
-			barbar= true,
-			cmp= true,
-			dap_ui= true,
-			dashboard= true,
-			diagnostic= true,
-			fern= true,
-			fidget= true,
-			gitgutter= true,
-			gitsigns= true,
-			glyph_palette= true,
-			hop= true,
-			illuminate= true,
-			lightspeed= true,
-			lsp_saga= true,
-			lsp_trouble= true,
-			modes= true,
-			native_lsp= true,
-			neogit= true,
-			neotree= true,
-			notify= true,
-			nvimtree= true,
-			pounce= true,
-			sneak= true,
-			symbol_outline= true,
-			telescope= true,
-			treesitter= true,
-			tsrainbow= true,
-			whichkey= true,
-    },
-  }
-})
-
+local colors = require("gruvbox.palette")
 require("gruvbox").setup({
   undercurl = true,
   underline = true,
@@ -72,15 +14,16 @@ require("gruvbox").setup({
   contrast = "light", -- can be "hard" or "light"
   overrides = {
 		SignColumn = {bg = 'none'},
+		GruvboxRedSign = { fg = colors.red, bg = colors.dark0, reverse = false },
+    GruvboxGreenSign = { fg = colors.green, bg = colors.dark0, reverse = false },
+    GruvboxYellowSign = { fg = colors.yellow, bg = colors.dark0, reverse = false },
+    GruvboxBlueSign = { fg = colors.blue, bg = colors.dark0, reverse = false },
+    GruvboxPurpleSign = { fg = colors.purple, bg = colors.dark0, reverse = false },
+    GruvboxAquaSign = { fg = colors.aqua, bg = colors.dark0, reverse = false },
+    GruvboxOrangeSign = { fg = colors.orange, bg = colors.dark0, reverse = false },
 		--Normal = {bg='none'}
 	},
 })
-
---vim.cmd("let g:gruvbox_bold=1")
---vim.cmd("let g:gruvbox_italic=1")
---vim.cmd("let g:gruvbox_transparent_bg=1")
---vim.cmd("let g:gruvbox_underline=1")
---vim.cmd("let g:gruvbox_sign_column='bg0'")
 
 -- setup must be called before loading
 vim.cmd("colorscheme gruvbox")
