@@ -71,8 +71,9 @@ return require('packer').startup(function()
 	-- resize buffers and keep proportions
 	use { 'kwkarlwang/bufresize.nvim' }
 
-	-- Fugitive for Git
+	-- Git workflow
 	use { 'tpope/vim-fugitive' }
+	use { 'lewis6991/gitsigns.nvim' }
 
 	-- Work with csv files and other tables easily
 	use { 'chrisbra/csv.vim' }
