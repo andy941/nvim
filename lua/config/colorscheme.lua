@@ -14,6 +14,7 @@ require("gruvbox").setup({
   contrast = "light", -- can be "hard" or "light"
   overrides = {
 		SignColumn = {bg = 'none'},
+		Operator = {italic = false},
 		GruvboxRedSign = { fg = colors.red, bg = colors.dark0, reverse = false },
     GruvboxGreenSign = { fg = colors.green, bg = colors.dark0, reverse = false },
     GruvboxYellowSign = { fg = colors.yellow, bg = colors.dark0, reverse = false },
