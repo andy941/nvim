@@ -2,6 +2,8 @@ local utils = require('utils')
 local opts = { noremap=true, silent=true }
 local tele = require('telescope')
 local actions = require('telescope.actions')
+    local action_state = require("telescope.actions.state")
+local builtin = require("telescope.builtin")
 
 -- You dont need to set any of these options. These are the default ones. Only
 -- the loading is important
@@ -84,6 +86,31 @@ tele.load_extension('heading')
 -- DAP integration
 tele.load_extension('dap')
 
+-- Custom functions ------------------------------------------------------------------
+-- find files and then live grep into their contents
+local ff_and_lg = function()
+	builtin.find_files({
+		attach_mappings = function(prompt_bufnr)
+			actions.select_default:replace(function()
+				local current_picker = action_state.get_current_picker(prompt_bufnr)
+				local selections = current_picker:get_multi_selection()
+				-- if no multi-selection, leverage current selection
+				if vim.tbl_isempty(selections) then
+					table.insert(selections, action_state.get_selected_entry())
+				end
+				local paths = vim.tbl_map(function(e)
+					return e.path
+				end, selections)
+				actions.close(prompt_bufnr)
+				builtin.live_grep({
+					search_dirs = paths,
+				})
+			end)
+			-- true: attach default mappings; false: don't attach default mappings
+			return true
+		end,
+	})
+end
 
 -- KeyBindings -----------------------------------------------------------------------
 
@@ -92,6 +119,7 @@ utils.map('n', '<leader>b',   	'<cmd>Telescope 	buffers<cr>', opts)
 
 -- Two characters
 utils.map('n', '<leader>ff',		'<cmd>Telescope		find_files<cr>', opts)
+vim.keymap.set('n','<leader>fg', ff_and_lg)
 utils.map('n', '<leader>fu',  	'<cmd>Telescope 	current_buffer_fuzzy_find<cr>', opts)
 utils.map('n', '<leader>gg',  	'<cmd>Telescope 	live_grep<cr>', opts)
 utils.map('n', '<leader>ht',  	'<cmd>Telescope 	help_tags<cr>', opts)
