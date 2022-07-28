@@ -61,7 +61,7 @@ tele.setup {
 			wrap = true,
 			search_keys = {'author', 'year', 'title', 'abstract'},
 			custom_formats = {
-        {id = 'spaced_cite', cite_marker = '~\\cite{%s}'}
+        {id = 'spaced_cite', cite_marker = '~\\citep{%s}'}
       },
       format = 'spaced_cite',
 		},
