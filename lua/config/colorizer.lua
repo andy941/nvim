@@ -1,11 +1,11 @@
 require 'colorizer'.setup {
-	'*'; -- Highlight all files, but customize some others.
+	--'*'; -- Highlight all files, but customize some others.
 	--'!vim'; -- Exclude vim from highlighting.
 	-- Exclusion Only makes sense if '*' is specified!
 	DEFAULT_OPTIONS = {
-		RGB      = true;         -- #RGB hex codes
-		RRGGBB   = true;         -- #RRGGBB hex codes
-		names    = true;         -- "Name" codes like Blue
+		RGB      = true;        -- #RGB hex codes
+		RRGGBB   = true;        -- #RRGGBB hex codes
+		names    = true;        -- "Name" codes like Blue
 		RRGGBBAA = true;        -- #RRGGBBAA hex codes
 		rgb_fn   = true;        -- CSS rgb() and rgba() functions
 		hsl_fn   = true;        -- CSS hsl() and hsla() functions
