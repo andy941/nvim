@@ -25,10 +25,14 @@ tele.setup {
 		},
 		mappings = {
 			n = {
-				["<C-q>"] = false,
-				["<C-a>"] = actions.send_to_qflist + actions.open_qflist,
+				--["<C-q>"] = false,
+				--["<C-q>"] = actions.send_to_qflist + actions.open_qflist,
 				["<M-q>"] = false,
-				["<C-l>"] = actions.send_selected_to_qflist + actions.open_qflist
+				["<C-l>"] = actions.send_selected_to_qflist + actions.open_qflist,
+				["<C-a>"] = actions.toggle_all
+			},
+			i = {
+				["<C-a>"] = actions.toggle_all
 			}
 		},
 		prompt_prefix = "    "
