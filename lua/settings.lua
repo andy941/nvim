@@ -44,7 +44,7 @@ utils.opt('o', 'cmdheight', 1)
 
 utils.opt('w', 'cursorline', true)
 utils.opt('w', 'number', true)
-utils.opt('w', 'signcolumn', 'auto:1-3')
+utils.opt('w', 'signcolumn', 'yes:3')
 utils.opt('w', 'relativenumber', true)
 utils.opt('w', 'foldenable', false)
 utils.opt('w', 'foldmethod', 'syntax')
