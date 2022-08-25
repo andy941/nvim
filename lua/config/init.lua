@@ -16,6 +16,7 @@ require('config.nvim-dap-ui')
 require('config.nvim-dap-virtual-text')
 require('config.colorizer')
 require('config.zen-mode')
+require('config.true-zen')
 require('config.indent-line')
 require('config.gitsigns')
 vim.cmd 'source ~/.config/nvim/lua/config/nvimR.vim'

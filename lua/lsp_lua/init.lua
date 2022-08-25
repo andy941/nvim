@@ -30,7 +30,8 @@ local on_attach = function(client, bufnr)
 end
 
 local servers = {
-	'pyright',
+	--'pyright',
+	'pylsp',
 	'cmake',
 	'bashls',
 	'r_language_server',
