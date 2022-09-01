@@ -40,6 +40,9 @@ return require('packer').startup(function()
 	-- LSP
 	use { 'neovim/nvim-lspconfig' }
 
+	-- Code formatting
+	use { 'mhartington/formatter.nvim' }
+
 	-- Completion
 	use { 'hrsh7th/nvim-cmp' }
 	use { 	'hrsh7th/cmp-path' }

@@ -19,6 +19,7 @@ require('config.zen-mode')
 require('config.true-zen')
 require('config.indent-line')
 require('config.gitsigns')
+require('config.formatter')
 vim.cmd 'source ~/.config/nvim/lua/config/nvimR.vim'
 vim.cmd 'source ~/.config/nvim/lua/config/markdown-preview.vim'
 vim.cmd 'source ~/.config/nvim/lua/config/csv.vim'
