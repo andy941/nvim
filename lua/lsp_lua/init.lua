@@ -30,8 +30,7 @@ local on_attach = function(client, bufnr)
 end
 
 local servers = {
-	--'pyright',
-	'pylsp',
+	'pyright',
 	'cmake',
 	'bashls',
 	'r_language_server',
@@ -47,6 +46,21 @@ for _, lsp in ipairs(servers) do
     }
   }
 end
+
+--nvim_lsp.pylsp.setup{
+--  settings = {
+--    pylsp = {
+--      plugins = {
+--        pycodestyle = {
+--          ignore = {'W291','E501'},
+--        },
+--				autopep8 = {
+--					enabled = false
+--				}
+--      }
+--    }
+--  }
+--}
 
 nvim_lsp.clangd.setup{
     on_attach = on_attach,
