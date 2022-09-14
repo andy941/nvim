@@ -11,6 +11,9 @@ require("formatter").setup({
 		lua = { fmt.stylua },
 		cmake = { fmt.cmake },
 		sh = { fmt.sh },
+		json = { fmt.json },
+		html = { fmt.html },
+		markdown = { fmt.markdown },
 		python = {
 			function()
 				return {
