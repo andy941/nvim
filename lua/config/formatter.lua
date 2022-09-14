@@ -1,5 +1,4 @@
 -- Utilities for creating configurations
-local util = require("formatter.util")
 local fmt = require("formatter.filetypes.lua")
 
 -- Provides the Format, FormatWrite, FormatLock, and FormatWriteLock commands
@@ -11,6 +10,7 @@ require("formatter").setup({
 		-- and will be executed in order
 		lua = { fmt.stylua },
 		cmake = { fmt.cmake },
+		sh = { fmt.sh },
 		python = {
 			function()
 				return {
