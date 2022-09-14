@@ -95,8 +95,10 @@ return require("packer").startup(function()
 
 	-- Zen mode
 	use({ "folke/zen-mode.nvim" })
-	use({ "Pocco81/true-zen.nvim" })
 
 	-- Show indent line and current context with treesitter
 	use({ "lukas-reineke/indent-blankline.nvim" })
+
+	-- window management
+	use({ "sindrets/winshift.nvim" })
 end)
