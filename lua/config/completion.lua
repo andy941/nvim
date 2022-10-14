@@ -80,9 +80,9 @@ cmp.setup({
 		{ name = "nvim_lsp_signature_help" },
 		{ name = "nvim_lua" }, -- knows to activate only in Lua
 		{ name = "luasnip" },
-		{ name = "cmdline" },
 		--{ name = 'buffer'},
 	},
+
 	sorting = {
 		comparators = {
 			cmp.config.compare.offset,
@@ -94,5 +94,17 @@ cmp.setup({
 			cmp.config.compare.length,
 			cmp.config.compare.order,
 		},
+	},
+})
+
+require("cmp").setup.cmdline(":", {
+	sources = {
+		{ name = "cmdline" },
+	},
+})
+
+require("cmp").setup.cmdline("/", {
+	sources = {
+		{ name = "buffer" },
 	},
 })
