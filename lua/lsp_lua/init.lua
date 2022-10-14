@@ -24,7 +24,7 @@ local on_attach = function(client, bufnr)
 	buf_set_keymap("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
 	buf_set_keymap("n", "E", "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>", opts)
 
-	if client.resolved_capabilities.document_formatting then
+	if client.server_capabilities.document_formatting then
 		vim.api.nvim_command([[augroup Format]])
 		vim.api.nvim_command([[autocmd! * <buffer>]])
 		vim.api.nvim_command([[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync(nil, 100000)]])
@@ -48,7 +48,7 @@ local servers = {
 for _, lsp in ipairs(servers) do
 	nvim_lsp[lsp].setup({
 		on_attach = on_attach,
-		capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities()),
+		capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities()),
 		flags = {
 			debounce_text_changes = 150,
 		},
@@ -58,7 +58,7 @@ end
 require("clangd_extensions").setup({
 	server = {
 		on_attach = on_attach,
-		capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities()),
+		capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities()),
 		root_dir = nvim_lsp.util.root_pattern(
 			"compile_commands.json",
 			"build/compile_commands.json",
@@ -137,7 +137,7 @@ require("clangd_extensions").setup({
 
 nvim_lsp.texlab.setup({
 	on_attach = on_attach,
-	capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities()),
+	capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities()),
 	flags = {
 		debounce_text_changes = 150,
 	},
