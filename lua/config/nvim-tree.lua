@@ -1,8 +1,7 @@
+local utils = require("utils")
+local opts = { noremap = true, silent = true }
 
-local utils = require('utils')
-local opts = { noremap=true, silent=true }
-
-utils.map('n', '<leader>e', ':NvimTreeToggle<CR>', opts)
+utils.map("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
 
 -- Define some funtion callbacks for hjkl style navigation
 local lib = require("nvim-tree.lib")
@@ -19,14 +18,11 @@ local function vsplit_preview()
 
 	-- Just copy what's done normally with vsplit
 	if node.link_to and not node.nodes then
-		require('nvim-tree.actions.open-file').fn(action, node.link_to)
-
+		require("nvim-tree.actions.open-file").fn(action, node.link_to)
 	elseif node.nodes ~= nil then
 		lib.expand_or_collapse(node)
-
 	else
-		require('nvim-tree.actions.open-file').fn(action, node.absolute_path)
-
+		require("nvim-tree.actions.open-file").fn(action, node.absolute_path)
 	end
 
 	-- Finally refocus on tree if it was lost
@@ -35,7 +31,7 @@ end
 
 -- following options are the default
 -- each of these are documented in `:help nvim-tree.OPTION_NAME`
-require'nvim-tree'.setup { -- BEGIN_DEFAULT_OPTS
+require("nvim-tree").setup({ -- BEGIN_DEFAULT_OPTS
 	auto_reload_on_write = true,
 	disable_netrw = false,
 	hijack_cursor = true,
@@ -49,7 +45,6 @@ require'nvim-tree'.setup { -- BEGIN_DEFAULT_OPTS
 	update_cwd = true,
 	view = {
 		width = 30,
-		height = 30,
 		hide_root_folder = false,
 		side = "left",
 		preserve_window_proportions = true,
@@ -62,7 +57,7 @@ require'nvim-tree'.setup { -- BEGIN_DEFAULT_OPTS
 				{ key = "l", action = "open" },
 				{ key = "L", action = "vsplit_preview", action_cb = vsplit_preview },
 				{ key = "h", action = "close_node" },
-				{ key = "H", action = "collapse_all", action_cb = collapse_all }
+				{ key = "H", action = "collapse_all", action_cb = collapse_all },
 			},
 		},
 	},
@@ -87,7 +82,7 @@ require'nvim-tree'.setup { -- BEGIN_DEFAULT_OPTS
 	update_focused_file = {
 		enable = true,
 		update_cwd = true,
-		ignore_list = {},
+		ignore_list = { ".git/" },
 	},
 	ignore_ft_on_setup = {},
 	system_open = {
@@ -150,5 +145,4 @@ require'nvim-tree'.setup { -- BEGIN_DEFAULT_OPTS
 			profile = false,
 		},
 	},
-} -- END_DEFAULT_OPTS
-
+}) -- END_DEFAULT_OPTS
