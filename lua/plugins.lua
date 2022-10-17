@@ -66,7 +66,7 @@ return require("packer").startup(function()
 	use({ "windwp/nvim-autopairs" })
 
 	-- Rstudio like environment for R
-	use({ "jalvesaq/Nvim-R", branch = "stable" })
+	use({ "jalvesaq/Nvim-R" })
 
 	-- resize buffers and keep proportions
 	use({ "kwkarlwang/bufresize.nvim" })
