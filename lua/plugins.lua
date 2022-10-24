@@ -27,6 +27,7 @@ return require("packer").startup(function()
 
 	-- Fuzzy finder
 	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
+	use({ "nvim-telescope/telescope-media-files.nvim" })
 	use({ "nvim-telescope/telescope-project.nvim" })
 	use({ "nvim-telescope/telescope-bibtex.nvim" })
 	use({ "nvim-telescope/telescope-dap.nvim" })
@@ -101,4 +102,7 @@ return require("packer").startup(function()
 
 	-- window management
 	use({ "sindrets/winshift.nvim" })
+
+	-- Note taking with Zettelkasten method
+	use({ "renerocksai/telekasten.nvim", requires = { "renerocksai/calendar-vim" } })
 end)
