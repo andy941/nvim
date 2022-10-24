@@ -131,13 +131,14 @@ end
 utils.map("n", "<leader>b", "<cmd>Telescope 	buffers<cr>", opts)
 
 -- Two characters
-utils.map("n", "<leader>ff", "<cmd>Telescope		find_files<cr>", opts)
-vim.keymap.set("n", "<leader>fg", ff_and_lg)
-utils.map("n", "<leader>fu", "<cmd>Telescope 	current_buffer_fuzzy_find<cr>", opts)
-utils.map("n", "<leader>gg", "<cmd>Telescope 	live_grep<cr>", opts)
-utils.map("n", "<leader>ht", "<cmd>Telescope 	help_tags<cr>", opts)
-utils.map("n", "<leader>kb", "<cmd>Telescope 	keymaps<cr>", opts)
-utils.map("n", "<leader>pr", "<cmd>Telescope 	project<cr>", opts)
+utils.map('n', '<leader>ff',		'<cmd>Telescope		find_files<cr>', opts)
+vim.keymap.set('n','<leader>fg', ff_and_lg)
+utils.map('n', '<leader>fu',  	'<cmd>Telescope 	current_buffer_fuzzy_find<cr>', opts)
+utils.map('n', '<leader>gg',  	'<cmd>Telescope 	live_grep<cr>', opts)
+utils.map('n', '<leader>ht',  	'<cmd>Telescope 	help_tags<cr>', opts)
+utils.map('n', '<leader>kb',  	'<cmd>Telescope 	keymaps<cr>', opts)
+utils.map('n', '<leader>pr',  	'<cmd>Telescope 	project<cr>', opts)
+utils.map('n', '<leader>rs',  	'<cmd>Telescope 	resume<cr>', opts)
 
 -- LSP
 utils.map("n", "<leader>di", "<cmd>Telescope 	diagnostics<cr>", opts)
