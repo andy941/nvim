@@ -84,6 +84,7 @@ return require("packer").startup(function()
 
 	-- latex preview and more
 	use({ "lervag/vimtex" })
+	use({ "RRethy/vim-illuminate" })
 
 	-- Debugger API and sugar
 	use({ "mfussenegger/nvim-dap" })
