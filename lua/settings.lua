@@ -19,7 +19,7 @@ set ssop+=globals    " required by Bufferline
 utils.opt("b", "tabstop", 2)
 utils.opt("b", "softtabstop", 2)
 utils.opt("b", "shiftwidth", 2)
-utils.opt("b", "expandtab", false)
+utils.opt("b", "expandtab", true)
 utils.opt("b", "smartindent", true)
 utils.opt("b", "autoindent", true)
 utils.opt("b", "swapfile", false)
