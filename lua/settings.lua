@@ -43,8 +43,9 @@ utils.opt("o", "laststatus", 3) -- Global statusline
 utils.opt("o", "cmdheight", 0)
 
 utils.opt("w", "cursorline", true)
+utils.opt("w", "cursorlineopt", "number")
 utils.opt("w", "number", true)
-utils.opt("w", "signcolumn", "auto:3")
+utils.opt("w", "signcolumn", "yes:2")
 utils.opt("w", "relativenumber", true)
 utils.opt("w", "foldenable", false)
 utils.opt("w", "foldmethod", "syntax")
