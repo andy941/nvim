@@ -11,19 +11,21 @@ require("gruvbox").setup({
 	invert_signs = false,
 	invert_tabline = false,
 	invert_indent_guides = false,
-	contrast = "light", -- can be "hard" or "light"
+	contrast = "hard", -- can be "hard" or "light"
 	overrides = {
 		SignColumn = { bg = "none" },
 		CursorLineNr = { bg = "none" },
 		Operator = { italic = false },
-		GruvboxRedSign = { fg = colors.red, bg = colors.dark0, reverse = false },
-		GruvboxGreenSign = { fg = colors.green, bg = colors.dark0, reverse = false },
-		GruvboxYellowSign = { fg = colors.yellow, bg = colors.dark0, reverse = false },
-		GruvboxBlueSign = { fg = colors.blue, bg = colors.dark0, reverse = false },
-		GruvboxPurpleSign = { fg = colors.purple, bg = colors.dark0, reverse = false },
-		GruvboxAquaSign = { fg = colors.aqua, bg = colors.dark0, reverse = false },
-		GruvboxOrangeSign = { fg = colors.orange, bg = colors.dark0, reverse = false },
-		--Normal = {bg='none'}
+		GruvboxRedSign = { fg = colors.red, bg = colors.dark0_hard, reverse = false },
+		GruvboxGreenSign = { fg = colors.green, bg = colors.dark0_hard, reverse = false },
+		GruvboxYellowSign = { fg = colors.yellow, bg = colors.dark0_hard, reverse = false },
+		GruvboxBlueSign = { fg = colors.blue, bg = colors.dark0_hard, reverse = false },
+		GruvboxPurpleSign = { fg = colors.purple, bg = colors.dark0_hard, reverse = false },
+		GruvboxAquaSign = { fg = colors.aqua, bg = colors.dark0_hard, reverse = false },
+		GruvboxOrangeSign = { fg = colors.orange, bg = colors.dark0_hard, reverse = false },
+		IlluminatedWordText = { bg = colors.dark1, reverse = false },
+		IlluminatedWordRead = { bg = colors.dark1, reverse = false },
+		IlluminatedWordWrite = { bg = colors.dark1, reverse = false },
 	},
 })
 
