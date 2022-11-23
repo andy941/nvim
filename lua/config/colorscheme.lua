@@ -25,7 +25,7 @@ require("gruvbox").setup({
 		GruvboxOrangeSign = { fg = colors.orange, bg = colors.dark0_hard, reverse = false },
 		IlluminatedWordText = { bg = colors.dark1, reverse = false },
 		IlluminatedWordRead = { bg = colors.dark1, reverse = false },
-		IlluminatedWordWrite = { bg = colors.dark1, reverse = false },
+		IlluminatedWordWrite = { bg = colors.dark0_hard, reverse = true },
 	},
 })
 
