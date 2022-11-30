@@ -40,7 +40,7 @@ utils.opt("o", "wildmode", "full")
 utils.opt("o", "scrolloff", 6)
 utils.opt("o", "equalalways", false)
 utils.opt("o", "laststatus", 3) -- Global statusline
-utils.opt("o", "cmdheight", 0)
+utils.opt("o", "cmdheight", 1)
 
 utils.opt("w", "cursorline", true)
 utils.opt("w", "cursorlineopt", "number")
