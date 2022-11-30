@@ -44,6 +44,7 @@ return require("packer").startup(function()
 	-- Completion
 	use({ "hrsh7th/nvim-cmp" })
 	use({ "hrsh7th/cmp-path" })
+	use({ "jalvesaq/cmp-nvim-r" })
 	use({ "hrsh7th/cmp-nvim-lsp" })
 	use({ "hrsh7th/cmp-nvim-lsp-signature-help" })
 	use({ "hrsh7th/cmp-nvim-lua" })
