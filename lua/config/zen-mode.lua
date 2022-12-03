@@ -15,7 +15,7 @@ require("zen-mode").setup({
 		options = {
 			-- signcolumn = "no", -- disable signcolumn
 			number = true, -- disable number column
-			relativenumber = true, -- disable relative numbers
+			relativenumber = false, -- disable relative numbers
 			-- cursorline = false, -- disable cursorline
 			-- cursorcolumn = false, -- disable cursor column
 			-- foldcolumn = "0", -- disable fold column
