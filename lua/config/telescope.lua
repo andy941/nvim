@@ -149,7 +149,7 @@ utils.map("n", "<leader>gg", "<cmd>Telescope 	live_grep<cr>", opts)
 utils.map("n", "<leader>ht", "<cmd>Telescope 	help_tags<cr>", opts)
 utils.map("n", "<leader>kb", "<cmd>Telescope 	keymaps<cr>", opts)
 utils.map("n", "<leader>pr", "<cmd>Telescope 	project<cr>", opts)
-utils.map("n", "<leader>rs", "<cmd>Telescope 	resume<cr>", opts)
+utils.map("n", "<leader>R", "<cmd>Telescope 	resume<cr>", opts)
 
 -- LSP
 utils.map("n", "<leader>di", "<cmd>Telescope 	diagnostics<cr>", opts)
