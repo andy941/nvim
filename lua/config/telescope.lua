@@ -68,6 +68,13 @@ tele.setup({
 			-- the default case_mode is "smart_case"
 		},
 		bibtex = {
+			layout_strategy = "horizontal",
+			layout_config = {
+				width = 0.90,
+				height = 0.95,
+				preview_width = 0.70,
+				--preview_height = 0.75,
+			},
 			-- Context awareness disabled by default
 			context = true,
 			-- Fallback to global/directory .bib files if context not found
