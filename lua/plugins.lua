@@ -111,4 +111,7 @@ return require("packer").startup(function()
   -- Remote work
 	use({ "chipsenkbeil/distant.nvim"})
 
+  -- repl
+  use ({"hkupty/iron.nvim"})
+
 end)
