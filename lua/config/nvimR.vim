@@ -22,7 +22,6 @@ let rout_follow_colorscheme = 1
 " keybindings
 function! s:customNvimRMappings()
 	nmap <buffer> <leader>rs <Plug>RStart
-	imap <buffer> <leader>rs <Plug>RStart
 	vmap <buffer> <leader>rs <Plug>RStart
 
 	nmap <buffer> <C-c> :RStop<cr>
@@ -30,6 +29,7 @@ function! s:customNvimRMappings()
 	vmap <buffer> <C-c> :RStop<cr>
 
 	nmap <buffer> <C-s> <Plug>RDSendLine
+	imap <buffer> <C-c> :RStop<cr>
 	vmap <buffer> <C-s> <Plug>RDSendSelection
 endfunction
 

@@ -107,4 +107,8 @@ return require("packer").startup(function()
 
 	-- Note taking with Zettelkasten method
 	use({ "renerocksai/telekasten.nvim", requires = { "renerocksai/calendar-vim" } })
+
+  -- Remote work
+	use({ "chipsenkbeil/distant.nvim"})
+
 end)

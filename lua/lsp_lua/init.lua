@@ -25,18 +25,19 @@ local on_attach = function(client, bufnr)
 	buf_set_keymap("n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
 	buf_set_keymap("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
 	buf_set_keymap("n", "E", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
+	buf_set_keymap("n", "F", "<cmd>lua vim.lsp.buf.format(nil, 100000)<CR>", opts)
 
-	if client.server_capabilities.documentFormattingProvider then
-		vim.api.nvim_command([[augroup Format]])
-		vim.api.nvim_command([[autocmd! * <buffer>]])
-		vim.api.nvim_command([[autocmd BufWritePre <buffer> lua vim.lsp.buf.format(nil, 100000)]])
-		vim.api.nvim_command([[augroup END]])
-	else -- formatter.nvim takes over
-		vim.api.nvim_command([[augroup FormatAutogroup]])
-		vim.api.nvim_command([[autocmd!]])
-		vim.api.nvim_command([[autocmd BufWritePost * FormatWrite]])
-		vim.api.nvim_command([[augroup END]])
-	end
+	--if client.server_capabilities.documentFormattingProvider then
+	--	vim.api.nvim_command([[augroup Format]])
+	--	vim.api.nvim_command([[autocmd! * <buffer>]])
+	--	vim.api.nvim_command([[autocmd BufWritePre <buffer> lua vim.lsp.buf.format(nil, 100000)]])
+	--	vim.api.nvim_command([[augroup END]])
+	--else -- formatter.nvim takes over
+	--	vim.api.nvim_command([[augroup FormatAutogroup]])
+	--	vim.api.nvim_command([[autocmd!]])
+	--	vim.api.nvim_command([[autocmd BufWritePost * FormatWrite]])
+	--	vim.api.nvim_command([[augroup END]])
+	--end
 end
 
 local servers = {
