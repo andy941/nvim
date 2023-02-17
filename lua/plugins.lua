@@ -36,8 +36,14 @@ return require("packer").startup(function()
 	use({ "nvim-telescope/telescope.nvim" })
 
 	-- LSP
+  use({"williamboman/mason.nvim"})
+  use({"williamboman/mason-lspconfig.nvim"})
+  use({"WhoIsSethDaniel/mason-tool-installer.nvim"})
 	use({ "neovim/nvim-lspconfig" })
 	use({ "p00f/clangd_extensions.nvim" })
+
+  -- Linting
+	use({ "mfussenegger/nvim-lint" })
 
 	-- Code formatting
 	use({ "mhartington/formatter.nvim" })
@@ -62,9 +68,6 @@ return require("packer").startup(function()
 		run = ":TSUpdate",
 	})
 
-	-- Context aware spell checking
-	use({ "lewis6991/spellsitter.nvim" })
-
 	-- Auto close brackets
 	use({ "windwp/nvim-autopairs" })
 
@@ -86,10 +89,13 @@ return require("packer").startup(function()
 
 	-- latex preview and more
 	use({ "lervag/vimtex" })
+
+  -- Lsp aware variable highlight
 	use({ "RRethy/vim-illuminate" })
 
 	-- Debugger API and sugar
 	use({ "mfussenegger/nvim-dap" })
+	use({ "jay-babu/mason-nvim-dap.nvim" })
 	use({ "rcarriga/nvim-dap-ui" })
 	use({ "theHamsta/nvim-dap-virtual-text" })
 	use({ "mfussenegger/nvim-dap-python" })
@@ -108,9 +114,6 @@ return require("packer").startup(function()
 
 	-- Note taking with Zettelkasten method
 	use({ "renerocksai/telekasten.nvim", requires = { "renerocksai/calendar-vim" } })
-
-  -- Remote work
-	use({ "chipsenkbeil/distant.nvim"})
 
   -- repl
   use ({"hkupty/iron.nvim"})
