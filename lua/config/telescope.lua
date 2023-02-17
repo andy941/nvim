@@ -149,7 +149,7 @@ end
 utils.map("n", "<leader>b", "<cmd>Telescope 	buffers<cr>", opts)
 
 -- Two characters
-utils.map("n", "<leader>ff", "<cmd>Telescope		find_files<cr>", opts)
+utils.map("n", "<Leader>ff", "<cmd>Telescope		find_files<cr>", opts)
 vim.keymap.set("n", "<leader>fg", ff_and_lg)
 utils.map("n", "<leader>fu", "<cmd>Telescope 	current_buffer_fuzzy_find<cr>", opts)
 utils.map("n", "<leader>gg", "<cmd>Telescope 	live_grep<cr>", opts)

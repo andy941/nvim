@@ -25,7 +25,7 @@ iron.setup {
   keymaps = {
     --send_motion = "<C-s>",
     visual_send = "<C-s>",
-    send_file = "<localleader>a",
+    --send_file = "<localleader>a",
     send_line = "<C-s>",
     --send_mark = "<space>sm",
     --mark_motion = "<space>mc",
@@ -45,7 +45,7 @@ iron.setup {
 }
 
 -- iron also has a list of commands, see :h iron-commands for all available commands
-vim.keymap.set('n', '<space>rs', '<cmd>IronRepl<cr>')
-vim.keymap.set('n', '<space>rr', '<cmd>IronRestart<cr>')
-vim.keymap.set('n', '<space>rf', '<cmd>IronFocus<cr>')
-vim.keymap.set('n', '<space>rh', '<cmd>IronHide<cr>')
+vim.keymap.set('n', '<leader>rs', '<cmd>IronRepl<cr>')
+vim.keymap.set('n', '<leader>rr', '<cmd>IronRestart<cr>')
+vim.keymap.set('n', '<leader>rf', '<cmd>IronFocus<cr>')
+vim.keymap.set('n', '<leader>rh', '<cmd>IronHide<cr>')

@@ -14,6 +14,9 @@ require("formatter").setup({
 		json = { fmt.json },
 		html = { fmt.html },
 		markdown = { fmt.markdown },
+		tex = { fmt.latex },
+		cpp = { fmt.clangformat },
+		c = { fmt.clangformat },
 		python = {
 			function()
 				return {

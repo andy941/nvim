@@ -1,4 +1,5 @@
 local utils = require("utils")
+local opts = { noremap = true, silent = true }
 
 -- change cursor shape in insert/normal mode
 vim.cmd([[
@@ -41,6 +42,7 @@ utils.opt("o", "scrolloff", 6)
 utils.opt("o", "equalalways", false)
 utils.opt("o", "laststatus", 3) -- Global statusline
 utils.opt("o", "cmdheight", 1)
+vim.cmd([[let mapleader=" "]])
 
 utils.opt("w", "cursorline", true)
 utils.opt("w", "cursorlineopt", "number")
@@ -56,3 +58,6 @@ vim.cmd("au TextYankPost * lua vim.highlight.on_yank {on_visual = false}")
 
 -- No numbers in terminal
 vim.cmd("autocmd TermOpen * setlocal nonumber norelativenumber")
+
+-- Exit insert mode in nvim terminal
+utils.map("t", "<leader><Esc>", "<c-\\><c-n>", opts)

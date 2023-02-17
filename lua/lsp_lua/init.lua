@@ -1,5 +1,5 @@
 require("mason").setup()
-require("mason-lspconfig").setup({automatic_installation = true})
+require("mason-lspconfig").setup({ automatic_installation = { exclude = "r_language_server" } })
 
 local nvim_lsp = require("lspconfig")
 
@@ -38,11 +38,12 @@ end
 
 -------------------------------------------------------------------------------
 
-require('mason-tool-installer').setup {
-  ensure_installed = {
-    'stylua',
-}
-}
+require("mason-tool-installer").setup({
+	ensure_installed = {
+		"stylua",
+		"black",
+	},
+})
 
 -------------------------------------------------------------------------------
 
@@ -107,45 +108,3 @@ nvim_lsp.texlab.setup({
 		},
 	},
 })
-
--- https://github.com/sumneko/lua-language-server/wiki/Build-and-Run-(Standalone)
---USER = vim.fn.expand("$USER")
---
---local sumneko_root_path = ""
---local sumneko_binary = ""
---
---if vim.fn.has("mac") == 1 then
---	sumneko_root_path = "/Users/" .. USER .. "/.config/nvim/lua-language-server"
---	sumneko_binary = "/Users/" .. USER .. "/.config/nvim/lua-language-server/bin/lua-language-server"
---elseif vim.fn.has("unix") == 1 then
---	sumneko_root_path = "/home/" .. USER .. "/.config/nvim/lua-language-server"
---	sumneko_binary = "/home/" .. USER .. "/.config/nvim/lua-language-server/bin/lua-language-server"
---else
---	print("Unsupported system for sumneko")
---end
---
---nvim_lsp.lua_ls.setup({
---	on_attach = on_attach,
---	cmd = { sumneko_binary, "-E", sumneko_root_path .. "/main.lua" },
---	settings = {
---		Lua = {
---			runtime = {
---				-- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
---				version = "LuaJIT",
---				-- Setup your lua path
---				path = vim.split(package.path, ";"),
---			},
---			diagnostics = {
---				-- Get the language server to recognize the `vim` global
---				globals = { "vim" },
---			},
---			workspace = {
---				-- Make the server aware of Neovim runtime files
---				library = {
---					[vim.fn.expand("$VIMRUNTIME/lua")] = true,
---					[vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true,
---				},
---			},
---		},
---	},
---})
