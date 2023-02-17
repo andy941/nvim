@@ -178,7 +178,7 @@ else
 	print("Unsupported system for sumneko")
 end
 
-nvim_lsp.sumneko_lua.setup({
+nvim_lsp.lua_ls.setup({
 	on_attach = on_attach,
 	cmd = { sumneko_binary, "-E", sumneko_root_path .. "/main.lua" },
 	settings = {

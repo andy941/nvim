@@ -13,7 +13,7 @@ iron.setup {
         command = {"zsh"}
       },
       python = {
-        command = {"ipython"}
+        command = {"ipython3"}
       }
     },
     -- How the repl window will be displayed
@@ -34,7 +34,7 @@ iron.setup {
     --cr = "<space>s<cr>",
     interrupt = "<C-c>",
     exit = "<space>rq",
-    clear = "<C-l>",
+    --clear = "<C-l>",
   },
   -- If the highlight is on, you can change how it looks
   -- For the available options, check nvim_set_hl
