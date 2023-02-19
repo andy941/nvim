@@ -18,16 +18,20 @@ local on_attach = function(client, bufnr)
 	local opts = { noremap = true, silent = true }
 
 	-- See `:help vim.lsp.*` for documentation on any of the below functions
-	buf_set_keymap("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
-	buf_set_keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
-	buf_set_keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
-	buf_set_keymap("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
-	buf_set_keymap("n", "gt", "<cmd>lua vim.lsp.buf.type_definition()<CR>", opts)
-	buf_set_keymap("n", "<leader>a", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
-	buf_set_keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
-	buf_set_keymap("n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
-	buf_set_keymap("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
-	buf_set_keymap("n", "E", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
+	buf_set_keymap("n", "gd", "<cmd>Lspsaga peek_definition<CR>", opts)
+	buf_set_keymap("n", "gD", "<cmd>Lspsaga goto_definition<CR>", opts)
+	buf_set_keymap("n", "gt", "<cmd>Lspsaga peek_type_definition<CR>", opts)
+	buf_set_keymap("n", "gT", "<cmd>Lspsaga goto_type_definition<CR>", opts)
+	buf_set_keymap("n", "gI", "<cmd>Lspsaga incoming_calls<CR>", opts)
+	buf_set_keymap("n", "gO", "<cmd>Lspsaga outgoing_calls<CR>", opts)
+	buf_set_keymap("n", "gr", "<cmd>Lspsaga lsp_finder<CR>", opts)
+	buf_set_keymap("n", "<leader>a", "<cmd>Lspsaga code_action<CR>", opts)
+	buf_set_keymap("n", "K", "<cmd>Lspsaga hover_doc<CR>", opts)
+	buf_set_keymap("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", opts)
+	buf_set_keymap("n", "<leader>rN", "<cmd>Lspsaga rename ++project<CR>", opts)
+	buf_set_keymap("n", "E", "<cmd>Lspsaga show_line_diagnostics<CR>", opts)
+	buf_set_keymap("n", "<leader>O", "<cmd>Lspsaga outline<CR>", opts)
+
 	buf_set_keymap("n", "F", "<cmd>lua vim.lsp.buf.format(nil, 100000)<CR>", opts)
 
 	vim.api.nvim_command([[augroup FormatAutogroup]])
@@ -59,7 +63,7 @@ local servers = {
 for _, lsp in ipairs(servers) do
 	nvim_lsp[lsp].setup({
 		on_attach = on_attach,
-		capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities()),
+		capabilities = require("cmp_nvim_lsp").default_capabilities(),
 		flags = {
 			debounce_text_changes = 150,
 		},
@@ -69,7 +73,7 @@ end
 require("clangd_extensions").setup({
 	server = {
 		on_attach = on_attach,
-		capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities()),
+		capabilities = require("cmp_nvim_lsp").default_capabilities(),
 		root_dir = nvim_lsp.util.root_pattern(
 			"compile_commands.json",
 			"build/compile_commands.json",
@@ -87,7 +91,7 @@ require("clangd_extensions").setup({
 
 nvim_lsp.texlab.setup({
 	on_attach = on_attach,
-	capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities()),
+	capabilities = require("cmp_nvim_lsp").default_capabilities(),
 	flags = {
 		debounce_text_changes = 150,
 	},
@@ -108,3 +112,5 @@ nvim_lsp.texlab.setup({
 		},
 	},
 })
+
+require("config.lspsaga")

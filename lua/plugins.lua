@@ -36,13 +36,14 @@ return require("packer").startup(function()
 	use({ "nvim-telescope/telescope.nvim" })
 
 	-- LSP
-  use({"williamboman/mason.nvim"})
-  use({"williamboman/mason-lspconfig.nvim"})
-  use({"WhoIsSethDaniel/mason-tool-installer.nvim"})
-	use({ "neovim/nvim-lspconfig" })
+	use({ "williamboman/mason.nvim" })
+	use({ "williamboman/mason-lspconfig.nvim" })
+	use({ "WhoIsSethDaniel/mason-tool-installer.nvim" })
+	use({ "glepnir/lspsaga.nvim" })
 	use({ "p00f/clangd_extensions.nvim" })
+	use({ "neovim/nvim-lspconfig" })
 
-  -- Linting
+	-- Linting
 	use({ "mfussenegger/nvim-lint" })
 
 	-- Code formatting
@@ -90,7 +91,7 @@ return require("packer").startup(function()
 	-- latex preview and more
 	use({ "lervag/vimtex" })
 
-  -- Lsp aware variable highlight
+	-- Lsp aware variable highlight
 	use({ "RRethy/vim-illuminate" })
 
 	-- Debugger API and sugar
@@ -115,7 +116,6 @@ return require("packer").startup(function()
 	-- Note taking with Zettelkasten method
 	use({ "renerocksai/telekasten.nvim", requires = { "renerocksai/calendar-vim" } })
 
-  -- repl
-  use ({"hkupty/iron.nvim"})
-
+	-- repl
+	use({ "hkupty/iron.nvim" })
 end)
