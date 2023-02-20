@@ -18,21 +18,20 @@ local on_attach = function(client, bufnr)
 	local opts = { noremap = true, silent = true }
 
 	-- See `:help vim.lsp.*` for documentation on any of the below functions
-	buf_set_keymap("n", "gd", "<cmd>Lspsaga peek_definition<CR>", opts)
-	buf_set_keymap("n", "gD", "<cmd>Lspsaga goto_definition<CR>", opts)
-	buf_set_keymap("n", "gt", "<cmd>Lspsaga peek_type_definition<CR>", opts)
-	buf_set_keymap("n", "gT", "<cmd>Lspsaga goto_type_definition<CR>", opts)
-	buf_set_keymap("n", "gI", "<cmd>Lspsaga incoming_calls<CR>", opts)
-	buf_set_keymap("n", "gO", "<cmd>Lspsaga outgoing_calls<CR>", opts)
-	buf_set_keymap("n", "gr", "<cmd>Lspsaga lsp_finder<CR>", opts)
-	buf_set_keymap("n", "<leader>a", "<cmd>Lspsaga code_action<CR>", opts)
-	buf_set_keymap("n", "K", "<cmd>Lspsaga hover_doc<CR>", opts)
-	buf_set_keymap("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", opts)
-	buf_set_keymap("n", "<leader>rN", "<cmd>Lspsaga rename ++project<CR>", opts)
-	buf_set_keymap("n", "E", "<cmd>Lspsaga show_line_diagnostics<CR>", opts)
-	buf_set_keymap("n", "<leader>O", "<cmd>Lspsaga outline<CR>", opts)
-
-	buf_set_keymap("n", "F", "<cmd>lua vim.lsp.buf.format(nil, 100000)<CR>", opts)
+	vim.keymap.set("n", "gd", "<cmd>Lspsaga peek_definition<CR>", opts)
+	vim.keymap.set("n", "gD", "<cmd>Lspsaga goto_definition<CR>", opts)
+	vim.keymap.set("n", "gt", "<cmd>Lspsaga peek_type_definition<CR>", opts)
+	vim.keymap.set("n", "gT", "<cmd>Lspsaga goto_type_definition<CR>", opts)
+	vim.keymap.set("n", "gI", "<cmd>Lspsaga incoming_calls<CR>", opts)
+	vim.keymap.set("n", "gO", "<cmd>Lspsaga outgoing_calls<CR>", opts)
+	vim.keymap.set("n", "gr", "<cmd>Lspsaga lsp_finder<CR>", opts)
+	vim.keymap.set("n", "<leader>a", "<cmd>Lspsaga code_action<CR>", opts)
+	vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", opts)
+	vim.keymap.set("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", opts)
+	vim.keymap.set("n", "<leader>rN", "<cmd>Lspsaga rename ++project<CR>", opts)
+	vim.keymap.set("n", "E", "<cmd>Lspsaga show_line_diagnostics<CR>", opts)
+	vim.keymap.set("n", "<leader>O", "<cmd>Lspsaga outline<CR>", opts)
+	vim.keymap.set("n", "F", "<cmd>lua vim.lsp.buf.format(nil, 100000)<CR>", opts)
 
 	vim.api.nvim_command([[augroup FormatAutogroup]])
 	vim.api.nvim_command([[autocmd!]])
@@ -65,7 +64,7 @@ for _, lsp in ipairs(servers) do
 		on_attach = on_attach,
 		capabilities = require("cmp_nvim_lsp").default_capabilities(),
 		flags = {
-			debounce_text_changes = 150,
+			debounce_text_changes = 1500,
 		},
 	})
 end
@@ -81,7 +80,7 @@ require("clangd_extensions").setup({
 			".git"
 		),
 		flags = {
-			debounce_text_changes = 150,
+			debounce_text_changes = 1500,
 		},
 	},
 	extensions = {
@@ -93,7 +92,7 @@ nvim_lsp.texlab.setup({
 	on_attach = on_attach,
 	capabilities = require("cmp_nvim_lsp").default_capabilities(),
 	flags = {
-		debounce_text_changes = 150,
+		debounce_text_changes = 1500,
 	},
 	filetypes = { "tex", "plaintex", "bib" },
 	settings = {
@@ -112,5 +111,3 @@ nvim_lsp.texlab.setup({
 		},
 	},
 })
-
-require("config.lspsaga")

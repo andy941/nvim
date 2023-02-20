@@ -12,13 +12,13 @@ require("lspsaga").setup({
 	finder = {
 		max_height = 0.6,
 		keys = {
-			jump_to = { "l", "<CR>" },
+			jump_to = "<CR>",
 			edit = "o",
 			vsplit = "v",
 			split = "x",
 			tabe = "t",
 			tabnew = "r",
-			quit = { "q", "<ESC>" },
+			quit = "q",
 			close_in_preview = "<ESC>",
 		},
 	},
@@ -42,7 +42,7 @@ require("lspsaga").setup({
 	lightbulb = {
 		enable = true,
 		enable_in_insert = true,
-		sign = true,
+		sign = false,
 		sign_priority = 40,
 		virtual_text = true,
 	},
