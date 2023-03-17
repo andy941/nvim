@@ -25,9 +25,14 @@ cmp.setup({
 			maxwidth = 50,
 		}),
 	},
+
 	window = {
-		completion = cmp.config.window.bordered(),
-		documentation = cmp.config.window.bordered(),
+		completion = {
+			winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,CursorLine:PmenuSel,Search:None",
+		},
+		documentation = {
+			winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,CursorLine:PmenuSel,Search:None",
+		},
 	},
 
 	snippet = {
@@ -83,9 +88,8 @@ cmp.setup({
 		{ name = "cmp-nvim-r" },
 		{ name = "nvim_lsp" },
 		{ name = "nvim_lsp_signature_help" },
-		{ name = "nvim_lua" }, -- knows to activate only in Lua
+		--{ name = "nvim_lua" }, -- knows to activate only in Lua
 		{ name = "luasnip" },
-		--{ name = 'buffer'},
 	},
 
 	sorting = {

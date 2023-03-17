@@ -14,7 +14,6 @@ require("formatter").setup({
 		json = { fmt.json },
 		html = { fmt.html },
 		markdown = { fmt.markdown },
-		tex = { fmt.latex },
 		cpp = { fmt.clangformat },
 		c = { fmt.clangformat },
 		python = {
@@ -26,9 +25,22 @@ require("formatter").setup({
 				}
 			end,
 		},
+		tex = {
+			function()
+				return {
+					exe = "latexindent",
+					args = {
+						"--modifylinebreaks",
+						"-g",
+						"/dev/null",
+					},
+					stdin = true,
+				}
+			end,
+		},
 
-		--["*"] = {
-		--	require("formatter.filetypes.any").remove_trailing_whitespace,
-		--},
+		["*"] = {
+			require("formatter.filetypes.any").remove_trailing_whitespace,
+		},
 	},
 })

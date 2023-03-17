@@ -1,7 +1,6 @@
 require("dapui").setup({
 	icons = { expanded = "▾", collapsed = "▸" },
 	mappings = {
-		-- Use a table to apply multiple mappings
 		expand = { "l", "<CR>", "<2-LeftMouse>" },
 		open = "o",
 		remove = "d",
@@ -9,15 +8,8 @@ require("dapui").setup({
 		repl = "r",
 		toggle = "t",
 	},
-	-- Expand lines larger than the window
-	-- Requires >= 0.7
 	expand_lines = vim.fn.has("nvim-0.7"),
 
-	-- Layouts define sections of the screen to place windows.
-	-- The position can be "left", "right", "top" or "bottom".
-	-- The size specifies the height/width depending on position.
-	-- Elements are the elements shown in the layout (in order).
-	-- Layouts are opened in order so that earlier layouts take priority in window sizing.
 	layouts = {
 		{
 			elements = {

@@ -1,4 +1,3 @@
--- Lua
 require("winshift").setup({
 	highlight_moving_win = true, -- Highlight the window being moved
 	focused_hl_group = "Visual", -- The highlight group used for the moving window

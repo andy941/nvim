@@ -1,32 +1,32 @@
 require("lspsaga").setup({
 	preview = {
-		lines_above = 10,
-		lines_below = 30,
+		lines_above = 0,
+		lines_below = 40,
 	},
 	scroll_preview = {
 		scroll_down = "<C-f>",
 		scroll_up = "<C-b>",
 	},
-	request_timeout = 20000,
+	request_timeout = 2000,
 
 	finder = {
-		max_height = 0.6,
+		max_height = 0.7,
 		keys = {
-			jump_to = "<CR>",
-			edit = "o",
+			jump_to = "e",
+			edit = { "o" },
 			vsplit = "v",
 			split = "x",
 			tabe = "t",
 			tabnew = "r",
-			quit = "q",
-			close_in_preview = "<ESC>",
+			quit = { "q" },
+			close_in_preview = "<C-c>",
 		},
 	},
 
 	definition = {
-		edit = "<C-c>o",
+		edit = "<C-c>e",
 		vsplit = "<C-c>v",
-		split = "<C-c>i",
+		split = "<C-c>x",
 		tabe = "<C-c>t",
 		quit = "q",
 		close = "<Esc>",
@@ -34,7 +34,7 @@ require("lspsaga").setup({
 
 	code_action = {
 		num_shortcut = true,
-		show_server_name = false,
+		show_server_name = true,
 		extend_gitsigns = true,
 		keys = { quit = "q", exec = "<CR>" },
 	},
@@ -48,13 +48,12 @@ require("lspsaga").setup({
 	},
 
 	diagnostic = {
-		on_insert = true,
+		on_insert = false,
 		on_insert_follow = false,
 		insert_winblend = 0,
 		show_code_action = true,
 		show_source = true,
 		jump_num_shortcut = true,
-		--1 is max
 		max_width = 0.7,
 		custom_fix = nil,
 		custom_msg = nil,
@@ -92,15 +91,15 @@ require("lspsaga").setup({
 	},
 
 	callhierarchy = {
-		show_detail = false,
+		show_detail = true,
 		keys = {
-			edit = "l",
+			edit = "e",
 			vsplit = "v",
 			split = "x",
 			tabe = "t",
 			jump = "<CR>",
 			quit = "q",
-			expand_collapse = "h",
+			expand_collapse = "l",
 		},
 	},
 
@@ -116,7 +115,6 @@ require("lspsaga").setup({
 	},
 
 	ui = {
-		-- This option only works in Neovim 0.9
 		title = true,
 		-- Border type can be single, double, rounded, solid, shadow.
 		border = "rounded",

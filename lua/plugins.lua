@@ -118,4 +118,5 @@ return require("packer").startup(function()
 
 	-- repl
 	use({ "hkupty/iron.nvim" })
+	use({ "geg2102/nvim-python-repl" })
 end)
