@@ -116,6 +116,9 @@ return require("packer").startup(function()
 	-- Note taking with Zettelkasten method
 	use({ "renerocksai/telekasten.nvim", requires = { "renerocksai/calendar-vim" } })
 
+  -- Copy through SSH
+  use ({'ojroques/nvim-osc52'})
+
 	-- repl
 	use({ "hkupty/iron.nvim" })
 	use({ "geg2102/nvim-python-repl" })
