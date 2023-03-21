@@ -1,7 +1,14 @@
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = "all",
+  ensure_installed =
+    "cpp",
+    "python",
+    "bash",
+    "lua",
+    "cmake",
+    "gitcommit",
+    "help"
+  ,
 	ignore_install = {
-		"phpdoc"
 	},
   highlight = {
     enable = true,              -- false will disable the whole extension
@@ -21,3 +28,4 @@ require'nvim-treesitter.configs'.setup {
   },
   textobjects = { enable = true },
 }
+
