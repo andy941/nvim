@@ -36,8 +36,6 @@ end
 
 require("mason-tool-installer").setup({
 	ensure_installed = {
-		"stylua",
-		"black",
 	},
 })
 
@@ -74,46 +72,3 @@ require("clangd_extensions").setup({
 		autoSetHints = false,
 	},
 })
-
-nvim_lsp.texlab.setup({
-	on_attach = on_attach,
-	capabilities = require("cmp_nvim_lsp").default_capabilities(),
-	filetypes = { "tex", "plaintex", "bib" },
-	settings = {
-		texlab = {
-			auxDirectory = "./build",
-			bibtexFormatter = "texlab",
-			chktex = {
-				onEdit = true,
-				onOpenAndSave = true,
-			},
-			diagnosticsDelay = 50,
-			latexFormatter = "latexindent",
-			latexindent = {
-				modifyLineBreaks = true,
-			},
-		},
-	},
-})
-
---nvim_lsp.ltex.setup({
---	on_attach = on_attach,
---	capabilities = require("cmp_nvim_lsp").default_capabilities(),
---	settings = {
---		ltex = {
---			disabledRules = {
---				["en"] = { "MORFOLOGIK_RULE_EN" },
---				["en-AU"] = { "MORFOLOGIK_RULE_EN_AU" },
---				["en-CA"] = { "MORFOLOGIK_RULE_EN_CA" },
---				["en-GB"] = { "MORFOLOGIK_RULE_EN_GB" },
---				["en-NZ"] = { "MORFOLOGIK_RULE_EN_NZ" },
---				["en-US"] = { "MORFOLOGIK_RULE_EN_US" },
---				["en-ZA"] = { "MORFOLOGIK_RULE_EN_ZA" },
---				["it"] = { "MORFOLOGIK_RULE_IT_IT" },
---			},
---			additionalRules = {
---				languageModel = "~/ngram/",
---			},
---		},
---	},
---})
