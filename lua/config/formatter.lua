@@ -2,30 +2,24 @@
 local fmt = require("formatter.filetypes.lua")
 local util = require("formatter.util")
 
--- Format keybinding
-vim.keymap.set("n", "F", "<cmd>Format<CR>", opts)
+--vim.api.nvim_command([[augroup FormatAutogroup]])
+--vim.api.nvim_command([[autocmd!]])
+--vim.api.nvim_command([[autocmd BufWritePost * FormatWrite]])
+--vim.api.nvim_command([[augroup END]])
 
--- Format on save
-vim.api.nvim_command([[augroup FormatAutogroup]])
-vim.api.nvim_command([[autocmd!]])
-vim.api.nvim_command([[autocmd BufWritePost * FormatWrite]])
-vim.api.nvim_command([[augroup END]])
-
--- clang-format default not working without this (for now at least)
-Cformat = function()
-	return {
-		exe = "clang-format",
-		args = {
-			"-assume-filename",
-			util.escape_path(util.get_current_buffer_file_name()),
-		},
-		stdin = true,
-		try_node_modules = true,
-	}
+Clang_format_finder = function(clang_format_file)
+	CF = vim.fn.finddir(".git/..", ".;")
+	CF = vim.fn.fnamemodify(CF, ":p:h") .. clang_format_file
+	if vim.fn.findfile(CF) ~= 1 then
+		return CF
+	else
+		return ""
+	end
 end
 
 -- Provides the Format, FormatWrite, FormatLock, and FormatWriteLock commands
 require("formatter").setup({
+
 	logging = true,
 	log_level = vim.log.levels.WARN,
 	filetype = {
@@ -37,8 +31,6 @@ require("formatter").setup({
 		json = { fmt.json },
 		html = { fmt.html },
 		markdown = { fmt.markdown },
-		cpp = { Cformat },
-		c = { Cformat },
 		python = {
 			function()
 				return {
@@ -48,37 +40,17 @@ require("formatter").setup({
 				}
 			end,
 		},
-		tex = {
-			function()
-				return {
-					exe = "latexindent",
-					args = {
-						"--modifylinebreaks",
-						"-g",
-						"/dev/null",
-					},
-					stdin = true,
-				}
-			end,
-		},
-            -- stylua: ignore start
-    r = {
-      function()
-        return {
-          exe = "R",
-          args = {
-            "--slave",
-            "--no-restore",
-            "--no-save",
-            "-e",
-            '\'con <- file("stdin"); styler::style_text(readLines(con)); close(con)\'',
-            "2>/dev/null"
-          },
-          stdin = true
-        }
-      end
-    },
-		-- stylua: ignore end
+		cpp = function()
+			return {
+				exe = Clang_format_finder("/meta/clang-format"),
+				args = {
+					"-assume-filename",
+					util.escape_path(util.get_current_buffer_file_name()),
+				},
+				stdin = true,
+				try_node_modules = true,
+			}
+		end,
 
 		["*"] = {
 			require("formatter.filetypes.any").remove_trailing_whitespace,
