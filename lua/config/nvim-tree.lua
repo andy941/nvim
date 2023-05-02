@@ -37,7 +37,6 @@ require("nvim-tree").setup({ -- BEGIN_DEFAULT_OPTS
 	hijack_cursor = true,
 	hijack_netrw = true,
 	hijack_unnamed_buffer_when_opening = true,
-	open_on_tab = false,
 	sort_by = "name",
 	update_cwd = true,
 	view = {
