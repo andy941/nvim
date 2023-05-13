@@ -81,26 +81,26 @@ require("clangd_extensions").setup({
 	},
 })
 
-nvim_lsp.texlab.setup({
-	on_attach = on_attach,
-	capabilities = require("cmp_nvim_lsp").default_capabilities(),
-	filetypes = { "tex", "plaintex", "bib" },
-	settings = {
-		texlab = {
-			auxDirectory = "./build",
-			bibtexFormatter = "texlab",
-			chktex = {
-				onEdit = true,
-				onOpenAndSave = true,
-			},
-			diagnosticsDelay = 50,
-			latexFormatter = "latexindent",
-			latexindent = {
-				modifyLineBreaks = true,
-			},
-		},
-	},
-})
+--nvim_lsp.texlab.setup({
+--	on_attach = on_attach,
+--	capabilities = require("cmp_nvim_lsp").default_capabilities(),
+--	filetypes = { "tex", "plaintex", "bib" },
+--	settings = {
+--		texlab = {
+--			auxDirectory = "./build",
+--			bibtexFormatter = "texlab",
+--			chktex = {
+--				onEdit = true,
+--				onOpenAndSave = true,
+--			},
+--			diagnosticsDelay = 50,
+--			latexFormatter = "latexindent",
+--			latexindent = {
+--				modifyLineBreaks = true,
+--			},
+--		},
+--	},
+--})
 
 nvim_lsp.ltex.setup({
 	on_attach = on_attach,

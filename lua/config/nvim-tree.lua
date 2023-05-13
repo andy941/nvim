@@ -37,9 +37,6 @@ require("nvim-tree").setup({ -- BEGIN_DEFAULT_OPTS
 	hijack_cursor = true,
 	hijack_netrw = true,
 	hijack_unnamed_buffer_when_opening = true,
-	ignore_buffer_on_setup = false,
-	open_on_setup = false,
-	open_on_setup_file = false,
 	open_on_tab = false,
 	sort_by = "name",
 	update_cwd = true,
@@ -84,7 +81,6 @@ require("nvim-tree").setup({ -- BEGIN_DEFAULT_OPTS
 		update_cwd = true,
 		ignore_list = { ".git/" },
 	},
-	ignore_ft_on_setup = {},
 	system_open = {
 		cmd = nil,
 		args = {},
