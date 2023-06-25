@@ -16,15 +16,15 @@ require("formatter").setup({
 		markdown = { fmt.markdown },
 		cpp = { fmt.clangformat },
 		c = { fmt.clangformat },
-		--python = {
-		--	function()
-		--		return {
-		--			exe = "black",
-		--			args = { "-q", "-", "-l 80" },
-		--			stdin = true,
-		--		}
-		--	end,
-		--},
+		python = {
+			function()
+				return {
+					exe = "black",
+					args = { "-q", "-", "-l 80" },
+					stdin = true,
+				}
+			end,
+		},
 		tex = {
 			function()
 				return {

@@ -30,7 +30,7 @@ local on_attach = function(client, bufnr)
 	vim.keymap.set("n", "<leader>rN", "<cmd>Lspsaga rename ++project<CR>", opts)
 	vim.keymap.set("n", "E", "<cmd>Lspsaga show_line_diagnostics<CR>", opts)
 	vim.keymap.set("n", "<leader>O", "<cmd>Lspsaga outline<CR>", opts)
-	vim.keymap.set("n", "F", "<cmd>lua vim.lsp.buf.format(nil, 100000)<CR>", opts)
+	vim.keymap.set("n", "F", "<cmd>Format<CR>", opts)
 
 	vim.api.nvim_command([[augroup FormatAutogroup]])
 	vim.api.nvim_command([[autocmd!]])
@@ -102,24 +102,24 @@ require("clangd_extensions").setup({
 --	},
 --})
 
-nvim_lsp.ltex.setup({
-	on_attach = on_attach,
-	capabilities = require("cmp_nvim_lsp").default_capabilities(),
-	settings = {
-		ltex = {
-			disabledRules = {
-				["en"] = { "MORFOLOGIK_RULE_EN" },
-				["en-AU"] = { "MORFOLOGIK_RULE_EN_AU" },
-				["en-CA"] = { "MORFOLOGIK_RULE_EN_CA" },
-				["en-GB"] = { "MORFOLOGIK_RULE_EN_GB" },
-				["en-NZ"] = { "MORFOLOGIK_RULE_EN_NZ" },
-				["en-US"] = { "MORFOLOGIK_RULE_EN_US" },
-				["en-ZA"] = { "MORFOLOGIK_RULE_EN_ZA" },
-				["it"] = { "MORFOLOGIK_RULE_IT_IT" },
-			},
-			additionalRules = {
-				languageModel = "~/ngram/",
-			},
-		},
-	},
-})
+--nvim_lsp.ltex.setup({
+--	on_attach = on_attach,
+--	capabilities = require("cmp_nvim_lsp").default_capabilities(),
+--	settings = {
+--		ltex = {
+--			disabledRules = {
+--				["en"] = { "MORFOLOGIK_RULE_EN" },
+--				["en-AU"] = { "MORFOLOGIK_RULE_EN_AU" },
+--				["en-CA"] = { "MORFOLOGIK_RULE_EN_CA" },
+--				["en-GB"] = { "MORFOLOGIK_RULE_EN_GB" },
+--				["en-NZ"] = { "MORFOLOGIK_RULE_EN_NZ" },
+--				["en-US"] = { "MORFOLOGIK_RULE_EN_US" },
+--				["en-ZA"] = { "MORFOLOGIK_RULE_EN_ZA" },
+--				["it"] = { "MORFOLOGIK_RULE_IT_IT" },
+--			},
+--			additionalRules = {
+--				languageModel = "~/ngram/",
+--			},
+--		},
+--	},
+--})

@@ -6,7 +6,7 @@ let g:vimtex_view_forward_search_on_start = 1
 
 " latexmk options
 let g:vimtex_compiler_latexmk = {
-			\ 'build_dir' : './build',
+			\ 'out_dir' : 'build',
 			\ 'callback' : 1,
 			\ 'continuous' : 1,
 			\ 'executable' : 'latexmk',
