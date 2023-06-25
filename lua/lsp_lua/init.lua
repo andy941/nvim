@@ -30,12 +30,7 @@ local on_attach = function(client, bufnr)
 	vim.keymap.set("n", "<leader>rN", "<cmd>Lspsaga rename ++project<CR>", opts)
 	vim.keymap.set("n", "E", "<cmd>Lspsaga show_line_diagnostics<CR>", opts)
 	vim.keymap.set("n", "<leader>O", "<cmd>Lspsaga outline<CR>", opts)
-	vim.keymap.set("n", "F", "<cmd>Format<CR>", opts)
 
-	vim.api.nvim_command([[augroup FormatAutogroup]])
-	vim.api.nvim_command([[autocmd!]])
-	vim.api.nvim_command([[autocmd BufWritePost * FormatWrite]])
-	vim.api.nvim_command([[augroup END]])
 end
 
 -------------------------------------------------------------------------------

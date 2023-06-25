@@ -7,7 +7,7 @@ require("lspsaga").setup({
 		scroll_down = "<C-f>",
 		scroll_up = "<C-b>",
 	},
-	request_timeout = 2000,
+	request_timeout = 10000,
 
 	finder = {
 		max_height = 0.7,

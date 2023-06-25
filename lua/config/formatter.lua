@@ -1,5 +1,29 @@
 -- Utilities for creating configurations
 local fmt = require("formatter.filetypes.lua")
+local util = require("formatter.util")
+
+-- Format keybinding
+vim.keymap.set("n", "F", "<cmd>Format<CR>", opts)
+
+-- Format on save
+vim.api.nvim_command([[augroup FormatAutogroup]])
+vim.api.nvim_command([[autocmd!]])
+vim.api.nvim_command([[autocmd BufWritePost * FormatWrite]])
+vim.api.nvim_command([[augroup END]])
+
+-- clang-format default not working without this (for now at least)
+Cformat = function()
+  return {
+    exe = "clang-format",
+    args = {
+      "-assume-filename",
+      util.escape_path(util.get_current_buffer_file_name()),
+    },
+    stdin = true,
+    try_node_modules = true,
+  }
+end
+
 
 -- Provides the Format, FormatWrite, FormatLock, and FormatWriteLock commands
 require("formatter").setup({
@@ -14,8 +38,8 @@ require("formatter").setup({
 		json = { fmt.json },
 		html = { fmt.html },
 		markdown = { fmt.markdown },
-		cpp = { fmt.clangformat },
-		c = { fmt.clangformat },
+		cpp = { Cformat },
+		c = { Cformat },
 		python = {
 			function()
 				return {
