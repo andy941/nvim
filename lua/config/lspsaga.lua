@@ -115,16 +115,13 @@ require("lspsaga").setup({
 	},
 
 	ui = {
+
 		title = true,
 		-- Border type can be single, double, rounded, solid, shadow.
 		border = "rounded",
 		winblend = 0,
-		expand = "",
-		collapse = "",
-		code_action = "💡",
-		incoming = " ",
-		outgoing = " ",
-		hover = " ",
-		kind = {},
+		ui = {
+			kind = require("catppuccin.groups.integrations.lsp_saga").custom_kind(),
+		},
 	},
 })

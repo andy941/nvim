@@ -6,6 +6,7 @@ let g:vimtex_view_forward_search_on_start = 1
 
 " latexmk options
 let g:vimtex_compiler_latexmk = {
+			\ 'aux_dir' : 'build',
 			\ 'out_dir' : 'build',
 			\ 'callback' : 1,
 			\ 'continuous' : 1,
@@ -38,4 +39,3 @@ let g:vimtex_indent_enabled   = 0      " turn off VimTeX indentation
 let g:vimtex_imaps_enabled    = 0      " disable insert mode mappings (e.g. if you use UltiSnips)
 let g:vimtex_complete_enabled = 0      " turn off completion
 let g:vimtex_syntax_enabled   = 0      " disable syntax conceal
-

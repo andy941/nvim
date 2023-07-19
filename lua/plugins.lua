@@ -22,6 +22,7 @@ return require("packer").startup(function()
 	-- Color scheme
 	use({ "ellisonleao/gruvbox.nvim" })
 	use({ "EdenEast/nightfox.nvim" })
+	use({ "catppuccin/nvim" })
 
 	-- Lualine
 	use({ "hoob3rt/lualine.nvim" })
@@ -116,7 +117,6 @@ return require("packer").startup(function()
 	-- Note taking with Zettelkasten method
 	use({ "renerocksai/telekasten.nvim", requires = { "renerocksai/calendar-vim" } })
 
-  -- Copy/paste from anywhere
-	use({"ojroques/nvim-osc52"})
-
+	-- Copy/paste from anywhere
+	use({ "ojroques/nvim-osc52" })
 end)
