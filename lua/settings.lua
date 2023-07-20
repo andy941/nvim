@@ -42,6 +42,7 @@ utils.opt("o", "scrolloff", 6)
 utils.opt("o", "equalalways", false)
 utils.opt("o", "laststatus", 3) -- Global statusline
 utils.opt("o", "cmdheight", 1)
+utils.opt("o", "shell", "zsh")
 vim.cmd([[let mapleader=" "]])
 
 utils.opt("w", "cursorline", true)
