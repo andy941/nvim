@@ -18,9 +18,11 @@ tele.setup({
 		},
 		file_ignore_patterns = { -- % is an escape char in lua regex
 			"Pictures/",
+			"build/",
 			"Drives/",
 			"vpnconfigs/",
 			".git/",
+			".cache/",
 			"lua%-language%-server/",
 		},
 		mappings = {
