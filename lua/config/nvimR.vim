@@ -37,4 +37,3 @@ augroup myNvimR
 	au!
 	autocmd filetype r call s:customNvimRMappings()
 augroup end
-
