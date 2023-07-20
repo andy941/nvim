@@ -2,6 +2,10 @@
 local fmt = require("formatter.filetypes.lua")
 local util = require("formatter.util")
 
+-- Format keybinding
+vim.keymap.set("n", "F", "<cmd>Format<CR>", opts)
+
+---- Format on save
 --vim.api.nvim_command([[augroup FormatAutogroup]])
 --vim.api.nvim_command([[autocmd!]])
 --vim.api.nvim_command([[autocmd BufWritePost * FormatWrite]])
