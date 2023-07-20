@@ -3,6 +3,9 @@ require("mason-lspconfig").setup({ automatic_installation = { exclude = "r_langu
 
 local nvim_lsp = require("lspconfig")
 local on_attach = function(client, bufnr)
+	-- Disable loggin (reactivate with vim.lsp.set_log_level("debug"))
+	vim.lsp.set_log_level("off")
+
 	local function buf_set_keymap(...)
 		vim.api.nvim_buf_set_keymap(bufnr, ...)
 	end
