@@ -96,6 +96,9 @@ tele.setup({
 			filetypes = { "png", "webp", "jpg", "jpeg" },
 			find_cmd = "rg", -- find command (defaults to `fd`)
 		},
+		["ui-select"] = {
+			require("telescope.themes").get_dropdown({}),
+		},
 	},
 })
 -- To get fzf loaded and working with telescope, you need to call
@@ -116,6 +119,9 @@ tele.load_extension("heading")
 
 -- DAP integration
 tele.load_extension("dap")
+
+-- ui.select replacement
+tele.load_extension("ui-select")
 
 -- Custom functions ------------------------------------------------------------------
 -- find files and then live grep into their contents
