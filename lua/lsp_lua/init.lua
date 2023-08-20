@@ -1,6 +1,5 @@
 require("mason").setup()
 require("mason-lspconfig").setup({ automatic_installation = { exclude = "r_language_server" } })
-
 local nvim_lsp = require("lspconfig")
 local on_attach = function(client, bufnr)
 	-- Disable loggin (reactivate with vim.lsp.set_log_level("debug"))
@@ -62,20 +61,15 @@ for _, lsp in ipairs(servers) do
 	})
 end
 
-require("clangd_extensions").setup({
-	server = {
-		on_attach = on_attach,
-		capabilities = require("cmp_nvim_lsp").default_capabilities(),
-		root_dir = nvim_lsp.util.root_pattern(
-			"compile_commands.json",
-			"build/compile_commands.json",
-			"compile_flags.txt",
-			".git"
-		),
-	},
-	extensions = {
-		autoSetHints = false,
-	},
+nvim_lsp.clangd.setup({
+	on_attach = on_attach,
+	capabilities = require("cmp_nvim_lsp").default_capabilities(),
+	root_dir = nvim_lsp.util.root_pattern(
+		"compile_commands.json",
+		"build/compile_commands.json",
+		"compile_flags.txt",
+		".git"
+	),
 })
 
 nvim_lsp.texlab.setup({
