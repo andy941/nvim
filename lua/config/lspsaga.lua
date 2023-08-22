@@ -1,7 +1,7 @@
 require("lspsaga").setup({
 	preview = {
 		lines_above = 0,
-		lines_below = 40,
+		lines_below = 50,
 	},
 	scroll_preview = {
 		scroll_down = "<C-f>",
@@ -12,8 +12,8 @@ require("lspsaga").setup({
 	finder = {
 		max_height = 0.7,
 		keys = {
-			jump_to = "e",
-			edit = { "o" },
+			jump_to = "o",
+			edit = { "e" },
 			vsplit = "v",
 			split = "x",
 			tabe = "t",
@@ -104,18 +104,17 @@ require("lspsaga").setup({
 	},
 
 	symbol_in_winbar = {
-		enable = false,
+		enable = true,
 		separator = " ",
 		ignore_patterns = {},
 		hide_keyword = true,
-		show_file = true,
+		show_file = false,
 		folder_level = 2,
 		respect_root = false,
 		color_mode = true,
 	},
 
 	ui = {
-
 		title = true,
 		-- Border type can be single, double, rounded, solid, shadow.
 		border = "rounded",

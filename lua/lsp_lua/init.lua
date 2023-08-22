@@ -1,13 +1,11 @@
 require("mason").setup()
 require("mason-lspconfig").setup({ automatic_installation = { exclude = "r_language_server" } })
 local nvim_lsp = require("lspconfig")
+
 local on_attach = function(client, bufnr)
 	-- Disable loggin (reactivate with vim.lsp.set_log_level("debug"))
 	vim.lsp.set_log_level("off")
 
-	local function buf_set_keymap(...)
-		vim.api.nvim_buf_set_keymap(bufnr, ...)
-	end
 	local function buf_set_option(...)
 		vim.api.nvim_buf_set_option(bufnr, ...)
 	end
@@ -30,9 +28,24 @@ local on_attach = function(client, bufnr)
 	vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", opts)
 	vim.keymap.set("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", opts)
 	vim.keymap.set("n", "<leader>rN", "<cmd>Lspsaga rename ++project<CR>", opts)
-	vim.keymap.set("n", "E", "<cmd>Lspsaga show_line_diagnostics<CR>", opts)
+	vim.keymap.set("n", "<leader>E", "<cmd>Lspsaga show_line_diagnostics<CR>", opts)
 	vim.keymap.set("n", "<leader>O", "<cmd>Lspsaga outline<CR>", opts)
 end
+
+vim.cmd([[
+  sign define DiagnosticSignError text= texthl=LspDiagnosticsVirtualTextError linehl= numhl=LspDiagnosticsVirtualTextError
+  sign define DiagnosticSignWarn text= texthl=LspDiagnosticsVirtualTextWarning linehl= numhl=LspDiagnosticsVirtualTextWarning
+  sign define DiagnosticSignInfo text= texthl=LspDiagnosticsVirtualTextInfo linehl= numhl=LspDiagnosticsVirtualTextInfo
+  sign define DiagnosticSignHint text= texthl=LspDiagnosticsVirtualTextHint linehl= numhl=LspDiagnosticsVirtualTextInfo
+]])
+
+vim.diagnostic.config({
+	virtual_text = true,
+	signs = true,
+	underline = true,
+	update_in_insert = true,
+	severity_sort = true,
+})
 
 -------------------------------------------------------------------------------
 
@@ -52,29 +65,43 @@ local servers = {
 	"r_language_server",
 	"dockerls",
 	"lua_ls",
+	"clangd",
+}
+
+local command = {}
+local initialization_options = {}
+
+command.clangd = {
+	"clangd",
+	"-j=8",
+	"--background-index",
+	"--clang-tidy",
+	"--fallback-style=llvm",
+	"--all-scopes-completion",
+	"--completion-style=detailed",
+	"--header-insertion=iwyu",
+	"--header-insertion-decorators",
+	"--pch-storage=memory",
+}
+
+initialization_options.clangd = {
+	fallback_flags = { "-std=c++17" },
 }
 
 for _, lsp in ipairs(servers) do
 	nvim_lsp[lsp].setup({
+		cmd = command[lsp],
 		on_attach = on_attach,
 		capabilities = require("cmp_nvim_lsp").default_capabilities(),
+		handlers = handlers,
+		initialization_options = initialization_options[lsp],
 	})
 end
-
-nvim_lsp.clangd.setup({
-	on_attach = on_attach,
-	capabilities = require("cmp_nvim_lsp").default_capabilities(),
-	root_dir = nvim_lsp.util.root_pattern(
-		"compile_commands.json",
-		"build/compile_commands.json",
-		"compile_flags.txt",
-		".git"
-	),
-})
 
 nvim_lsp.texlab.setup({
 	on_attach = on_attach,
 	capabilities = require("cmp_nvim_lsp").default_capabilities(),
+	handlers = handlers,
 	filetypes = { "tex", "plaintex", "bib" },
 	settings = {
 		texlab = {
