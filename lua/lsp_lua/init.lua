@@ -1,14 +1,11 @@
 require("mason").setup()
 require("mason-lspconfig").setup({ automatic_installation = { exclude = "r_language_server" } })
-
 local nvim_lsp = require("lspconfig")
+
 local on_attach = function(client, bufnr)
 	-- Disable loggin (reactivate with vim.lsp.set_log_level("debug"))
 	vim.lsp.set_log_level("off")
 
-	local function buf_set_keymap(...)
-		vim.api.nvim_buf_set_keymap(bufnr, ...)
-	end
 	local function buf_set_option(...)
 		vim.api.nvim_buf_set_option(bufnr, ...)
 	end
@@ -31,14 +28,31 @@ local on_attach = function(client, bufnr)
 	vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", opts)
 	vim.keymap.set("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", opts)
 	vim.keymap.set("n", "<leader>rN", "<cmd>Lspsaga rename ++project<CR>", opts)
-	vim.keymap.set("n", "E", "<cmd>Lspsaga show_line_diagnostics<CR>", opts)
+	vim.keymap.set("n", "<leader>E", "<cmd>Lspsaga show_line_diagnostics<CR>", opts)
 	vim.keymap.set("n", "<leader>O", "<cmd>Lspsaga outline<CR>", opts)
 end
+
+vim.cmd([[
+  sign define DiagnosticSignError text= texthl=LspDiagnosticsVirtualTextError linehl= numhl=LspDiagnosticsVirtualTextError
+  sign define DiagnosticSignWarn text= texthl=LspDiagnosticsVirtualTextWarning linehl= numhl=LspDiagnosticsVirtualTextWarning
+  sign define DiagnosticSignInfo text= texthl=LspDiagnosticsVirtualTextInfo linehl= numhl=LspDiagnosticsVirtualTextInfo
+  sign define DiagnosticSignHint text= texthl=LspDiagnosticsVirtualTextHint linehl= numhl=LspDiagnosticsVirtualTextInfo
+]])
+
+vim.diagnostic.config({
+	virtual_text = true,
+	signs = true,
+	underline = true,
+	update_in_insert = true,
+	severity_sort = true,
+})
 
 -------------------------------------------------------------------------------
 
 require("mason-tool-installer").setup({
 	ensure_installed = {
+		--"stylua",
+		--"black",
 	},
 })
 
@@ -51,27 +65,79 @@ local servers = {
 	"r_language_server",
 	"dockerls",
 	"lua_ls",
+	"clangd",
+}
+
+local command = {}
+local initialization_options = {}
+
+command.clangd = {
+	"clangd",
+	"-j=8",
+	"--background-index",
+	"--clang-tidy",
+	"--fallback-style=llvm",
+	"--all-scopes-completion",
+	"--completion-style=detailed",
+	"--header-insertion=iwyu",
+	"--header-insertion-decorators",
+	"--pch-storage=memory",
+}
+
+initialization_options.clangd = {
+	fallback_flags = { "-std=c++17" },
 }
 
 for _, lsp in ipairs(servers) do
 	nvim_lsp[lsp].setup({
+		cmd = command[lsp],
 		on_attach = on_attach,
 		capabilities = require("cmp_nvim_lsp").default_capabilities(),
+		handlers = handlers,
+		initialization_options = initialization_options[lsp],
 	})
 end
 
-require("clangd_extensions").setup({
-	server = {
-		on_attach = on_attach,
-		capabilities = require("cmp_nvim_lsp").default_capabilities(),
-		root_dir = nvim_lsp.util.root_pattern(
-			"compile_commands.json",
-			"build/compile_commands.json",
-			"compile_flags.txt",
-			".git"
-		),
-	},
-	extensions = {
-		autoSetHints = false,
+nvim_lsp.texlab.setup({
+	on_attach = on_attach,
+	capabilities = require("cmp_nvim_lsp").default_capabilities(),
+	handlers = handlers,
+	filetypes = { "tex", "plaintex", "bib" },
+	settings = {
+		texlab = {
+			auxDirectory = "./build",
+			bibtexFormatter = "texlab",
+			chktex = {
+				onEdit = true,
+				onOpenAndSave = true,
+			},
+			diagnosticsDelay = 50,
+			latexFormatter = "latexindent",
+			latexindent = {
+				modifyLineBreaks = true,
+			},
+		},
 	},
 })
+
+--nvim_lsp.ltex.setup({
+--	on_attach = on_attach,
+--	capabilities = require("cmp_nvim_lsp").default_capabilities(),
+--	settings = {
+--		ltex = {
+--			disabledRules = {
+--				["en"] = { "MORFOLOGIK_RULE_EN" },
+--				["en-AU"] = { "MORFOLOGIK_RULE_EN_AU" },
+--				["en-CA"] = { "MORFOLOGIK_RULE_EN_CA" },
+--				["en-GB"] = { "MORFOLOGIK_RULE_EN_GB" },
+--				["en-NZ"] = { "MORFOLOGIK_RULE_EN_NZ" },
+--				["en-US"] = { "MORFOLOGIK_RULE_EN_US" },
+--				["en-ZA"] = { "MORFOLOGIK_RULE_EN_ZA" },
+--				["it"] = { "MORFOLOGIK_RULE_IT_IT" },
+--			},
+--			additionalRules = {
+--				languageModel = "~/ngram/",
+--			},
+--		},
+--	},
+--})
