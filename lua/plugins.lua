@@ -34,6 +34,7 @@ return require("packer").startup(function()
 	use({ "nvim-telescope/telescope-bibtex.nvim" })
 	use({ "nvim-telescope/telescope-dap.nvim" })
 	use({ "crispgm/telescope-heading.nvim" })
+	use({ "nvim-telescope/telescope-ui-select.nvim" })
 	use({ "nvim-telescope/telescope.nvim" })
 
 	-- LSP
@@ -82,6 +83,7 @@ return require("packer").startup(function()
 	-- Git workflow
 	use({ "tpope/vim-fugitive" })
 	use({ "lewis6991/gitsigns.nvim" })
+	use({ "ldelossa/gh.nvim", requires = { { "ldelossa/litee.nvim" } } })
 
 	-- Work with csv files and other tables easily
 	use({ "chrisbra/csv.vim" })

@@ -11,7 +11,7 @@ let &t_EI = "\<Esc>[2 q" " NORMAL(else) - solid square
 vim.cmd("filetype plugin indent on")
 vim.cmd("syntax enable")
 
-vim.cmd([[ 
+vim.cmd([[
 set ssop-=options    " do not store global and local values in a session
 set ssop-=folds      " do not store folds
 set ssop+=globals    " required by Bufferline
@@ -49,7 +49,7 @@ utils.opt("w", "cursorline", true)
 utils.opt("w", "cursorlineopt", "number")
 utils.opt("w", "number", true)
 utils.opt("w", "signcolumn", "yes:2")
-utils.opt("w", "relativenumber", true)
+utils.opt("w", "relativenumber", false)
 utils.opt("w", "foldenable", false)
 utils.opt("w", "foldmethod", "syntax")
 utils.opt("w", "wrap", false)
