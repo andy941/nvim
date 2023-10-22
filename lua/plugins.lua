@@ -10,6 +10,9 @@ return require("packer").startup(function()
 	use({ "kyazdani42/nvim-web-devicons" })
 	use({ "mortepau/codicons.nvim" })
 
+	-- Support for notifications
+	use({ "rcarriga/nvim-notify" })
+
 	-- bufferline on top
 	use({ "akinsho/bufferline.nvim", requires = "kyazdani42/nvim-web-devicons" })
 
@@ -121,4 +124,11 @@ return require("packer").startup(function()
 
 	-- Copy/paste from anywhere
 	use({ "ojroques/nvim-osc52" })
+
+	-- Jupyter notebooks
+	use({ "stevearc/dressing.nvim" }) -- optional, UI for :JupyniumKernelSelect
+	use({
+		"kiyoon/jupynium.nvim",
+		run = "pip3 install --user .",
+	})
 end)
