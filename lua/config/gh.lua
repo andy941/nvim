@@ -1,4 +1,4 @@
-require("litee.lib").setup({ icon_set = "nerd" })
+require("litee.lib").setup({ icon_set = "codicons" })
 require("litee.gh").setup({
 	-- deprecated, around for compatability for now.
 	jump_mode = "invoking",
@@ -7,7 +7,7 @@ require("litee.gh").setup({
 	-- do not map any keys inside any gh.nvim buffers.
 	disable_keymaps = false,
 	-- the icon set to use.
-	icon_set = "nerd",
+	icon_set = "codicons",
 	-- any custom icons to use.
 	icon_set_custom = nil,
 	-- whether to register the @username and #issue_number omnifunc completion

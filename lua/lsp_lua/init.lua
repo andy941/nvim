@@ -120,24 +120,24 @@ nvim_lsp.texlab.setup({
 	},
 })
 
---nvim_lsp.ltex.setup({
---	on_attach = on_attach,
---	capabilities = require("cmp_nvim_lsp").default_capabilities(),
---	settings = {
---		ltex = {
---			disabledRules = {
---				["en"] = { "MORFOLOGIK_RULE_EN" },
---				["en-AU"] = { "MORFOLOGIK_RULE_EN_AU" },
---				["en-CA"] = { "MORFOLOGIK_RULE_EN_CA" },
---				["en-GB"] = { "MORFOLOGIK_RULE_EN_GB" },
---				["en-NZ"] = { "MORFOLOGIK_RULE_EN_NZ" },
---				["en-US"] = { "MORFOLOGIK_RULE_EN_US" },
---				["en-ZA"] = { "MORFOLOGIK_RULE_EN_ZA" },
---				["it"] = { "MORFOLOGIK_RULE_IT_IT" },
---			},
---			additionalRules = {
---				languageModel = "~/ngram/",
---			},
---		},
---	},
---})
+nvim_lsp.ltex.setup({
+	on_attach = on_attach,
+	capabilities = require("cmp_nvim_lsp").default_capabilities(),
+	settings = {
+		ltex = {
+			disabledRules = {
+				["en"] = { "MORFOLOGIK_RULE_EN" },
+				["en-AU"] = { "MORFOLOGIK_RULE_EN_AU" },
+				["en-CA"] = { "MORFOLOGIK_RULE_EN_CA" },
+				["en-GB"] = { "MORFOLOGIK_RULE_EN_GB" },
+				["en-NZ"] = { "MORFOLOGIK_RULE_EN_NZ" },
+				["en-US"] = { "MORFOLOGIK_RULE_EN_US" },
+				["en-ZA"] = { "MORFOLOGIK_RULE_EN_ZA" },
+				["it"] = { "MORFOLOGIK_RULE_IT_IT" },
+			},
+			additionalRules = {
+				languageModel = "~/ngram/",
+			},
+		},
+	},
+})
