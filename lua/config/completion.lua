@@ -83,7 +83,6 @@ cmp.setup({
 	end,
 
 	sources = {
-		{ name = "jupynium" },
 		{ name = "dap" },
 		{ name = "path" },
 		{ name = "cmp-nvim-r" },
@@ -91,6 +90,7 @@ cmp.setup({
 		{ name = "nvim_lsp_signature_help" },
 		--{ name = "nvim_lua" }, -- knows to activate only in Lua
 		{ name = "luasnip" },
+		{ name = "jupynium" },
 	},
 
 	sorting = {

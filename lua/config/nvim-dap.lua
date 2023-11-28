@@ -1,7 +1,26 @@
 require("mason").setup()
-require("mason-nvim-dap").setup({
-	automatic_setup = true,
-})
+--require("mason-nvim-dap").setup({
+--	automatic_setup = true,
+--  handlers = {
+--        function(config)
+--          -- all sources with no handler get passed here
+--
+--          -- Keep original functionality
+--          require('mason-nvim-dap').default_setup(config)
+--        end,
+--        python = function(config)
+--            config.adapters = {
+--	            type = "executable",
+--	            command = "python3",
+--	            args = {
+--		            "-m",
+--		            "debugpy.adapter",
+--	            },
+--            }
+--            require('mason-nvim-dap').default_setup(config) -- don't forget this!
+--        end,
+--    },
+--})
 --require("mason-nvim-dap").setup_handlers({})
 
 local sign = vim.fn.sign_define
@@ -118,7 +137,7 @@ utils.map("v", "<leader>dc", ':lua require("dap-python").debug_selection()<cr>',
 --dap.configurations.c = dap.configurations.cpp
 --dap.configurations.rust = dap.configurations.cpp
 --
----- Python
---require("dap-python").setup("~/.virtualenvs/debugpy/bin/python")
----- change the test runner (unittest is default)
-----require('dap-python').test_runner = 'pytest' -- or django
+-- Python
+require("dap-python").setup("~/.virtualenvs/debugpy/bin/python")
+-- change the test runner (unittest is default)
+--require('dap-python').test_runner = 'pytest' -- or django
