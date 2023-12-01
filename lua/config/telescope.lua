@@ -13,8 +13,7 @@ tele.setup({
 		layout_config = {
 			width = 0.90,
 			height = 0.95,
-			--preview_width = 0.70,
-			preview_height = 0.75,
+			vertical = { preview_height = 0.75 },
 		},
 		file_ignore_patterns = { -- % is an escape char in lua regex
 			"Pictures/",
