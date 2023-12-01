@@ -131,4 +131,12 @@ return require("packer").startup(function()
 		"kiyoon/jupynium.nvim",
 		run = "pip3 install --user .",
 	})
+
+	use({ "3rd/image.nvim" })
+	use({
+		"benlubas/molten-nvim",
+		build = "UpdateRemotePlugins",
+	})
+	use({ "quarto-dev/quarto-nvim" })
+	use({ "jmbuhr/otter.nvim" })
 end)

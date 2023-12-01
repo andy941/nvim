@@ -83,6 +83,7 @@ cmp.setup({
 	end,
 
 	sources = {
+		{ name = "otter" },
 		{ name = "dap" },
 		{ name = "path" },
 		{ name = "cmp-nvim-r" },
