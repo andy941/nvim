@@ -53,6 +53,8 @@ require("mason-tool-installer").setup({
 	ensure_installed = {
 		"stylua",
 		"black",
+		"cbfmt",
+		"taplo",
 	},
 })
 
