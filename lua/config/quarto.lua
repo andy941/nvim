@@ -1,3 +1,4 @@
+require("otter").setup({ buffers = { set_filetype = true } })
 require("quarto").setup({
 	debug = false,
 	closePreviewOnExit = true,
@@ -23,7 +24,7 @@ require("quarto").setup({
 	keymap = {
 		hover = "K",
 		definition = "gD",
-		rename = "<leader>R",
+		rename = "<leader>rn",
 		references = "gr",
 	},
 })
