@@ -74,8 +74,11 @@ require("catppuccin").setup({
 		types = { "bold" },
 		operators = {},
 	},
-	color_overrides = {},
-	custom_highlights = {},
+	custom_highlights = function(colors)
+		return {
+			MoltenCell = { bg = colors.none },
+		}
+	end,
 	integrations = {
 		cmp = true,
 		gitsigns = true,
@@ -87,8 +90,8 @@ require("catppuccin").setup({
 		octo = true,
 		telekasten = true,
 		illuminate = {
-      lsp = true,
-    },
+			lsp = true,
+		},
 		which_key = true,
 		vimwiki = true,
 		dap = {
