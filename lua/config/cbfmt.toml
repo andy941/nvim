@@ -1,0 +1,6 @@
+[languages]
+python = ["black --fast -q -l 200 -"]
+r = ['''R --slave --no-restore --no-save -e con<-file("stdin");styler::style_text(readLines(con));close(con)''']
+tex = ["latexindent --modifylinebreaks -g /dev/null"]
+sh = ["shfmt -i 2"]
+

@@ -24,6 +24,22 @@ Cformat = function()
 	}
 end
 
+cbFmt = function()
+	return {
+		exe = "cbfmt",
+		args = {
+			"--config",
+			vim.fn.stdpath("config") .. "/lua/config/cbfmt.toml",
+			"--parser", "markdown" ,
+			"--write",
+			"--best-effort",
+			"--stdin-filepath",
+			util.escape_path(util.get_current_buffer_file_path()),
+		},
+		stdin = true,
+	}
+end
+
 -- Provides the Format, FormatWrite, FormatLock, and FormatWriteLock commands
 require("formatter").setup({
 	logging = true,
@@ -36,7 +52,13 @@ require("formatter").setup({
 		sh = { fmt.sh },
 		json = { fmt.json },
 		html = { fmt.html },
-		markdown = { fmt.markdown },
+		toml = { fmt.taplo },
+		markdown = {
+			cbFmt,
+		},
+		quarto = {
+			cbFmt,
+		},
 		cpp = { Cformat },
 		c = { Cformat },
 		python = {
@@ -61,7 +83,7 @@ require("formatter").setup({
 				}
 			end,
 		},
-            -- stylua: ignore start
+    -- stylua: ignore start
     r = {
       function()
         return {
