@@ -68,10 +68,13 @@ local servers = {
 	"dockerls",
 	"lua_ls",
 	"clangd",
+	"marksman",
 }
 
 local command = {}
 local initialization_options = {}
+local filetypes = {}
+local root_dir = {}
 
 command.clangd = {
 	"clangd",
@@ -85,10 +88,20 @@ command.clangd = {
 	"--header-insertion-decorators",
 	"--pch-storage=memory",
 }
-
 initialization_options.clangd = {
 	fallback_flags = { "-std=c++17" },
 }
+
+filetypes.marksman = { "markdown", "quarto" }
+root_dir.marksman = function(fname)
+	return nvim_lsp.util.root_pattern(".git", ".marksman.toml", "_quarto.yml")(fname)
+		or nvim_lsp.util.path.dirname(fname)
+end
+
+root_dir.pyright = function(fname)
+	return nvim_lsp.util.root_pattern(".git", "setup.py", "setup.cfg", "pyproject.toml", "requirements.txt")(fname)
+		or nvim_lsp.util.path.dirname(fname)
+end
 
 for _, lsp in ipairs(servers) do
 	nvim_lsp[lsp].setup({
@@ -97,6 +110,8 @@ for _, lsp in ipairs(servers) do
 		capabilities = require("cmp_nvim_lsp").default_capabilities(),
 		handlers = handlers,
 		initialization_options = initialization_options[lsp],
+		filetypes = filetypes[lsp],
+		root_dir = root_dir[lsp],
 	})
 end
 
@@ -122,24 +137,24 @@ end
 --	},
 --})
 --
---nvim_lsp.ltex.setup({
---	on_attach = on_attach,
---	capabilities = require("cmp_nvim_lsp").default_capabilities(),
---	settings = {
---		ltex = {
---			disabledRules = {
---				["en"] = { "MORFOLOGIK_RULE_EN" },
---				["en-AU"] = { "MORFOLOGIK_RULE_EN_AU" },
---				["en-CA"] = { "MORFOLOGIK_RULE_EN_CA" },
---				["en-GB"] = { "MORFOLOGIK_RULE_EN_GB" },
---				["en-NZ"] = { "MORFOLOGIK_RULE_EN_NZ" },
---				["en-US"] = { "MORFOLOGIK_RULE_EN_US" },
---				["en-ZA"] = { "MORFOLOGIK_RULE_EN_ZA" },
---				["it"] = { "MORFOLOGIK_RULE_IT_IT" },
---			},
---			additionalRules = {
---				languageModel = "~/ngram/",
---			},
---		},
---	},
---})
+nvim_lsp.ltex.setup({
+	on_attach = on_attach,
+	capabilities = require("cmp_nvim_lsp").default_capabilities(),
+	settings = {
+		ltex = {
+			disabledRules = {
+				["en"] = { "MORFOLOGIK_RULE_EN" },
+				["en-AU"] = { "MORFOLOGIK_RULE_EN_AU" },
+				["en-CA"] = { "MORFOLOGIK_RULE_EN_CA" },
+				["en-GB"] = { "MORFOLOGIK_RULE_EN_GB" },
+				["en-NZ"] = { "MORFOLOGIK_RULE_EN_NZ" },
+				["en-US"] = { "MORFOLOGIK_RULE_EN_US" },
+				["en-ZA"] = { "MORFOLOGIK_RULE_EN_ZA" },
+				["it"] = { "MORFOLOGIK_RULE_IT_IT" },
+			},
+			additionalRules = {
+				languageModel = "~/ngram/",
+			},
+		},
+	},
+})

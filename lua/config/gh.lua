@@ -1,4 +1,15 @@
-require("litee.lib").setup({ icon_set = "codicons" })
+local utils = require("utils")
+
+require("litee.lib").setup({
+	--icon_set = "codicons",
+	tree = {
+		icon_set = "codicons",
+	},
+	panel = {
+		orientation = "bottom",
+		panel_size = 15,
+	},
+})
 require("litee.gh").setup({
 	-- deprecated, around for compatability for now.
 	jump_mode = "invoking",
@@ -25,20 +36,25 @@ require("litee.gh").setup({
 		collapse = "zc",
 		-- when cursor is over a "#1234" formatted issue or PR, open its details
 		-- and comments in a new tab.
-		goto_issue = "gd",
+		goto_issue = "gD",
 		-- show any details about a node, typically, this reveals commit messages
 		-- and submitted review bodys.
-		details = "d",
+		details = "K",
 		-- inside a convo buffer, submit a comment
-		submit_comment = "<C-s>",
+		submit_comment = "<localleader>s",
 		-- inside a convo buffer, when your cursor is ontop of a comment, open
 		-- up a set of actions that can be performed.
-		actions = "<C-a>",
+		actions = "<localleader>a",
 		-- inside a thread convo buffer, resolve the thread.
-		resolve_thread = "<C-r>",
+		resolve_thread = "<localleader>r",
 		-- inside a gh.nvim panel, if possible, open the node's web URL in your
 		-- browser. useful particularily for digging into external failed CI
 		-- checks.
-		goto_web = "gx",
+		goto_web = "<localleader>w",
 	},
 })
+
+utils.map("n", "<leader>ht", "<cmd>GHToggleThreads<cr>", opts)
+utils.map("n", "<leader>hn", "<cmd>GHNextThread<cr>", opts)
+utils.map("n", "<leader>hc", "<cmd>GHCreateThread<cr>", opts)
+utils.map("n", "<leader>he", "<cmd>LTPanel<cr>", opts)

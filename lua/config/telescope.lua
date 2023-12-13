@@ -122,6 +122,9 @@ tele.load_extension("dap")
 -- ui.select replacement
 tele.load_extension("ui-select")
 
+-- Templates
+tele.load_extension("find_template")
+
 -- Custom functions ------------------------------------------------------------------
 -- find files and then live grep into their contents
 local ff_and_lg = function()
@@ -158,10 +161,10 @@ utils.map("n", "<Leader>ff", "<cmd>Telescope		find_files<cr>", opts)
 vim.keymap.set("n", "<leader>fg", ff_and_lg)
 utils.map("n", "<leader>fu", "<cmd>Telescope 	current_buffer_fuzzy_find<cr>", opts)
 utils.map("n", "<leader>gg", "<cmd>Telescope 	live_grep<cr>", opts)
-utils.map("n", "<leader>ht", "<cmd>Telescope 	help_tags<cr>", opts)
+utils.map("n", "<leader>H",  "<cmd>Telescope 	help_tags<cr>", opts)
 utils.map("n", "<leader>kb", "<cmd>Telescope 	keymaps<cr>", opts)
 utils.map("n", "<leader>pr", "<cmd>Telescope 	project<cr>", opts)
-utils.map("n", "<leader>R", "<cmd>Telescope 	resume<cr>", opts)
+utils.map("n", "<leader>R",  "<cmd>Telescope 	resume<cr>", opts)
 
 -- LSP
 utils.map("n", "<leader>di", "<cmd>Telescope 	diagnostics<cr>", opts)
@@ -172,7 +175,7 @@ utils.map("n", "<leader>wf", "<cmd>Telescope 	find_files			cwd=%:p:h<cr>", opts)
 utils.map("n", "<leader>wg", "<cmd>Telescope 	live_grep			cwd=%:p:h<cr>", opts)
 
 -- Git
-utils.map("n", "<leader>G", "<cmd>Telescope		git_status			cwd=%:p:h<cr>", opts)
+utils.map("n", "<leader>G",  "<cmd>Telescope		git_status			cwd=%:p:h<cr>", opts)
 utils.map("n", "<leader>gf", "<cmd>Telescope		git_files			cwd=%:p:h<cr>", opts)
 utils.map("n", "<leader>gb", "<cmd>Telescope		git_branches<cr>", opts)
 utils.map("n", "<leader>gl", "<cmd>Telescope		git_commits<cr>", opts)
@@ -184,3 +187,6 @@ utils.map("n", "<leader>sh", "<cmd>Telescope		heading<cr>", opts)
 -- Useful additions
 utils.map("n", "<leader>rc", "<cmd>Telescope 	find_files			cwd=~/.config/nvim<cr>", opts)
 utils.map("n", "<leader>CS", "<cmd>Telescope 	colorscheme<cr>", opts)
+
+-- Templates
+utils.map("n", "<leader>T", "<cmd>Telescope find_template 	type=insert<cr>", opts)

@@ -139,4 +139,7 @@ return require("packer").startup(function()
 	})
 	use({ "quarto-dev/quarto-nvim" })
 	use({ "jmbuhr/otter.nvim" })
+
+	-- Templates
+	use({ "glepnir/template.nvim" })
 end)
