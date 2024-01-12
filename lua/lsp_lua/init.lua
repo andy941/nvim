@@ -25,7 +25,7 @@ local on_attach = function(client, bufnr)
 	vim.keymap.set("n", "gO", "<cmd>Lspsaga outgoing_calls<CR>", opts)
 	vim.keymap.set("n", "gr", "<cmd>Lspsaga finder<CR>", opts)
 	vim.keymap.set("n", "<leader>a", "<cmd>Lspsaga code_action<CR>", opts)
-	vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", opts)
+	vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
 	vim.keymap.set("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", opts)
 	vim.keymap.set("n", "<leader>rN", "<cmd>Lspsaga rename ++project<CR>", opts)
 	vim.keymap.set("n", "<leader>E", "<cmd>Lspsaga show_line_diagnostics<CR>", opts)
@@ -39,7 +39,21 @@ vim.cmd([[
   sign define DiagnosticSignHint text= texthl=LspDiagnosticsVirtualTextHint linehl= numhl=LspDiagnosticsVirtualTextInfo
 ]])
 
+vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(
+            vim.lsp.handlers.signature_help, {
+                border = 'rounded',
+                close_events = {"BufHidden", "InsertLeave"},
+    }
+)
+
+vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(
+            vim.lsp.handlers.hover, {
+                border = 'rounded',
+    }
+)
+
 vim.diagnostic.config({
+  float = { border = "rounded" },
 	virtual_text = true,
 	signs = true,
 	underline = true,

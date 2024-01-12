@@ -86,7 +86,10 @@ require("catppuccin").setup({
 		mason = true,
 		octo = true,
 		telekasten = true,
-		illuminate = true,
+		illuminate = {
+      enabled = true,
+      lsp = true,
+    },
 		which_key = true,
 		vimwiki = true,
 		dap = {
