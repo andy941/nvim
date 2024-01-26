@@ -44,9 +44,10 @@ return require("packer").startup(function()
 	use({ "williamboman/mason.nvim" })
 	use({ "williamboman/mason-lspconfig.nvim" })
 	use({ "WhoIsSethDaniel/mason-tool-installer.nvim" })
-	use({ "glepnir/lspsaga.nvim" })
+	use({ "nvimdev/lspsaga.nvim" })
 	use({ "p00f/clangd_extensions.nvim" })
 	use({ "neovim/nvim-lspconfig" })
+	use({ "mrcjkb/rustaceanvim" })
 
 	-- Linting
 	use({ "mfussenegger/nvim-lint" })
@@ -125,13 +126,7 @@ return require("packer").startup(function()
 	-- Copy/paste from anywhere
 	use({ "ojroques/nvim-osc52" })
 
-	-- Jupyter notebooks
-	use({ "stevearc/dressing.nvim" }) -- optional, UI for :JupyniumKernelSelect
-	use({
-		"kiyoon/jupynium.nvim",
-		run = "pip3 install --user .",
-	})
-
+	-- Quarto
 	use({ "3rd/image.nvim" })
 	use({
 		"benlubas/molten-nvim",

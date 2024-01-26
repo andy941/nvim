@@ -115,28 +115,28 @@ for _, lsp in ipairs(servers) do
 	})
 end
 
---nvim_lsp.texlab.setup({
---	on_attach = on_attach,
---	capabilities = require("cmp_nvim_lsp").default_capabilities(),
---	handlers = handlers,
---	filetypes = { "tex", "plaintex", "bib" },
---	settings = {
---		texlab = {
---			auxDirectory = "./build",
---			bibtexFormatter = "texlab",
---			chktex = {
---				onEdit = true,
---				onOpenAndSave = true,
---			},
---			diagnosticsDelay = 50,
---			latexFormatter = "latexindent",
---			latexindent = {
---				modifyLineBreaks = true,
---			},
---		},
---	},
---})
---
+nvim_lsp.texlab.setup({
+	on_attach = on_attach,
+	capabilities = require("cmp_nvim_lsp").default_capabilities(),
+	handlers = handlers,
+	filetypes = { "tex", "plaintex", "bib" },
+	settings = {
+		texlab = {
+			auxDirectory = "./build",
+			bibtexFormatter = "texlab",
+			chktex = {
+				onEdit = true,
+				onOpenAndSave = true,
+			},
+			diagnosticsDelay = 50,
+			latexFormatter = "latexindent",
+			latexindent = {
+				modifyLineBreaks = true,
+			},
+		},
+	},
+})
+
 nvim_lsp.ltex.setup({
 	on_attach = on_attach,
 	capabilities = require("cmp_nvim_lsp").default_capabilities(),
