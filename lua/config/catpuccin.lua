@@ -48,6 +48,7 @@ require("catppuccin").setup({
 			lsp = true,
 		},
 		which_key = true,
+    noice = true,
 		vimwiki = true,
 		dap = {
 			enabled = true,
