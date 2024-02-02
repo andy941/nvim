@@ -5,4 +5,4 @@ vim.cmd("setlocal spell")
 vim.cmd("setlocal linebreak")
 
 utils.map("n", "<leader>vv", "<cmd>MarkdownPreviewToggle<cr>", opts)
-utils.map("n", "<leader>cb", "<cmd>Telescope bibtex format=markdown<cr>", opts)
+utils.map("n", "<leader>cB", "<cmd>Telescope bibtex format=markdown<cr>", opts)

@@ -140,4 +140,4 @@ utils.map("v", "<leader>dc", ':lua require("dap-python").debug_selection()<cr>',
 -- Python
 require("dap-python").setup("~/.virtualenvs/debugpy/bin/python")
 -- change the test runner (unittest is default)
---require('dap-python').test_runner = 'pytest' -- or django
+require('dap-python').test_runner = 'pytest' -- or django

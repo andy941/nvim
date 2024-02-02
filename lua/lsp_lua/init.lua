@@ -140,6 +140,22 @@ nvim_lsp.texlab.setup({
 nvim_lsp.ltex.setup({
 	on_attach = on_attach,
 	capabilities = require("cmp_nvim_lsp").default_capabilities(),
+	filetypes = {
+		"bib",
+		"gitcommit",
+		-- "markdown",
+		"org",
+		"plaintex",
+		"rst",
+		"rnoweb",
+		"tex",
+		"pandoc",
+		"quarto",
+		"rmd",
+		"context",
+		"html",
+		"xhtml",
+	},
 	settings = {
 		ltex = {
 			disabledRules = {
