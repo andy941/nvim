@@ -16,12 +16,31 @@ return require("lazy").setup({
 	{ "nvim-lua/popup.nvim" },
 	{ "nvim-lua/plenary.nvim" },
 
-	-- Icons support
-	{ "kyazdani42/nvim-web-devicons" },
-	{ "mortepau/codicons.nvim" },
+	-- Nicer UI
+	{
+		"folke/noice.nvim",
+		event = "VeryLazy",
+		opts = {
+			-- add any options here
+		},
+		dependencies = {
+			-- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+			"MunifTanjim/nui.nvim",
+			-- OPTIONAL:
+			--   `nvim-notify` is only needed, if you want to use the notification view.
+			--   If not available, we use `mini` as the fallback
+			"rcarriga/nvim-notify",
+		},
+	},
 
-	-- Support for notifications
-	{ "rcarriga/nvim-notify" },
+	-- Icons support
+	{
+		"kyazdani42/nvim-web-devicons",
+		config = function()
+			require("config.nvim-web-devicons")
+		end,
+	},
+	{ "mortepau/codicons.nvim" },
 
 	-- bufferline on top
 	{
@@ -38,6 +57,15 @@ return require("lazy").setup({
 		requires = "kyazdani42/nvim-web-devicons",
 		config = function()
 			require("config.nvim-tree")
+		end,
+	},
+
+	-- Comments handling
+	{
+		"numToStr/Comment.nvim",
+		lazy = false,
+		config = function()
+			require("config.comment")
 		end,
 	},
 
