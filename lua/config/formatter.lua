@@ -30,11 +30,14 @@ cbFmt = function()
 		args = {
 			"--config",
 			vim.fn.stdpath("config") .. "/lua/config/cbfmt.toml",
-			"--parser", "markdown" ,
+			"--parser",
+			"markdown",
 			"--write",
 			"--best-effort",
 			"--stdin-filepath",
 			util.escape_path(util.get_current_buffer_file_path()),
+			"|",
+			"sed 's/^# |/#|/'",
 		},
 		stdin = true,
 	}

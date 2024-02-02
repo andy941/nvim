@@ -16,7 +16,7 @@ let R_non_r_compl = 0
 let R_nvimpager = 'vertical'
 " let R_user_maps_only = 1
 " let R_disable_cmds = ['RSetwd', 'RDputObj']
-let R_assign_map = ''
+let R_assign = 0
 let rout_follow_colorscheme = 1
 
 " keybindings
