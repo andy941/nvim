@@ -1,27 +1,8 @@
 require("mason").setup()
---require("mason-nvim-dap").setup({
---	automatic_setup = true,
---  handlers = {
---        function(config)
---          -- all sources with no handler get passed here
---
---          -- Keep original functionality
---          require('mason-nvim-dap').default_setup(config)
---        end,
---        python = function(config)
---            config.adapters = {
---	            type = "executable",
---	            command = "python3",
---	            args = {
---		            "-m",
---		            "debugpy.adapter",
---	            },
---            }
---            require('mason-nvim-dap').default_setup(config) -- don't forget this!
---        end,
---    },
---})
---require("mason-nvim-dap").setup_handlers({})
+require("mason-nvim-dap").setup({
+	ensure_installed = { "codelldb" },
+	handlers = {},
+})
 
 local sign = vim.fn.sign_define
 
@@ -95,48 +76,6 @@ utils.map("n", "<leader>dtm", ':lua require("dap-python").test_method()<cr>', op
 utils.map("n", "<leader>dtc", ':lua require("dap-python").test_class()<cr>', opts)
 utils.map("v", "<leader>dc", ':lua require("dap-python").debug_selection()<cr>', opts)
 
---
---dap.adapters.lldb = {
---	name = "lldb",
---	type = "executable",
---	command = path_to_lldb, -- adjust as needed, must be absolute path
---}
---
---dap.configurations.cpp = {
---	{
---		name = "Launch",
---		type = "lldb",
---		request = "launch",
---		program = function()
---			return vim.fn.input("Path to executable: ", vim.fn.expand("%:r") .. ".o", "file")
---		end,
---		cwd = "${workspaceFolder}",
---		stopOnEntry = false,
---		args = function()
---			local argument_string = vim.fn.input("Program arguments: ")
---			return vim.fn.split(argument_string, " ", true)
---		end,
---
---		-- 💀
---		-- if you change `runInTerminal` to true, you might need to change the yama/ptrace_scope setting:
---		--
---		--    echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope
---		--
---		-- Otherwise you might get the following error:
---		--
---		--    Error on launch: Failed to attach to the target process
---		--
---		-- But you should be aware of the implications:
---		-- https://www.kernel.org/doc/html/latest/admin-guide/LSM/Yama.html
---		-- runInTerminal = false,
---	},
---}
---
----- If you want to use this for Rust and C, add something like this:
---
---dap.configurations.c = dap.configurations.cpp
---dap.configurations.rust = dap.configurations.cpp
---
 -- Python
 require("dap-python").setup("~/.virtualenvs/debugpy/bin/python")
 -- change the test runner (unittest is default)

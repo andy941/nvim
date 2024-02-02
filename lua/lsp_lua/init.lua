@@ -2,7 +2,10 @@ require("mason").setup()
 require("mason-lspconfig").setup({ automatic_installation = { exclude = "r_language_server" } })
 local nvim_lsp = require("lspconfig")
 
-local on_attach = function(client, bufnr)
+-- Mappings.
+local opts = { noremap = true, silent = true }
+
+local attach = function(client, bufnr)
 	-- Disable loggin (reactivate with vim.lsp.set_log_level("debug"))
 	vim.lsp.set_log_level("off")
 
@@ -12,9 +15,6 @@ local on_attach = function(client, bufnr)
 
 	-- Enabe completion triggered by <c-x><c-o>
 	buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
-
-	-- Mappings.
-	local opts = { noremap = true, silent = true }
 
 	-- See `:help vim.lsp.*` for documentation on any of the below functions
 	vim.keymap.set("n", "gd", "<cmd>Lspsaga peek_definition<CR>", opts)
@@ -92,7 +92,7 @@ initialization_options.clangd = {
 	fallback_flags = { "-std=c++17" },
 }
 
-filetypes.marksman = { "markdown", "quarto" }
+filetypes.marksman = { "quarto" }
 root_dir.marksman = function(fname)
 	return nvim_lsp.util.root_pattern(".git", ".marksman.toml", "_quarto.yml")(fname)
 		or nvim_lsp.util.path.dirname(fname)
@@ -106,7 +106,7 @@ end
 for _, lsp in ipairs(servers) do
 	nvim_lsp[lsp].setup({
 		cmd = command[lsp],
-		on_attach = on_attach,
+		on_attach = attach,
 		capabilities = require("cmp_nvim_lsp").default_capabilities(),
 		handlers = handlers,
 		initialization_options = initialization_options[lsp],
@@ -114,6 +114,18 @@ for _, lsp in ipairs(servers) do
 		root_dir = root_dir[lsp],
 	})
 end
+
+vim.g.rustaceanvim = {
+	server = {
+		--on_attach = attach,
+		on_attach = function(client, bufnr)
+			attach(client,bufnr)
+			vim.keymap.set("n", "K", "<cmd>RustLsp hover actions<CR>", opts)
+			--vim.keymap.set("n", "<leader>E", "<cmd>RustLsp renderDiagnostic<CR>", opts)
+			vim.keymap.set("n", "<leader>x", "<cmd>RustLsp explainError<CR>", opts)
+		end,
+	},
+}
 
 nvim_lsp.texlab.setup({
 	on_attach = on_attach,

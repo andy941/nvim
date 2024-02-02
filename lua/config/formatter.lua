@@ -56,6 +56,15 @@ require("formatter").setup({
 		json = { fmt.json },
 		html = { fmt.html },
 		toml = { fmt.taplo },
+		rust = { 
+			function()
+				return {
+					exe = "rustfmt",
+					--args = { "--edition 2021" },
+					stdin = false,
+				}
+			end,
+    },
 		markdown = {
 			cbFmt,
 		},

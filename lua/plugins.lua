@@ -50,7 +50,7 @@ return require("lazy").setup({
 	-- bufferline on top
 	{
 		"akinsho/bufferline.nvim",
-		requires = "kyazdani42/nvim-web-devicons",
+		dependencies = "kyazdani42/nvim-web-devicons",
 		config = function()
 			require("config.bufferline")
 		end,
@@ -59,7 +59,7 @@ return require("lazy").setup({
 	-- File Browser
 	{
 		"kyazdani42/nvim-tree.lua",
-		requires = "kyazdani42/nvim-web-devicons",
+		dependencies = "kyazdani42/nvim-web-devicons",
 		config = function()
 			require("config.nvim-tree")
 		end,
@@ -131,6 +131,7 @@ return require("lazy").setup({
 	{ "p00f/clangd_extensions.nvim" },
 	{
 		"nvimdev/lspsaga.nvim",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
 		config = function()
 			require("config.lspsaga")
 		end,
@@ -195,6 +196,7 @@ return require("lazy").setup({
 	-- Rstudio like environment for R
 	{
 		"jalvesaq/Nvim-R",
+		ft = { "r", "rmd" },
 		config = function()
 			vim.cmd("source ~/.config/nvim/lua/config/nvimR.vim")
 		end,
@@ -239,6 +241,7 @@ return require("lazy").setup({
 	-- Work with csv files and other tables easily
 	{
 		"chrisbra/csv.vim",
+		ft = { "csv" },
 		config = function()
 			vim.cmd("source ~/.config/nvim/lua/config/csv.vim")
 		end,
@@ -248,6 +251,7 @@ return require("lazy").setup({
 	{
 		"iamcco/markdown-preview.nvim",
 		build = ":call mkdp#util#install()",
+		ft = { "markdown" },
 		config = function()
 			vim.cmd("source ~/.config/nvim/lua/config/markdown-preview.vim")
 		end,
@@ -335,14 +339,16 @@ return require("lazy").setup({
 
 	-- Quarto
 	{
+		"3rd/image.nvim",
+		ft = { "markdown", "quarto" },
+		config = function()
+			require("config.image")
+		end,
+	},
+	{
 		"benlubas/molten-nvim",
-		dependencies = {
-			"3rd/image.nvim",
-			config = function()
-				require("config.image")
-			end,
-		},
 		build = ":UpdateRemotePlugins",
+		ft = { "markdown", "quarto" },
 		config = function()
 			require("config.molten")
 		end,
@@ -350,6 +356,7 @@ return require("lazy").setup({
 	{
 		"quarto-dev/quarto-nvim",
 		dependencies = { "jmbuhr/otter.nvim" },
+		ft = { "markdown", "quarto" },
 		config = function()
 			require("config.quarto")
 		end,
