@@ -12,23 +12,18 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 return require("lazy").setup({
-	-- Some core plugins
+	-- Core plugins
 	{ "nvim-lua/popup.nvim" },
 	{ "nvim-lua/plenary.nvim" },
+	{ "MunifTanjim/nui.nvim", lazy = true },
 
 	-- Nicer UI
 	{
 		"folke/noice.nvim",
 		event = "VeryLazy",
-		opts = {
-			-- add any options here
-		},
+		config = true,
 		dependencies = {
-			-- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
 			"MunifTanjim/nui.nvim",
-			-- OPTIONAL:
-			--   `nvim-notify` is only needed, if you want to use the notification view.
-			--   If not available, we use `mini` as the fallback
 			{
 				"rcarriga/nvim-notify",
 				keys = {
@@ -38,19 +33,13 @@ return require("lazy").setup({
 		},
 	},
 
-	-- Icons support
-	{
-		"kyazdani42/nvim-web-devicons",
-		config = function()
-			require("config.nvim-web-devicons")
-		end,
-	},
-	{ "mortepau/codicons.nvim" },
+	-- Icons
+	{ "nvim-tree/nvim-web-devicons", lazy = true },
 
 	-- bufferline on top
 	{
 		"akinsho/bufferline.nvim",
-		dependencies = "kyazdani42/nvim-web-devicons",
+		dependencies = "nvim-tree/nvim-web-devicons",
 		config = function()
 			require("config.bufferline")
 		end,
@@ -59,7 +48,7 @@ return require("lazy").setup({
 	-- File Browser
 	{
 		"kyazdani42/nvim-tree.lua",
-		dependencies = "kyazdani42/nvim-web-devicons",
+		dependencies = "nvim-tree/nvim-web-devicons",
 		config = function()
 			require("config.nvim-tree")
 		end,
@@ -118,6 +107,7 @@ return require("lazy").setup({
 			"nvim-telescope/telescope-dap.nvim",
 			"crispgm/telescope-heading.nvim",
 			"nvim-telescope/telescope-ui-select.nvim",
+			"nvim-tree/nvim-web-devicons",
 		},
 		config = function()
 			require("config.telescope")
@@ -260,6 +250,7 @@ return require("lazy").setup({
 	-- latex preview and more
 	{
 		"lervag/vimtex",
+		ft = { "tex" },
 		config = function()
 			vim.cmd("source ~/.config/nvim/lua/config/vimtex.vim")
 		end,
@@ -367,6 +358,32 @@ return require("lazy").setup({
 		"glepnir/template.nvim",
 		config = function()
 			require("config.template")
+		end,
+	},
+
+	-- Trouble quickfix
+	{
+		"folke/trouble.nvim",
+		lazy = true,
+		config = true,
+	},
+
+	-- ChatGPT
+	{
+		"jackMort/ChatGPT.nvim",
+		-- event = "VeryLazy",
+		lazy = true,
+		cmd = { "ChatGPT", "ChatGPTRun", "ChatGPTCompleteCode", "ChatGPTActAs", "ChatGPTEditWithInstructions" },
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"nvim-telescope/telescope.nvim",
+			"MunifTanjim/nui.nvim",
+			"folke/trouble.nvim",
+		},
+		config = function()
+			require("chatgpt").setup({
+				api_key_cmd = "gpg --decrypt " .. vim.fn.expand("$HOME") .. "/.password-store/openai_key.gpg",
+			})
 		end,
 	},
 })
