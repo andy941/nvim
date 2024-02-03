@@ -127,5 +127,6 @@ require("cmp").setup.filetype("tex", {
 		{ name = "nvim_lsp_signature_help" },
 		{ name = "luasnip" },
 		{ name = "buffer" },
+		{ name = "crates" },
 	},
 })

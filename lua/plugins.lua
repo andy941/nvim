@@ -131,7 +131,20 @@ return require("lazy").setup({
 		end,
 	},
 	{ "neovim/nvim-lspconfig" },
-	{ "mrcjkb/rustaceanvim", version = "^3", ft = { "rust" } },
+	{
+		"saecki/crates.nvim",
+		lazy = true,
+		tag = "stable",
+		config = true,
+	},
+	{
+		"mrcjkb/rustaceanvim",
+		version = "^3",
+		dependencies = {
+			"saecki/crates.nvim",
+		},
+		ft = { "rust" },
+	},
 
 	-- Linting
 	{
@@ -164,6 +177,7 @@ return require("lazy").setup({
 			"L3MON4D3/LuaSnip",
 			"saadparwaiz1/cmp_luasnip",
 			"onsails/lspkind-nvim",
+			"saecki/crates.nvim",
 		},
 		config = function()
 			require("config.completion")

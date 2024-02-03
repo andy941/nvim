@@ -7,7 +7,13 @@ require("lualine").setup({
 		globalstatus = true,
 	},
 	sections = {
-		lualine_a = { "mode" },
+		lualine_a = {
+			"mode",
+			{
+				require("noice").api.statusline.mode.get,
+				cond = require("noice").api.statusline.mode.has,
+			},
+		},
 		lualine_b = { "diff", "branch", "diagnostics" },
 		lualine_c = {
 			{
@@ -17,13 +23,13 @@ require("lualine").setup({
 			},
 		},
 		lualine_x = {
-			{
-				require("noice").api.status.message.get_hl,
-				fmt = function(str)
-					return str:sub(1, vim.o.columns / 5)
-				end,
-				cond = require("noice").api.status.message.has,
-			},
+			-- {
+			-- 	require("noice").api.status.message.get_hl,
+			-- 	fmt = function(str)
+			-- 		return str:sub(1, vim.o.columns / 5)
+			-- 	end,
+			-- 	cond = require("noice").api.status.message.has,
+			-- },
 			"encoding",
 			"fileformat",
 			"filetype",

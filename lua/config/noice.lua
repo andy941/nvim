@@ -9,8 +9,8 @@ require("noice").setup({
 		message = {
 			-- Messages shown by lsp servers
 			enabled = true,
-			-- view = "mini",
-			-- opts = {},
+			view = "mini",
+			opts = {},
 		},
 	},
 
@@ -27,7 +27,7 @@ require("noice").setup({
 
 	-- you can enable a preset for easier configuration
 	presets = {
-		bottom_search = true, -- use a classic bottom cmdline for search
+		bottom_search = false, -- use a classic bottom cmdline for search
 		command_palette = true, -- position the cmdline and popupmenu together
 		long_message_to_split = true, -- long messages will be sent to a split
 		inc_rename = true, -- enables an input dialog for inc-rename.nvim
@@ -36,12 +36,26 @@ require("noice").setup({
 	routes = {
 		{
 			filter = {
-				event = "msg_show",
-				kind = "",
+				event = {
+					"msg_show",
+				},
+				kind = {
+					"",
+					"confirm",
+					"confirm_sub",
+					"emsg",
+					"echo",
+					"echomsg",
+					"echoerr",
+					"lua_error",
+					"rpc_error",
+					"return_prompt",
+					"quickfix",
+					-- "search_count",
+					"wmsg",
+				},
 			},
-			opts = {
-				skip = true,
-			},
+			view = "mini",
 		},
 		{
 			filter = {

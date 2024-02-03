@@ -122,8 +122,12 @@ vim.g.rustaceanvim = {
 		on_attach = function(client, bufnr)
 			attach(client, bufnr)
 			vim.keymap.set("n", "K", "<cmd>RustLsp hover actions<CR>", opts)
-			--vim.keymap.set("n", "<leader>E", "<cmd>RustLsp renderDiagnostic<CR>", opts)
+			vim.keymap.set("n", "<leader>E", "<cmd>RustLsp renderDiagnostic<CR>", opts)
 			vim.keymap.set("n", "<leader>x", "<cmd>RustLsp explainError<CR>", opts)
+			vim.keymap.set("n", "<leader>Mr", "<cmd>RustLsp runnables<CR>", opts)
+			vim.keymap.set("n", "<leader>MM", "<cmd>RustLsp runnables last<CR>", opts)
+			vim.keymap.set("n", "<leader>MD", "<cmd>RustLsp debuggables<CR>", opts)
+			vim.keymap.set("n", "<leader>Md", "<cmd>RustLsp debuggables last<CR>", opts)
 		end,
 	},
 }
