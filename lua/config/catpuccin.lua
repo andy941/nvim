@@ -40,7 +40,7 @@ require("catppuccin").setup({
 		nvimtree = true,
 		treesitter = true,
 		notify = true,
-		mini = false,
+		mini = { enabled = true },
 		mason = true,
 		octo = true,
 		telekasten = true,
@@ -48,8 +48,8 @@ require("catppuccin").setup({
 			lsp = true,
 		},
 		which_key = true,
-    noice = true,
-    lsp_trouble = true,
+		noice = true,
+		lsp_trouble = true,
 		vimwiki = true,
 		dap = {
 			enabled = true,
@@ -75,4 +75,3 @@ require("catppuccin").setup({
 		},
 	},
 })
-

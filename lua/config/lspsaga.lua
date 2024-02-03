@@ -71,7 +71,7 @@ require("lspsaga").setup({
 		exec = "<CR>",
 		mark = "<Tab>",
 		confirm = "<CR>",
-		in_select = true,
+		in_select = false,
 	},
 
 	outline = {
@@ -97,7 +97,7 @@ require("lspsaga").setup({
 			vsplit = "v",
 			split = "x",
 			tabe = "t",
-			jump = "<CR>",
+			jump = "o",
 			quit = "q",
 			expand_collapse = "l",
 		},

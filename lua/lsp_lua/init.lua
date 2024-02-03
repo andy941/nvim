@@ -25,7 +25,8 @@ local attach = function(client, bufnr)
 	vim.keymap.set("n", "gO", "<cmd>Lspsaga outgoing_calls<CR>", opts)
 	vim.keymap.set("n", "gr", "<cmd>Lspsaga finder<CR>", opts)
 	vim.keymap.set("n", "<leader>a", "<cmd>Lspsaga code_action<CR>", opts)
-	vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", opts)
+	-- vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", opts)
+	vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
 	vim.keymap.set("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", opts)
 	vim.keymap.set("n", "<leader>rN", "<cmd>Lspsaga rename ++project<CR>", opts)
 	vim.keymap.set("n", "<leader>E", "<cmd>Lspsaga show_line_diagnostics<CR>", opts)
@@ -119,7 +120,7 @@ vim.g.rustaceanvim = {
 	server = {
 		--on_attach = attach,
 		on_attach = function(client, bufnr)
-			attach(client,bufnr)
+			attach(client, bufnr)
 			vim.keymap.set("n", "K", "<cmd>RustLsp hover actions<CR>", opts)
 			--vim.keymap.set("n", "<leader>E", "<cmd>RustLsp renderDiagnostic<CR>", opts)
 			vim.keymap.set("n", "<leader>x", "<cmd>RustLsp explainError<CR>", opts)

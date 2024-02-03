@@ -16,21 +16,25 @@ return require("lazy").setup({
 	{ "nvim-lua/popup.nvim" },
 	{ "nvim-lua/plenary.nvim" },
 	{ "MunifTanjim/nui.nvim", lazy = true },
+	{
+		"rcarriga/nvim-notify",
+		lazy = true,
+		keys = {
+			{ "<leader>N", "<cmd>Telescope notify<cr>", desc = "Notifications history" },
+		},
+	},
 
 	-- Nicer UI
 	{
 		"folke/noice.nvim",
 		event = "VeryLazy",
-		config = true,
 		dependencies = {
 			"MunifTanjim/nui.nvim",
-			{
-				"rcarriga/nvim-notify",
-				keys = {
-					{ "<leader>N", "<cmd>Telescope notify<cr>", desc = "Notifications history" },
-				},
-			},
+			"rcarriga/nvim-notify",
 		},
+		config = function()
+			require("config.noice")
+		end,
 	},
 
 	-- Icons
@@ -152,7 +156,7 @@ return require("lazy").setup({
 			"hrsh7th/cmp-path",
 			"jalvesaq/cmp-nvim-r",
 			"hrsh7th/cmp-nvim-lsp",
-			"hrsh7th/cmp-nvim-lsp-signature-help",
+			-- "hrsh7th/cmp-nvim-lsp-signature-help",
 			"hrsh7th/cmp-nvim-lua",
 			"hrsh7th/cmp-buffer",
 			"hrsh7th/cmp-cmdline",
