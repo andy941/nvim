@@ -39,7 +39,7 @@ require("catppuccin").setup({
 		gitsigns = true,
 		nvimtree = true,
 		treesitter = true,
-		notify = false,
+		notify = true,
 		mini = false,
 		mason = true,
 		octo = true,
@@ -49,6 +49,7 @@ require("catppuccin").setup({
 		},
 		which_key = true,
     noice = true,
+    lsp_trouble = true,
 		vimwiki = true,
 		dap = {
 			enabled = true,
