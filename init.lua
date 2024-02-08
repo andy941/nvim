@@ -7,8 +7,5 @@ require("settings")
 -- Install plugins
 require("plugins")
 
--- Group configuration in one folder
---require("config")
-
 -- lsp setup
 require("lsp_lua")

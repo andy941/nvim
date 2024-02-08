@@ -37,6 +37,10 @@ tele.setup({
 		prompt_prefix = "    ",
 	},
 	pickers = {
+		colorscheme = {
+			enable_preview = true,
+			layout_strategy = "vertical",
+		},
 		find_files = {
 			hidden = true,
 		},

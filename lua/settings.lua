@@ -19,7 +19,7 @@ set ssop+=globals    " required by Bufferline
 
 -- colors
 vim.o.termguicolors = true
-vim.o.background = "dark" -- or "light" for light mode
+--vim.o.background = "dark" -- or "light" for light mode
 
 utils.opt("b", "tabstop", 2)
 utils.opt("b", "softtabstop", 2)

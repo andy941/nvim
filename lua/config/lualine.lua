@@ -8,10 +8,13 @@ require("lualine").setup({
 	},
 	sections = {
 		lualine_a = {
-			"mode",
+			-- "mode",
 			{
 				require("noice").api.statusline.mode.get,
 				cond = require("noice").api.statusline.mode.has,
+				fmt = function(str)
+					return str:gsub("%-%-","")
+				end,
 			},
 		},
 		lualine_b = { "diff", "branch", "diagnostics" },
@@ -23,13 +26,6 @@ require("lualine").setup({
 			},
 		},
 		lualine_x = {
-			-- {
-			-- 	require("noice").api.status.message.get_hl,
-			-- 	fmt = function(str)
-			-- 		return str:sub(1, vim.o.columns / 5)
-			-- 	end,
-			-- 	cond = require("noice").api.status.message.has,
-			-- },
 			"encoding",
 			"fileformat",
 			"filetype",
