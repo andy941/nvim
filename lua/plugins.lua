@@ -19,9 +19,6 @@ return require("lazy").setup({
 	{
 		"rcarriga/nvim-notify",
 		lazy = true,
-		keys = {
-			{ "<leader>N", "<cmd>Telescope notify<cr>", desc = "Notifications history" },
-		},
 	},
 
 	-- Nicer UI
@@ -35,6 +32,9 @@ return require("lazy").setup({
 		config = function()
 			require("config.noice")
 		end,
+		keys = {
+			{ "<leader>N", "<cmd>Telescope noice<cr>", desc = "Notifications and messages history" },
+		},
 	},
 
 	-- Icons
@@ -349,6 +349,7 @@ return require("lazy").setup({
 	-- Quarto
 	{
 		"3rd/image.nvim",
+		lazy = true,
 		ft = { "markdown", "quarto" },
 		config = function()
 			require("config.image")
@@ -356,6 +357,7 @@ return require("lazy").setup({
 	},
 	{
 		"benlubas/molten-nvim",
+		lazy = true,
 		build = ":UpdateRemotePlugins",
 		ft = { "markdown", "quarto" },
 		config = function()
@@ -364,7 +366,11 @@ return require("lazy").setup({
 	},
 	{
 		"quarto-dev/quarto-nvim",
-		dependencies = { "jmbuhr/otter.nvim" },
+		dependencies = {
+			"jmbuhr/otter.nvim",
+			"jpalardy/vim-slime",
+			"3rd/image.nvim",
+		},
 		ft = { "markdown", "quarto" },
 		config = function()
 			require("config.quarto")
