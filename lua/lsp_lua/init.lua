@@ -44,7 +44,7 @@ vim.diagnostic.config({
 	virtual_text = true,
 	signs = true,
 	underline = true,
-	update_in_insert = true,
+	update_in_insert = false,
 	severity_sort = true,
 })
 
@@ -160,7 +160,7 @@ nvim_lsp.ltex.setup({
 	filetypes = {
 		"bib",
 		"gitcommit",
-		-- "markdown",
+		"markdown",
 		"org",
 		"plaintex",
 		"rst",

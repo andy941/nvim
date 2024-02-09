@@ -1,4 +1,3 @@
-require("otter").setup({ buffers = { set_filetype = true } })
 require("quarto").setup({
 	debug = false,
 	closePreviewOnExit = true,

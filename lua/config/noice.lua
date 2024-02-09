@@ -63,6 +63,12 @@ require("noice").setup({
 			},
 			view = "mini",
 		},
+		{
+			filter = {
+				find = "Checking document ltex",
+			},
+      skip = true
+		},
 	},
 })
 

@@ -365,10 +365,18 @@ return require("lazy").setup({
 		end,
 	},
 	{
+		"jmbuhr/otter.nvim",
+		lazy = true,
+		dev = false,
+		opts = {
+			buffers = { set_filetype = true, write_to_disk = true },
+		},
+	},
+	{
 		"quarto-dev/quarto-nvim",
+		dev = false,
 		dependencies = {
 			"jmbuhr/otter.nvim",
-			"jpalardy/vim-slime",
 			"3rd/image.nvim",
 		},
 		ft = { "markdown", "quarto" },
