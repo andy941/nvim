@@ -73,7 +73,8 @@ require("mason-tool-installer").setup({
 -------------------------------------------------------------------------------
 
 local servers = {
-	"pyright",
+	--"pyright",
+	"pylsp",
 	"cmake",
 	"bashls",
 	"r_language_server",
