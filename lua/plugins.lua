@@ -396,6 +396,7 @@ return require("lazy").setup({
 	-- Trouble quickfix
 	{
 		"folke/trouble.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
 		config = true,
 	},
 

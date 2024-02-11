@@ -4,6 +4,7 @@ local tele = require("telescope")
 local actions = require("telescope.actions")
 local action_state = require("telescope.actions.state")
 local builtin = require("telescope.builtin")
+local trouble = require("trouble.providers.telescope")
 
 -- You dont need to set any of these options. These are the default ones. Only
 -- the loading is important
@@ -25,13 +26,14 @@ tele.setup({
 		mappings = {
 			n = {
 				--["<C-q>"] = false,
-				--["<C-q>"] = actions.send_to_qflist + actions.open_qflist,
+				["<C-q>"] = trouble.open_with_trouble,
 				["<M-q>"] = false,
 				["<C-l>"] = actions.send_selected_to_qflist + actions.open_qflist,
 				["<C-a>"] = actions.toggle_all,
 			},
 			i = {
 				["<C-a>"] = actions.toggle_all,
+				["<C-q>"] = trouble.open_with_trouble,
 			},
 		},
 		prompt_prefix = "    ",
