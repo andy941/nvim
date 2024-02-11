@@ -167,7 +167,7 @@ return require("lazy").setup({
 		"hrsh7th/nvim-cmp",
 		dependencies = {
 			"hrsh7th/cmp-path",
-			"jalvesaq/cmp-nvim-r",
+			--"jalvesaq/cmp-nvim-r",
 			"hrsh7th/cmp-nvim-lsp",
 			-- "hrsh7th/cmp-nvim-lsp-signature-help",
 			"hrsh7th/cmp-nvim-lua",
@@ -202,13 +202,13 @@ return require("lazy").setup({
 	},
 
 	-- Rstudio like environment for R
-	{
+	--[[ {
 		"jalvesaq/Nvim-R",
 		ft = { "r", "rmd" },
 		config = function()
 			vim.cmd("source ~/.config/nvim/lua/config/nvimR.vim")
 		end,
-	},
+	}, ]]
 
 	-- resize buffers and keep proportions
 	{
@@ -350,7 +350,6 @@ return require("lazy").setup({
 	{
 		"3rd/image.nvim",
 		lazy = true,
-		ft = { "markdown", "quarto" },
 		config = function()
 			require("config.image")
 		end,
@@ -359,7 +358,7 @@ return require("lazy").setup({
 		"benlubas/molten-nvim",
 		lazy = true,
 		build = ":UpdateRemotePlugins",
-		ft = { "markdown", "quarto" },
+		dependencies = "3rd/image.nvim",
 		config = function()
 			require("config.molten")
 		end,
@@ -378,6 +377,7 @@ return require("lazy").setup({
 		dependencies = {
 			"jmbuhr/otter.nvim",
 			"3rd/image.nvim",
+			"benlubas/molten-nvim",
 		},
 		ft = { "markdown", "quarto" },
 		config = function()
@@ -396,7 +396,6 @@ return require("lazy").setup({
 	-- Trouble quickfix
 	{
 		"folke/trouble.nvim",
-		lazy = true,
 		config = true,
 	},
 
