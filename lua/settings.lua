@@ -29,7 +29,7 @@ utils.opt("b", "smartindent", true)
 utils.opt("b", "autoindent", true)
 utils.opt("b", "swapfile", false)
 
---utils.opt("o", "python3_host_program", vim.fn.expand("~/.virtualenvs/neovim/bin/python3"))
+-- utils.opt("o", "python3_host_program", vim.fn.expand("/usr/bin/python"))
 utils.opt("o", "encoding", "utf-8")
 utils.opt("o", "splitright", true)
 utils.opt("o", "splitbelow", true)
