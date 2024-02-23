@@ -95,7 +95,7 @@ initialization_options.clangd = {
 
 filetypes.marksman = { "quarto" }
 root_dir.marksman = function(fname)
-	return nvim_lsp.util.root_pattern(".git", ".marksman.toml", "_quarto.yml")(fname)
+	return nvim_lsp.util.root_pattern(".git", ".marksman.toml", ".qmd")(fname)
 		or nvim_lsp.util.path.dirname(fname)
 end
 
