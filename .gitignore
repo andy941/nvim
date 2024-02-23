@@ -2,3 +2,4 @@ plugin/packer_compiled.lua
 .luarc.json
 lua-language-server/
 lazy-lock.json
+.repro/
