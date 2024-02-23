@@ -44,6 +44,7 @@ require("catppuccin").setup({
 		mason = true,
 		octo = true,
 		telekasten = true,
+    headlines = true,
 		illuminate = {
 			lsp = true,
 		},

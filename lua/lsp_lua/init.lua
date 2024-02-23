@@ -76,6 +76,7 @@ local command = {}
 local initialization_options = {}
 local filetypes = {}
 local root_dir = {}
+local settings = {}
 
 command.clangd = {
 	"clangd",
@@ -95,14 +96,21 @@ initialization_options.clangd = {
 
 filetypes.marksman = { "quarto" }
 root_dir.marksman = function(fname)
-	return nvim_lsp.util.root_pattern(".git", ".marksman.toml", ".qmd")(fname)
-		or nvim_lsp.util.path.dirname(fname)
+	return nvim_lsp.util.root_pattern(".git", ".marksman.toml", ".qmd")(fname) or nvim_lsp.util.path.dirname(fname)
 end
 
 root_dir.pyright = function(fname)
 	return nvim_lsp.util.root_pattern(".git", "setup.py", "setup.cfg", "pyproject.toml", "requirements.txt")(fname)
 		or nvim_lsp.util.path.dirname(fname)
 end
+
+settings.r_language_server = {
+	r = {
+		lsp = {
+			rich_documentation = false,
+		},
+	},
+}
 
 for _, lsp in ipairs(servers) do
 	nvim_lsp[lsp].setup({
@@ -113,6 +121,7 @@ for _, lsp in ipairs(servers) do
 		initialization_options = initialization_options[lsp],
 		filetypes = filetypes[lsp],
 		root_dir = root_dir[lsp],
+		settings = settings[lsp],
 	})
 end
 
