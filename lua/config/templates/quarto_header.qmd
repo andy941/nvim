@@ -6,10 +6,12 @@ author: "{{_author_}}"
 citeproc: true
 useMath: true
 standalone: true
-html:
-  embed-resources: true
-  self-contained-math: true
-  code-fold: true
+embed-resources: true
+self-contained: true
+self-contained-math: true
+code-fold: true
 engine: knitr
+highlight-style: gruvbox
+cache: false
 ---
 

@@ -1,6 +1,6 @@
 vim.g.molten_image_provider = "image.nvim"
 --vim.g.molten_output_win_max_height = 40
-vim.g.molten_auto_open_html_in_browser = true
+vim.g.molten_auto_open_html_in_browser = false
 vim.g.molten_output_win_hide_on_leave = false
 vim.g.molten_auto_open_output = true
 vim.g.molten_enter_output_behavior = "open_then_enter"

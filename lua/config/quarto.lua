@@ -28,7 +28,6 @@ require("quarto").setup({
 	},
 })
 
-
 ---- Molten keymaps
 -- local runner = require("quarto.runner")
 -- vim.keymap.set("n", "<C-s>", runner.run_cell, { desc = "run cell", silent = true })
@@ -51,9 +50,7 @@ local function send_cell()
 		return
 	end
 	if vim.b["quarto_is_" .. "r" .. "_mode"] == true then
-		vim.g.slime_python_ipython = 0
-		-- local is_python = require("otter.tools.functions").is_otter_language_context("python")
-    local is_python = require("otter.tools.functions").is_otter_language_context("python")
+		local is_python = require("otter.tools.functions").is_otter_language_context("python")
 		if is_python and not M.reticulate_running then
 			vim.cmd([[call slime#send("reticulate::repl_python()" . "\r")]])
 			M.reticulate_running = true
@@ -63,6 +60,7 @@ local function send_cell()
 			M.reticulate_running = false
 		end
 		vim.cmd([[call slime#send_cell()]])
+		vim.cmd([[call slime#send("\n")]])
 	end
 end
 
@@ -70,15 +68,6 @@ vim.b["quarto_is_" .. "r" .. "_mode"] = nil
 vim.keymap.set("n", "<localleader>R", function()
 	vim.b["quarto_is_" .. "r" .. "_mode"] = true
 	vim.cmd([[TermExec direction=vertical cmd="R"]])
-	-- vim.cmd("vsplit term://R")
 end)
 
--- send code with ctrl+Enter
--- just like in e.g. RStudio
--- needs kitty (or other terminal) config:
--- map shift+enter send_text all \x1b[13;2u
--- map ctrl+enter send_text all \x1b[13;5u
-vim.keymap.set("n", "<c-cr>", send_cell)
-vim.keymap.set("n", "<s-cr>", send_cell)
-vim.keymap.set("n", "<c-cr>", send_cell)
-vim.keymap.set("n", "<s-cr>", send_cell)
+vim.keymap.set("n", "<C-s>", send_cell)
