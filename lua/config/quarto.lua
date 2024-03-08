@@ -14,7 +14,7 @@ require("quarto").setup({
 		},
 	},
 	codeRunner = {
-		enabled = true,
+		enabled = false,
 		default_method = "slime", -- 'molten' or 'slime'
 		--ft_runners = {}, -- filetype to runner, ie. `{ python = "molten" }`.
 		-- Takes precedence over `default_method`
@@ -42,32 +42,32 @@ vim.keymap.set("n", "<leader>rs", "<cmd>QuartoActivate<cr>", opts)
 vim.keymap.set("n", "<leader>vv", "<cmd>QuartoPreview<cr>", opts)
 vim.keymap.set("n", "<leader>cB", "<cmd>Telescope bibtex format=markdown<cr>", opts)
 
-local M = {}
-M.reticulate_running = false
-local function send_cell()
-	if vim.b["quarto_is_" .. "r" .. "_mode"] == nil then
-		vim.cmd([[call slime#send_cell()]])
-		return
-	end
-	if vim.b["quarto_is_" .. "r" .. "_mode"] == true then
-		local is_python = require("otter.tools.functions").is_otter_language_context("python")
-		if is_python and not M.reticulate_running then
-			vim.cmd([[call slime#send("reticulate::repl_python()" . "\r")]])
-			M.reticulate_running = true
-		end
-		if not is_python and M.reticulate_running then
-			vim.cmd([[call slime#send("exit" . "\r")]])
-			M.reticulate_running = false
-		end
-		vim.cmd([[call slime#send_cell()]])
-		vim.cmd([[call slime#send("\n")]])
-	end
-end
-
-vim.b["quarto_is_" .. "r" .. "_mode"] = nil
-vim.keymap.set("n", "<localleader>R", function()
-	vim.b["quarto_is_" .. "r" .. "_mode"] = true
-	vim.cmd([[TermExec direction=vertical cmd="R"]])
-end)
-
-vim.keymap.set("n", "<C-s>", send_cell)
+-- local M = {}
+-- M.reticulate_running = false
+-- local function send_cell()
+-- 	if vim.b["quarto_is_" .. "r" .. "_mode"] == nil then
+-- 		vim.cmd([[call slime#send_cell()]])
+-- 		return
+-- 	end
+-- 	if vim.b["quarto_is_" .. "r" .. "_mode"] == true then
+-- 		local is_python = require("otter.tools.functions").is_otter_language_context("python")
+-- 		if is_python and not M.reticulate_running then
+-- 			vim.cmd([[call slime#send("reticulate::repl_python()" . "\r")]])
+-- 			M.reticulate_running = true
+-- 		end
+-- 		if not is_python and M.reticulate_running then
+-- 			vim.cmd([[call slime#send("exit" . "\r")]])
+-- 			M.reticulate_running = false
+-- 		end
+-- 		vim.cmd([[call slime#send_cell()]])
+-- 		vim.cmd([[call slime#send("\r")]])
+-- 	end
+-- end
+--
+-- vim.b["quarto_is_" .. "r" .. "_mode"] = nil
+-- vim.keymap.set("n", "<localleader>R", function()
+-- 	vim.b["quarto_is_" .. "r" .. "_mode"] = true
+-- 	vim.cmd([[TermExec direction=vertical cmd="R"]])
+-- end)
+--
+-- vim.keymap.set("n", "<C-s>", send_cell)
