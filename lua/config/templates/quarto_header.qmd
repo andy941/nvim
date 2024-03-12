@@ -15,3 +15,29 @@ highlight-style: gruvbox
 cache: false
 ---
 
+```{r}
+#| label: imports-and-functions-r
+#| code-summary: "Imports and Functions - R"
+#| output: false
+
+library(tidyverse)
+library(reticulate)
+library(ggthemes)
+library(ggpubr)
+#library(EnvStats)
+```
+
+```{python}
+#| label: imports-and-functions-python
+#| code-summary: "Imports and Functions - Python"
+#| output: false
+
+import pysam
+import pandas as pd
+import matplotlib.pyplot as plt
+import os
+import json
+from IPython.core.display import Markdown
+from tabulate import tabulate
+#import pybedtools
+```

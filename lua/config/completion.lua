@@ -45,7 +45,7 @@ cmp.setup({
 		["<C-p>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
 		["<C-u>"] = cmp.mapping.scroll_docs(-4),
 		["<C-d>"] = cmp.mapping.scroll_docs(4),
-		["<C-Space>"] = cmp.mapping.complete(),
+		--["<C-Space>"] = cmp.mapping.complete(),
 		--["<C-e>"] = cmp.mapping.close(),
 		["<CR>"] = cmp.mapping.confirm({
 			behavior = cmp.ConfirmBehavior.Replace,
@@ -81,6 +81,7 @@ cmp.setup({
 	end,
 
 	sources = {
+		{ name = "cmp_r" },
 		{ name = "otter" },
 		{ name = "dap" },
 		{ name = "path" },
@@ -89,7 +90,7 @@ cmp.setup({
 		-- { name = "nvim_lsp_signature_help" },
 		--{ name = "nvim_lua" }, -- knows to activate only in Lua
 		{ name = "luasnip" },
-		{ name = "jupynium" },
+		{ name = "crates" },
 	},
 
 	sorting = {
@@ -125,9 +126,11 @@ require("cmp").setup.filetype("tex", {
 		{ name = "nvim_lsp_signature_help" },
 		{ name = "luasnip" },
 		{ name = "buffer" },
-		{ name = "crates" },
 	},
 })
+
+-- For R.nvim
+require("cmp_r").setup({})
 
 -- for friendly snippets
 require("luasnip.loaders.from_vscode").lazy_load()

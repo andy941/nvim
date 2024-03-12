@@ -77,20 +77,22 @@ return require("lazy").setup({
 	},
 
 	-- Color scheme
-	{ "ellisonleao/gruvbox.nvim", config = true },
-	{
-		"EdenEast/nightfox.nvim",
-		config = function()
-			require("config.nightfox")
-		end,
-	},
 	{
 		"catppuccin/nvim",
+		lazy = false, -- make sure we load this during startup if it is your main colorscheme
+		priority = 1000, -- make sure to load this before all the other start plugins
 		config = function()
 			require("config.catpuccin")
 			vim.cmd.colorscheme("catppuccin")
 		end,
 	},
+	-- { "ellisonleao/gruvbox.nvim", config = true },
+	-- {
+	-- 	"EdenEast/nightfox.nvim",
+	-- 	config = function()
+	-- 		require("config.nightfox")
+	-- 	end,
+	-- },
 
 	-- Lualine
 	{
@@ -178,6 +180,7 @@ return require("lazy").setup({
 			"saadparwaiz1/cmp_luasnip",
 			"onsails/lspkind-nvim",
 			"saecki/crates.nvim",
+			"R-nvim/cmp-r",
 		},
 		config = function()
 			require("config.completion")
@@ -244,6 +247,12 @@ return require("lazy").setup({
 		},
 		config = function()
 			require("config.gh")
+		end,
+	},
+	{
+		"ruifm/gitlinker.nvim",
+		config = function()
+			require("config.gitlinker")
 		end,
 	},
 
@@ -351,7 +360,7 @@ return require("lazy").setup({
 	{
 		"lukas-reineke/headlines.nvim",
 		dependencies = "nvim-treesitter/nvim-treesitter",
-    ft = {"markdown", "quarto"},
+		ft = { "markdown", "quarto" },
 		config = function()
 			require("config.headlines")
 		end,
@@ -380,15 +389,15 @@ return require("lazy").setup({
 			buffers = { set_filetype = true, write_to_disk = true },
 		},
 	},
-	{
-		"jpalardy/vim-slime",
-		init = function()
-			vim.b.slime_cell_delimiter = "```"
-			vim.g.slime_target = "neovim"
-			vim.g.slime_bracketed_paste = 0
-			vim.g.slime_python_ipython = 1
-		end,
-	},
+	-- {
+	-- 	"jpalardy/vim-slime",
+	-- 	init = function()
+	-- 		vim.b.slime_cell_delimiter = "```"
+	-- 		vim.g.slime_target = "neovim"
+	-- 		vim.g.slime_bracketed_paste = 1
+	-- 		vim.g.slime_python_ipython = 0
+	-- 	end,
+	-- },
 	{
 		"quarto-dev/quarto-nvim",
 		dev = false,
@@ -396,11 +405,18 @@ return require("lazy").setup({
 			"jmbuhr/otter.nvim",
 			"3rd/image.nvim",
 			-- "benlubas/molten-nvim",
-			"jpalardy/vim-slime",
+			--"jpalardy/vim-slime",
 		},
 		ft = { "markdown", "quarto" },
 		config = function()
 			require("config.quarto")
+		end,
+	},
+	{
+		"R-nvim/R.nvim",
+		lazy = false,
+		config = function()
+			require("config.R-nvim")
 		end,
 	},
 

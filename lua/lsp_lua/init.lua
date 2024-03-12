@@ -110,6 +110,11 @@ settings.r_language_server = {
 			rich_documentation = false,
 		},
 	},
+	quarto = {
+		lsp = {
+			rich_documentation = false,
+		},
+	},
 }
 
 for _, lsp in ipairs(servers) do
