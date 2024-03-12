@@ -44,7 +44,7 @@ vim.diagnostic.config({
 	virtual_text = true,
 	signs = true,
 	underline = true,
-	update_in_insert = false,
+	update_in_insert = true,
 	severity_sort = true,
 })
 
@@ -127,7 +127,6 @@ end
 
 vim.g.rustaceanvim = {
 	server = {
-		--on_attach = attach,
 		on_attach = function(client, bufnr)
 			attach(client, bufnr)
 			vim.keymap.set("n", "K", "<cmd>RustLsp hover actions<CR>", opts)
