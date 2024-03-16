@@ -25,12 +25,8 @@ cmp.setup({
 	},
 
 	window = {
-		completion = {
-			winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,CursorLine:PmenuSel,Search:None",
-		},
-		documentation = {
-			winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,CursorLine:PmenuSel,Search:None",
-		},
+		completion = cmp.config.window.bordered(),
+		documentation = cmp.config.window.bordered(),
 	},
 
 	snippet = {
@@ -81,14 +77,11 @@ cmp.setup({
 	end,
 
 	sources = {
-		{ name = "cmp_r" },
 		{ name = "otter" },
 		{ name = "dap" },
 		{ name = "path" },
-		{ name = "cmp-nvim-r" },
 		{ name = "nvim_lsp" },
 		-- { name = "nvim_lsp_signature_help" },
-		--{ name = "nvim_lua" }, -- knows to activate only in Lua
 		{ name = "luasnip" },
 		{ name = "crates" },
 	},
@@ -126,6 +119,17 @@ require("cmp").setup.filetype("tex", {
 		{ name = "nvim_lsp_signature_help" },
 		{ name = "luasnip" },
 		{ name = "buffer" },
+	},
+})
+
+require("cmp").setup.filetype("quarto", {
+	sources = {
+		{ name = "cmp_r" },
+		{ name = "otter" },
+		{ name = "dap" },
+		{ name = "path" },
+		{ name = "nvim_lsp" },
+		{ name = "luasnip" },
 	},
 })
 
