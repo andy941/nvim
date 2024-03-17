@@ -18,7 +18,7 @@ set ssop+=globals    " required by Bufferline
 ]])
 
 -- colors
--- vim.o.termguicolors = true
+vim.o.termguicolors = true
 
 utils.opt("b", "tabstop", 4)
 utils.opt("b", "softtabstop", 4)
