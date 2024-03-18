@@ -29,7 +29,8 @@ require("r").setup({
 	nvimpager = "float",
 	assign = false,
 	Rout_more_colors = true,
-	hl_term = true,
+	hl_term = false,
+	pdfviewer = "zathura",
 	-- R_user_maps_only = 1,,
 	-- R_disable_cmds = ['RSetwd', 'RDputObj'],,
 })

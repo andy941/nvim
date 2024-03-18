@@ -24,6 +24,7 @@ library(tidyverse)
 library(reticulate)
 library(ggthemes)
 library(ggpubr)
+library(kableExtra)
 #library(EnvStats)
 ```
 
