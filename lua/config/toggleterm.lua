@@ -30,7 +30,7 @@ require("toggleterm").setup({
 		height = function(term)
 			return math.floor(vim.o.lines * 0.9 + 0.5)
 		end,
-		winblend = 3,
+		-- winblend = 3,
 		highlights = {
 			border = "Normal",
 			background = "Normal",
