@@ -293,21 +293,26 @@ return require("lazy").setup({
 
 	-- Debugger API and sugar
 	{
+		"theHamsta/nvim-dap-virtual-text",
+		lazy = true,
+		config = function()
+			require("config.nvim-dap-virtual-text")
+		end,
+	},
+	{
+		"rcarriga/nvim-dap-ui",
+		lazy = true,
+		dependencies = { "nvim-neotest/nvim-nio" },
+		config = function()
+			require("config.nvim-dap-ui")
+		end,
+	},
+	{
 		"mfussenegger/nvim-dap",
 		dependencies = {
 			"jay-babu/mason-nvim-dap.nvim",
-			{
-				"theHamsta/nvim-dap-virtual-text",
-				config = function()
-					require("config.nvim-dap-virtual-text")
-				end,
-			},
-			{
-				"rcarriga/nvim-dap-ui",
-				config = function()
-					require("config.nvim-dap-ui")
-				end,
-			},
+			"theHamsta/nvim-dap-virtual-text",
+			"rcarriga/nvim-dap-ui",
 		},
 		config = function()
 			require("config.nvim-dap")
@@ -388,23 +393,12 @@ return require("lazy").setup({
 			buffers = { set_filetype = true, write_to_disk = true },
 		},
 	},
-	-- {
-	-- 	"jpalardy/vim-slime",
-	-- 	init = function()
-	-- 		vim.b.slime_cell_delimiter = "```"
-	-- 		vim.g.slime_target = "neovim"
-	-- 		vim.g.slime_bracketed_paste = 1
-	-- 		vim.g.slime_python_ipython = 0
-	-- 	end,
-	-- },
 	{
 		"quarto-dev/quarto-nvim",
 		dev = false,
 		dependencies = {
 			"jmbuhr/otter.nvim",
 			"3rd/image.nvim",
-			-- "benlubas/molten-nvim",
-			--"jpalardy/vim-slime",
 		},
 		ft = { "markdown", "quarto" },
 		config = function()
