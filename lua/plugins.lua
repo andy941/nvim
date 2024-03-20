@@ -12,6 +12,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 return require("lazy").setup({
+
 	-- Core plugins
 	{ "nvim-lua/popup.nvim" },
 	{ "nvim-lua/plenary.nvim" },
@@ -446,4 +447,7 @@ return require("lazy").setup({
 			})
 		end,
 	},
-})
+}, {
+	ui = { border = "rounded" },
+}
+)

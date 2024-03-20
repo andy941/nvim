@@ -1,6 +1,7 @@
-require("mason").setup()
+require("mason").setup({ ui = { border = "rounded" } })
 require("mason-lspconfig").setup({ automatic_installation = { exclude = "r_language_server" } })
 local nvim_lsp = require("lspconfig")
+require("lspconfig.ui.windows").default_options.border = "rounded"
 
 -- Mappings.
 local opts = { noremap = true, silent = true }
