@@ -1,14 +1,19 @@
 ---
-format: html
+format:
+    # html:
+    #     useMath: true
+    #     standalone: true
+    #     embed-resources: true
+    #     self-contained: true
+    #     self-contained-math: true
+    gfm:
+        output-file: "README"
+        output-ext:  "md"
+        fig-dpi: 300
 title: "{{_cursor_}}"
 author: "{{_author_}}"
 #bibliography: cite.bib
 citeproc: true
-useMath: true
-standalone: true
-embed-resources: true
-self-contained: true
-self-contained-math: true
 code-fold: true
 engine: knitr
 highlight-style: gruvbox
