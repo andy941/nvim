@@ -49,18 +49,6 @@ vim.diagnostic.config({
 	severity_sort = true,
 })
 
--------------------------------------------------------------------------------
-
-require("mason-tool-installer").setup({
-	ensure_installed = {
-		"stylua",
-		"black",
-		"cbfmt",
-		"taplo",
-	},
-})
-
--------------------------------------------------------------------------------
 
 local servers = {
 	"pyright",
@@ -72,6 +60,20 @@ local servers = {
 	"clangd",
 	"marksman",
 }
+
+-- Ensure servers and formatters are installed --------------------------------
+
+require("mason-tool-installer").setup({
+	ensure_installed = {
+		"stylua",
+		"black",
+		"cbfmt",
+		"taplo",
+		servers,
+	},
+})
+
+-------------------------------------------------------------------------------
 
 local command = {}
 local initialization_options = {}
@@ -139,9 +141,9 @@ vim.g.rustaceanvim = {
 			vim.keymap.set("n", "<leader>E", "<cmd>RustLsp renderDiagnostic<CR>", opts)
 			vim.keymap.set("n", "<leader>x", "<cmd>RustLsp explainError<CR>", opts)
 			vim.keymap.set("n", "<leader>Mr", "<cmd>RustLsp runnables<CR>", opts)
-			vim.keymap.set("n", "<leader>MM", "<cmd>RustLsp runnables last<CR>", opts)
+			vim.keymap.set("n", "<leader>MM", "<cmd>RustLsp! runnables<CR>", opts)
 			vim.keymap.set("n", "<leader>MD", "<cmd>RustLsp debuggables<CR>", opts)
-			vim.keymap.set("n", "<leader>Md", "<cmd>RustLsp debuggables last<CR>", opts)
+			vim.keymap.set("n", "<leader>Md", "<cmd>RustLsp! debuggables<CR>", opts)
 		end,
 	},
 }

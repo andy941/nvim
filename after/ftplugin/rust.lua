@@ -14,6 +14,6 @@ vim.keymap.set(
 	"<leader>Mt",
 	':TermExec cmd="cargo run -j$(getconf _NPROCESSORS_ONLN) --manifest-path '
 		.. compute_cargo_path("Cargo.toml")
-		.. '"<CR>',
+		.. '"',
 	opts
 )
