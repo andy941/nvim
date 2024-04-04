@@ -20,6 +20,10 @@ highlight-style: gruvbox
 cache: false
 ---
 
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(warning = FALSE, message = FALSE)
+```
+
 ```{r}
 #| label: imports-and-functions-r
 #| code-summary: "Imports and Functions - R"
