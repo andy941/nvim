@@ -87,7 +87,6 @@ return require("lazy").setup({
 			vim.cmd.colorscheme("catppuccin")
 		end,
 	},
-	-- { "ellisonleao/gruvbox.nvim", config = true },
 	-- {
 	-- 	"EdenEast/nightfox.nvim",
 	-- 	config = function()
@@ -142,7 +141,7 @@ return require("lazy").setup({
 	},
 	{
 		"mrcjkb/rustaceanvim",
-		version = "^3",
+		-- version = "^4",
 		dependencies = {
 			"saecki/crates.nvim",
 		},
@@ -321,6 +320,22 @@ return require("lazy").setup({
 	},
 	{ "mfussenegger/nvim-dap-python", ft = "python" },
 
+	-- Test integration
+	{
+		"nvim-neotest/neotest",
+		dependencies = {
+			"nvim-neotest/nvim-nio",
+			"nvim-lua/plenary.nvim",
+			"antoinemadec/FixCursorHold.nvim",
+			"nvim-treesitter/nvim-treesitter",
+            "alfaix/neotest-gtest",
+            "nvim-neotest/neotest-python",
+		},
+		config = function()
+			require("config.neotest")
+		end,
+	},
+
 	-- Show hex colors in file
 	{
 		"norcalli/nvim-colorizer.lua",
@@ -444,10 +459,10 @@ return require("lazy").setup({
 		config = function()
 			require("chatgpt").setup({
 				api_key_cmd = "gpg --decrypt " .. vim.fn.expand("$HOME") .. "/.password-store/openai_key.gpg",
+				openai_params = { max_tokens = 8192 },
 			})
 		end,
 	},
 }, {
 	ui = { border = "rounded" },
-}
-)
+})
