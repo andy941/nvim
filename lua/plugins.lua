@@ -20,6 +20,9 @@ return require("lazy").setup({
 	{
 		"rcarriga/nvim-notify",
 		lazy = true,
+		config = function()
+			require("config.nvim-notify")
+		end,
 	},
 
 	-- Nicer UI
@@ -141,7 +144,7 @@ return require("lazy").setup({
 	},
 	{
 		"mrcjkb/rustaceanvim",
-		-- version = "^4",
+		version = "^4",
 		dependencies = {
 			"saecki/crates.nvim",
 		},
