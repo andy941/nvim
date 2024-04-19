@@ -1,5 +1,5 @@
 require("mason").setup({ ui = { border = "rounded" } })
-require("mason-lspconfig").setup({ automatic_installation = { exclude = "r_language_server" } })
+require("mason-lspconfig").setup({ automatic_installation = false})
 local nvim_lsp = require("lspconfig")
 require("lspconfig.ui.windows").default_options.border = "rounded"
 
@@ -50,7 +50,8 @@ vim.diagnostic.config({
 })
 
 local servers = {
-	"pyright",
+	-- "pyright",
+    "pylsp",
 	"cmake",
 	"bashls",
 	"r_language_server",
@@ -59,18 +60,6 @@ local servers = {
 	"clangd",
 	-- "marksman",
 }
-
--- Ensure servers and formatters are installed --------------------------------
-
-require("mason-tool-installer").setup({
-	ensure_installed = {
-		"stylua",
-		"black",
-		"cbfmt",
-		"taplo",
-		servers,
-	},
-})
 
 -------------------------------------------------------------------------------
 

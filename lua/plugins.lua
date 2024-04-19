@@ -377,25 +377,25 @@ return require("lazy").setup({
 	},
 
 	-- Quarto
-	-- {
-	-- 	"lukas-reineke/headlines.nvim",
-	-- 	dependencies = "nvim-treesitter/nvim-treesitter",
-	-- 	ft = { "markdown", "quarto" },
-	-- 	config = function()
-	-- 		require("config.headlines")
-	-- 	end,
-	-- },
 	{
-		"OXY2DEV/markview.nvim",
-		lazy = false, -- Recommended
-		dependencies = {
-			"nvim-treesitter/nvim-treesitter",
-			"nvim-tree/nvim-web-devicons",
-		},
+		"lukas-reineke/headlines.nvim",
+		dependencies = "nvim-treesitter/nvim-treesitter",
+		ft = { "markdown", "quarto" },
 		config = function()
-			require("config.markview")
+			require("config.headlines")
 		end,
 	},
+	-- {
+	-- 	"OXY2DEV/markview.nvim",
+	-- 	lazy = false, -- Recommended
+	-- 	dependencies = {
+	-- 		"nvim-treesitter/nvim-treesitter",
+	-- 		"nvim-tree/nvim-web-devicons",
+	-- 	},
+	-- 	config = function()
+	-- 		require("config.markview")
+	-- 	end,
+	-- },
 	{
 		"3rd/image.nvim",
 		lazy = true,
