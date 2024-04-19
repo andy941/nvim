@@ -11,10 +11,20 @@ vim.keymap.set("n", "F", "<cmd>Format<CR>", opts)
 --vim.api.nvim_command([[autocmd BufWritePost * FormatWrite]])
 --vim.api.nvim_command([[augroup END]])
 
+Clang_format_finder = function(clang_format_file)
+	CF = vim.fn.finddir(".git/..", ".;")
+	CF = vim.fn.fnamemodify(CF, ":p:h") .. clang_format_file
+	if vim.fn.findfile(CF) ~= 1 then
+		return CF
+	else
+		return "clang-format"
+	end
+end
+
 -- clang-format default not working without this (for now at least)
 Cformat = function()
 	return {
-		exe = "clang-format",
+		exe = Clang_format_finder("/meta/clang-format"),
 		args = {
 			"-assume-filename",
 			util.escape_path(util.get_current_buffer_file_name()),
@@ -56,7 +66,7 @@ require("formatter").setup({
 		json = { fmt.json },
 		html = { fmt.html },
 		toml = { fmt.taplo },
-		rust = { 
+		rust = {
 			function()
 				return {
 					exe = "rustfmt",
@@ -64,7 +74,7 @@ require("formatter").setup({
 					stdin = false,
 				}
 			end,
-    },
+		},
 		markdown = {
 			cbFmt,
 		},
