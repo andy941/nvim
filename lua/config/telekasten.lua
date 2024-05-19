@@ -5,27 +5,26 @@ local home = vim.fn.expand("~/Notes")
 -- - if you **must** use Windows, use "/Users/myname/zettelkasten" instead of "~/zettelkasten"
 -- - NEVER use "C:\Users\myname" style paths
 -- - Using `vim.fn.expand("~/zettelkasten")` should work now but mileage will vary with anything outside of finding and opening files
+
 require("telekasten").setup({
-	home = home,
 
-	-- if true, telekasten will be enabled when opening a note within the configured home
-	take_over_my_home = true,
+	-- Main paths
+	home = home, -- path to main notes folder
+	dailies = home .. "/" .. "daily", -- path to daily notes
+	templates = home .. "/" .. "templates", -- path to templates
 
-	-- auto-set telekasten filetype: if false, the telekasten filetype will not be used
-	-- and thus the telekasten syntax will not be loaded either
-	auto_set_filetype = true,
+	-- Specific note templates
+	-- set to `nil` or do not specify if you do not want a template
+	-- template_new_note = '/path/to/file',    -- template for new notes
+	-- template_new_daily = '/path/to/file',   -- template for new daily notes
+	-- template_new_weekly = '/path/to/file',  -- template for new weekly notes
 
-	-- dir names for special notes (absolute path or subdir name)
-	dailies = home .. "/" .. "daily",
-	weeklies = home .. "/" .. "weekly",
-	templates = home .. "/" .. "templates",
-
-	-- image (sub)dir for pasting
-	-- dir name (absolute path or subdir name)
+	-- Image subdir for pasting
+	-- subdir name
 	-- or nil if pasted images shouldn't go into a special subdir
 	image_subdir = "images",
 
-	-- markdown file extension
+	-- File extension for note files
 	extension = ".md",
 
 	-- Generate note filenames. One of:
@@ -33,117 +32,92 @@ require("telekasten").setup({
 	-- "uuid" - Use uuid
 	-- "uuid-title" - Prefix title by uuid
 	-- "title-uuid" - Suffix title with uuid
-	new_note_filename = "title",
-	-- file uuid type ("rand" or input for os.date()")
+	new_note_filename = "uuid-title",
+	-- file uuid type ("rand" or input for os.date such as "%Y%m%d%H%M")
 	uuid_type = "%Y%m%d%H%M",
 	-- UUID separator
 	uuid_sep = "-",
 
-	-- following a link to a non-existing note will create it
-	follow_creates_nonexisting = true,
-	dailies_create_nonexisting = true,
-	weeklies_create_nonexisting = false,
+	-- Flags for creating non-existing notes
+	follow_creates_nonexisting = true, -- create non-existing on follow
+	dailies_create_nonexisting = true, -- create non-existing dailies
+	weeklies_create_nonexisting = true, -- create non-existing weeklies
 
-	-- skip telescope prompt for goto_today and goto_thisweek
-	journal_auto_open = false,
-
-	-- template for new notes (new_note, follow_link)
-	-- set to `nil` or do not specify if you do not want a template
-	template_new_note = home .. "/" .. "templates/new_note.md",
-
-	-- template for newly created daily notes (goto_today)
-	-- set to `nil` or do not specify if you do not want a template
-	template_new_daily = home .. "/" .. "templates/daily.md",
-
-	-- template for newly created weekly notes (goto_thisweek)
-	-- set to `nil` or do not specify if you do not want a template
-	template_new_weekly = home .. "/" .. "templates/weekly.md",
-
-	-- image link style
+	-- Image link style",
 	-- wiki:     ![[image name]]
 	-- markdown: ![](image_subdir/xxxxx.png)
 	image_link_style = "markdown",
 
-	-- default sort option: 'filename', 'modified'
+	-- Default sort option: 'filename', 'modified'
 	sort = "filename",
 
-	-- integrate with calendar-vim
-	plug_into_calendar = true,
-	calendar_opts = {
-		-- calendar week display mode: 1 .. 'WK01', 2 .. 'WK 1', 3 .. 'KW01', 4 .. 'KW 1', 5 .. '1'
-		weeknm = 4,
-		-- use monday as first day of week: 1 .. true, 0 .. false
-		calendar_monday = 1,
-		-- calendar mark: where to put mark for marked days: 'left', 'right', 'left-fit'
-		calendar_mark = "left-fit",
-	},
+	-- Make syntax available to markdown buffers and telescope previewers
+	install_syntax = true,
 
-	-- telescope actions behavior
-	close_after_yanking = false,
-	insert_after_inserting = true,
-
-	-- tag notation: '#tag', ':tag:', 'yaml-bare'
+	-- Tag notation: '#tag', '@tag', ':tag:', 'yaml-bare'
 	tag_notation = "#tag",
 
-	-- command palette theme: dropdown (window) or ivy (bottom panel)
-	command_palette_theme = "dropdown",
-
-	-- tag list theme:
-	-- get_cursor: small tag list at cursor; ivy and dropdown like above
-	show_tags_theme = "dropdown",
-
-	-- when linking to a note in subdir/, create a [[subdir/title]] link
+	-- When linking to a note in subdir/, create a [[subdir/title]] link
 	-- instead of a [[title only]] link
 	subdirs_in_links = true,
 
-	-- template_handling
-	-- What to do when creating a new note via `new_note()` or `follow_link()`
-	-- to a non-existing note
-	-- - prefer_new_note: use `new_note` template
-	-- - smart: if day or week is detected in title, use daily / weekly templates (default)
-	-- - always_ask: always ask before creating a note
-	template_handling = "smart",
+	-- Command palette theme: dropdown (window) or ivy (bottom panel)
+	command_palette_theme = "ivy",
 
-	-- path handling:
-	--   this applies to:
-	--     - new_note()
-	--     - new_templated_note()
-	--     - follow_link() to non-existing note
-	--
-	--   it does NOT apply to:
-	--     - goto_today()
-	--     - goto_thisweek()
-	--
-	--   Valid options:
-	--     - smart: put daily-looking notes in daily, weekly-looking ones in weekly,
-	--              all other ones in home, except for notes/with/subdirs/in/title.
-	--              (default)
-	--
-	--     - prefer_home: put all notes in home except for goto_today(), goto_thisweek()
-	--                    except for notes with subdirs/in/title.
-	--
-	--     - same_as_current: put all new notes in the dir of the current note if
-	--                        present or else in home
-	--                        except for notes/with/subdirs/in/title.
-	new_note_location = "smart",
+	-- Tag list theme:
+	-- get_cursor (small tag list at cursor)
+	-- dropdown (window)
+	-- ivy (bottom panel)
+	show_tags_theme = "ivy",
 
-	-- should all links be updated when a file is renamed
-	rename_update_links = true,
-
-	--vaults = {
-	--	vault2 = {
-	--		-- alternate configuration for vault2 here. Missing values are defaulted to
-	--		-- default values from telekasten.
-	--		-- e.g.
-	--		-- home = "/home/user/vaults/personal",
-	--	},
-	--},
-
-	-- how to preview media files
+	-- Previewer for media files (images mostly)
 	-- "telescope-media-files" if you have telescope-media-files.nvim installed
 	-- "catimg-previewer" if you have catimg installed
+	-- "viu-previewer" if you have viu installed
 	media_previewer = "telescope-media-files",
 
-	-- A customizable fallback handler for urls.
-	follow_url_fallback = nil,
+	-- Customize insert image and preview image files list. This is useful
+	-- to add optional filetypes into filtered list (for example
+	-- telescope-media-files optionally supporting svg preview)
+	media_extensions = {
+		".png",
+		".jpg",
+		".bmp",
+		".gif",
+		".pdf",
+		".mp4",
+		".webm",
+		".webp",
+	},
+
+	-- Calendar integration
+	plug_into_calendar = true, -- use calendar integration
+	calendar_opts = {
+		weeknm = 4, -- calendar week display mode:
+		--   1 .. 'WK01'
+		--   2 .. 'WK 1'
+		--   3 .. 'KW01'
+		--   4 .. 'KW 1'
+		--   5 .. '1'
+
+		calendar_monday = 1, -- use monday as first day of week:
+		--   1 .. true
+		--   0 .. false
+
+		calendar_mark = "left-fit", -- calendar mark placement
+		-- where to put mark for marked days:
+		--   'left'
+		--   'right'
+		--   'left-fit'
+	},
+
+	-- Specify a clipboard program to use
+	clipboard_program = "xclip", -- xsel, xclip, wl-paste, osascript
+
+	vaults = {
+		personal = {
+			-- configuration for personal vault. E.g.:
+			-- home = "/home/user/vaults/personal",
+		},
+	},
 })

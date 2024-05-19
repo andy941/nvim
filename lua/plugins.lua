@@ -331,8 +331,8 @@ return require("lazy").setup({
 			"nvim-lua/plenary.nvim",
 			"antoinemadec/FixCursorHold.nvim",
 			"nvim-treesitter/nvim-treesitter",
-            "alfaix/neotest-gtest",
-            "nvim-neotest/neotest-python",
+			"alfaix/neotest-gtest",
+			"nvim-neotest/neotest-python",
 		},
 		config = function()
 			require("config.neotest")
@@ -464,6 +464,18 @@ return require("lazy").setup({
 				api_key_cmd = "gpg --decrypt " .. vim.fn.expand("$HOME") .. "/.password-store/openai_key.gpg",
 				openai_params = { max_tokens = 8192 },
 			})
+		end,
+	},
+
+	-- Note taking
+	{
+		"renerocksai/telekasten.nvim",
+		dependencies = {
+			"nvim-telescope/telescope.nvim",
+			"mattn/calendar-vim",
+		},
+		config = function()
+			require("config.telekasten")
 		end,
 	},
 }, {

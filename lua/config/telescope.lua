@@ -72,6 +72,11 @@ tele.setup({
 			case_mode = "smart_case", -- or "ignore_case" or "respect_case"
 			-- the default case_mode is "smart_case"
 		},
+		project = {
+			hidden_files = true,
+			theme = "dropdown",
+			sync_with_nvim_tree = true,
+		},
 		bibtex = {
 			layout_strategy = "horizontal",
 			layout_config = {
@@ -167,10 +172,10 @@ utils.map("n", "<Leader>ff", "<cmd>Telescope		find_files<cr>", opts)
 vim.keymap.set("n", "<leader>fg", ff_and_lg)
 utils.map("n", "<leader>fu", "<cmd>Telescope 	current_buffer_fuzzy_find<cr>", opts)
 utils.map("n", "<leader>gg", "<cmd>Telescope 	live_grep<cr>", opts)
-utils.map("n", "<leader>H",  "<cmd>Telescope 	help_tags<cr>", opts)
+utils.map("n", "<leader>H", "<cmd>Telescope 	help_tags<cr>", opts)
 utils.map("n", "<leader>kb", "<cmd>Telescope 	keymaps<cr>", opts)
 utils.map("n", "<leader>pr", "<cmd>Telescope 	project<cr>", opts)
-utils.map("n", "<leader>R",  "<cmd>Telescope 	resume<cr>", opts)
+utils.map("n", "<leader>R", "<cmd>Telescope 	resume<cr>", opts)
 
 -- LSP
 utils.map("n", "<leader>di", "<cmd>Telescope 	diagnostics<cr>", opts)
@@ -181,7 +186,7 @@ utils.map("n", "<leader>wf", "<cmd>Telescope 	find_files			cwd=%:p:h<cr>", opts)
 utils.map("n", "<leader>wg", "<cmd>Telescope 	live_grep			cwd=%:p:h<cr>", opts)
 
 -- Git
-utils.map("n", "<leader>G",  "<cmd>Telescope		git_status			cwd=%:p:h<cr>", opts)
+utils.map("n", "<leader>G", "<cmd>Telescope		git_status			cwd=%:p:h<cr>", opts)
 utils.map("n", "<leader>gf", "<cmd>Telescope		git_files			cwd=%:p:h<cr>", opts)
 utils.map("n", "<leader>gb", "<cmd>Telescope		git_branches<cr>", opts)
 utils.map("n", "<leader>gl", "<cmd>Telescope		git_commits<cr>", opts)

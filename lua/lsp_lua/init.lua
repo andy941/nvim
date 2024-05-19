@@ -49,7 +49,6 @@ vim.diagnostic.config({
 	severity_sort = true,
 })
 
-
 local servers = {
 	"pyright",
 	"cmake",
@@ -97,7 +96,7 @@ initialization_options.clangd = {
 	fallback_flags = { "-std=c++17" },
 }
 
-filetypes.marksman = { "quarto" }
+filetypes.marksman = { "quarto", "markdown", "telekasten" }
 root_dir.marksman = function(fname)
 	return nvim_lsp.util.root_pattern(".git", ".marksman.toml", ".qmd")(fname) or nvim_lsp.util.path.dirname(fname)
 end
@@ -145,6 +144,11 @@ vim.g.rustaceanvim = {
 			vim.keymap.set("n", "<leader>MD", "<cmd>RustLsp debuggables<CR>", opts)
 			vim.keymap.set("n", "<leader>Md", "<cmd>RustLsp! debuggables<CR>", opts)
 		end,
+	},
+	tools = {
+		float_win_config = {
+			border = "rounded",
+		},
 	},
 }
 
