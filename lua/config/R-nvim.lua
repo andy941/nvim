@@ -29,7 +29,6 @@ require("r").setup({
 	insert_mode_cmds = true,
 	non_r_compl = false,
 	nvimpager = "float",
-	assign = false,
 	Rout_more_colors = true,
 	hl_term = false,
 	pdfviewer = "zathura",

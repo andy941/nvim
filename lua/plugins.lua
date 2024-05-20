@@ -358,6 +358,7 @@ return require("lazy").setup({
 	-- Show indent line and current context with treesitter
 	{
 		"lukas-reineke/indent-blankline.nvim",
+		dependencies = "nvim-treesitter/nvim-treesitter",
 		config = function()
 			require("config.indent-line")
 		end,

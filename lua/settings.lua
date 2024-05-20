@@ -54,7 +54,8 @@ utils.opt("w", "number", true)
 utils.opt("w", "signcolumn", "yes:2")
 utils.opt("w", "relativenumber", false)
 utils.opt("w", "foldenable", false)
-utils.opt("w", "foldmethod", "syntax")
+utils.opt("w", "foldmethod", "expr")
+utils.opt("w", "foldexpr", "v:lua.vim.treesitter.foldexpr()")
 utils.opt("w", "wrap", false)
 
 -- Highlight on yank
