@@ -53,9 +53,37 @@
     "prefix": ["frag"],
     "body": ["::: {.fragment}", "$0", ":::"]
   },
-  "notes": {
-    "prefix": ["notes"],
-    "body": ["::: {.notes}", "$0", ":::"]
+  "note": {
+    "prefix": ["note"],
+    "body": ["::: {.callout-note}", 
+        "",
+        "$0", 
+        "",
+        ":::"]
+  },
+  "tip": {
+    "prefix": ["tip"],
+    "body": ["::: {#tip-$0 .callout-tip}", 
+        "",
+        "$1", 
+        "",
+        ":::"]
+  },
+  "important": {
+    "prefix": ["important"],
+    "body": ["::: {.callout-important}", 
+        "",
+        "$0", 
+        "",
+        ":::"]
+  },
+  "warning": {
+    "prefix": ["warning"],
+    "body": ["::: {.callout-warning}", 
+        "",
+        "$0", 
+        "",
+        ":::"]
   },
   "aside": {
     "prefix": ["aside"],

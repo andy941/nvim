@@ -1,23 +1,43 @@
 ---
 format:
-    # html:
-    #     useMath: true
-    #     standalone: true
-    #     embed-resources: true
-    #     self-contained: true
-    #     self-contained-math: true
-    gfm:
-        output-file: "README"
-        output-ext:  "md"
-        fig-dpi: 300
+    html:
+        useMath: true
+        standalone: true
+        embed-resources: true
+        self-contained: true
+        self-contained-math: true
+    # pdf:
+    #     documentclass: article
+    #     toc: false
+    #     number-sections: true
+    #     colorlinks: true
+    #     #cite-method: biblatex
+    #     header-includes:
+    #       - |
+    #         ```{=latex}
+    #         \usepackage{fvextra}
+    #         \DefineVerbatimEnvironment{Highlighting}{Verbatim}{
+    #           breaksymbolleft={},
+    #           showspaces = false,
+    #           showtabs = false,
+    #           breaklines,
+    #           commandchars=\\\{\}
+    #         }
+    #         ```
+    # gfm:
+    #     output-file: "README"
+    #     output-ext:  "md"
+    #     fig-dpi: 300
 title: "{{_cursor_}}"
 author: "{{_author_}}"
 #bibliography: cite.bib
 citeproc: true
 code-fold: true
+fig-dpi: 300
 engine: knitr
 highlight-style: gruvbox
 cache: false
+code-overflow: wrap
 ---
 
 ```{r setup, include=FALSE}
