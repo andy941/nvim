@@ -32,6 +32,7 @@ title: "{{_cursor_}}"
 author: "{{_author_}}"
 #bibliography: cite.bib
 citeproc: true
+link-citations: true
 code-fold: true
 fig-dpi: 300
 engine: knitr
