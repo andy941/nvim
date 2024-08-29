@@ -18,17 +18,16 @@ set ssop+=globals    " required by Bufferline
 ]])
 
 -- colors
-vim.o.termguicolors = true
+vim.opt.termguicolors = true
 
-utils.opt("b", "tabstop", 4)
-utils.opt("b", "softtabstop", 4)
-utils.opt("b", "shiftwidth", 4)
+utils.opt("b", "tabstop", 2)
+utils.opt("b", "softtabstop", 2)
+utils.opt("b", "shiftwidth", 2)
 utils.opt("b", "expandtab", true)
 utils.opt("b", "smartindent", true)
 utils.opt("b", "autoindent", true)
 utils.opt("b", "swapfile", false)
 
--- utils.opt("o", "python3_host_program", vim.fn.expand("/usr/bin/python"))
 utils.opt("o", "encoding", "utf-8")
 utils.opt("o", "splitright", true)
 utils.opt("o", "splitbelow", true)

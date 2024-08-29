@@ -41,7 +41,6 @@ require("lspsaga").setup({
 
 	lightbulb = {
 		enable = true,
-		enable_in_insert = true,
 		sign = false,
 		sign_priority = 40,
 		virtual_text = true,
@@ -118,9 +117,8 @@ require("lspsaga").setup({
 		title = true,
 		-- Border type can be single, double, rounded, solid, shadow.
 		border = "rounded",
-		winblend = 0,
-		ui = {
-			kind = require("catppuccin.groups.integrations.lsp_saga").custom_kind(),
-		},
+    code_action = " ",
+    actionfix = " ",
+		kind = require("catppuccin.groups.integrations.lsp_saga").custom_kind(),
 	},
 })

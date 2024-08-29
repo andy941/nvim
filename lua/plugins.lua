@@ -124,18 +124,21 @@ return require("lazy").setup({
 	},
 
 	-- LSP
+	{ "neovim/nvim-lspconfig" },
 	{ "williamboman/mason.nvim" },
 	{ "williamboman/mason-lspconfig.nvim" },
 	{ "WhoIsSethDaniel/mason-tool-installer.nvim" },
 	{ "p00f/clangd_extensions.nvim" },
 	{
 		"nvimdev/lspsaga.nvim",
-		dependencies = { "nvim-tree/nvim-web-devicons" },
+		dependencies = {
+			"nvim-tree/nvim-web-devicons",
+			"nvim-treesitter/nvim-treesitter",
+		},
 		config = function()
 			require("config.lspsaga")
 		end,
 	},
-	{ "neovim/nvim-lspconfig" },
 	{
 		"saecki/crates.nvim",
 		lazy = true,
@@ -144,11 +147,21 @@ return require("lazy").setup({
 	},
 	{
 		"mrcjkb/rustaceanvim",
-		version = "^4",
+		version = "^5",
+		lazy = false,
 		dependencies = {
 			"saecki/crates.nvim",
+			"williamboman/mason.nvim",
 		},
-		ft = { "rust" },
+		config = function()
+			vim.g.rustaceanvim = {
+				tools = {
+					float_win_config = {
+						border = "rounded",
+					},
+				},
+			}
+		end,
 	},
 
 	-- Linting
@@ -173,7 +186,6 @@ return require("lazy").setup({
 		dependencies = {
 			"hrsh7th/cmp-path",
 			"hrsh7th/cmp-nvim-lsp",
-			-- "hrsh7th/cmp-nvim-lsp-signature-help",
 			"hrsh7th/cmp-nvim-lua",
 			"hrsh7th/cmp-buffer",
 			"hrsh7th/cmp-cmdline",

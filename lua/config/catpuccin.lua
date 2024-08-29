@@ -32,6 +32,7 @@ require("catppuccin").setup({
 	custom_highlights = function(colors)
 		return {
 			MoltenCell = { bg = colors.none },
+			SagaLightBulb = { fg = colors.yellow },
 		}
 	end,
 	integrations = {
