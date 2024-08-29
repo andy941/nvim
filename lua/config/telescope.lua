@@ -22,6 +22,8 @@ tele.setup({
 			"vpnconfigs/",
 			".git/",
 			"lua%-language%-server/",
+			".cache/",
+			"build/",
 		},
 		mappings = {
 			n = {
