@@ -90,12 +90,6 @@ return require("lazy").setup({
 			vim.cmd.colorscheme("catppuccin")
 		end,
 	},
-	-- {
-	-- 	"EdenEast/nightfox.nvim",
-	-- 	config = function()
-	-- 		require("config.nightfox")
-	-- 	end,
-	-- },
 
 	-- Lualine
 	{
@@ -152,6 +146,7 @@ return require("lazy").setup({
 		dependencies = {
 			"saecki/crates.nvim",
 			"williamboman/mason.nvim",
+			"mfussenegger/nvim-dap",
 		},
 		config = function()
 			vim.g.rustaceanvim = {
@@ -219,15 +214,6 @@ return require("lazy").setup({
 		end,
 	},
 
-	-- Rstudio like environment for R
-	--[[ {
-		"jalvesaq/Nvim-R",
-		ft = { "r", "rmd" },
-		config = function()
-			vim.cmd("source ~/.config/nvim/lua/config/nvimR.vim")
-		end,
-	}, ]]
-
 	-- resize buffers and keep proportions
 	{
 		"kwkarlwang/bufresize.nvim",
@@ -247,20 +233,6 @@ return require("lazy").setup({
 		"lewis6991/gitsigns.nvim",
 		config = function()
 			require("config.gitsigns")
-		end,
-	},
-	{
-		"ldelossa/gh.nvim",
-		dependencies = {
-			{
-				"ldelossa/litee.nvim",
-				config = function()
-					require("litee.lib").setup()
-				end,
-			},
-		},
-		config = function()
-			require("config.gh")
 		end,
 	},
 	{
@@ -409,15 +381,6 @@ return require("lazy").setup({
 		end,
 	},
 	{
-		"benlubas/molten-nvim",
-		lazy = true,
-		build = ":UpdateRemotePlugins",
-		dependencies = "3rd/image.nvim",
-		config = function()
-			require("config.molten")
-		end,
-	},
-	{
 		"jmbuhr/otter.nvim",
 		lazy = true,
 		dev = false,
@@ -458,26 +421,6 @@ return require("lazy").setup({
 		"folke/trouble.nvim",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		config = true,
-	},
-
-	-- ChatGPT
-	{
-		"jackMort/ChatGPT.nvim",
-		-- event = "VeryLazy",
-		lazy = true,
-		cmd = { "ChatGPT", "ChatGPTRun", "ChatGPTCompleteCode", "ChatGPTActAs", "ChatGPTEditWithInstructions" },
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-			"nvim-telescope/telescope.nvim",
-			"MunifTanjim/nui.nvim",
-			"folke/trouble.nvim",
-		},
-		config = function()
-			require("chatgpt").setup({
-				api_key_cmd = "gpg --decrypt " .. vim.fn.expand("$HOME") .. "/.password-store/openai_key.gpg",
-				openai_params = { max_tokens = 8192 },
-			})
-		end,
 	},
 
 	-- Note taking
