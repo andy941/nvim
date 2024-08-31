@@ -434,6 +434,14 @@ return require("lazy").setup({
 			require("config.telekasten")
 		end,
 	},
+
+	-- LLMs integration
+	{
+		"David-Kunz/gen.nvim",
+		config = function()
+			require("config.gen")
+		end,
+	},
 }, {
 	ui = { border = "rounded" },
 })
