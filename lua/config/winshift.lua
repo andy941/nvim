@@ -58,10 +58,7 @@ require("winshift").setup({
 })
 
 -- Start Win-Move mode:
-vim.keymap.set("n", "<C-w>m", "<Cmd>WinShift<CR>")
-
--- Swap two windows:
-vim.keymap.set("n", "<C-w>X", " <Cmd>WinShift swap<CR>")
+vim.keymap.set("n", "<C-w>M", "<Cmd>WinShift<CR>")
 
 -- If you don't want to use Win-Move mode you can create mappings for calling the
 -- move commands directly:

@@ -1,4 +1,5 @@
 require("noice").setup({
+	popupmenu = { backend = "cmp" },
 	lsp = {
 		-- override markdown rendering so that **cmp** and other plugins use **Treesitter**
 		override = {
@@ -36,29 +37,6 @@ require("noice").setup({
 	routes = {
 		{
 			filter = {
-				event = {
-					"msg_show",
-				},
-				kind = {
-					"",
-					"confirm",
-					"confirm_sub",
-					"emsg",
-					"echo",
-					"echomsg",
-					"echoerr",
-					"lua_error",
-					"rpc_error",
-					"return_prompt",
-					"quickfix",
-					-- "search_count",
-					"wmsg",
-				},
-			},
-			view = "mini",
-		},
-		{
-			filter = {
 				find = "No information",
 			},
 			view = "mini",
@@ -67,7 +45,7 @@ require("noice").setup({
 			filter = {
 				find = "Checking document ltex",
 			},
-      skip = true
+			skip = true,
 		},
 	},
 })

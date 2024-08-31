@@ -10,11 +10,12 @@ local trouble = require("trouble.sources.telescope")
 -- the loading is important
 tele.setup({
 	defaults = {
-		layout_strategy = "vertical",
+		layout_strategy = "flex",
 		layout_config = {
 			width = 0.90,
 			height = 0.95,
 			vertical = { preview_height = 0.75 },
+			horizontal = { preview_width = 0.66 },
 		},
 		file_ignore_patterns = { -- % is an escape char in lua regex
 			"Pictures/",
@@ -43,7 +44,6 @@ tele.setup({
 	pickers = {
 		colorscheme = {
 			enable_preview = true,
-			layout_strategy = "vertical",
 		},
 		find_files = {
 			hidden = true,
@@ -55,6 +55,8 @@ tele.setup({
 			hidden = true,
 		},
 		buffers = {
+			theme = "dropdown",
+			previewer = false,
 			sort_mru = true,
 			mappings = {
 				n = {
@@ -75,18 +77,12 @@ tele.setup({
 			-- the default case_mode is "smart_case"
 		},
 		project = {
-			hidden_files = true,
 			theme = "dropdown",
+			enable_preview = false,
+			hidden_files = true,
 			sync_with_nvim_tree = true,
 		},
 		bibtex = {
-			layout_strategy = "horizontal",
-			layout_config = {
-				width = 0.90,
-				height = 0.95,
-				preview_width = 0.70,
-				--preview_height = 0.75,
-			},
 			-- Context awareness disabled by default
 			context = true,
 			-- Fallback to global/directory .bib files if context not found
@@ -167,13 +163,14 @@ end
 -- KeyBindings -----------------------------------------------------------------------
 
 -- One character
-utils.map("n", "<leader>b", "<cmd>Telescope 	buffers<cr>", opts)
+utils.map("n", "<leader>B", "<cmd>Telescope 	buffers<cr>", opts)
 
 -- Two characters
 utils.map("n", "<Leader>ff", "<cmd>Telescope		find_files<cr>", opts)
 vim.keymap.set("n", "<leader>fg", ff_and_lg)
 utils.map("n", "<leader>fu", "<cmd>Telescope 	current_buffer_fuzzy_find<cr>", opts)
 utils.map("n", "<leader>gg", "<cmd>Telescope 	live_grep<cr>", opts)
+utils.map("n", "<leader>gG", "<cmd>Telescope  grep_string<cr>", opts)
 utils.map("n", "<leader>H", "<cmd>Telescope 	help_tags<cr>", opts)
 utils.map("n", "<leader>kb", "<cmd>Telescope 	keymaps<cr>", opts)
 utils.map("n", "<leader>pr", "<cmd>Telescope 	project<cr>", opts)
@@ -186,13 +183,12 @@ utils.map("n", "<leader>ws", "<cmd>Telescope 	lsp_dynamic_workspace_symbols<cr>"
 -- Search with relative path 'w-orking dir' or relative to 'w-orkspace'
 utils.map("n", "<leader>wf", "<cmd>Telescope 	find_files			cwd=%:p:h<cr>", opts)
 utils.map("n", "<leader>wg", "<cmd>Telescope 	live_grep			cwd=%:p:h<cr>", opts)
+utils.map("n", "<leader>wG", "<cmd>Telescope 	grep_string			cwd=%:p:h<cr>", opts)
 
 -- Git
-utils.map("n", "<leader>G", "<cmd>Telescope		git_status			cwd=%:p:h<cr>", opts)
-utils.map("n", "<leader>gf", "<cmd>Telescope		git_files			cwd=%:p:h<cr>", opts)
 utils.map("n", "<leader>gb", "<cmd>Telescope		git_branches<cr>", opts)
 utils.map("n", "<leader>gl", "<cmd>Telescope		git_commits<cr>", opts)
-utils.map("n", "<leader>gd", "<cmd>Telescope		git_bcommits<cr>", opts)
+utils.map("n", "<leader>gL", "<cmd>Telescope		git_bcommits<cr>", opts)
 
 -- headings
 utils.map("n", "<leader>sh", "<cmd>Telescope		heading<cr>", opts)
