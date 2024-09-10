@@ -365,12 +365,23 @@ return require("lazy").setup({
 	},
 
 	-- Quarto
+	-- {
+	-- 	"lukas-reineke/headlines.nvim",
+	-- 	dependencies = "nvim-treesitter/nvim-treesitter",
+	-- 	ft = { "markdown", "quarto" },
+	-- 	config = function()
+	-- 		require("config.headlines")
+	-- 	end,
+	-- },
 	{
-		"lukas-reineke/headlines.nvim",
-		dependencies = "nvim-treesitter/nvim-treesitter",
-		ft = { "markdown", "quarto" },
+		"OXY2DEV/markview.nvim",
+		lazy = false, -- Recommended
+		dependencies = {
+			"nvim-treesitter/nvim-treesitter",
+			"nvim-tree/nvim-web-devicons",
+		},
 		config = function()
-			require("config.headlines")
+			require("config.markview")
 		end,
 	},
 	{
