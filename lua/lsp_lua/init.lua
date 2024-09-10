@@ -75,7 +75,7 @@ require("mason-tool-installer").setup({
 -------------------------------------------------------------------------------
 
 local command = {}
-local initialization_options = {}
+local init_options = {}
 local filetypes = {}
 local root_dir = {}
 local settings = {}
@@ -92,8 +92,8 @@ command.clangd = {
 	"--header-insertion-decorators",
 	"--pch-storage=memory",
 }
-initialization_options.clangd = {
-	fallback_flags = { "-std=c++17" },
+init_options.clangd = {
+	fallbackFlags = { "--std=c++23" },
 }
 
 filetypes.marksman = { "quarto", "markdown", "telekasten" }
@@ -125,7 +125,7 @@ for _, lsp in ipairs(servers) do
 		on_attach = attach,
 		capabilities = require("cmp_nvim_lsp").default_capabilities(),
 		handlers = handlers,
-		initialization_options = initialization_options[lsp],
+		init_options = init_options[lsp],
 		filetypes = filetypes[lsp],
 		root_dir = root_dir[lsp],
 		settings = settings[lsp],
@@ -139,6 +139,7 @@ vim.g.rustaceanvim = {
 			vim.keymap.set("n", "K", "<cmd>RustLsp hover actions<CR>", opts)
 			vim.keymap.set("n", "<leader>E", "<cmd>RustLsp renderDiagnostic<CR>", opts)
 			vim.keymap.set("n", "<leader>x", "<cmd>RustLsp explainError<CR>", opts)
+			vim.keymap.set("n", "<leader>a", "<cmd>RustLsp codeAction<CR>", opts)
 			vim.keymap.set("n", "<leader>Mr", "<cmd>RustLsp runnables<CR>", opts)
 			vim.keymap.set("n", "<leader>MM", "<cmd>RustLsp! runnables<CR>", opts)
 			vim.keymap.set("n", "<leader>MD", "<cmd>RustLsp debuggables<CR>", opts)
