@@ -241,6 +241,17 @@ return require("lazy").setup({
 			require("config.gitlinker")
 		end,
 	},
+	{
+		"pwntester/octo.nvim",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"nvim-telescope/telescope.nvim",
+			"nvim-tree/nvim-web-devicons",
+		},
+		config = function()
+			require("config.octo")
+		end,
+	},
 
 	-- Work with csv files and other tables easily
 	{
@@ -447,10 +458,26 @@ return require("lazy").setup({
 	},
 
 	-- LLMs integration
+	-- {
+	-- 	"David-Kunz/gen.nvim",
+	-- 	config = function()
+	-- 		require("config.gen")
+	-- 	end,
+	-- },
 	{
-		"David-Kunz/gen.nvim",
+		"olimorris/codecompanion.nvim",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"nvim-treesitter/nvim-treesitter",
+			"hrsh7th/nvim-cmp", -- Optional: For using slash commands and variables in the chat buffer
+			{
+				"stevearc/dressing.nvim", -- Optional: Improves the default Neovim UI
+				opts = {},
+			},
+			"nvim-telescope/telescope.nvim", -- Optional: For using slash commands
+		},
 		config = function()
-			require("config.gen")
+			require("config.codecompanion")
 		end,
 	},
 }, {
