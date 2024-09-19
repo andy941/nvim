@@ -57,7 +57,7 @@ local servers = {
 	"dockerls",
 	"lua_ls",
 	"clangd",
-	"marksman",
+	-- "marksman",
 }
 
 -- Ensure servers and formatters are installed --------------------------------
