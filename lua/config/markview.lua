@@ -1,6 +1,7 @@
 require("markview").setup({
-	modes = { "n", "i", "no", "c" },
-	hybrid_modes = { "i" },
+	filetypes = { "markdown", "quarto", "rmd", "codecompanion" },
+	modes = { "n", "i", "c", ":", "no", "io", "co" },
+	hybrid_modes = { "i", "n" },
 
 	-- This is nice to have
 	callbacks = {

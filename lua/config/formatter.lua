@@ -5,12 +5,6 @@ local util = require("formatter.util")
 -- Format keybinding
 vim.keymap.set("n", "F", "<cmd>Format<CR>", opts)
 
----- Format on save
---vim.api.nvim_command([[augroup FormatAutogroup]])
---vim.api.nvim_command([[autocmd!]])
---vim.api.nvim_command([[autocmd BufWritePost * FormatWrite]])
---vim.api.nvim_command([[augroup END]])
-
 -- clang-format default not working without this (for now at least)
 Cformat = function()
 	return {
@@ -34,8 +28,6 @@ cbFmt = function()
 			"markdown",
 			"--write",
 			"--best-effort",
-			"<",
-			util.escape_path(util.get_current_buffer_file_path()),
 			"|",
 			"sed 's/^# |/#|/'",
 		},
@@ -56,7 +48,7 @@ require("formatter").setup({
 		json = { fmt.json },
 		html = { fmt.html },
 		toml = { fmt.taplo },
-		rust = { 
+		rust = {
 			function()
 				return {
 					exe = "rustfmt",
@@ -64,7 +56,7 @@ require("formatter").setup({
 					stdin = false,
 				}
 			end,
-    },
+		},
 		markdown = {
 			cbFmt,
 		},

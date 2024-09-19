@@ -459,12 +459,6 @@ return require("lazy").setup({
 	},
 
 	-- LLMs integration
-	-- {
-	-- 	"David-Kunz/gen.nvim",
-	-- 	config = function()
-	-- 		require("config.gen")
-	-- 	end,
-	-- },
 	{
 		"olimorris/codecompanion.nvim",
 		dependencies = {
