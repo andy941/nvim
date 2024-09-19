@@ -1,4 +1,12 @@
 require("codecompanion").setup({
+	display = {
+		chat = {
+			window = {
+				layout = "float",
+			},
+		},
+	},
+
 	strategies = {
 		chat = {
 			adapter = "ollama",

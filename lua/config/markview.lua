@@ -1,5 +1,5 @@
 require("markview").setup({
-	filetypes = { "markdown", "quarto", "rmd", "codecompanion" },
+	filetypes = { "markdown", "quarto", "rmd", },
 	modes = { "n", "i", "c", ":", "no", "io", "co" },
 	hybrid_modes = { "i", "n" },
 
