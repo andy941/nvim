@@ -81,19 +81,19 @@ cmp.setup({
 		{ name = "dap" },
 		{ name = "path" },
 		{ name = "nvim_lsp" },
-		-- { name = "nvim_lsp_signature_help" },
 		{ name = "luasnip" },
 		{ name = "crates" },
+		{ name = "git" },
 	},
 
 	sorting = {
 		comparators = {
 			cmp.config.compare.offset,
 			cmp.config.compare.exact,
+			cmp.config.compare.sort_text,
 			cmp.config.compare.recently_used,
 			require("clangd_extensions.cmp_scores"),
 			cmp.config.compare.kind,
-			cmp.config.compare.sort_text,
 			cmp.config.compare.length,
 			cmp.config.compare.order,
 		},
@@ -130,6 +130,13 @@ require("cmp").setup.filetype("quarto", {
 		{ name = "path" },
 		{ name = "nvim_lsp" },
 		{ name = "luasnip" },
+	},
+})
+
+-- For Git completione
+require("cmp_git").setup({
+	github = {
+		hosts = { "git.illumina.com" },
 	},
 })
 

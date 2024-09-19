@@ -1,15 +1,17 @@
 require("markview").setup({
-	modes = { "n", "no", "c" }, -- Change these modes
-	-- to what you need
-
-	hybrid_modes = { "n" }, -- Uses this feature on
-	-- normal mode
+	modes = { "n", "i", "no", "c" },
+	hybrid_modes = { "i" },
 
 	-- This is nice to have
 	callbacks = {
 		on_enable = function(_, win)
 			vim.wo[win].conceallevel = 2
-			vim.wo[win].concealcursor = "c"
+			vim.wo[win].concealcursor = "nc"
 		end,
+	},
+
+	code_blocks = {
+		style = "simple",
+		sign = false,
 	},
 })

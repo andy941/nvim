@@ -190,6 +190,7 @@ return require("lazy").setup({
 			"onsails/lspkind-nvim",
 			"saecki/crates.nvim",
 			"R-nvim/cmp-r",
+			"petertriho/cmp-git",
 		},
 		config = function()
 			require("config.completion")
