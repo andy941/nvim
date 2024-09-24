@@ -66,10 +66,17 @@ require("formatter").setup({
 		cpp = { Cformat },
 		c = { Cformat },
 		python = {
+			-- function()
+			-- 	return {
+			-- 		exe = "black",
+			-- 		args = { "-q", "-", "-l 200" },
+			-- 		stdin = true,
+			-- 	}
+			-- end,
 			function()
 				return {
-					exe = "black",
-					args = { "-q", "-", "-l 200" },
+					exe = "yapf",
+					args = { "--style='{indent_width: 2}'" },
 					stdin = true,
 				}
 			end,
