@@ -92,6 +92,7 @@ command.clangd = {
 	"--header-insertion-decorators",
 	"--pch-storage=memory",
 }
+
 init_options.clangd = {
 	fallbackFlags = { "--std=c++23" },
 }

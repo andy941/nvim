@@ -78,9 +78,8 @@ tele.setup({
 		},
 		project = {
 			theme = "dropdown",
-			enable_preview = false,
 			hidden_files = true,
-			sync_with_nvim_tree = true,
+			sync_with_nvim_tree = false,
 		},
 		bibtex = {
 			-- Context awareness disabled by default
