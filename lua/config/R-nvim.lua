@@ -20,7 +20,7 @@ require("r").setup({
 	rconsole_width = 0,
 	rconsole_height = vim.fn.winheight(0) / 4,
 	objbr_place = "RIGHT", -- console, script, LEFT, RIGHT
-	objbr_h = vim.fn.winheight(0) / 4,
+	-- objbr_h = vim.fn.winheight(0) / 4,
 	objbr_w = vim.fn.winwidth(0) / 8,
 	objbr_opendf = true,
     specialplot = true,
