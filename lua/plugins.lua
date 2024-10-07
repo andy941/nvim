@@ -475,6 +475,16 @@ return require("lazy").setup({
 			require("config.codecompanion")
 		end,
 	},
+
+	-- Use `jk` as the ESC key to go from INSERT to NORMAL mode
+	{
+		"max397574/better-escape.nvim",
+		config = true,
+		opts = {
+			default_mappings = false,
+			mappings = { i = { j = { k = "<Esc>", j = "<Esc>" } } },
+		},
+	},
 }, {
 	ui = { border = "rounded" },
 })

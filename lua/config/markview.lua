@@ -1,7 +1,8 @@
 require("markview").setup({
 	filetypes = { "markdown", "quarto", "rmd" },
-	modes = { "i", "n", "c", "no", "io", "co" },
+	modes = { "n", "i", "c", "no", "io", "co" },
 	hybrid_modes = { "i", "n", ":" },
+	ignore_nodes = { "fenced_code_block" },
 
 	-- This is nice to have
 	callbacks = {
@@ -14,5 +15,6 @@ require("markview").setup({
 	code_blocks = {
 		style = "language",
 		sign = false,
+		pad_amount = 0,
 	},
 })
