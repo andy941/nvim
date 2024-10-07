@@ -17,7 +17,7 @@ require("gitsigns").setup({
 			end
 		end)
 
-		map("n", "<C-[", function()
+		map("n", "<C-[>", function()
 			if vim.wo.diff then
 				vim.cmd.normal({ "[c", bang = true })
 			else
