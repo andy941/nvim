@@ -418,7 +418,7 @@ return require("lazy").setup({
 			"jmbuhr/otter.nvim",
 			"3rd/image.nvim",
 		},
-		ft = { "markdown", "quarto" },
+		ft = { "markdown", "quarto", "rmarkdown" },
 		config = function()
 			require("config.quarto")
 		end,

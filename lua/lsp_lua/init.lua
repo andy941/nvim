@@ -75,6 +75,7 @@ require("mason-tool-installer").setup({
 -------------------------------------------------------------------------------
 
 local command = {}
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
 local init_options = {}
 local filetypes = {}
 local root_dir = {}

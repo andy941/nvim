@@ -125,7 +125,6 @@ require("cmp").setup.filetype("tex", {
 require("cmp").setup.filetype("quarto", {
 	sources = {
 		{ name = "cmp_r" },
-		{ name = "otter" },
 		{ name = "dap" },
 		{ name = "path" },
 		{ name = "nvim_lsp" },
