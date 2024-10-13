@@ -1,6 +1,6 @@
 local utils = require("utils")
 
-utils.opt("o", "completeopt", "menu,menuone,noselect")
+utils.opt("o", "completeopt", "menu,menuone,noinsert,noselect")
 -- vim.cmd([[set shortmess+=c]])
 vim.g.completion_confirm_key = ""
 vim.g.completion_matching_strategy_list = { "exact", "substring", "fuzzy" } -- <Tab> to navigate the completion menu
@@ -41,8 +41,8 @@ cmp.setup({
 		["<C-p>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
 		["<C-u>"] = cmp.mapping.scroll_docs(-4),
 		["<C-d>"] = cmp.mapping.scroll_docs(4),
-		--["<C-Space>"] = cmp.mapping.complete(),
-		--["<C-e>"] = cmp.mapping.close(),
+		-- ["<C-Space>"] = cmp.mapping.complete(),
+		["<C-Space>"] = cmp.mapping.close(),
 		["<CR>"] = cmp.mapping.confirm({
 			behavior = cmp.ConfirmBehavior.Replace,
 			select = true,
@@ -59,13 +59,13 @@ cmp.setup({
 			end
 		end, { "i", "s" }),
 
-		["<S-Tab>"] = cmp.mapping(function()
-			if cmp.visible() then
-				cmp.select_prev_item()
-			elseif luasnip.jumpable(-1) then
-				luasnip.jump(-1)
-			end
-		end, { "i", "s" }),
+		-- ["<S-Tab>"] = cmp.mapping(function()
+		-- 	if cmp.visible() then
+		-- 		cmp.select_prev_item()
+		-- 	elseif luasnip.jumpable(-1) then
+		-- 		luasnip.jump(-1)
+		-- 	end
+		-- end, { "i", "s" }),
 	},
 
 	experimental = {

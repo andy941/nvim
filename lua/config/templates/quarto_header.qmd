@@ -1,44 +1,10 @@
 ---
-format:
-    html:
-        useMath: true
-        standalone: true
-        embed-resources: true
-        self-contained: true
-        self-contained-math: true
-    # pdf:
-    #     documentclass: article
-    #     toc: false
-    #     number-sections: true
-    #     colorlinks: true
-    #     #cite-method: biblatex
-    #     header-includes:
-    #       - |
-    #         ```{=latex}
-    #         \usepackage{fvextra}
-    #         \DefineVerbatimEnvironment{Highlighting}{Verbatim}{
-    #           breaksymbolleft={},
-    #           showspaces = false,
-    #           showtabs = false,
-    #           breaklines,
-    #           commandchars=\\\{\}
-    #         }
-    #         ```
-    # gfm:
-    #     output-file: "README"
-    #     output-ext:  "md"
-    #     fig-dpi: 300
 title: "{{_cursor_}}"
-author: "{{_author_}}"
-#bibliography: cite.bib
-citeproc: true
-link-citations: true
-code-fold: true
-fig-dpi: 300
-engine: knitr
-highlight-style: gruvbox
-cache: false
-code-overflow: wrap
+authors:
+  name: "{{_author_}}"
+  affiliation: Illumina
+  roles: Senior Bioinformatics Scientist
+  corresponding: true
 ---
 
 ```{r setup, include=FALSE}
@@ -52,10 +18,9 @@ knitr::opts_chunk$set(warning = FALSE, message = FALSE)
 
 library(tidyverse)
 library(reticulate)
-library(ggthemes)
 library(ggpubr)
+library(ggthemes)
 library(kableExtra)
-#library(EnvStats)
 ```
 
 ```{python}
@@ -63,12 +28,5 @@ library(kableExtra)
 #| code-summary: "Imports and Functions - Python"
 #| output: false
 
-import pysam
 import pandas as pd
-import matplotlib.pyplot as plt
-import os
-import json
-from IPython.core.display import Markdown
-from tabulate import tabulate
-#import pybedtools
 ```
