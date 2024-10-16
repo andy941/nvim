@@ -1,33 +1,26 @@
 project:
-  type: manuscript
+  type: website
 
-manuscript:
-  article: index.qmd
-
-format:
-  html:
-    useMath: true
-    standalone: true
-    embed-resources: true
-    self-contained: true
-    self-contained-math: true
-  pdf:
-    latex-auto-install: true
-    # documentclass: article
-    colorlinks: true
+profile:
+  default: dev
 
 execute:
-  freeze: false
+  freeze: auto
   cache: true
 
+theme: sandstone
 engine: knitr
 toc: true
 number-sections: true
 fig-dpi: 300
-# bibliography: references.bib
+bibliography: references.bib
 citeproc: true
 link-citations: true
 code-fold: true
 code-overflow: wrap
 highlight-style: gruvbox
+
+
+
+
 

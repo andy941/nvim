@@ -1,0 +1,11 @@
+format:
+  html:
+    useMath: true
+    standalone: true
+    embed-resources: true
+    self-contained: true
+    self-contained-math: true
+  # pdf:
+  #   latex-auto-install: true
+  #   colorlinks: true
+
