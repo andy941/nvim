@@ -135,19 +135,6 @@ for _, lsp in ipairs(servers) do
 end
 
 vim.g.rustaceanvim = {
-	server = {
-		on_attach = function(client, bufnr)
-			attach(client, bufnr)
-			vim.keymap.set("n", "K", "<cmd>RustLsp hover actions<CR>", opts)
-			vim.keymap.set("n", "<leader>E", "<cmd>RustLsp renderDiagnostic<CR>", opts)
-			vim.keymap.set("n", "<leader>x", "<cmd>RustLsp explainError<CR>", opts)
-			vim.keymap.set("n", "<leader>a", "<cmd>RustLsp codeAction<CR>", opts)
-			vim.keymap.set("n", "<leader>Mr", "<cmd>RustLsp runnables<CR>", opts)
-			vim.keymap.set("n", "<leader>MM", "<cmd>RustLsp! runnables<CR>", opts)
-			vim.keymap.set("n", "<leader>MD", "<cmd>RustLsp debuggables<CR>", opts)
-			vim.keymap.set("n", "<leader>Md", "<cmd>RustLsp! debuggables<CR>", opts)
-		end,
-	},
 	tools = {
 		float_win_config = {
 			border = "rounded",
