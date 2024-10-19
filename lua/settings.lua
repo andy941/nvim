@@ -66,6 +66,23 @@ vim.cmd("autocmd TermOpen * setlocal nonumber norelativenumber")
 -- Exit insert mode in nvim terminal
 utils.map("t", "<localleader><Esc>", "<c-\\><c-n>", opts)
 
----- Example for configuring Neovim to load user-installed installed Lua rocks:
+-- Example for configuring Neovim to load user-installed installed Lua rocks:
 package.path = package.path .. ";" .. vim.fn.expand("$HOME") .. "/.luarocks/share/lua/5.1/?/init.lua;"
 package.path = package.path .. ";" .. vim.fn.expand("$HOME") .. "/.luarocks/share/lua/5.1/?.lua;"
+
+-- Only for Firenvim --------------
+if vim.g.started_by_firenvim then
+	utils.opt("o", "guifont", "JetBrainsMono Nerd Font:4")
+	utils.opt("o", "laststatus", 0)
+	utils.opt("o", "ruler", false)
+	utils.opt("w", "number", false)
+end
+
+vim.g.firenvim_config = {
+	localSettings = {
+		[".*"] = {
+			takeover = "never",
+		},
+	},
+}
+-----------------------------------

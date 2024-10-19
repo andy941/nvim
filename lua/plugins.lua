@@ -28,6 +28,7 @@ return require("lazy").setup({
 	-- Nicer UI
 	{
 		"folke/noice.nvim",
+		cond = not vim.g.started_by_firenvim,
 		event = "VeryLazy",
 		dependencies = {
 			"MunifTanjim/nui.nvim",
@@ -47,6 +48,7 @@ return require("lazy").setup({
 	-- bufferline on top
 	{
 		"akinsho/bufferline.nvim",
+		cond = not vim.g.started_by_firenvim,
 		dependencies = "nvim-tree/nvim-web-devicons",
 		config = function()
 			require("config.bufferline")
@@ -375,16 +377,6 @@ return require("lazy").setup({
 			require("config.nvim-osc52")
 		end,
 	},
-
-	-- Quarto
-	-- {
-	-- 	"lukas-reineke/headlines.nvim",
-	-- 	dependencies = "nvim-treesitter/nvim-treesitter",
-	-- 	ft = { "markdown", "quarto" },
-	-- 	config = function()
-	-- 		require("config.headlines")
-	-- 	end,
-	-- },
 	{
 		"OXY2DEV/markview.nvim",
 		lazy = false, -- Recommended
@@ -398,6 +390,7 @@ return require("lazy").setup({
 	},
 	{
 		"3rd/image.nvim",
+		cond = not vim.g.started_by_firenvim,
 		lazy = true,
 		config = function()
 			require("config.image")
@@ -484,6 +477,12 @@ return require("lazy").setup({
 			default_mappings = false,
 			mappings = { i = { j = { k = "<Esc>", j = "<Esc>" } } },
 		},
+	},
+
+	-- Neovim anywhere
+	{
+		"glacambre/firenvim",
+		build = ":call firenvim#install(0)",
 	},
 }, {
 	ui = { border = "rounded" },
