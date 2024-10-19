@@ -56,6 +56,7 @@ tele.setup({
 		},
 		buffers = {
 			theme = "dropdown",
+			initial_mode = "normal",
 			previewer = false,
 			sort_mru = true,
 			mappings = {
