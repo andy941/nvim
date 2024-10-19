@@ -401,7 +401,7 @@ return require("lazy").setup({
 		lazy = true,
 		dev = false,
 		opts = {
-			buffers = { set_filetype = true, write_to_disk = true },
+			buffers = { set_filetype = true, write_to_disk = false },
 		},
 	},
 	{
