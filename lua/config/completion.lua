@@ -60,6 +60,16 @@ cmp.setup({
 				fallback() -- The fallback function sends a already mapped key. In this case, it's probably `<Tab>`.
 			end
 		end, { "i", "s" }),
+    ['<C-x>'] = cmp.mapping(
+      cmp.mapping.complete({
+        config = {
+          sources = cmp.config.sources({
+            { name = 'cmp_ai' },
+          }),
+        },
+      }),
+      { 'i' }
+    ),
 	},
 
 	experimental = {
@@ -141,16 +151,9 @@ require("cmp_ai.config"):setup({
 		model = "codellama:7b",
 	},
 	notify = true,
-	run_on_every_keystroke = true,
+	run_on_every_keystroke = false,
 	ignored_file_types = {},
 })
-
--- Only activate AI completion in MacOS
-if vim.fn.has("macunix") ~= 0 then
-	local config = cmp.get_config()
-	table.insert(config.sources, { name = "cmp_ai", group_id = 0 })
-	cmp.setup(config)
-end
 
 -- For R.nvim
 require("cmp_r").setup({})
