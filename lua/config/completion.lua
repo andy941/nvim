@@ -20,7 +20,7 @@ cmp.setup({
 		format = require("lspkind").cmp_format({
 			mode = "symbol_text",
 			preset = "default",
-			maxwidth = 100,
+			maxwidth = 50,
       ellipsis_char = '...',
       show_labelDetails = true,
 		}),
@@ -148,7 +148,7 @@ require("cmp_ai.config"):setup({
 	max_lines = 100,
 	provider = "Ollama",
 	provider_options = {
-		model = "codellama:7b",
+		model = "codellama:7b-code",
 	},
 	notify = true,
 	run_on_every_keystroke = false,
