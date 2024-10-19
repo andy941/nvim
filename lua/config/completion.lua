@@ -20,7 +20,9 @@ cmp.setup({
 		format = require("lspkind").cmp_format({
 			mode = "symbol_text",
 			preset = "default",
-			maxwidth = 50,
+			maxwidth = 100,
+      ellipsis_char = '...',
+      show_labelDetails = true,
 		}),
 	},
 
@@ -58,14 +60,6 @@ cmp.setup({
 				fallback() -- The fallback function sends a already mapped key. In this case, it's probably `<Tab>`.
 			end
 		end, { "i", "s" }),
-
-		-- ["<S-Tab>"] = cmp.mapping(function()
-		-- 	if cmp.visible() then
-		-- 		cmp.select_prev_item()
-		-- 	elseif luasnip.jumpable(-1) then
-		-- 		luasnip.jump(-1)
-		-- 	end
-		-- end, { "i", "s" }),
 	},
 
 	experimental = {
@@ -78,6 +72,7 @@ cmp.setup({
 
 	sources = {
 		{ name = "otter" },
+		{ name = "cmp_r" },
 		{ name = "dap" },
 		{ name = "path" },
 		{ name = "nvim_lsp" },
@@ -124,7 +119,6 @@ require("cmp").setup.filetype("tex", {
 
 require("cmp").setup.filetype("quarto", {
 	sources = {
-		{ name = "cmp_r" },
 		{ name = "dap" },
 		{ name = "path" },
 		{ name = "nvim_lsp" },
@@ -132,12 +126,31 @@ require("cmp").setup.filetype("quarto", {
 	},
 })
 
--- For Git completione
+-- For Git completion
 require("cmp_git").setup({
 	github = {
 		hosts = { "git.illumina.com" },
 	},
 })
+
+-- For AI completion with Ollama
+require("cmp_ai.config"):setup({
+	max_lines = 100,
+	provider = "Ollama",
+	provider_options = {
+		model = "codellama:7b",
+	},
+	notify = true,
+	run_on_every_keystroke = true,
+	ignored_file_types = {},
+})
+
+-- Only activate AI completion in MacOS
+if vim.fn.has("macunix") ~= 0 then
+	local config = cmp.get_config()
+	table.insert(config.sources, { name = "cmp_ai", group_id = 0 })
+	cmp.setup(config)
+end
 
 -- For R.nvim
 require("cmp_r").setup({})

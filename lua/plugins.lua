@@ -193,6 +193,7 @@ return require("lazy").setup({
 			"saecki/crates.nvim",
 			"R-nvim/cmp-r",
 			"petertriho/cmp-git",
+			"tzachar/cmp-ai",
 		},
 		config = function()
 			require("config.completion")
