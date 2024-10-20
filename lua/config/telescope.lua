@@ -68,6 +68,11 @@ tele.setup({
 				},
 			},
 		},
+		spell_suggest = {
+			theme = "dropdown",
+			initial_mode = "normal",
+			previewer = false,
+		},
 	},
 	extensions = {
 		fzf = {
@@ -164,6 +169,8 @@ end
 
 -- One character
 utils.map("n", "<leader>B", "<cmd>Telescope 	buffers<cr>", opts)
+utils.map("n", "<leader>R", "<cmd>Telescope 	resume<cr>", opts)
+utils.map("n", "<leader>S", "<cmd>Telescope 	spell_suggest<cr>", opts)
 
 -- Two characters
 utils.map("n", "<Leader>ff", "<cmd>Telescope		find_files<cr>", opts)
@@ -174,7 +181,6 @@ utils.map("n", "<leader>gG", "<cmd>Telescope  grep_string<cr>", opts)
 utils.map("n", "<leader>H", "<cmd>Telescope 	help_tags<cr>", opts)
 utils.map("n", "<leader>kb", "<cmd>Telescope 	keymaps<cr>", opts)
 utils.map("n", "<leader>pr", "<cmd>Telescope 	project<cr>", opts)
-utils.map("n", "<leader>R", "<cmd>Telescope 	resume<cr>", opts)
 
 -- LSP
 utils.map("n", "<leader>di", "<cmd>Telescope 	diagnostics<cr>", opts)
