@@ -21,8 +21,8 @@ cmp.setup({
 			mode = "symbol_text",
 			preset = "default",
 			maxwidth = 50,
-      ellipsis_char = '...',
-      show_labelDetails = true,
+			ellipsis_char = "...",
+			show_labelDetails = true,
 		}),
 	},
 
@@ -60,16 +60,16 @@ cmp.setup({
 				fallback() -- The fallback function sends a already mapped key. In this case, it's probably `<Tab>`.
 			end
 		end, { "i", "s" }),
-    ['<C-x>'] = cmp.mapping(
-      cmp.mapping.complete({
-        config = {
-          sources = cmp.config.sources({
-            { name = 'cmp_ai' },
-          }),
-        },
-      }),
-      { 'i' }
-    ),
+		["<C-x>"] = cmp.mapping(
+			cmp.mapping.complete({
+				config = {
+					sources = cmp.config.sources({
+						{ name = "cmp_ai" },
+					}),
+				},
+			}),
+			{ "i" }
+		),
 	},
 
 	experimental = {
@@ -151,6 +151,9 @@ require("cmp_ai.config"):setup({
 		model = "codellama:7b-code",
 	},
 	notify = true,
+	notify_callback = function(msg)
+		print("cmp-ai: ", msg)
+	end,
 	run_on_every_keystroke = false,
 	ignored_file_types = {},
 })
