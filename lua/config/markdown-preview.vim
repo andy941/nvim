@@ -5,7 +5,7 @@ let g:mkdp_auto_start = 0
 " set to 1, the nvim will auto close current preview window when change
 " from markdown buffer to another buffer
 " default: 1
-let g:mkdp_auto_close = 1
+let g:mkdp_auto_close = 0
 
 " set to 1, the vim will refresh markdown when save the buffer or
 " leave from insert mode, default 0 is auto refresh markdown as you edit or
@@ -41,6 +41,16 @@ let g:mkdp_echo_preview_url = 0
 " this function will receive url as param
 " default is empty
 let g:mkdp_browserfunc = ''
+
+function OpenMarkdownPreview (url)
+  " open preview in new window
+  execute "silent ! open -n -a 'Google Chrome' --args --new-window " . a:url
+endfunction
+
+if has('macunix') || has('mac') || has('osx')
+  let g:mkdp_browserfunc = 'OpenMarkdownPreview'
+endif
+
 
 " options for markdown render
 " mkit: markdown-it options for render
@@ -87,4 +97,4 @@ let g:mkdp_page_title = '「${name}」'
 
 " recognized filetypes
 " these filetypes will have MarkdownPreview... commands
-let g:mkdp_filetypes = ['markdown', 'quarto', 'telekasten']
+let g:mkdp_filetypes = ['markdown', 'telekasten']
