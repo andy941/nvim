@@ -10,6 +10,7 @@ html:
   embed-resources: true
   self-contained-math: true
   code-fold: true
+colorlinks: true
 engine: knitr
 ---
 
