@@ -47,6 +47,14 @@ require("formatter").setup({
 		sh = { fmt.sh },
 		json = { fmt.json },
 		html = { fmt.html },
+		nix = {
+			function()
+				return {
+					exe = "nixfmt",
+					stdin = false,
+				}
+			end,
+		},
 		toml = { fmt.taplo },
 		rust = {
 			function()

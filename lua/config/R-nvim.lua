@@ -1,19 +1,14 @@
 require("r").setup({
 	R_args = { "--quiet", "--no-save" },
 	hook = {
-		after_config = function()
-			-- This function will be called at the FileType event
-			-- of files supported by R.nvim. This is an
-			-- opportunity to create mappings local to buffers.
-			if vim.o.syntax ~= "rbrowser" then
-				vim.keymap.set("n", "<C-p>", "<Plug>RPreviousRChunk", opts)
-				vim.keymap.set("n", "<C-n>", "<Plug>RNextRChunk", opts)
-				vim.keymap.set("n", "<C-s>", "<Plug>RSendChunk", opts)
-				vim.keymap.set("n", "<localleader>aa", "<Plug>RSendChunkFH", opts)
-				vim.keymap.set("v", "<C-s>", "<Plug>RSendSelection", opts)
-				vim.keymap.set("n", "<C-c>", "<Plug>RStop", opts)
-				vim.keymap.set("v", "<C-c>", "<Plug>RStop", opts)
-			end
+		on_filetype = function()
+			vim.keymap.set("n", "<C-p>", "<Plug>RPreviousRChunk", opts)
+			vim.keymap.set("n", "<C-n>", "<Plug>RNextRChunk", opts)
+			vim.keymap.set("n", "<localleader>aa", "<Plug>RSendChunkFH", opts)
+			vim.keymap.set("n", "<C-s>", "<Plug>RSendChunk", opts)
+			vim.keymap.set("v", "<C-s>", "<Plug>RSendSelection", opts)
+			vim.keymap.set("n", "<C-c>", "<Plug>RStop", opts)
+			vim.keymap.set("v", "<C-c>", "<Plug>RStop", opts)
 		end,
 	},
 	min_editor_width = vim.fn.winwidth(0) * 2 / 3,
@@ -23,7 +18,7 @@ require("r").setup({
 	-- objbr_h = vim.fn.winheight(0) / 4,
 	objbr_w = vim.fn.winwidth(0) / 8,
 	objbr_opendf = true,
-    specialplot = true,
+	specialplot = true,
 	routnotab = true,
 	clear_line = true,
 	insert_mode_cmds = true,

@@ -57,6 +57,7 @@ local servers = {
 	"dockerls",
 	"lua_ls",
 	"clangd",
+  "nil_ls",
 	-- "marksman",
 }
 
