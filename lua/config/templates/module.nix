@@ -6,5 +6,4 @@
   config = lib.mkIf config.module.enable {
     # module config
   };
-
 }

@@ -1,5 +1,5 @@
 require("mason").setup({ ui = { border = "rounded" } })
-require("mason-lspconfig").setup({ automatic_installation = { exclude = "r_language_server" } })
+require("mason-lspconfig").setup({ automatic_installation = false })
 local nvim_lsp = require("lspconfig")
 require("lspconfig.ui.windows").default_options.border = "rounded"
 
@@ -165,40 +165,40 @@ nvim_lsp.texlab.setup({
 	},
 })
 
-nvim_lsp.ltex.setup({
-	on_attach = on_attach,
-	capabilities = require("cmp_nvim_lsp").default_capabilities(),
-	filetypes = {
-		"bib",
-		"gitcommit",
-		"markdown",
-		"org",
-		"plaintex",
-		"rst",
-		"rnoweb",
-		"tex",
-		"pandoc",
-		"quarto",
-		"rmd",
-		"context",
-		"html",
-		"xhtml",
-	},
-	settings = {
-		ltex = {
-			disabledRules = {
-				["en"] = { "MORFOLOGIK_RULE_EN" },
-				["en-AU"] = { "MORFOLOGIK_RULE_EN_AU" },
-				["en-CA"] = { "MORFOLOGIK_RULE_EN_CA" },
-				["en-GB"] = { "MORFOLOGIK_RULE_EN_GB" },
-				["en-NZ"] = { "MORFOLOGIK_RULE_EN_NZ" },
-				["en-US"] = { "MORFOLOGIK_RULE_EN_US" },
-				["en-ZA"] = { "MORFOLOGIK_RULE_EN_ZA" },
-				["it"] = { "MORFOLOGIK_RULE_IT_IT" },
-			},
-			additionalRules = {
-				languageModel = "~/ngram/",
-			},
-		},
-	},
-})
+-- nvim_lsp.ltex.setup({
+-- 	on_attach = on_attach,
+-- 	capabilities = require("cmp_nvim_lsp").default_capabilities(),
+-- 	filetypes = {
+-- 		-- "bib",
+-- 		-- "gitcommit",
+-- 		-- "markdown",
+-- 		-- "org",
+-- 		-- "plaintex",
+-- 		-- "rst",
+-- 		-- "rnoweb",
+-- 		-- "tex",
+-- 		-- "pandoc",
+-- 		-- "quarto",
+-- 		-- "rmd",
+-- 		-- "context",
+-- 		-- "html",
+-- 		-- "xhtml",
+-- 	},
+-- 	settings = {
+-- 		ltex = {
+-- 			disabledRules = {
+-- 				["en"] = { "MORFOLOGIK_RULE_EN" },
+-- 				["en-AU"] = { "MORFOLOGIK_RULE_EN_AU" },
+-- 				["en-CA"] = { "MORFOLOGIK_RULE_EN_CA" },
+-- 				["en-GB"] = { "MORFOLOGIK_RULE_EN_GB" },
+-- 				["en-NZ"] = { "MORFOLOGIK_RULE_EN_NZ" },
+-- 				["en-US"] = { "MORFOLOGIK_RULE_EN_US" },
+-- 				["en-ZA"] = { "MORFOLOGIK_RULE_EN_ZA" },
+-- 				["it"] = { "MORFOLOGIK_RULE_IT_IT" },
+-- 			},
+-- 			additionalRules = {
+-- 				languageModel = "~/ngram/",
+-- 			},
+-- 		},
+-- 	},
+-- })
