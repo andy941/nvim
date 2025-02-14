@@ -26,8 +26,8 @@ local attach = function(client, bufnr)
 	vim.keymap.set("n", "gO", "<cmd>Lspsaga outgoing_calls<CR>", opts)
 	vim.keymap.set("n", "gr", "<cmd>Lspsaga finder<CR>", opts)
 	vim.keymap.set("n", "<leader>a", "<cmd>Lspsaga code_action<CR>", opts)
-	vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", opts)
-	-- vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+	-- vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", opts)
+	vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
 	vim.keymap.set("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", opts)
 	vim.keymap.set("n", "<leader>rN", "<cmd>Lspsaga rename ++project<CR>", opts)
 	vim.keymap.set("n", "<leader>E", "<cmd>Lspsaga show_line_diagnostics<CR>", opts)
@@ -57,8 +57,8 @@ local servers = {
 	"dockerls",
 	"lua_ls",
 	"clangd",
-  "nil_ls",
-	-- "marksman",
+	"nil_ls",
+	"marksman",
 }
 
 -- Ensure servers and formatters are installed --------------------------------

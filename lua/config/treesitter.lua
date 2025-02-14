@@ -19,7 +19,7 @@ require("nvim-treesitter.configs").setup({
 		disable = { "json" },
 	},
 	indent = {
-		enable = true,
+		enable = false,
 		disable = { "json" },
 	},
 	textobjects = { enable = true, disable = { "json" } },

@@ -84,7 +84,7 @@ require("formatter").setup({
 			function()
 				return {
 					exe = "yapf",
-					args = { "--style='{indent_width: 2}'" },
+					args = { "--style='{indent_width: 4, column_limit: 120}'" },
 					stdin = true,
 				}
 			end,

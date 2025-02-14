@@ -1,16 +1,8 @@
 ---
-format: html
 title: "{{_cursor_}}"
 author: "{{_author_}}"
-#bibliography: cite.bib
-citeproc: true
-useMath: true
-standalone: true
-html:
-  embed-resources: true
-  self-contained-math: true
-  code-fold: true
-colorlinks: true
-engine: knitr
+date: "{{_date_}}"
+date-format: "DD MMMM YYYY"
+date-modified: last-modified
 ---
 

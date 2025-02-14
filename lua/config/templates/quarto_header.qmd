@@ -1,10 +1,9 @@
 ---
 title: "{{_cursor_}}"
-authors:
-  name: "{{_author_}}"
-  affiliation: Illumina
-  roles: Senior Bioinformatics Scientist
-  corresponding: true
+author: "{{_author_}}"
+date: "{{_date_}}"
+date-format: "DD MMMM YYYY"
+date-modified: last-modified
 ---
 
 ```{r setup, include=FALSE}

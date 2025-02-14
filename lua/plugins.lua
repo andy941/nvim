@@ -247,6 +247,9 @@ return require("lazy").setup({
 	},
 	{
 		"pwntester/octo.nvim",
+		-- Until github enterprise gets updated to >= 3.14!
+		commit = "f09ff9413652e3c06a6817ba6284591c00121fe0",
+		pin = true,
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			"nvim-telescope/telescope.nvim",
@@ -277,13 +280,13 @@ return require("lazy").setup({
 	},
 
 	-- latex preview and more
-	{
-		"lervag/vimtex",
-		ft = { "tex" },
-		config = function()
-			vim.cmd("source ~/.config/nvim/lua/config/vimtex.vim")
-		end,
-	},
+	-- {
+	-- 	"lervag/vimtex",
+	-- 	ft = { "tex" },
+	-- 	config = function()
+	-- 		vim.cmd("source ~/.config/nvim/lua/config/vimtex.vim")
+	-- 	end,
+	-- },
 
 	-- Lsp aware variable highlight
 	{
@@ -423,6 +426,10 @@ return require("lazy").setup({
 		config = function()
 			require("config.R-nvim")
 		end,
+	},
+	{
+		"jbyuki/nabla.nvim",
+		lazy = false,
 	},
 
 	-- Templates
