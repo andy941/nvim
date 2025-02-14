@@ -22,7 +22,6 @@ require("r").setup({
 	routnotab = true,
 	clear_line = true,
 	insert_mode_cmds = true,
-	-- non_r_compl = false,
 	nvimpager = "float",
 	Rout_more_colors = true,
 	hl_term = false,

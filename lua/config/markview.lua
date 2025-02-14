@@ -3,7 +3,8 @@ require("markview").setup({
 		filetypes = { "markdown", "quarto", "rmd" },
 		modes = { "n", "i", "c", "no", "io", "co" },
 		hybrid_modes = { "i", "n", ":" },
-		ignore_previews = { "fenced_code_block" },
+		ignore_nodes = { "fenced_code_block" },
+		icon_provider = { "devicons" },
 
 		-- This is nice to have
 		callbacks = {

@@ -64,13 +64,7 @@ local servers = {
 -- Ensure servers and formatters are installed --------------------------------
 
 require("mason-tool-installer").setup({
-	ensure_installed = {
-		"stylua",
-		"black",
-		"cbfmt",
-		"taplo",
-		servers,
-	},
+	ensure_installed = {},
 })
 
 -------------------------------------------------------------------------------

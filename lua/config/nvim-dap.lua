@@ -1,6 +1,6 @@
 require("mason").setup()
 require("mason-nvim-dap").setup({
-	ensure_installed = { "codelldb" },
+	ensure_installed = {},
 	handlers = {},
 })
 
@@ -79,4 +79,4 @@ utils.map("v", "<leader>dc", ':lua require("dap-python").debug_selection()<cr>',
 -- Python
 require("dap-python").setup("~/.virtualenvs/debugpy/bin/python")
 -- change the test runner (unittest is default)
-require('dap-python').test_runner = 'pytest' -- or django
+require("dap-python").test_runner = "pytest" -- or django
