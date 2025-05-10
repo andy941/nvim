@@ -61,7 +61,7 @@ require("formatter").setup({
 			function()
 				return {
 					exe = "rustfmt",
-					--args = { "--edition 2021" },
+					args = { "--edition 2021" },
 					stdin = false,
 				}
 			end,
@@ -93,11 +93,9 @@ require("formatter").setup({
 		tex = {
 			function()
 				return {
-					exe = "latexindent",
+					exe = "tex-fmt",
 					args = {
-						"--modifylinebreaks",
-						"-g",
-						"/dev/null",
+						"--stdin",
 					},
 					stdin = true,
 				}
@@ -121,6 +119,14 @@ require("formatter").setup({
       end
     },
 		-- stylua: ignore end
+		wgsl = {
+			function()
+				return {
+					exe = "wgslfmt",
+					stdin = false,
+				}
+			end,
+		},
 
 		["*"] = {
 			require("formatter.filetypes.any").remove_trailing_whitespace,

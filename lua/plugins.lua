@@ -281,13 +281,13 @@ return require("lazy").setup({
 	},
 
 	-- latex preview and more
-	-- {
-	-- 	"lervag/vimtex",
-	-- 	ft = { "tex" },
-	-- 	config = function()
-	-- 		vim.cmd("source ~/.config/nvim/lua/config/vimtex.vim")
-	-- 	end,
-	-- },
+	{
+		"lervag/vimtex",
+		ft = { "tex" },
+		config = function()
+			vim.cmd("source ~/.config/nvim/lua/config/vimtex.vim")
+		end,
+	},
 
 	-- Lsp aware variable highlight
 	{

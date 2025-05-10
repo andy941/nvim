@@ -59,6 +59,7 @@ local servers = {
 	"clangd",
 	"nil_ls",
 	"marksman",
+	"wgsl_analyzer",
 }
 
 -- Ensure servers and formatters are installed --------------------------------
@@ -76,6 +77,8 @@ local filetypes = {}
 local root_dir = {}
 local settings = {}
 
+command.wgsl_analyzer = { "wgsl-analyzer" }
+
 command.clangd = {
 	"clangd",
 	"-j=8",
@@ -90,7 +93,7 @@ command.clangd = {
 }
 
 init_options.clangd = {
-	fallbackFlags = { "--std=c++23" },
+	fallbackFlags = { cpp = "--std=c++23", c = "--std=c23" },
 }
 
 filetypes.marksman = { "quarto", "markdown", "telekasten" }

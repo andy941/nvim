@@ -35,5 +35,3 @@ local utils = require("utils")
 local opts = { noremap = true, silent = true }
 utils.map("n", "L", ":BufferLineCycleNext<CR>", opts)
 utils.map("n", "H", ":BufferLineCyclePrev<CR>", opts)
-utils.map("t", "L", ":BufferLineCycleNext<CR>", opts)
-utils.map("t", "H", ":BufferLineCyclePrev<CR>", opts)

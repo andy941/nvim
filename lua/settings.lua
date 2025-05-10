@@ -63,6 +63,16 @@ vim.cmd("au TextYankPost * lua vim.highlight.on_yank {on_visual = false}")
 -- No numbers in terminal
 vim.cmd("autocmd TermOpen * setlocal nonumber norelativenumber")
 
+-- Open terminal in insert mode
+vim.api.nvim_create_autocmd({ "TermOpen", "BufEnter" }, {
+	pattern = { "*" },
+	callback = function()
+		if vim.opt.buftype:get() == "terminal" then
+			vim.cmd(":startinsert")
+		end
+	end,
+})
+
 -- Exit insert mode in nvim terminal
 utils.map("t", "<localleader><Esc>", "<c-\\><c-n>", opts)
 
