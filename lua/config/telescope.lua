@@ -25,6 +25,7 @@ tele.setup({
 			"lua%-language%-server/",
 			".cache/",
 			"build/",
+      ".*/third[%-_]party/.*"
 		},
 		mappings = {
 			n = {

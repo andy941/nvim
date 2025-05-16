@@ -26,8 +26,8 @@ local attach = function(client, bufnr)
 	vim.keymap.set("n", "gO", "<cmd>Lspsaga outgoing_calls<CR>", opts)
 	vim.keymap.set("n", "gr", "<cmd>Lspsaga finder<CR>", opts)
 	vim.keymap.set("n", "<leader>a", "<cmd>Lspsaga code_action<CR>", opts)
-	vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", opts)
-	-- vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+	-- vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", opts)
+	vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
 	vim.keymap.set("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", opts)
 	vim.keymap.set("n", "<leader>rN", "<cmd>Lspsaga rename ++project<CR>", opts)
 	vim.keymap.set("n", "<leader>E", "<cmd>Lspsaga show_line_diagnostics<CR>", opts)
@@ -164,40 +164,40 @@ nvim_lsp.texlab.setup({
 	},
 })
 
-nvim_lsp.ltex.setup({
-	on_attach = on_attach,
-	capabilities = require("cmp_nvim_lsp").default_capabilities(),
-	filetypes = {
-		"bib",
-		"gitcommit",
-		"markdown",
-		"org",
-		"plaintex",
-		"rst",
-		"rnoweb",
-		"tex",
-		"pandoc",
-		"quarto",
-		"rmd",
-		"context",
-		"html",
-		"xhtml",
-	},
-	settings = {
-		ltex = {
-			disabledRules = {
-				["en"] = { "MORFOLOGIK_RULE_EN" },
-				["en-AU"] = { "MORFOLOGIK_RULE_EN_AU" },
-				["en-CA"] = { "MORFOLOGIK_RULE_EN_CA" },
-				["en-GB"] = { "MORFOLOGIK_RULE_EN_GB" },
-				["en-NZ"] = { "MORFOLOGIK_RULE_EN_NZ" },
-				["en-US"] = { "MORFOLOGIK_RULE_EN_US" },
-				["en-ZA"] = { "MORFOLOGIK_RULE_EN_ZA" },
-				["it"] = { "MORFOLOGIK_RULE_IT_IT" },
-			},
-			additionalRules = {
-				languageModel = "~/ngram/",
-			},
-		},
-	},
-})
+-- nvim_lsp.ltex.setup({
+-- 	on_attach = on_attach,
+-- 	capabilities = require("cmp_nvim_lsp").default_capabilities(),
+-- 	filetypes = {
+-- 		"bib",
+-- 		"gitcommit",
+-- 		"markdown",
+-- 		"org",
+-- 		"plaintex",
+-- 		"rst",
+-- 		"rnoweb",
+-- 		"tex",
+-- 		"pandoc",
+-- 		"quarto",
+-- 		"rmd",
+-- 		"context",
+-- 		"html",
+-- 		"xhtml",
+-- 	},
+-- 	settings = {
+-- 		ltex = {
+-- 			disabledRules = {
+-- 				["en"] = { "MORFOLOGIK_RULE_EN" },
+-- 				["en-AU"] = { "MORFOLOGIK_RULE_EN_AU" },
+-- 				["en-CA"] = { "MORFOLOGIK_RULE_EN_CA" },
+-- 				["en-GB"] = { "MORFOLOGIK_RULE_EN_GB" },
+-- 				["en-NZ"] = { "MORFOLOGIK_RULE_EN_NZ" },
+-- 				["en-US"] = { "MORFOLOGIK_RULE_EN_US" },
+-- 				["en-ZA"] = { "MORFOLOGIK_RULE_EN_ZA" },
+-- 				["it"] = { "MORFOLOGIK_RULE_IT_IT" },
+-- 			},
+-- 			additionalRules = {
+-- 				languageModel = "~/ngram/",
+-- 			},
+-- 		},
+-- 	},
+-- })
