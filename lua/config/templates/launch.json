@@ -1,0 +1,17 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "CodeLLDB: Debug",
+      "type": "codelldb",
+      "request": "launch",
+      "program": "${workspaceFolder}/objtree_debug/bin/dragen",
+      "args": [],
+      "cwd": "${workspaceFolder}",
+      "stopOnEntry": false,
+      "runInTerminal": true,
+      "exceptionBreakpoints": [],
+      "preRunCommands": ["breakpoint name configure --disable cpp_exception"]
+    }
+  ]
+}

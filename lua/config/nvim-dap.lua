@@ -10,6 +10,8 @@ sign("DapBreakpoint", { text = "●", texthl = "DapBreakpoint", linehl = "", num
 sign("DapBreakpointCondition", { text = "●", texthl = "DapBreakpointCondition", linehl = "", numhl = "" })
 sign("DapLogPoint", { text = "◆", texthl = "DapLogPoint", linehl = "", numhl = "" })
 
+-- require("dap").set_log_level("TRACE")
+
 -------------------------------------------------------------------------------
 
 local opts = { noremap = true, silent = true }
@@ -17,7 +19,7 @@ local utils = require("utils")
 local dap = require("dap")
 local api = vim.api
 
--------------------------------------------------------------------------------
+-- Keybindings ----------------------------------------------------------------
 
 -- keymaps only active when dap session is active
 local keymap_restore = {}
@@ -52,8 +54,6 @@ dap.listeners.after["event_terminated"]["me"] = function()
 	keymap_restore = {}
 end
 
--------------------------------------------------------------------------------
-
 utils.map("n", "<leader>dc", "<cmd>DapContinue<cr>", opts)
 utils.map("n", "<leader>dC", '<cmd>lua require("dap").reverse_continue()<cr>', opts)
 utils.map("n", "<leader>dl", '<cmd>lua require("dap").run_last()<cr>', opts)
@@ -76,7 +76,19 @@ utils.map("n", "<leader>dtm", ':lua require("dap-python").test_method()<cr>', op
 utils.map("n", "<leader>dtc", ':lua require("dap-python").test_class()<cr>', opts)
 utils.map("v", "<leader>dc", ':lua require("dap-python").debug_selection()<cr>', opts)
 
+-------------------------------------------------------------------------------
+
 -- Python
 require("dap-python").setup("~/.virtualenvs/debugpy/bin/python")
 -- change the test runner (unittest is default)
-require('dap-python').test_runner = 'pytest' -- or django
+require("dap-python").test_runner = "pytest" -- or django
+
+-------------------------------------------------------------------------------
+
+-- Load VSCode launch.json when Dap is started
+vim.api.nvim_create_autocmd("User", {
+	pattern = "DapStarted",
+	callback = function()
+		require("dap.ext.vscode").load_launchjs(nil, { codelldb = { "c", "cpp", "rust" } })
+	end,
+})
