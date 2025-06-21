@@ -106,6 +106,7 @@ root_dir.pyright = function(fname)
 		or nvim_lsp.util.path.dirname(fname)
 end
 
+filetypes.r_language_server = { "r" }
 settings.r_language_server = {
 	r = {
 		lsp = {

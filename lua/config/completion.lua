@@ -58,7 +58,6 @@ cmp.setup({
 	end,
 
 	sources = {
-		{ name = "otter" },
 		{ name = "cmp_r" },
 		{ name = "dap" },
 		{ name = "path" },
@@ -118,12 +117,7 @@ require("cmp").setup.filetype("quarto", {
 		{ name = "cmp_r" },
 		{ name = "nvim_lsp" },
 		{ name = "luasnip" },
-		{
-			name = "latex_symbols",
-			option = {
-				strategy = 2,
-			},
-		},
+		{ name = "latex_symbols", option = { strategy = 2 } },
 	},
 })
 

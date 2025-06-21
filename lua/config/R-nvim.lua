@@ -9,6 +9,8 @@ require("r").setup({
 			vim.keymap.set("v", "<C-s>", "<Plug>RSendSelection", opts)
 			vim.keymap.set("n", "<C-c>", "<Plug>RStop", opts)
 			vim.keymap.set("v", "<C-c>", "<Plug>RStop", opts)
+			vim.keymap.set("n", "<localleader>rs", "<Plug>RStart", opts)
+			vim.keymap.set("n", "<localleader>ro", "<Plug>ROBToggle", opts)
 		end,
 	},
 	min_editor_width = vim.fn.winwidth(0) * 2 / 3,
@@ -22,11 +24,10 @@ require("r").setup({
 	routnotab = true,
 	clear_line = true,
 	insert_mode_cmds = false,
-	-- non_r_compl = false,
 	nvimpager = "float",
 	Rout_more_colors = true,
 	hl_term = false,
 	pdfviewer = "zathura",
-	-- R_user_maps_only = 1,,
-	-- R_disable_cmds = ['RSetwd', 'RDputObj'],,
+	user_maps_only = true,
+	-- R_disable_cmds = ['RSetwd', 'RDputObj'],
 })
