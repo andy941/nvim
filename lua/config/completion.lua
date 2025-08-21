@@ -43,37 +43,14 @@ cmp.setup({
 		["<C-p>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
 		["<C-u>"] = cmp.mapping.scroll_docs(-4),
 		["<C-d>"] = cmp.mapping.scroll_docs(4),
-		-- ["<C-Space>"] = cmp.mapping.complete(),
-		-- ["<C-Space>"] = cmp.mapping.close(),
-		["<CR>"] = cmp.mapping.confirm({
+		["<Space>"] = cmp.mapping.confirm({
 			behavior = cmp.ConfirmBehavior.Replace,
 			select = false,
 		}),
-		["<Tab>"] = cmp.mapping(function(fallback)
-			if cmp.visible() then
-				cmp.select_next_item()
-			elseif luasnip.expand_or_jumpable() then
-				luasnip.expand_or_jump()
-			elseif has_words_before() then
-				cmp.complete()
-			else
-				fallback() -- The fallback function sends a already mapped key. In this case, it's probably `<Tab>`.
-			end
-		end, { "i", "s" }),
-		["<C-x>"] = cmp.mapping(
-			cmp.mapping.complete({
-				config = {
-					sources = cmp.config.sources({
-						{ name = "cmp_ai" },
-					}),
-				},
-			}),
-			{ "i" }
-		),
 	},
 
 	experimental = {
-		ghost_text = true,
+		ghost_text = false,
 	},
 
 	enabled = function()
@@ -89,6 +66,12 @@ cmp.setup({
 		{ name = "luasnip" },
 		{ name = "crates" },
 		{ name = "git" },
+		{
+			name = "latex_symbols",
+			option = {
+				strategy = 2, -- mixed
+			},
+		},
 	},
 
 	sorting = {
@@ -131,8 +114,16 @@ require("cmp").setup.filetype("quarto", {
 	sources = {
 		{ name = "dap" },
 		{ name = "path" },
+		{ name = "otter" },
+		{ name = "cmp_r" },
 		{ name = "nvim_lsp" },
 		{ name = "luasnip" },
+		{
+			name = "latex_symbols",
+			option = {
+				strategy = 2,
+			},
+		},
 	},
 })
 
