@@ -25,15 +25,6 @@ return require("lazy").setup({
 		end,
 	},
 
-	-- Treesitter
-	{
-		"nvim-treesitter/nvim-treesitter",
-		build = ":TSUpdate",
-		config = function()
-			require("config.treesitter")
-		end,
-	},
-
 	-- Nicer UI
 	{
 		"folke/noice.nvim",
