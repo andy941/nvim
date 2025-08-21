@@ -10,6 +10,7 @@ Cformat = function()
 	return {
 		exe = "clang-format",
 		args = {
+			"-style='{BasedOnStyle: Google, AlignConsecutiveAssignments: true, AlignConsecutiveDeclarations: true, AlignTrailingComments: true}'",
 			"-assume-filename",
 			util.escape_path(util.get_current_buffer_file_name()),
 		},
