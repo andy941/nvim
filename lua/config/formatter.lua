@@ -6,9 +6,9 @@ local util = require("formatter.util")
 vim.keymap.set("n", "F", "<cmd>Format<CR>", opts)
 
 Clang_format_finder = function(clang_format_file)
-	CF = vim.fn.finddir(".git/..", ".;")
-	CF = vim.fn.fnamemodify(CF, ":p:h") .. clang_format_file
-	if vim.fn.findfile(CF) ~= 1 then
+	local cwd = vim.fn.getcwd()
+	local CF = vim.fs.joinpath(cwd, clang_format_file)
+	if vim.fn.filereadable(CF) == 1 then
 		return CF
 	else
 		return "clang-format"

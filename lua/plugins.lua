@@ -25,6 +25,15 @@ return require("lazy").setup({
 		end,
 	},
 
+	-- Treesitter
+	{
+		"nvim-treesitter/nvim-treesitter",
+		build = ":TSUpdate",
+		config = function()
+			require("config.treesitter")
+		end,
+	},
+
 	-- Nicer UI
 	{
 		"folke/noice.nvim",
@@ -191,18 +200,11 @@ return require("lazy").setup({
 			"saecki/crates.nvim",
 			"R-nvim/cmp-r",
 			"petertriho/cmp-git",
+			"tzachar/cmp-ai",
+			"kdheepak/cmp-latex-symbols",
 		},
 		config = function()
 			require("config.completion")
-		end,
-	},
-
-	-- Treesitter
-	{
-		"nvim-treesitter/nvim-treesitter",
-		build = ":TSUpdate",
-		config = function()
-			require("config.treesitter")
 		end,
 	},
 
@@ -474,6 +476,21 @@ return require("lazy").setup({
 		config = function()
 			require("config.codecompanion")
 		end,
+	},
+	{
+		"github/copilot.vim",
+		lazy = false,
+		-- config = true,
+	},
+
+	-- Use `jk` as the ESC key to go from INSERT to NORMAL mode
+	{
+		"max397574/better-escape.nvim",
+		config = true,
+		opts = {
+			default_mappings = false,
+			mappings = { i = { j = { k = "<Esc>", j = "<Esc>" } } },
+		},
 	},
 }, {
 	ui = { border = "rounded" },
