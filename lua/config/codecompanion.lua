@@ -3,6 +3,8 @@ require("codecompanion").setup({
 		chat = {
 			window = {
 				layout = "float",
+				height = 0.8,
+				width = 0.8,
 			},
 		},
 	},
@@ -20,11 +22,11 @@ require("codecompanion").setup({
 	},
 })
 
-vim.api.nvim_set_keymap("n", "<C-a>", "<cmd>CodeCompanionActions<cr>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("v", "<C-a>", "<cmd>CodeCompanionActions<cr>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<LocalLeader>a", "<cmd>CodeCompanionChat Toggle<cr>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("v", "<LocalLeader>a", "<cmd>CodeCompanionChat Toggle<cr>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("v", "<LocalLeader>A", "<cmd>CodeCompanionAdd<cr>", { noremap = true, silent = true })
+vim.keymap.set("n", "<LocalLeader>AA", "<cmd>CodeCompanionActions<cr>", { desc = "Code companion actions" })
+vim.keymap.set("v", "<LocalLeader>AA", "<cmd>CodeCompanionActions<cr>", { desc = "Code companion actions" })
+vim.keymap.set("n", "<LocalLeader>aa", "<cmd>CodeCompanionChat Toggle<cr>", { desc = "Code companion chat toggle" })
+vim.keymap.set("v", "<LocalLeader>aa", "<cmd>CodeCompanionChat Toggle<cr>", { desc = "Code companion chat toggle" })
+vim.keymap.set("v", "<LocalLeader>ay", "<cmd>CodeCompanionAdd<cr>", { desc = "Code companion add selection to chat" })
 
 -- Expand 'cc' into 'CodeCompanion' in the command line
 vim.cmd([[cab cc CodeCompanion]])

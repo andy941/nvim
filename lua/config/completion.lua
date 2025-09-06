@@ -43,14 +43,14 @@ cmp.setup({
 		["<C-p>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
 		["<C-u>"] = cmp.mapping.scroll_docs(-4),
 		["<C-d>"] = cmp.mapping.scroll_docs(4),
-		["<Space>"] = cmp.mapping.confirm({
+		["<C-Space>"] = cmp.mapping.confirm({
 			behavior = cmp.ConfirmBehavior.Replace,
 			select = false,
 		}),
 	},
 
 	experimental = {
-		ghost_text = false,
+		ghost_text = true,
 	},
 
 	enabled = function()
@@ -58,6 +58,7 @@ cmp.setup({
 	end,
 
 	sources = {
+		{ name = "copilot", keyword_length = 0 },
 		{ name = "cmp_r" },
 		{ name = "dap" },
 		{ name = "path" },

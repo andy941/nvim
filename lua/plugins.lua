@@ -25,6 +25,32 @@ return require("lazy").setup({
 		end,
 	},
 
+	-- Nicer markdown-like text
+	{
+		"OXY2DEV/markview.nvim",
+		lazy = false, -- Recommended
+
+		dependencies = {
+			"nvim-treesitter/nvim-treesitter",
+			"nvim-tree/nvim-web-devicons",
+		},
+		config = function()
+			require("config.markview")
+		end,
+	},
+
+	-- Code parsing
+	{
+		"nvim-treesitter/nvim-treesitter",
+		lazy = false,
+		dependencies = {
+			"OXY2DEV/markview.nvim", -- Ensure markview is loaded first
+		},
+		config = function()
+			require("config.treesitter")
+		end,
+	},
+
 	-- Nicer UI
 	{
 		"folke/noice.nvim",
@@ -165,8 +191,15 @@ return require("lazy").setup({
 	{
 		"mfussenegger/nvim-lint",
 		config = function()
-			require("config.nvim-lint")
-		end,
+      require("lint").linters_by_ft = {
+        -- lua = { "luacheck" },
+      }
+      vim.api.nvim_create_autocmd({ "InsertLeave" }, {
+        callback = function()
+          require("lint").try_lint()
+        end,
+      })
+    end,
 	},
 
 	-- Code formatting
@@ -195,6 +228,12 @@ return require("lazy").setup({
 			"petertriho/cmp-git",
 			"tzachar/cmp-ai",
 			"kdheepak/cmp-latex-symbols",
+			{
+				"zbirenbaum/copilot-cmp",
+				config = function()
+					require("copilot_cmp").setup()
+				end,
+			},
 		},
 		config = function()
 			require("config.completion")
@@ -374,17 +413,6 @@ return require("lazy").setup({
 		end,
 	},
 	{
-		"OXY2DEV/markview.nvim",
-		lazy = false, -- Recommended
-		dependencies = {
-			"nvim-treesitter/nvim-treesitter",
-			"nvim-tree/nvim-web-devicons",
-		},
-		config = function()
-			require("config.markview")
-		end,
-	},
-	{
 		"3rd/image.nvim",
 		cond = not vim.g.started_by_firenvim,
 		lazy = true,
@@ -451,9 +479,19 @@ return require("lazy").setup({
 		end,
 	},
 
-	-- LLMs integration
-	{
-		"olimorris/codecompanion.nvim",
+-- LLMs integration
+{
+	"NickvanDyke/opencode.nvim",
+	dependencies = {
+		"nvim-lua/plenary.nvim",
+		"nvim-treesitter/nvim-treesitter",
+	},
+	config = function()
+		require("config.opencode")
+	end,
+},
+{
+	"olimorris/codecompanion.nvim",
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			"nvim-treesitter/nvim-treesitter",
@@ -470,9 +508,15 @@ return require("lazy").setup({
 	},
 
 	{
-		"github/copilot.vim",
-		lazy = false,
-		-- config = true,
+		"zbirenbaum/copilot.lua",
+		cmd = "Copilot",
+		event = "InsertEnter",
+		config = function()
+			require("copilot").setup({
+				suggestion = { enabled = false },
+				panel = { enabled = false },
+			})
+		end,
 	},
 
 	-- Use `jk` as the ESC key to go from INSERT to NORMAL mode

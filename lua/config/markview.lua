@@ -1,9 +1,11 @@
 require("markview").setup({
+
 	preview = {
-		filetypes = { "markdown", "quarto", "rmd" },
+		filetypes = { "markdown", "quarto", "rmd", "codecompanion" },
 		modes = { "n", "i", "c", "no", "io", "co" },
 		hybrid_modes = { "i", "n", ":" },
 		ignore_nodes = { "fenced_code_block" },
+		ignore_buftypes = {},
 		icon_provider = { "devicons" },
 
 		-- This is nice to have
@@ -24,4 +26,6 @@ require("markview").setup({
 	latex = {
 		enable = false,
 	},
+
+	experimental = { check_rtp_message = false },
 })
