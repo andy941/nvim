@@ -166,42 +166,45 @@ local ff_and_lg = function()
 end
 
 -- KeyBindings -----------------------------------------------------------------------
+-- stylua: ignore start
 
 -- One character
-utils.map("n", "<leader>B", "<cmd>Telescope 	buffers<cr>", opts)
-utils.map("n", "<leader>R", "<cmd>Telescope 	resume<cr>", opts)
-utils.map("n", "<leader>S", "<cmd>Telescope 	spell_suggest<cr>", opts)
+vim.keymap.set("n", "<leader>B", "<cmd>Telescope buffers<cr>", { noremap = true, silent = true, desc = "List open buffers" })
+vim.keymap.set("n", "<leader>R", "<cmd>Telescope resume<cr>", { noremap = true, silent = true, desc = "Resume last Telescope" })
+vim.keymap.set("n", "<leader>S", "<cmd>Telescope spell_suggest<cr>", { noremap = true, silent = true, desc = "Spell suggestions" })
 
 -- Two characters
-utils.map("n", "<Leader>ff", "<cmd>Telescope		find_files<cr>", opts)
-vim.keymap.set("n", "<leader>fg", ff_and_lg)
-utils.map("n", "<leader>fu", "<cmd>Telescope 	current_buffer_fuzzy_find<cr>", opts)
-utils.map("n", "<leader>gg", "<cmd>Telescope 	live_grep<cr>", opts)
-utils.map("n", "<leader>gG", "<cmd>Telescope  grep_string<cr>", opts)
-utils.map("n", "<leader>H", "<cmd>Telescope 	help_tags<cr>", opts)
-utils.map("n", "<leader>kb", "<cmd>Telescope 	keymaps<cr>", opts)
-utils.map("n", "<leader>pr", "<cmd>Telescope 	project<cr>", opts)
+vim.keymap.set("n", "<Leader>ff", "<cmd>Telescope find_files<cr>", { noremap = true, silent = true, desc = "Find files" })
+vim.keymap.set("n", "<leader>fg", ff_and_lg, { desc = "Find files then live grep" })
+vim.keymap.set("n", "<leader>fu", "<cmd>Telescope current_buffer_fuzzy_find<cr>", { noremap = true, silent = true, desc = "Fuzzy find in buffer" })
+vim.keymap.set("n", "<leader>gg", "<cmd>Telescope live_grep<cr>", { noremap = true, silent = true, desc = "Live grep project" })
+vim.keymap.set("n", "<leader>gG", "<cmd>Telescope grep_string<cr>", { noremap = true, silent = true, desc = "Grep for string under cursor" })
+vim.keymap.set("n", "<leader>H", "<cmd>Telescope help_tags<cr>", { noremap = true, silent = true, desc = "Help tags" })
+vim.keymap.set("n", "<leader>kb", "<cmd>Telescope keymaps<cr>", { noremap = true, silent = true, desc = "Show keymaps" })
+vim.keymap.set("n", "<leader>pr", "<cmd>Telescope project<cr>", { noremap = true, silent = true, desc = "Project picker" })
 
 -- LSP
-utils.map("n", "<leader>di", "<cmd>Telescope 	diagnostics<cr>", opts)
-utils.map("n", "<leader>ws", "<cmd>Telescope 	lsp_dynamic_workspace_symbols<cr>", opts)
+vim.keymap.set("n", "<leader>di", "<cmd>Telescope diagnostics<cr>", { noremap = true, silent = true, desc = "Show diagnostics" })
+vim.keymap.set("n", "<leader>ws", "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", { noremap = true, silent = true, desc = "Workspace symbols" })
 
 -- Search with relative path 'w-orking dir' or relative to 'w-orkspace'
-utils.map("n", "<leader>wf", "<cmd>Telescope 	find_files			cwd=%:p:h<cr>", opts)
-utils.map("n", "<leader>wg", "<cmd>Telescope 	live_grep			cwd=%:p:h<cr>", opts)
-utils.map("n", "<leader>wG", "<cmd>Telescope 	grep_string			cwd=%:p:h<cr>", opts)
+vim.keymap.set("n", "<leader>wf", "<cmd>Telescope find_files cwd=%:p:h<cr>", { noremap = true, silent = true, desc = "Find files in current dir" })
+vim.keymap.set("n", "<leader>wg", "<cmd>Telescope live_grep cwd=%:p:h<cr>", { noremap = true, silent = true, desc = "Live grep in current dir" })
+vim.keymap.set("n", "<leader>wG", "<cmd>Telescope grep_string cwd=%:p:h<cr>", { noremap = true, silent = true, desc = "Grep string in current dir" })
 
 -- Git
-utils.map("n", "<leader>gb", "<cmd>Telescope		git_branches<cr>", opts)
-utils.map("n", "<leader>gl", "<cmd>Telescope		git_commits<cr>", opts)
-utils.map("n", "<leader>gL", "<cmd>Telescope		git_bcommits<cr>", opts)
+vim.keymap.set("n", "<leader>gb", "<cmd>Telescope git_branches<cr>", { noremap = true, silent = true, desc = "Git branches" })
+vim.keymap.set("n", "<leader>gl", "<cmd>Telescope git_commits<cr>", { noremap = true, silent = true, desc = "Git commits" })
+vim.keymap.set("n", "<leader>gL", "<cmd>Telescope git_bcommits<cr>", { noremap = true, silent = true, desc = "Git buffer commits" })
 
 -- headings
-utils.map("n", "<leader>sh", "<cmd>Telescope		heading<cr>", opts)
+vim.keymap.set("n", "<leader>sh", "<cmd>Telescope heading<cr>", { noremap = true, silent = true, desc = "Search headings" })
 
 -- Useful additions
-utils.map("n", "<leader>rc", "<cmd>Telescope 	find_files			cwd=~/.config/nvim<cr>", opts)
-utils.map("n", "<leader>CS", "<cmd>Telescope 	colorscheme<cr>", opts)
+vim.keymap.set("n", "<leader>rc", "<cmd>Telescope find_files cwd=~/.config/nvim<cr>", { noremap = true, silent = true, desc = "Find files in nvim config" })
+vim.keymap.set("n", "<leader>CS", "<cmd>Telescope colorscheme<cr>", { noremap = true, silent = true, desc = "Colorscheme picker" })
 
 -- Templates
-utils.map("n", "<leader>T", "<cmd>Telescope find_template 	type=insert<cr>", opts)
+vim.keymap.set("n", "<leader>T", "<cmd>Telescope find_template type=insert<cr>", { noremap = true, silent = true, desc = "Find template" })
+
+-- stylua: ignore end

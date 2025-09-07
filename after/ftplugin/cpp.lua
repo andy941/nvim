@@ -1,23 +1,23 @@
 local utils = require("utils")
 local opts = { noremap = true, silent = true }
 
-utils.map(
-	"n", -- Release
+vim.keymap.set(
+	"n",
 	"<leader>Mr",
 	[[:TermExec cmd="rm -r build; mkdir build; cd build/ && cmake -DCMAKE_BUILD_TYPE=Release .. && cd .. && cmake --build build -j$(getconf _NPROCESSORS_ONLN) && cmake --install build && %:r.o" <CR>]],
-	opts
+	{ noremap = true, silent = true, desc = "C++: Build and run (Release)" }
 )
 
-utils.map(
-	"n", -- Debug
+vim.keymap.set(
+	"n",
 	"<leader>Md",
 	[[:TermExec cmd="rm -r build; mkdir build; cd build/ && cmake -DCMAKE_BUILD_TYPE=Debug .. && cd .. && cmake --build build -j$(getconf _NPROCESSORS_ONLN) && cmake --install build && %:r.o" <CR>]],
-	opts
+	{ noremap = true, silent = true, desc = "C++: Build and run (Debug)" }
 )
 
-utils.map(
+vim.keymap.set(
 	"n",
 	"<leader>MM",
 	[[:TermExec cmd="cmake --build build -j$(getconf _NPROCESSORS_ONLN) && cmake --install build && %:r.o" <CR>]],
-	opts
+	{ noremap = true, silent = true, desc = "C++: Build and install" }
 )

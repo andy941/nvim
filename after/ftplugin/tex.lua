@@ -6,6 +6,21 @@ vim.cmd("setlocal spell spelllang=en_us")
 
 utils.opt("o", "scrolloff", 12)
 
-utils.map("n", "<leader>cB", "<cmd>Telescope bibtex<cr>", opts)
-utils.map("n", "<leader>cP", "<cmd>Telescope bibtex format=plain<cr>", opts)
-utils.map("n", "<leader>vv", "<cmd>VimtexView<cr>", opts)
+vim.keymap.set(
+	"n",
+	"<leader>cB",
+	"<cmd>Telescope bibtex<cr>",
+	{ noremap = true, silent = true, desc = "Search BibTeX citations" }
+)
+vim.keymap.set(
+	"n",
+	"<leader>cP",
+	"<cmd>Telescope bibtex format=plain<cr>",
+	{ noremap = true, silent = true, desc = "Search BibTeX citations (plain)" }
+)
+vim.keymap.set(
+	"n",
+	"<leader>vv",
+	"<cmd>VimtexView<cr>",
+	{ noremap = true, silent = true, desc = "View PDF with Vimtex" }
+)

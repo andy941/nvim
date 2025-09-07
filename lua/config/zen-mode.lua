@@ -44,4 +44,4 @@ require("zen-mode").setup({
 	},
 })
 
-utils.map("n", "<leader>zz", "<cmd>ZenMode<cr>", opts)
+vim.keymap.set("n", "<leader>zz", "<cmd>ZenMode<cr>", { noremap = true, silent = true, desc = "Toggle Zen Mode" })

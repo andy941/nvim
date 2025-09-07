@@ -31,7 +31,9 @@ dap.listeners.after["event_initialized"]["me"] = function()
 			end
 		end
 	end
-	api.nvim_set_keymap("n", "<C-k>", '<cmd>lua require("dapui").eval()<cr>', opts)
+	vim.keymap.set("n", "<C-k>", function()
+		require("dapui").eval()
+	end, { desc = "DAP UI: Eval", silent = true })
 
 	for _, buf in pairs(api.nvim_list_bufs()) do
 		local keymaps = api.nvim_buf_get_keymap(buf, "v")
@@ -42,39 +44,91 @@ dap.listeners.after["event_initialized"]["me"] = function()
 			end
 		end
 	end
-	api.nvim_set_keymap("v", "<C-k>", '<cmd>lua require("dapui").eval()<cr>', opts)
+	vim.keymap.set("v", "<C-k>", function()
+		require("dapui").eval()
+	end, { desc = "DAP UI: Eval", silent = true })
 end
 
 dap.listeners.after["event_terminated"]["me"] = function()
 	for _, keymap in pairs(keymap_restore) do
-		api.nvim_buf_set_keymap(keymap.buffer, keymap.mode, keymap.lhs, keymap.rhs, { silent = keymap.silent == 1 })
+		vim.keymap.set(
+			keymap.mode,
+			keymap.lhs,
+			keymap.rhs,
+			{ buffer = keymap.buffer, silent = keymap.silent == 1, desc = "Restored mapping" }
+		)
 	end
 	keymap_restore = {}
 end
 
 -------------------------------------------------------------------------------
 
-utils.map("n", "<leader>dc", "<cmd>DapContinue<cr>", opts)
-utils.map("n", "<leader>dC", '<cmd>lua require("dap").reverse_continue()<cr>', opts)
-utils.map("n", "<leader>dl", '<cmd>lua require("dap").run_last()<cr>', opts)
-utils.map("n", "<leader>dT", "<cmd>DapTerminate<cr>", opts)
+vim.keymap.set("n", "<leader>dc", "<cmd>DapContinue<cr>", { noremap = true, silent = true, desc = "DAP: Continue" })
+vim.keymap.set(
+	"n",
+	"<leader>dC",
+	'<cmd>lua require("dap").reverse_continue()<cr>',
+	{ noremap = true, silent = true, desc = "DAP: Reverse continue" }
+)
+vim.keymap.set(
+	"n",
+	"<leader>dl",
+	'<cmd>lua require("dap").run_last()<cr>',
+	{ noremap = true, silent = true, desc = "DAP: Run last" }
+)
+vim.keymap.set("n", "<leader>dT", "<cmd>DapTerminate<cr>", { noremap = true, silent = true, desc = "DAP: Terminate" })
 
-utils.map("n", "<leader>db", "<cmd>DapToggleBreakpoint<cr>", opts)
-utils.map("n", "<leader>dB", '<cmd>lua require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: "))<cr>', opts)
-utils.map(
+vim.keymap.set(
+	"n",
+	"<leader>db",
+	"<cmd>DapToggleBreakpoint<cr>",
+	{ noremap = true, silent = true, desc = "DAP: Toggle breakpoint" }
+)
+vim.keymap.set(
+	"n",
+	"<leader>dB",
+	'<cmd>lua require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: "))<cr>',
+	{ noremap = true, silent = true, desc = "DAP: Conditional breakpoint" }
+)
+vim.keymap.set(
 	"n",
 	"<leader>dL",
 	'<cmd>lua require("dap").set_breakpoint(nil, nil, vim.fn.input("Log point message: "))<cr>',
-	opts
+	{ noremap = true, silent = true, desc = "DAP: Log point" }
 )
 
-utils.map("n", "<leader>dr", "<cmd>DapToggleRepl<cr>", opts)
-utils.map("n", "<leader>dl", '<cmd>lua require("dap").run_last()<cr>', opts)
+vim.keymap.set(
+	"n",
+	"<leader>dr",
+	"<cmd>DapToggleRepl<cr>",
+	{ noremap = true, silent = true, desc = "DAP: Toggle REPL" }
+)
+vim.keymap.set(
+	"n",
+	"<leader>dl",
+	'<cmd>lua require("dap").run_last()<cr>',
+	{ noremap = true, silent = true, desc = "DAP: Run last" }
+)
 
 -- Python
-utils.map("n", "<leader>dtm", ':lua require("dap-python").test_method()<cr>', opts)
-utils.map("n", "<leader>dtc", ':lua require("dap-python").test_class()<cr>', opts)
-utils.map("v", "<leader>dc", ':lua require("dap-python").debug_selection()<cr>', opts)
+vim.keymap.set(
+	"n",
+	"<leader>dtm",
+	':lua require("dap-python").test_method()<cr>',
+	{ noremap = true, silent = true, desc = "DAP: Test method (Python)" }
+)
+vim.keymap.set(
+	"n",
+	"<leader>dtc",
+	':lua require("dap-python").test_class()<cr>',
+	{ noremap = true, silent = true, desc = "DAP: Test class (Python)" }
+)
+vim.keymap.set(
+	"v",
+	"<leader>dc",
+	':lua require("dap-python").debug_selection()<cr>',
+	{ noremap = true, silent = true, desc = "DAP: Debug selection (Python)" }
+)
 
 -- Python
 require("dap-python").setup("~/.virtualenvs/debugpy/bin/python")
