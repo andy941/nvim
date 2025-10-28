@@ -1,6 +1,3 @@
--- Basic setup for opencode.nvim
-require("opencode").setup({})
-
 -- Required for `opts.auto_reload`
 vim.opt.autoread = true
 

@@ -191,15 +191,15 @@ return require("lazy").setup({
 	{
 		"mfussenegger/nvim-lint",
 		config = function()
-      require("lint").linters_by_ft = {
-        -- lua = { "luacheck" },
-      }
-      vim.api.nvim_create_autocmd({ "InsertLeave" }, {
-        callback = function()
-          require("lint").try_lint()
-        end,
-      })
-    end,
+			require("lint").linters_by_ft = {
+				-- lua = { "luacheck" },
+			}
+			vim.api.nvim_create_autocmd({ "InsertLeave" }, {
+				callback = function()
+					require("lint").try_lint()
+				end,
+			})
+		end,
 	},
 
 	-- Code formatting
@@ -479,34 +479,34 @@ return require("lazy").setup({
 		end,
 	},
 
--- LLMs integration
-{
-	"NickvanDyke/opencode.nvim",
-	dependencies = {
-		"nvim-lua/plenary.nvim",
-		"nvim-treesitter/nvim-treesitter",
-	},
-	config = function()
-		require("config.opencode")
-	end,
-},
-{
-	"olimorris/codecompanion.nvim",
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-			"nvim-treesitter/nvim-treesitter",
-			"hrsh7th/nvim-cmp", -- Optional: For using slash commands and variables in the chat buffer
-			{
-				"stevearc/dressing.nvim", -- Optional: Improves the default Neovim UI
-				opts = {},
-			},
-			"nvim-telescope/telescope.nvim", -- Optional: For using slash commands
-		},
-		config = function()
-			require("config.codecompanion")
-		end,
-	},
-
+	-- LLMs integration
+	-- {
+	-- 	"NickvanDyke/opencode.nvim",
+	-- 	dependencies = {
+	-- 		"nvim-lua/plenary.nvim",
+	-- 		"nvim-treesitter/nvim-treesitter",
+	-- 	},
+	-- 	config = function()
+	-- 		require("config.opencode")
+	-- 	end,
+	-- },
+	-- {
+	-- 	"olimorris/codecompanion.nvim",
+	-- 		dependencies = {
+	-- 			"nvim-lua/plenary.nvim",
+	-- 			"nvim-treesitter/nvim-treesitter",
+	-- 			"hrsh7th/nvim-cmp", -- Optional: For using slash commands and variables in the chat buffer
+	-- 			{
+	-- 				"stevearc/dressing.nvim", -- Optional: Improves the default Neovim UI
+	-- 				opts = {},
+	-- 			},
+	-- 			"nvim-telescope/telescope.nvim", -- Optional: For using slash commands
+	-- 		},
+	-- 		config = function()
+	-- 			require("config.codecompanion")
+	-- 		end,
+	-- 	},
+	--
 	{
 		"zbirenbaum/copilot.lua",
 		cmd = "Copilot",
@@ -517,6 +517,102 @@ return require("lazy").setup({
 				panel = { enabled = false },
 			})
 		end,
+	},
+
+	{
+		"folke/sidekick.nvim",
+		opts = {
+			-- add any options here
+			cli = {
+				mux = {
+					backend = "tmux",
+					enabled = true,
+				},
+			},
+		},
+		keys = {
+			{
+				"<tab>",
+				function()
+					-- if there is a next edit, jump to it, otherwise apply it if any
+					if not require("sidekick").nes_jump_or_apply() then
+						return "<Tab>" -- fallback to normal tab
+					end
+				end,
+				expr = true,
+				desc = "Goto/Apply Next Edit Suggestion",
+			},
+			{
+				"<c-.>",
+				function()
+					require("sidekick.cli").toggle()
+				end,
+				desc = "Sidekick Toggle",
+				mode = { "n", "t", "i", "x" },
+			},
+			{
+				"<leader>aa",
+				function()
+					require("sidekick.cli").toggle()
+				end,
+				desc = "Sidekick Toggle CLI",
+			},
+			{
+				"<leader>as",
+				function()
+					require("sidekick.cli").select()
+				end,
+				-- Or to select only installed tools:
+				-- require("sidekick.cli").select({ filter = { installed = true } })
+				desc = "Select CLI",
+			},
+			{
+				"<leader>ad",
+				function()
+					require("sidekick.cli").close()
+				end,
+				desc = "Detach a CLI Session",
+			},
+			{
+				"<leader>at",
+				function()
+					require("sidekick.cli").send({ msg = "{this}" })
+				end,
+				mode = { "x", "n" },
+				desc = "Send This",
+			},
+			{
+				"<leader>af",
+				function()
+					require("sidekick.cli").send({ msg = "{file}" })
+				end,
+				desc = "Send File",
+			},
+			{
+				"<leader>av",
+				function()
+					require("sidekick.cli").send({ msg = "{selection}" })
+				end,
+				mode = { "x" },
+				desc = "Send Visual Selection",
+			},
+			{
+				"<leader>ap",
+				function()
+					require("sidekick.cli").prompt()
+				end,
+				mode = { "n", "x" },
+				desc = "Sidekick Select Prompt",
+			},
+			-- Example of a keybinding to open Claude directly
+			{
+				"<leader>ac",
+				function()
+					require("sidekick.cli").toggle({ name = "claude", focus = true })
+				end,
+				desc = "Sidekick Toggle Claude",
+			},
+		},
 	},
 
 	-- Use `jk` as the ESC key to go from INSERT to NORMAL mode

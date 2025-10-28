@@ -112,6 +112,7 @@ require("cmp").setup.filetype("tex", {
 
 require("cmp").setup.filetype("quarto", {
 	sources = {
+		{ name = "copilot", keyword_length = 0 },
 		{ name = "dap" },
 		{ name = "path" },
 		{ name = "otter" },

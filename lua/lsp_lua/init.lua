@@ -1,6 +1,6 @@
 require("mason").setup({ ui = { border = "rounded" } })
 require("mason-lspconfig").setup({ automatic_installation = false })
-local nvim_lsp = require("lspconfig")
+local nvim_lsp = vim.lsp.config
 require("lspconfig.ui.windows").default_options.border = "rounded"
 
 -- Mappings.
@@ -121,7 +121,7 @@ settings.r_language_server = {
 }
 
 for _, lsp in ipairs(servers) do
-	nvim_lsp[lsp].setup({
+	nvim_lsp[lsp] = {
 		cmd = command[lsp],
 		on_attach = attach,
 		capabilities = require("cmp_nvim_lsp").default_capabilities(),
@@ -130,7 +130,7 @@ for _, lsp in ipairs(servers) do
 		filetypes = filetypes[lsp],
 		root_dir = root_dir[lsp],
 		settings = settings[lsp],
-	})
+	}
 end
 
 vim.g.rustaceanvim = {
@@ -141,7 +141,7 @@ vim.g.rustaceanvim = {
 	},
 }
 
-nvim_lsp.texlab.setup({
+nvim_lsp.texlab = {
 	on_attach = on_attach,
 	capabilities = require("cmp_nvim_lsp").default_capabilities(),
 	handlers = handlers,
@@ -161,9 +161,9 @@ nvim_lsp.texlab.setup({
 			},
 		},
 	},
-})
+}
 
--- nvim_lsp.ltex.setup({
+-- nvim_lsp.ltex = {
 -- 	on_attach = on_attach,
 -- 	capabilities = require("cmp_nvim_lsp").default_capabilities(),
 -- 	filetypes = {
@@ -199,4 +199,4 @@ nvim_lsp.texlab.setup({
 -- 			},
 -- 		},
 -- 	},
--- })
+-- }
