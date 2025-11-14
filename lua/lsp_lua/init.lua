@@ -1,6 +1,5 @@
 require("mason").setup({ ui = { border = "rounded" } })
 require("mason-lspconfig").setup({ automatic_installation = false })
-local nvim_lsp = vim.lsp.config
 require("lspconfig.ui.windows").default_options.border = "rounded"
 
 -- Mappings.
@@ -98,12 +97,12 @@ init_options.clangd = {
 
 filetypes.marksman = { "quarto", "markdown", "telekasten" }
 root_dir.marksman = function(fname)
-	return nvim_lsp.util.root_pattern(".git", ".marksman.toml", ".qmd")(fname) or nvim_lsp.util.path.dirname(fname)
+	return vim.fs.root(vim.fs.joinpath(vim.env.PWD, fname), { ".git", ".marksman.toml", ".qmd" }) or vim.env.PWD
 end
 
 root_dir.pyright = function(fname)
-	return nvim_lsp.util.root_pattern(".git", "setup.py", "setup.cfg", "pyproject.toml", "requirements.txt")(fname)
-		or nvim_lsp.util.path.dirname(fname)
+	return vim.fs.root(vim.fs.joinpath(vim.env.PWD, fname), { ".git", "setup.py", "setup.cfg", "pyproject.toml", "requirements.txt" })
+		or vim.fs.dirname(fname)
 end
 
 filetypes.r_language_server = { "r" }
@@ -121,7 +120,7 @@ settings.r_language_server = {
 }
 
 for _, lsp in ipairs(servers) do
-	nvim_lsp[lsp] = {
+	vim.lsp.config[lsp] = {
 		cmd = command[lsp],
 		on_attach = attach,
 		capabilities = require("cmp_nvim_lsp").default_capabilities(),
@@ -131,6 +130,7 @@ for _, lsp in ipairs(servers) do
 		root_dir = root_dir[lsp],
 		settings = settings[lsp],
 	}
+	vim.lsp.enable(lsp)
 end
 
 vim.g.rustaceanvim = {
@@ -141,7 +141,7 @@ vim.g.rustaceanvim = {
 	},
 }
 
-nvim_lsp.texlab = {
+vim.lsp.config.texlab = {
 	on_attach = on_attach,
 	capabilities = require("cmp_nvim_lsp").default_capabilities(),
 	handlers = handlers,
@@ -162,41 +162,3 @@ nvim_lsp.texlab = {
 		},
 	},
 }
-
--- nvim_lsp.ltex = {
--- 	on_attach = on_attach,
--- 	capabilities = require("cmp_nvim_lsp").default_capabilities(),
--- 	filetypes = {
--- 		-- "bib",
--- 		-- "gitcommit",
--- 		-- "markdown",
--- 		-- "org",
--- 		-- "plaintex",
--- 		-- "rst",
--- 		-- "rnoweb",
--- 		-- "tex",
--- 		-- "pandoc",
--- 		-- "quarto",
--- 		-- "rmd",
--- 		-- "context",
--- 		-- "html",
--- 		-- "xhtml",
--- 	},
--- 	settings = {
--- 		ltex = {
--- 			disabledRules = {
--- 				["en"] = { "MORFOLOGIK_RULE_EN" },
--- 				["en-AU"] = { "MORFOLOGIK_RULE_EN_AU" },
--- 				["en-CA"] = { "MORFOLOGIK_RULE_EN_CA" },
--- 				["en-GB"] = { "MORFOLOGIK_RULE_EN_GB" },
--- 				["en-NZ"] = { "MORFOLOGIK_RULE_EN_NZ" },
--- 				["en-US"] = { "MORFOLOGIK_RULE_EN_US" },
--- 				["en-ZA"] = { "MORFOLOGIK_RULE_EN_ZA" },
--- 				["it"] = { "MORFOLOGIK_RULE_IT_IT" },
--- 			},
--- 			additionalRules = {
--- 				languageModel = "~/ngram/",
--- 			},
--- 		},
--- 	},
--- }
