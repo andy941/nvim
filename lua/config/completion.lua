@@ -1,7 +1,3 @@
-local utils = require("utils")
-
-utils.opt("o", "completeopt", "menu,menuone,noinsert,noselect")
--- vim.cmd([[set shortmess+=c]])
 vim.g.completion_confirm_key = ""
 vim.g.completion_matching_strategy_list = { "exact", "substring", "fuzzy" } -- <Tab> to navigate the completion menu
 
@@ -73,19 +69,6 @@ cmp.setup({
 			},
 		},
 	},
-
-	sorting = {
-		comparators = {
-			cmp.config.compare.offset,
-			cmp.config.compare.exact,
-			cmp.config.compare.sort_text,
-			cmp.config.compare.recently_used,
-			require("clangd_extensions.cmp_scores"),
-			cmp.config.compare.kind,
-			cmp.config.compare.length,
-			cmp.config.compare.order,
-		},
-	},
 })
 
 require("cmp").setup.cmdline(":", {
@@ -128,21 +111,6 @@ require("cmp_git").setup({
 	github = {
 		hosts = { "git.illumina.com" },
 	},
-})
-
--- For AI completion with Ollama
-require("cmp_ai.config"):setup({
-	max_lines = 100,
-	provider = "Ollama",
-	provider_options = {
-		model = "codellama:7b-code",
-	},
-	notify = true,
-	notify_callback = function(msg)
-		print("cmp-ai: ", msg)
-	end,
-	run_on_every_keystroke = false,
-	ignored_file_types = {},
 })
 
 -- For R.nvim

@@ -1,6 +1,3 @@
-local utils = require("utils")
-local opts = { noremap = true, silent = true }
-
 require("zen-mode").setup({
 	window = {
 		backdrop = 0.70, -- shade the backdrop of the Zen window. Set to 1 to keep the same as Normal

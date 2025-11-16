@@ -1,10 +1,7 @@
-local utils = require("utils")
-local opts = { noremap = true, silent = true }
-
 vim.cmd("setlocal linebreak")
 vim.cmd("setlocal spell spelllang=en_us")
 
-utils.opt("o", "scrolloff", 12)
+vim.opt.scrolloff = 12
 
 vim.keymap.set(
 	"n",

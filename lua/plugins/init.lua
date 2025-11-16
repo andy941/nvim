@@ -13,10 +13,6 @@ vim.opt.rtp:prepend(lazypath)
 
 return require("lazy").setup({
 
-	-- Core plugins
-	{ "nvim-lua/popup.nvim" },
-	{ "nvim-lua/plenary.nvim" },
-	{ "MunifTanjim/nui.nvim", lazy = true },
 	{
 		"rcarriga/nvim-notify",
 		lazy = true,
@@ -54,7 +50,6 @@ return require("lazy").setup({
 	-- Nicer UI
 	{
 		"folke/noice.nvim",
-		cond = not vim.g.started_by_firenvim,
 		event = "VeryLazy",
 		dependencies = {
 			"MunifTanjim/nui.nvim",
@@ -68,14 +63,10 @@ return require("lazy").setup({
 		},
 	},
 
-	-- Icons
-	{ "nvim-tree/nvim-web-devicons", lazy = true },
-
 	-- bufferline on top
 	{
 		"akinsho/bufferline.nvim",
-		cond = not vim.g.started_by_firenvim,
-		dependencies = "nvim-tree/nvim-web-devicons",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
 		config = function()
 			require("config.bufferline")
 		end,
@@ -84,18 +75,9 @@ return require("lazy").setup({
 	-- File Browser
 	{
 		"kyazdani42/nvim-tree.lua",
-		dependencies = "nvim-tree/nvim-web-devicons",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
 		config = function()
 			require("config.nvim-tree")
-		end,
-	},
-
-	-- Comments handling
-	{
-		"numToStr/Comment.nvim",
-		lazy = false,
-		config = function()
-			require("config.comment")
 		end,
 	},
 
@@ -149,8 +131,6 @@ return require("lazy").setup({
 	{ "neovim/nvim-lspconfig" },
 	{ "williamboman/mason.nvim" },
 	{ "williamboman/mason-lspconfig.nvim" },
-	{ "WhoIsSethDaniel/mason-tool-installer.nvim" },
-	{ "p00f/clangd_extensions.nvim" },
 	{
 		"nvimdev/lspsaga.nvim",
 		dependencies = {
@@ -249,14 +229,6 @@ return require("lazy").setup({
 		end,
 	},
 
-	-- resize buffers and keep proportions
-	{
-		"kwkarlwang/bufresize.nvim",
-		config = function()
-			require("config.bufresize")
-		end,
-	},
-
 	-- Git workflow
 	{
 		"tpope/vim-fugitive",
@@ -291,15 +263,6 @@ return require("lazy").setup({
 		end,
 	},
 
-	-- Work with csv files and other tables easily
-	{
-		"chrisbra/csv.vim",
-		ft = { "csv" },
-		config = function()
-			vim.cmd("source ~/.config/nvim/lua/config/csv.vim")
-		end,
-	},
-
 	-- markdown preview
 	{
 		"iamcco/markdown-preview.nvim",
@@ -307,15 +270,6 @@ return require("lazy").setup({
 		ft = { "markdown" },
 		config = function()
 			vim.cmd("source ~/.config/nvim/lua/config/markdown-preview.vim")
-		end,
-	},
-
-	-- latex preview and more
-	{
-		"lervag/vimtex",
-		ft = { "tex" },
-		config = function()
-			vim.cmd("source ~/.config/nvim/lua/config/vimtex.vim")
 		end,
 	},
 
@@ -413,14 +367,6 @@ return require("lazy").setup({
 		end,
 	},
 	{
-		"3rd/image.nvim",
-		cond = not vim.g.started_by_firenvim,
-		lazy = true,
-		config = function()
-			require("config.image")
-		end,
-	},
-	{
 		"jmbuhr/otter.nvim",
 		lazy = true,
 		dev = false,
@@ -433,7 +379,6 @@ return require("lazy").setup({
 		dev = false,
 		dependencies = {
 			"jmbuhr/otter.nvim",
-			"3rd/image.nvim",
 		},
 		ft = { "markdown", "quarto", "rmarkdown" },
 		config = function()
@@ -446,10 +391,6 @@ return require("lazy").setup({
 		config = function()
 			require("config.R-nvim")
 		end,
-	},
-	{
-		"jbyuki/nabla.nvim",
-		lazy = false,
 	},
 
 	-- Templates
@@ -467,46 +408,7 @@ return require("lazy").setup({
 		config = true,
 	},
 
-	-- Note taking
-	{
-		"renerocksai/telekasten.nvim",
-		dependencies = {
-			"nvim-telescope/telescope.nvim",
-			"mattn/calendar-vim",
-		},
-		config = function()
-			require("config.telekasten")
-		end,
-	},
-
 	-- LLMs integration
-	-- {
-	-- 	"NickvanDyke/opencode.nvim",
-	-- 	dependencies = {
-	-- 		"nvim-lua/plenary.nvim",
-	-- 		"nvim-treesitter/nvim-treesitter",
-	-- 	},
-	-- 	config = function()
-	-- 		require("config.opencode")
-	-- 	end,
-	-- },
-	-- {
-	-- 	"olimorris/codecompanion.nvim",
-	-- 		dependencies = {
-	-- 			"nvim-lua/plenary.nvim",
-	-- 			"nvim-treesitter/nvim-treesitter",
-	-- 			"hrsh7th/nvim-cmp", -- Optional: For using slash commands and variables in the chat buffer
-	-- 			{
-	-- 				"stevearc/dressing.nvim", -- Optional: Improves the default Neovim UI
-	-- 				opts = {},
-	-- 			},
-	-- 			"nvim-telescope/telescope.nvim", -- Optional: For using slash commands
-	-- 		},
-	-- 		config = function()
-	-- 			require("config.codecompanion")
-	-- 		end,
-	-- 	},
-	--
 	{
 		"zbirenbaum/copilot.lua",
 		cmd = "Copilot",
@@ -518,7 +420,6 @@ return require("lazy").setup({
 			})
 		end,
 	},
-
 	{
 		"folke/sidekick.nvim",
 		opts = {
@@ -623,12 +524,6 @@ return require("lazy").setup({
 			default_mappings = false,
 			mappings = { i = { j = { k = "<Esc>", j = "<Esc>" } } },
 		},
-	},
-
-	-- Neovim anywhere
-	{
-		"glacambre/firenvim",
-		build = ":call firenvim#install(0)",
 	},
 }, {
 	ui = { border = "rounded" },

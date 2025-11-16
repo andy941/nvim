@@ -12,4 +12,4 @@ require("settings")
 require("plugins")
 
 -- lsp setup
-require("lsp_lua")
+require("lsp")

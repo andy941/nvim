@@ -1,6 +1,3 @@
-local utils = require("utils")
-local opts = { noremap = true, silent = true }
-
 -- change cursor shape in insert/normal mode
 vim.cmd([[
 let &t_SI = "\<Esc>[6 q" " INSERT - solid line
@@ -17,45 +14,41 @@ set ssop-=folds      " do not store folds
 set ssop+=globals    " required by Bufferline
 ]])
 
--- colors
-vim.opt.termguicolors = true
-
-utils.opt("b", "tabstop", 2)
-utils.opt("b", "softtabstop", 2)
-utils.opt("b", "shiftwidth", 2)
-utils.opt("b", "expandtab", true)
-utils.opt("b", "smartindent", true)
-utils.opt("b", "autoindent", true)
-utils.opt("b", "swapfile", false)
-
-utils.opt("o", "encoding", "utf-8")
-utils.opt("o", "splitright", true)
-utils.opt("o", "splitbelow", true)
-utils.opt("o", "hidden", true)
-utils.opt("o", "autowriteall", true)
-utils.opt("o", "updatetime", 20)
-utils.opt("o", "shortmess", "acsFW")
-utils.opt("o", "hlsearch", true)
-utils.opt("o", "incsearch", true)
-utils.opt("o", "inccommand", "nosplit")
-utils.opt("o", "wildmenu", true)
-utils.opt("o", "wildignore", "*.o")
-utils.opt("o", "wildmode", "full")
-utils.opt("o", "scrolloff", 6)
-utils.opt("o", "equalalways", false)
-utils.opt("o", "laststatus", 3) -- Global statusline
-utils.opt("o", "cmdheight", 1)
+-- choose a leader key
 vim.cmd([[let mapleader=" "]])
 
-utils.opt("w", "cursorline", true)
-utils.opt("w", "cursorlineopt", "number")
-utils.opt("w", "number", true)
-utils.opt("w", "signcolumn", "yes:2")
-utils.opt("w", "relativenumber", false)
-utils.opt("w", "foldenable", false)
-utils.opt("w", "foldmethod", "expr")
-utils.opt("w", "foldexpr", "v:lua.vim.treesitter.foldexpr()")
-utils.opt("w", "wrap", false)
+vim.opt.termguicolors = true
+vim.opt.tabstop = 2
+vim.opt.softtabstop = 2
+vim.opt.shiftwidth = 2
+vim.opt.expandtab = true
+vim.opt.smartindent = true
+vim.opt.autoindent = true
+vim.opt.swapfile = false
+vim.opt.encoding = "utf-8"
+vim.opt.splitright = true
+vim.opt.splitbelow = true
+vim.opt.hidden = true
+vim.opt.autowriteall = true
+vim.opt.updatetime = 20
+vim.opt.shortmess = "acsFW"
+vim.opt.hlsearch = true
+vim.opt.incsearch = true
+vim.opt.inccommand = "nosplit"
+vim.opt.wildmenu = true
+vim.opt.wildignore = "*.o"
+vim.opt.wildmode = "full"
+vim.opt.equalalways = false
+vim.opt.laststatus = 3 -- Global statusline
+vim.opt.cmdheight = 1
+vim.opt.scrolloff = 6
+vim.opt.cursorline = true
+vim.opt.cursorlineopt = "number"
+vim.opt.number = true
+vim.opt.signcolumn = "yes:2"
+vim.opt.relativenumber = false
+vim.opt.foldenable = false
+vim.opt.wrap = false
 
 -- Highlight on yank
 vim.cmd("au TextYankPost * lua vim.highlight.on_yank {on_visual = false}")
@@ -79,20 +72,3 @@ vim.keymap.set("t", "<localleader><Esc>", "<c-\\><c-n>", { noremap = true, silen
 -- Example for configuring Neovim to load user-installed installed Lua rocks:
 package.path = package.path .. ";" .. vim.fn.expand("$HOME") .. "/.luarocks/share/lua/5.1/?/init.lua;"
 package.path = package.path .. ";" .. vim.fn.expand("$HOME") .. "/.luarocks/share/lua/5.1/?.lua;"
-
--- Only for Firenvim --------------
-if vim.g.started_by_firenvim then
-	utils.opt("o", "guifont", "JetBrainsMono Nerd Font:4")
-	utils.opt("o", "laststatus", 0)
-	utils.opt("o", "ruler", false)
-	utils.opt("w", "number", false)
-end
-
-vim.g.firenvim_config = {
-	localSettings = {
-		[".*"] = {
-			takeover = "never",
-		},
-	},
-}
------------------------------------

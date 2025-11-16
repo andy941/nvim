@@ -12,8 +12,6 @@ sign("DapLogPoint", { text = "◆", texthl = "DapLogPoint", linehl = "", numhl =
 
 -------------------------------------------------------------------------------
 
-local opts = { noremap = true, silent = true }
-local utils = require("utils")
 local dap = require("dap")
 local api = vim.api
 

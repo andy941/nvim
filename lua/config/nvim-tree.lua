@@ -1,6 +1,3 @@
-local utils = require("utils")
-local opts = { noremap = true, silent = true }
-
 vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>", { noremap = true, silent = true, desc = "Toggle NvimTree" })
 
 -- Define some funtion callbacks for hjkl style navigation

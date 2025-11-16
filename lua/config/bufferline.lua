@@ -31,7 +31,5 @@ require("bufferline").setup({
 })
 
 -- move between buffer sat lightspeed
-local utils = require("utils")
-local opts = { noremap = true, silent = true }
 vim.keymap.set("n", "L", ":BufferLineCycleNext<CR>", { noremap = true, silent = true, desc = "Next buffer" })
 vim.keymap.set("n", "H", ":BufferLineCyclePrev<CR>", { noremap = true, silent = true, desc = "Previous buffer" })

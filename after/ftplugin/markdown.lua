@@ -1,5 +1,3 @@
-local utils = require("utils")
-local opts = { noremap = true, silent = true }
 vim.cmd("set wrap")
 vim.cmd("set spell")
 vim.cmd("set linebreak")

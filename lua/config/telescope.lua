@@ -1,5 +1,3 @@
-local utils = require("utils")
-local opts = { noremap = true, silent = true }
 local tele = require("telescope")
 local actions = require("telescope.actions")
 local action_state = require("telescope.actions.state")

@@ -14,7 +14,7 @@ local attach = function(client, bufnr)
 	end
 
 	-- Enabe completion triggered by <c-x><c-o>
-	buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
+	-- buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
 
 	-- See `:help vim.lsp.*` for documentation on any of the below functions
 	vim.keymap.set("n", "gd", "<cmd>Lspsaga peek_definition<CR>", opts)
@@ -61,16 +61,7 @@ local servers = {
 	"wgsl_analyzer",
 }
 
--- Ensure servers and formatters are installed --------------------------------
-
-require("mason-tool-installer").setup({
-	ensure_installed = {},
-})
-
--------------------------------------------------------------------------------
-
 local command = {}
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
 local init_options = {}
 local filetypes = {}
 local root_dir = {}
@@ -100,10 +91,11 @@ root_dir.marksman = function(fname)
 	return vim.fs.root(vim.fs.joinpath(vim.env.PWD, fname), { ".git", ".marksman.toml", ".qmd" }) or vim.env.PWD
 end
 
-root_dir.pyright = function(fname)
-	return vim.fs.root(vim.fs.joinpath(vim.env.PWD, fname), { ".git", "setup.py", "setup.cfg", "pyproject.toml", "requirements.txt" })
-		or vim.fs.dirname(fname)
-end
+-- FIXME
+-- root_dir.pyright = function(fname)
+-- 	return vim.fs.root(vim.fs.joinpath(vim.env.PWD, fname), { ".git", "setup.py", "setup.cfg", "pyproject.toml", "requirements.txt" })
+-- 		or vim.fs.dirname(fname)
+-- end
 
 filetypes.r_language_server = { "r" }
 settings.r_language_server = {
@@ -123,7 +115,7 @@ for _, lsp in ipairs(servers) do
 	vim.lsp.config[lsp] = {
 		cmd = command[lsp],
 		on_attach = attach,
-		capabilities = require("cmp_nvim_lsp").default_capabilities(),
+		-- capabilities = require("cmp_nvim_lsp").default_capabilities(),
 		handlers = handlers,
 		init_options = init_options[lsp],
 		filetypes = filetypes[lsp],
