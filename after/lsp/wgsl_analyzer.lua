@@ -1,0 +1,3 @@
+return {
+	command = { "wgsl-analyzer" },
+}

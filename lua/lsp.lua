@@ -1,7 +1,7 @@
 -- Mappings.
 local opts = { noremap = true, silent = true }
 
-local attach = function(client, bufnr)
+local on_attach = function(client, bufnr)
 	-- Disable loggin (reactivate with vim.lsp.set_log_level("debug"))
 	vim.lsp.set_log_level("off")
 
@@ -16,6 +16,12 @@ local attach = function(client, bufnr)
 	vim.keymap.set("n", "<leader>E", "<cmd>Lspsaga show_line_diagnostics<CR>", opts)
 	vim.keymap.set("n", "<leader>O", "<cmd>Lspsaga outline<CR>", opts)
 end
+
+local keymap = vim.keymap -- for conciseness
+vim.api.nvim_create_autocmd("LspAttach", {
+	group = vim.api.nvim_create_augroup("UserLspConfig", {}),
+	callback = on_attach,
+})
 
 vim.cmd([[
   sign define DiagnosticSignError text= texthl=LspDiagnosticsVirtualTextError linehl= numhl=LspDiagnosticsVirtualTextError
