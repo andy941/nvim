@@ -26,7 +26,7 @@ return {
 					width = 0.90,
 					height = 0.95,
 					vertical = { preview_height = 0.75 },
-				horizontal = { preview_width = 0.66 },
+					horizontal = { preview_width = 0.66 },
 				},
 				file_ignore_patterns = { -- % is an escape char in lua regex
 					"Pictures/",
@@ -45,7 +45,7 @@ return {
 						["<C-l>"] = actions.send_selected_to_qflist + actions.open_qflist,
 						["<C-a>"] = actions.toggle_all,
 					},
-				i = {
+					i = {
 						["<C-a>"] = actions.toggle_all,
 						["<C-q>"] = trouble.open,
 					},
@@ -89,8 +89,8 @@ return {
 				fzf = {
 					fuzzy = true, -- false will only do exact matching
 					override_generic_sorter = true, -- override the generic sorter
-				override_file_sorter = true, -- override the file sorter
-				case_mode = "smart_case", -- or "ignore_case" or "respect_case"
+					override_file_sorter = true, -- override the file sorter
+					case_mode = "smart_case", -- or "ignore_case" or "respect_case"
 					-- the default case_mode is "smart_case"
 				},
 				project = {
@@ -162,7 +162,7 @@ return {
 						if vim.tbl_isempty(selections) then
 							table.insert(selections, action_state.get_selected_entry())
 						end
-						local paths = vim.tbl_map(function(e) 
+						local paths = vim.tbl_map(function(e)
 							return e.path
 						end, selections)
 						actions.close(prompt_bufnr)

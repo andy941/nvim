@@ -6,7 +6,7 @@ return {
 		local util = require("formatter.util")
 
 		-- Format keybinding
-	vim.keymap.set("n", "F", "<cmd>Format<CR>", opts)
+		vim.keymap.set("n", "F", "<cmd>Format<CR>", opts)
 
 		-- clang-format default not working without this (for now at least)
 		Cformat = function()

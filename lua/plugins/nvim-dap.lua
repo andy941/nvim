@@ -70,7 +70,12 @@ return {
 
 		-------------------------------------------------------------------------------
 
-		vim.keymap.set("n", "<leader>dc", "<cmd>DapContinue<cr>", { noremap = true, silent = true, desc = "DAP: Continue" })
+		vim.keymap.set(
+			"n",
+			"<leader>dc",
+			"<cmd>DapContinue<cr>",
+			{ noremap = true, silent = true, desc = "DAP: Continue" }
+		)
 		vim.keymap.set(
 			"n",
 			"<leader>dC",
@@ -83,7 +88,12 @@ return {
 			'<cmd>lua require("dap").run_last()<cr>',
 			{ noremap = true, silent = true, desc = "DAP: Run last" }
 		)
-		vim.keymap.set("n", "<leader>dT", "<cmd>DapTerminate<cr>", { noremap = true, silent = true, desc = "DAP: Terminate" })
+		vim.keymap.set(
+			"n",
+			"<leader>dT",
+			"<cmd>DapTerminate<cr>",
+			{ noremap = true, silent = true, desc = "DAP: Terminate" }
+		)
 
 		vim.keymap.set(
 			"n",

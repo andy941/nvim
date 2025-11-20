@@ -36,6 +36,11 @@ return {
 
 		-- move between buffer sat lightspeed
 		vim.keymap.set("n", "L", ":BufferLineCycleNext<CR>", { noremap = true, silent = true, desc = "Next buffer" })
-		vim.keymap.set("n", "H", ":BufferLineCyclePrev<CR>", { noremap = true, silent = true, desc = "Previous buffer" })
+		vim.keymap.set(
+			"n",
+			"H",
+			":BufferLineCyclePrev<CR>",
+			{ noremap = true, silent = true, desc = "Previous buffer" }
+		)
 	end,
 }

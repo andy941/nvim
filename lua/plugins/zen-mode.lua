@@ -44,6 +44,11 @@ return {
 			},
 		})
 
-		vim.keymap.set("n", "<leader>zz", "<cmd>ZenMode<cr>", { noremap = true, silent = true, desc = "Toggle Zen Mode" })
+		vim.keymap.set(
+			"n",
+			"<leader>zz",
+			"<cmd>ZenMode<cr>",
+			{ noremap = true, silent = true, desc = "Toggle Zen Mode" }
+		)
 	end,
 }

@@ -4,7 +4,7 @@ return {
 		"hrsh7th/cmp-path",
 		{
 			"hrsh7th/cmp-nvim-lsp",
-      lazy = false,
+			lazy = false,
 			config = function()
 				vim.lsp.config("*", {
 					capabilities = require("cmp_nvim_lsp").default_capabilities(),
