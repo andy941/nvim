@@ -1,14 +1,17 @@
 return {
 	"kyazdani42/nvim-tree.lua",
 	dependencies = { "nvim-tree/nvim-web-devicons" },
-	config = function()
-		vim.keymap.set(
-			"n",
+	keys = {
+		{
+			mode = "n",
 			"<leader>e",
 			":NvimTreeToggle<CR>",
-			{ noremap = true, silent = true, desc = "Toggle NvimTree" }
-		)
-
+			noremap = true,
+			silent = true,
+			desc = "Toggle NvimTree",
+		},
+	},
+	config = function()
 		-- Define some funtion callbacks for hjkl style navigation
 		local lib = require("nvim-tree.lib")
 

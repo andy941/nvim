@@ -1,5 +1,15 @@
 return {
 	"folke/zen-mode.nvim",
+	keys = {
+		{
+			mode = "n",
+			"<leader>zz",
+			"<cmd>ZenMode<cr>",
+			noremap = true,
+			silent = true,
+			desc = "Toggle Zen Mode",
+		},
+	},
 	config = function()
 		require("zen-mode").setup({
 			window = {
@@ -43,12 +53,5 @@ return {
 				},
 			},
 		})
-
-		vim.keymap.set(
-			"n",
-			"<leader>zz",
-			"<cmd>ZenMode<cr>",
-			{ noremap = true, silent = true, desc = "Toggle Zen Mode" }
-		)
 	end,
 }

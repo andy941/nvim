@@ -2,13 +2,22 @@ return {
 	"nvim-telescope/telescope.nvim",
 	dependencies = {
 		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+		"nvim-tree/nvim-web-devicons",
 		"nvim-telescope/telescope-media-files.nvim",
 		"nvim-telescope/telescope-project.nvim",
 		"nvim-telescope/telescope-bibtex.nvim",
 		"nvim-telescope/telescope-dap.nvim",
 		"crispgm/telescope-heading.nvim",
 		"nvim-telescope/telescope-ui-select.nvim",
-		"nvim-tree/nvim-web-devicons",
+		{
+			"glepnir/template.nvim",
+			config = function()
+				require("template").setup({
+					temp_dir = vim.fn.stdpath("config") .. "/lua/plugins/",
+					author = "Andrea Finocchio",
+				})
+			end,
+		},
 	},
 	config = function()
 		local tele = require("telescope")

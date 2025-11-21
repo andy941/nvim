@@ -1,10 +1,11 @@
 return {
 	"nvim-neotest/neotest",
+	ft = { "c", "cpp", "rust", "python" },
 	dependencies = {
 		"nvim-neotest/nvim-nio",
 		"nvim-lua/plenary.nvim",
-		"antoinemadec/FixCursorHold.nvim",
 		"nvim-treesitter/nvim-treesitter",
+		"antoinemadec/FixCursorHold.nvim",
 		"alfaix/neotest-gtest",
 		"nvim-neotest/neotest-python",
 	},
@@ -13,7 +14,7 @@ return {
 			adapters = {
 				require("neotest-python"),
 				require("rustaceanvim.neotest"),
-				-- require("neotest-gtest").setup({}),
+				require("neotest-gtest").setup({}),
 			},
 		})
 	end,

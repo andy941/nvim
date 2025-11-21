@@ -3,6 +3,7 @@ return {
 	-- Until github enterprise gets updated to >= 3.14!
 	commit = "f09ff9413652e3c06a6817ba6284591c00121fe0",
 	pin = true,
+	cmd = "Octo",
 	dependencies = {
 		"nvim-lua/plenary.nvim",
 		"nvim-telescope/telescope.nvim",

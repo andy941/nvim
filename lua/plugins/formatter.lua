@@ -1,12 +1,11 @@
 return {
 	"mhartington/formatter.nvim",
+	lazy = true,
+	keys = { { mode = "n", "F", "<cmd>Format<CR>" } },
 	config = function()
 		-- Utilities for creating configurations
 		local fmt = require("formatter.filetypes.lua")
 		local util = require("formatter.util")
-
-		-- Format keybinding
-		vim.keymap.set("n", "F", "<cmd>Format<CR>", opts)
 
 		-- clang-format default not working without this (for now at least)
 		Cformat = function()

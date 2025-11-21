@@ -2,7 +2,13 @@ return {
 	"quarto-dev/quarto-nvim",
 	dev = false,
 	dependencies = {
-		"jmbuhr/otter.nvim",
+		{
+			"jmbuhr/otter.nvim",
+			dev = false,
+			opts = {
+				buffers = { set_filetype = true, write_to_disk = true },
+			},
+		},
 	},
 	ft = { "markdown", "quarto", "rmarkdown" },
 	config = function()

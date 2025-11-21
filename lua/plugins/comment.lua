@@ -1,3 +1,4 @@
+-- TODO: use built-in
 return {
 	"numToStr/Comment.nvim",
 	config = function()
