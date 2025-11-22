@@ -1,9 +1,9 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
 	lazy = false,
-	dependencies = {
-		"OXY2DEV/markview.nvim", -- Ensure markview is loaded first
-	},
+	-- dependencies = {
+	-- 	"OXY2DEV/markview.nvim", -- Ensure markview is loaded first
+	-- },
 	config = function()
 		require("nvim-treesitter.configs").setup({
 			ensure_installed = "all",

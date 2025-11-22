@@ -7,12 +7,6 @@ return {
 		{ "mfussenegger/nvim-dap-python", ft = "python" },
 	},
 	config = function()
-		require("mason").setup()
-		require("mason-nvim-dap").setup({
-			ensure_installed = {},
-			handlers = {},
-		})
-
 		local sign = vim.fn.sign_define
 
 		sign("DapBreakpoint", { text = "●", texthl = "DapBreakpoint", linehl = "", numhl = "" })
