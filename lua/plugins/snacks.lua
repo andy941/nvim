@@ -13,8 +13,17 @@ return {
 				},
 			},
 		},
-
 		scroll = {},
-    input = {},
+		input = {},
+		indent = {
+			animate = { enabled = false },
+		},
+		statuscolumn = {},
+		terminal = {},
 	},
+
+	config = function()
+		-- keybindings
+		vim.keymap.set("n", "<c-\\>", Snacks.terminal.toggle, { desc = "Toggle terminal" })
+	end,
 }

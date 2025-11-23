@@ -35,7 +35,7 @@ return {
 					"filesize",
 				},
 			},
-			extensions = { "fugitive", "nvim-tree", "toggleterm", "quickfix" },
+			extensions = { "fugitive", "nvim-tree", "quickfix" },
 		})
 	end,
 }
