@@ -1,6 +1,6 @@
 return {
 	"norcalli/nvim-colorizer.lua",
-  cmd = "ColorizerToggle",
+	cmd = "ColorizerToggle",
 	config = function()
 		require("colorizer").setup({
 			DEFAULT_OPTIONS = {
