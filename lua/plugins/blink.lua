@@ -3,6 +3,7 @@ return {
 	-- optional: provides snippets for the snippet source
 	dependencies = {
 		"rafamadriz/friendly-snippets",
+		"Kaiser-Yang/blink-cmp-git",
 		{ "fang2hou/blink-copilot", dependencies = "github/copilot.vim" },
 	},
 
@@ -60,9 +61,9 @@ return {
 					and node
 					and vim.tbl_contains({ "comment", "line_comment", "block_comment" }, node:type())
 				then
-					return { "copilot", "buffer" }
+					return { "copilot", "git", "buffer" }
 				else
-					return { "copilot", "lazydev", "lsp", "path", "snippets", "buffer" }
+					return { "copilot", "lazydev", "git", "lsp", "path", "snippets", "buffer" }
 				end
 			end,
 
@@ -85,8 +86,14 @@ return {
 					score_offset = 100,
 					async = true,
 					min_keyword_length = 0,
-					max_completions = 1,
-					max_attempts = 1,
+					opts = {
+						max_completions = 1,
+						ma_attempts = 1,
+					},
+				},
+				git = {
+					module = "blink-cmp-git",
+					name = "Git",
 				},
 			},
 		},
