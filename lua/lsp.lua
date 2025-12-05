@@ -17,7 +17,6 @@ local on_attach = function(client, bufnr)
 	vim.keymap.set("n", "<leader>O", "<cmd>Lspsaga outline<CR>", opts)
 end
 
-local keymap = vim.keymap -- for conciseness
 vim.api.nvim_create_autocmd("LspAttach", {
 	group = vim.api.nvim_create_augroup("UserLspConfig", {}),
 	callback = on_attach,

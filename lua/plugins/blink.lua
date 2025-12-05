@@ -1,7 +1,10 @@
 return {
 	"saghen/blink.cmp",
 	-- optional: provides snippets for the snippet source
-	dependencies = { "rafamadriz/friendly-snippets" },
+	dependencies = {
+		"rafamadriz/friendly-snippets",
+		{ "fang2hou/blink-copilot", dependencies = "github/copilot.vim" },
+	},
 
 	-- use a release tag to download pre-built binaries
 	version = "1.*",
@@ -57,9 +60,9 @@ return {
 					and node
 					and vim.tbl_contains({ "comment", "line_comment", "block_comment" }, node:type())
 				then
-					return { "buffer" }
+					return { "copilot", "buffer" }
 				else
-					return { "lsp", "path", "snippets", "buffer" }
+					return { "copilot", "lazydev", "lsp", "path", "snippets", "buffer" }
 				end
 			end,
 
@@ -70,6 +73,20 @@ return {
 							return vim.fn.getcwd()
 						end,
 					},
+				},
+				lazydev = {
+					name = "LazyDev",
+					module = "lazydev.integrations.blink",
+					score_offset = 100,
+				},
+				copilot = {
+					name = "copilot",
+					module = "blink-copilot",
+					score_offset = 100,
+					async = true,
+					min_keyword_length = 0,
+					max_completions = 1,
+					max_attempts = 1,
 				},
 			},
 		},

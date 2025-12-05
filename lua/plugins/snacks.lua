@@ -1,9 +1,16 @@
 return {
 	"folke/snacks.nvim",
+	dependencies = { "nvim-web-devicons" },
+	priority = 1000,
+	lazy = false,
 	---@type snacks.Config
 	opts = {
 		image = {
 			doc = {
+				inline = true,
+				conceal = function()
+					return false
+				end,
 				max_width = 300,
 				max_height = 300,
 			},
@@ -13,17 +20,23 @@ return {
 				},
 			},
 		},
-		scroll = {},
-		input = {},
+		scroll = { enabled = true },
+		input = { enabled = true },
 		indent = {
 			animate = { enabled = false },
 		},
-		statuscolumn = {},
-		terminal = {},
+		statuscolumn = { enabled = true },
+		terminal = { enabled = true },
 	},
 
-	config = function()
-		-- keybindings
-		vim.keymap.set("n", "<c-\\>", Snacks.terminal.toggle, { desc = "Toggle terminal" })
-	end,
+	keys = {
+		{
+			mode = "n",
+			"<c-\\>",
+			function()
+				Snacks.terminal.toggle()
+			end,
+			{ desc = "Toggle terminal" },
+		},
+	},
 }

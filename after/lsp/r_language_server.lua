@@ -1,4 +1,5 @@
 return {
+  completionProvider = nil,
 	filetypes = { "r" },
 	settings = {
 		r = {
