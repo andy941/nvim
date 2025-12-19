@@ -5,6 +5,9 @@ return {
 		"rafamadriz/friendly-snippets",
 		"Kaiser-Yang/blink-cmp-git",
 		{ "fang2hou/blink-copilot", dependencies = "github/copilot.vim" },
+		-- nvim-cmp sources
+		"saghen/blink.compat", -- compatibility layer
+		"kdheepak/cmp-latex-symbols",
 	},
 
 	-- use a release tag to download pre-built binaries
@@ -61,11 +64,18 @@ return {
 					and node
 					and vim.tbl_contains({ "comment", "line_comment", "block_comment" }, node:type())
 				then
-					return { "copilot", "git", "buffer" }
+					return { "copilot" }
 				else
-					return { "copilot", "lazydev", "git", "lsp", "path", "snippets", "buffer" }
+					return { "copilot", "lsp", "path", "snippets" }
 				end
 			end,
+
+			per_filetype = {
+				codecompanion = { "codecompanion", "git" },
+				gitcommit = { "copilot", "git" },
+				octo = { "copilot", "git" },
+				lua = { inherit_defaults = true, "lazydev" },
+			},
 
 			providers = {
 				path = {
@@ -88,12 +98,17 @@ return {
 					min_keyword_length = 0,
 					opts = {
 						max_completions = 1,
-						ma_attempts = 1,
+						max_attempts = 1,
 					},
 				},
 				git = {
 					module = "blink-cmp-git",
 					name = "Git",
+				},
+				latex_symbols = {
+					name = "latex_symbols",
+					module = "blink.compat.source",
+					opts = { strategy = 2 },
 				},
 			},
 		},

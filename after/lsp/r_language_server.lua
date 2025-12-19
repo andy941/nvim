@@ -1,6 +1,5 @@
 return {
-  completionProvider = nil,
-	filetypes = { "r" },
+	completionProvider = nil,
 	settings = {
 		r = {
 			lsp = {
