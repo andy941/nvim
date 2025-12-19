@@ -60,9 +60,6 @@ return {
 			end,
 		})
 
-		-- Start Win-Move mode:
-		vim.keymap.set("n", "<C-w>M", "<Cmd>WinShift<CR>")
-
 		-- If you don't want to use Win-Move mode you can create mappings for calling the
 		-- move commands directly:
 		vim.keymap.set("n", "<C-w-H>", " <Cmd>WinShift left<CR>")

@@ -65,10 +65,3 @@ vim.api.nvim_create_autocmd({ "TermOpen", "BufEnter" }, {
 		end
 	end,
 })
-
--- Exit insert mode in nvim terminal
-vim.keymap.set("t", "<localleader><Esc>", "<c-\\><c-n>", { noremap = true, silent = true, desc = "Exit terminal mode" })
-
--- Example for configuring Neovim to load user-installed installed Lua rocks:
-package.path = package.path .. ";" .. vim.fn.expand("$HOME") .. "/.luarocks/share/lua/5.1/?/init.lua;"
-package.path = package.path .. ";" .. vim.fn.expand("$HOME") .. "/.luarocks/share/lua/5.1/?.lua;"

@@ -1,7 +1,10 @@
 return {
 	"nvim-telescope/telescope.nvim",
 	dependencies = {
-		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+		{
+			"nvim-telescope/telescope-fzf-native.nvim",
+			build = "make",
+		},
 		"nvim-tree/nvim-web-devicons",
 		"nvim-telescope/telescope-media-files.nvim",
 		"nvim-telescope/telescope-project.nvim",
@@ -9,6 +12,7 @@ return {
 		"nvim-telescope/telescope-dap.nvim",
 		"crispgm/telescope-heading.nvim",
 		"nvim-telescope/telescope-ui-select.nvim",
+		"folke/trouble.nvim",
 		{
 			"glepnir/template.nvim",
 			config = function()
