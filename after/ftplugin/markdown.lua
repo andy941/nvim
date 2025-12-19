@@ -8,3 +8,5 @@ vim.keymap.set(
 	"<cmd>Telescope bibtex format=markdown<cr>",
 	{ noremap = true, silent = true, desc = "Search BibTeX citations (markdown)" }
 )
+
+require("otter").activate()

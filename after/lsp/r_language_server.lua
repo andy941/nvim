@@ -1,5 +1,5 @@
 return {
-	completionProvider = nil,
+	-- completionProvider = nil,
 	settings = {
 		r = {
 			lsp = {
