@@ -2,6 +2,8 @@ vim.cmd("set wrap")
 vim.cmd("set spell")
 vim.cmd("set linebreak")
 
+require("otter").activate()
+
 vim.keymap.set(
 	"n",
 	"<leader>cB",
@@ -9,4 +11,9 @@ vim.keymap.set(
 	{ noremap = true, silent = true, desc = "Search BibTeX citations (markdown)" }
 )
 
-require("otter").activate()
+vim.keymap.set(
+	"n",
+	"<leader>vv",
+	"<cmd>LivePreview start<cr>",
+	{ noremap = true, silent = true, desc = "View PDF with Vimtex" }
+)
