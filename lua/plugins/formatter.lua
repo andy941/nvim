@@ -26,7 +26,7 @@ return {
 				exe = "cbfmt",
 				args = {
 					"--config",
-					vim.fn.stdpath("config") .. "/lua/config/cbfmt.toml",
+					vim.fn.stdpath("config") .. "/lua/plugins/configuration_files/cbfmt.toml",
 					"--parser",
 					"markdown",
 					"--write",
