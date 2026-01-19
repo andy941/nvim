@@ -34,6 +34,12 @@ return {
 			pdfviewer = "zathura",
 			user_maps_only = true,
 			-- R_disable_cmds = ['RSetwd', 'RDputObj'],
+
+			r_ls = {
+				completion = false, -- enable the completion provider
+				hover = false, -- enable the hover provider
+				signature = false, -- enable the signature help provider
+			},
 		})
 	end,
 }

@@ -27,16 +27,33 @@ return {
 		},
 		statuscolumn = { enabled = true },
 		terminal = { enabled = true },
+		zen = {
+			toggles = {
+				dim = false,
+				git_signs = true,
+				mini_diff_signs = true,
+				diagnostics = true,
+				inlay_hints = false,
+			},
+		},
 	},
 
 	keys = {
 		{
-			mode = "n",
+			mode = { "n", "t" },
 			"<c-\\>",
 			function()
 				Snacks.terminal.toggle()
 			end,
 			{ desc = "Toggle terminal" },
+		},
+		{
+			mode = { "n" },
+			"<leader>Z",
+			function()
+				Snacks.zen()
+			end,
+			{ desc = "Toggle Zen mode" },
 		},
 	},
 }
