@@ -15,7 +15,7 @@ return {
 		"folke/trouble.nvim",
 		{
 			"glepnir/template.nvim",
-      lazy = false,
+			lazy = false,
 			config = function()
 				require("template").setup({
 					temp_dir = vim.fn.stdpath("config") .. "/lua/plugins/templates",

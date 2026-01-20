@@ -26,7 +26,7 @@ return {
 					auto_select_model = false,
 				},
 			},
-			-- hints = { enabled = true },
+			hints = { enabled = true },
 			selector = {
 				provider = "telescope",
 			},

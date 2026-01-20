@@ -78,7 +78,7 @@ return {
 				lua = { inherit_defaults = true, "lazydev" },
 				quarto = { inherit_defaults = true, "latex" },
 				markdown = { inherit_defaults = true, "latex" },
-				Avante = { "avante" },
+				AvantePromptInput = { "avante" },
 				AvanteInput = { "avante" },
 			},
 
