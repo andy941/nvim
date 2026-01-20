@@ -7,10 +7,20 @@ return {
 		local fmt = require("formatter.filetypes.lua")
 		local util = require("formatter.util")
 
+		local Clang_format_finder = function(clang_format_file)
+			local cwd = vim.fn.getcwd()
+			local CF = vim.fs.joinpath(cwd, clang_format_file)
+			if vim.fn.filereadable(CF) == 1 then
+				return CF
+			else
+				return "clang-format"
+			end
+		end
+
 		-- clang-format default not working without this (for now at least)
-		Cformat = function()
+		local Cformat = function()
 			return {
-				exe = "clang-format",
+				exe = Clang_format_finder("/meta/clang-format"),
 				args = {
 					"-style='{BasedOnStyle: Google, AlignConsecutiveAssignments: true, AlignConsecutiveDeclarations: true, AlignTrailingComments: true}'",
 					"-assume-filename",
@@ -21,7 +31,7 @@ return {
 			}
 		end
 
-		cbFmt = function()
+		local cbFmt = function()
 			return {
 				exe = "cbfmt",
 				args = {
