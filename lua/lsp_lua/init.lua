@@ -71,7 +71,7 @@ local settings = {}
 
 command.clangd = {
 	"clangd",
-	"-j=8",
+	"-j=24",
 	"--background-index",
 	"--clang-tidy",
 	"--fallback-style=llvm",
@@ -119,6 +119,7 @@ for _, lsp in ipairs(servers) do
 		root_dir = root_dir[lsp],
 		settings = settings[lsp],
 	})
+  vim.lsp.enable(lsp)
 end
 
 vim.g.rustaceanvim = {
