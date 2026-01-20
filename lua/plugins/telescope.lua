@@ -15,9 +15,10 @@ return {
 		"folke/trouble.nvim",
 		{
 			"glepnir/template.nvim",
+      lazy = false,
 			config = function()
 				require("template").setup({
-					temp_dir = vim.fn.stdpath("config") .. "/lua/plugins/",
+					temp_dir = vim.fn.stdpath("config") .. "/lua/plugins/templates",
 					author = "Andrea Finocchio",
 				})
 			end,
