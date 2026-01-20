@@ -4,8 +4,9 @@ return {
 	dependencies = {
 		"rafamadriz/friendly-snippets",
 		"Kaiser-Yang/blink-cmp-git",
-		{ "fang2hou/blink-copilot", dependencies = "github/copilot.vim" },
 		"erooke/blink-cmp-latex",
+		{ "fang2hou/blink-copilot", dependencies = "github/copilot.vim" },
+		"Kaiser-Yang/blink-cmp-avante",
 		-- nvim-cmp sources
 		"saghen/blink.compat", -- compatibility layer
 		-- cmp sources here
@@ -77,6 +78,8 @@ return {
 				lua = { inherit_defaults = true, "lazydev" },
 				quarto = { inherit_defaults = true, "latex" },
 				markdown = { inherit_defaults = true, "latex" },
+				Avante = { "avante" },
+				AvanteInput = { "avante" },
 			},
 
 			providers = {
@@ -92,6 +95,15 @@ return {
 					module = "lazydev.integrations.blink",
 					score_offset = 100,
 				},
+				git = {
+					module = "blink-cmp-git",
+					name = "Git",
+				},
+				latex = {
+					name = "Latex",
+					module = "blink-cmp-latex",
+					opts = { insert_command = true },
+				},
 				copilot = {
 					name = "copilot",
 					module = "blink-copilot",
@@ -103,14 +115,9 @@ return {
 						max_attempts = 1,
 					},
 				},
-				git = {
-					module = "blink-cmp-git",
-					name = "Git",
-				},
-				latex = {
-					name = "Latex",
-					module = "blink-cmp-latex",
-					opts = { insert_command = true },
+				avante = {
+					module = "blink-cmp-avante",
+					name = "Avante",
 				},
 			},
 		},
