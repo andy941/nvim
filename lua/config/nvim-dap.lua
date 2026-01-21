@@ -4,11 +4,11 @@ require("mason-nvim-dap").setup({
 	handlers = {},
 })
 
-local sign = vim.fn.sign_define
-
-sign("DapBreakpoint", { text = "●", texthl = "DapBreakpoint", linehl = "", numhl = "" })
-sign("DapBreakpointCondition", { text = "●", texthl = "DapBreakpointCondition", linehl = "", numhl = "" })
-sign("DapLogPoint", { text = "◆", texthl = "DapLogPoint", linehl = "", numhl = "" })
+-- local sign = vim.fn.sign_define
+--
+-- sign("DapBreakpoint", { text = "●", texthl = "DapBreakpoint", linehl = "", numhl = "" })
+-- sign("DapBreakpointCondition", { text = "●", texthl = "DapBreakpointCondition", linehl = "", numhl = "" })
+-- sign("DapLogPoint", { text = "◆", texthl = "DapLogPoint", linehl = "", numhl = "" })
 
 -------------------------------------------------------------------------------
 
@@ -77,6 +77,6 @@ utils.map("n", "<leader>dtc", ':lua require("dap-python").test_class()<cr>', opt
 utils.map("v", "<leader>dc", ':lua require("dap-python").debug_selection()<cr>', opts)
 
 -- Python
-require("dap-python").setup("~/.virtualenvs/debugpy/bin/python")
+require("dap-python").setup()
 -- change the test runner (unittest is default)
 require("dap-python").test_runner = "pytest" -- or django

@@ -61,16 +61,7 @@ local servers = {
 	"marksman",
 }
 
--- Ensure servers and formatters are installed --------------------------------
-
-require("mason-tool-installer").setup({
-	ensure_installed = {},
-})
-
--------------------------------------------------------------------------------
-
 local command = {}
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
 local init_options = {}
 local filetypes = {}
 local root_dir = {}
@@ -103,17 +94,19 @@ root_dir.pyright = function(fname)
 		or nvim_lsp.util.path.dirname(fname)
 end
 
+local r_opts = {
+	lsp = {
+		rich_documentation = false,
+	},
+	diagnostics = {
+		trailingWhitespace = false,
+		commented_code = false,
+	},
+}
+
 settings.r_language_server = {
-	r = {
-		lsp = {
-			rich_documentation = false,
-		},
-	},
-	quarto = {
-		lsp = {
-			rich_documentation = false,
-		},
-	},
+	r = r_opts,
+	quarto = r_opts,
 }
 
 for _, lsp in ipairs(servers) do
