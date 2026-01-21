@@ -6,5 +6,3 @@ require("plug")
 
 -- lsp setup
 require("lsp")
-
-vim.cmd.colorscheme("catppuccin")

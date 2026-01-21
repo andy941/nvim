@@ -15,6 +15,7 @@ local on_attach = function(client, bufnr)
 	vim.keymap.set("n", "<leader>rN", "<cmd>Lspsaga rename ++project<CR>", opts)
 	vim.keymap.set("n", "<leader>E", "<cmd>Lspsaga show_line_diagnostics<CR>", opts)
 	vim.keymap.set("n", "<leader>O", "<cmd>Lspsaga outline<CR>", opts)
+	vim.keymap.set("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", opts)
 end
 
 vim.api.nvim_create_autocmd("LspAttach", {

@@ -47,7 +47,6 @@ return {
 			},
 			documentation = {
 				window = {
-
 					border = "rounded",
 				},
 				auto_show = true,
