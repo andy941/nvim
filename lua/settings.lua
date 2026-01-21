@@ -49,6 +49,7 @@ vim.opt.signcolumn = "yes:2"
 vim.opt.relativenumber = false
 vim.opt.foldenable = false
 vim.opt.wrap = false
+vim.opt.winborder = "rounded"
 
 -- Highlight on yank
 vim.cmd("au TextYankPost * lua vim.highlight.on_yank {on_visual = false}")
