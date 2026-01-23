@@ -1,8 +1,12 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
+	dependencies = {
+		"nvim-treesitter/nvim-treesitter-textobjects",
+	},
 	lazy = false,
 	config = function()
 		require("nvim-treesitter.configs").setup({
+			modules = {},
 			ensure_installed = "all",
 			ignore_install = {
 				"ipkg", -- broken?
@@ -27,6 +31,9 @@ return {
 				disable = { "json" },
 			},
 			textobjects = { enable = true, disable = { "json" } },
+
+			sync_install = false,
+			auto_install = true,
 		})
 	end,
 }
