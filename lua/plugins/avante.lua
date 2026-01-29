@@ -30,11 +30,12 @@ return {
 			selector = {
 				provider = "telescope",
 			},
+      dual_boost = { enabled = false},
 			behaviour = {
-				auto_apply_diff_after_generation = false,
+        auto_suggestions = false,
 				enable_token_counting = true,
-				auto_approve_tool_permissions = false,
 				enable_fastapply = false,
+        auto_add_current_file = false,
 			},
 		},
 	},

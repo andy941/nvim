@@ -20,7 +20,6 @@ return {
 				},
 			},
 		},
-		scroll = { enabled = true },
 		input = { enabled = true },
 		indent = {
 			animate = { enabled = false },

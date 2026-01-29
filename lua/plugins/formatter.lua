@@ -19,13 +19,23 @@ return {
 
 		-- clang-format default not working without this (for now at least)
 		local Cformat = function()
-			return {
-				exe = Clang_format_finder("/meta/clang-format"),
-				args = {
-					"-style='{BasedOnStyle: Google, AlignConsecutiveAssignments: true, AlignConsecutiveDeclarations: true, AlignTrailingComments: true}'",
+			local CF = Clang_format_finder("/meta/clang-format")
+			local clang_format_params = {
+				"-style='{BasedOnStyle: Google, AlignConsecutiveAssignments: true, AlignConsecutiveDeclarations: true, AlignTrailingComments: true}'",
+				"-assume-filename",
+				util.escape_path(util.get_current_buffer_file_name()),
+			}
+
+			if CF ~= "clang-format" then
+				clang_format_params = {
 					"-assume-filename",
 					util.escape_path(util.get_current_buffer_file_name()),
-				},
+				}
+			end
+
+			return {
+				exe = CF,
+				args = clang_format_params,
 				stdin = true,
 				try_node_modules = true,
 			}
