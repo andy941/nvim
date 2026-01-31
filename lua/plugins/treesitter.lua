@@ -28,6 +28,9 @@ return {
 				disable = { "json" },
 			},
 			textobjects = { enable = true, disable = { "json" } },
+
+			sync_install = false,
+			auto_install = true,
 		})
 	end,
 }
