@@ -1,6 +1,6 @@
 return {
 	"R-nvim/R.nvim",
-	ft = { "r", "quarto", "rmd" },
+	lazy = false,
 	config = function()
 		require("r").setup({
 			R_args = { "--quiet", "--no-save" },

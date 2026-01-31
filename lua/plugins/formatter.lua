@@ -87,20 +87,20 @@ return {
 				cpp = { Cformat },
 				c = { Cformat },
 				python = {
-					-- function()
-					-- 	return {
-					-- 		exe = "black",
-					-- 		args = { "-q", "-", "-l 200" },
-					-- 		stdin = true,
-					-- 	}
-					-- end,
 					function()
 						return {
-							exe = "yapf",
-							args = { "--style='{indent_width: 4, column_limit: 120}'" },
+							exe = "black",
+							args = { "-q", "-", "-l 200" },
 							stdin = true,
 						}
 					end,
+					-- function()
+					-- 	return {
+					-- 		exe = "yapf",
+					-- 		args = { "--style='{indent_width: 4, column_limit: 120}'" },
+					-- 		stdin = true,
+					-- 	}
+					-- end,
 				},
 				tex = {
 					function()
