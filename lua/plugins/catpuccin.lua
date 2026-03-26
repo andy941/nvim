@@ -1,5 +1,6 @@
 return {
 	"catppuccin/nvim",
+	name = "catppuccin",
 	lazy = false, -- make sure we load this during startup if it is your main colorscheme
 	priority = 1000, -- make sure to load this before all the other start plugins
 	config = function()
@@ -33,6 +34,25 @@ return {
 				types = { "bold" },
 				operators = {},
 			},
+			lsp_styles = { -- Handles the style of specific lsp hl groups (see `:h lsp-highlight`).
+				virtual_text = {
+					errors = { "italic" },
+					hints = { "italic" },
+					warnings = { "italic" },
+					information = { "italic" },
+					ok = { "italic" },
+				},
+				underlines = {
+					errors = { "undercurl" },
+					hints = { "undercurl" },
+					warnings = { "undercurl" },
+					information = { "undercurl" },
+					ok = { "undercurl" },
+				},
+				inlay_hints = {
+					background = true,
+				},
+			},
 			custom_highlights = function(colors)
 				return {
 					SagaLightBulb = { fg = colors.yellow },
@@ -50,27 +70,8 @@ return {
 					enabled = true,
 					enable_ui = true, -- enable nvim-dap-ui
 				},
-				native_lsp = {
-					enabled = true,
-					virtual_text = {
-						errors = {},
-						hints = {},
-						warnings = {},
-						information = {},
-					},
-					underlines = {
-						errors = { "undercurl" },
-						hints = { "undercurl" },
-						warnings = { "undercurl" },
-						information = { "undercurl" },
-						ok = { "undercurl" },
-					},
-					inlay_hints = {
-						background = true,
-					},
-				},
 			},
 		})
-		vim.cmd.colorscheme("catppuccin")
+		vim.cmd.colorscheme("catppuccin-nvim")
 	end,
 }

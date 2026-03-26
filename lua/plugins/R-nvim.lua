@@ -1,7 +1,9 @@
 return {
 	"R-nvim/R.nvim",
+	enabled = false,
 	lazy = false,
 	config = function()
+		vim.g.R_filetypes = { "r", "rmd", "rnoweb", "rhelp" }
 		require("r").setup({
 			R_args = { "--quiet", "--no-save" },
 			hook = {
@@ -36,9 +38,9 @@ return {
 			-- R_disable_cmds = ['RSetwd', 'RDputObj'],
 
 			r_ls = {
-				completion = false, -- enable the completion provider
-				hover = false, -- enable the hover provider
-				signature = false, -- enable the signature help provider
+				completion = true, -- enable the completion provider
+				hover = true, -- enable the hover provider
+				signature = true, -- enable the signature help provider
 			},
 		})
 	end,

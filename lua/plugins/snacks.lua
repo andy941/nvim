@@ -5,21 +5,21 @@ return {
 	lazy = false,
 	---@type snacks.Config
 	opts = {
-		image = {
-			doc = {
-				inline = true,
-				conceal = function()
-					return false
-				end,
-				max_width = 300,
-				max_height = 300,
-			},
-			math = {
-				latex = {
-					font_size = "normalsize",
-				},
-			},
-		},
+		-- image = {
+		-- 	doc = {
+		-- 		inline = true,
+		-- 		conceal = function()
+		-- 			return false
+		-- 		end,
+		-- 		max_width = 300,
+		-- 		max_height = 300,
+		-- 	},
+		-- 	math = {
+		-- 		latex = {
+		-- 			font_size = "normalsize",
+		-- 		},
+		-- 	},
+		-- },
 		input = { enabled = true },
 		indent = {
 			animate = { enabled = false },
