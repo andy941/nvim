@@ -34,6 +34,20 @@ return {
 				diagnostics = true,
 				inlay_hints = false,
 			},
+			zoom = {
+				toggles = {},
+				center = false,
+				show = { statusline = true, tabline = true },
+				win = {
+					backdrop = true,
+					width = 0, -- full width
+				},
+			},
+		},
+		styles = {
+			zen = {
+				backdrop = { transparent = false },
+			},
 		},
 	},
 

@@ -47,9 +47,14 @@ vim.opt.cursorlineopt = "number"
 vim.opt.number = true
 vim.opt.signcolumn = "yes:2"
 vim.opt.relativenumber = false
-vim.opt.foldenable = false
 vim.opt.wrap = false
 vim.opt.winborder = "rounded"
+
+vim.opt.foldenable = false
+vim.wo[0][0].foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+vim.wo[0][0].foldmethod = 'expr'
+
+vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
 
 -- Highlight on yank
 vim.cmd("au TextYankPost * lua vim.highlight.on_yank {on_visual = false}")

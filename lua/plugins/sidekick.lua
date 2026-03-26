@@ -6,22 +6,12 @@ return {
 			mux = {
 				backend = "tmux",
 				enabled = true,
+				split = { size = 0.33 },
 			},
 		},
 		nes = { enabled = false },
 	},
 	keys = {
-		{
-			"<tab>",
-			function()
-				-- if there is a next edit, jump to it, otherwise apply it if any
-				if not require("sidekick").nes_jump_or_apply() then
-					return "<Tab>" -- fallback to normal tab
-				end
-			end,
-			expr = true,
-			desc = "Goto/Apply Next Edit Suggestion",
-		},
 		{
 			"<c-.>",
 			function()
@@ -36,22 +26,6 @@ return {
 				require("sidekick.cli").toggle()
 			end,
 			desc = "Sidekick Toggle CLI",
-		},
-		{
-			"<leader>as",
-			function()
-				require("sidekick.cli").select()
-			end,
-			-- Or to select only installed tools:
-			-- require("sidekick.cli").select({ filter = { installed = true } })
-			desc = "Select CLI",
-		},
-		{
-			"<leader>ad",
-			function()
-				require("sidekick.cli").close()
-			end,
-			desc = "Detach a CLI Session",
 		},
 		{
 			"<leader>at",
@@ -84,13 +58,5 @@ return {
 			mode = { "n", "x" },
 			desc = "Sidekick Select Prompt",
 		},
-		-- Example of a keybinding to open Claude directly
-		-- {
-		-- 	"<leader>ac",
-		-- 	function()
-		-- 		require("sidekick.cli").toggle({ name = "claude", focus = true })
-		-- 	end,
-		-- 	desc = "Sidekick Toggle Claude",
-		-- },
 	},
 }
