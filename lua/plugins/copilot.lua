@@ -4,6 +4,9 @@ return {
 	event = "BufWinEnter",
 	init = function()
 		vim.g.copilot_no_maps = true
+    vim.g.copilot_filetypes = {
+      ["text"] = false,
+    }
 	end,
 	config = function()
 		-- Block the normal Copilot suggestions
