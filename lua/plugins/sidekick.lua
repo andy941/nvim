@@ -8,7 +8,7 @@ return {
 				enabled = true,
 			},
 			win = {
-				-- layout = "float",
+				layout = "float",
 				float = {
 					width = 0.8,
 					height = 0.9,
