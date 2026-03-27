@@ -2,9 +2,6 @@
 local opts = { noremap = true, silent = true }
 
 local on_attach = function(client, bufnr)
-	-- Disable loggin (reactivate with vim.lsp.set_log_level("debug"))
-	vim.lsp.set_log_level("off")
-
 	-- See `:help vim.lsp.*` for documentation on any of the below functions
 	vim.keymap.set("n", "gd", "<cmd>Lspsaga peek_definition<CR>", opts)
 	vim.keymap.set("n", "gD", "<cmd>Lspsaga goto_definition<CR>", opts)
