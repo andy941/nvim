@@ -6,7 +6,13 @@ return {
 			mux = {
 				backend = "tmux",
 				enabled = true,
-				split = { size = 0.33 },
+			},
+			win = {
+				-- layout = "float",
+				float = {
+					width = 0.8,
+					height = 0.9,
+				},
 			},
 		},
 		nes = { enabled = false },
