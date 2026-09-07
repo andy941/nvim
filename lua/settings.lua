@@ -50,9 +50,12 @@ vim.opt.relativenumber = false
 vim.opt.wrap = false
 vim.opt.winborder = "rounded"
 
+-- diff enhancements
+vim.opt.fillchars:append({ diff = " " })
+
 vim.opt.foldenable = false
-vim.wo[0][0].foldexpr = 'v:lua.vim.treesitter.foldexpr()'
-vim.wo[0][0].foldmethod = 'expr'
+vim.wo[0][0].foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.wo[0][0].foldmethod = "expr"
 
 vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
 
