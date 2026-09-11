@@ -10,7 +10,7 @@ return {
 			win = {
 				layout = "float",
 				float = {
-					width = 0.7,
+					width = 120,
 					height = 1.0,
 				},
 			},
