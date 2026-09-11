@@ -60,9 +60,12 @@ return {
 			end,
 			auto_integrations = false,
 			integrations = {
+				notify = true,
+				diffview = true,
 				blink_cmp = {
 					style = "bordered",
 				},
+				lsp_saga = true,
 				illuminate = {
 					lsp = true,
 				},
