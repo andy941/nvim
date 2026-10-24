@@ -1,6 +1,6 @@
-vim.cmd("set wrap")
-vim.cmd("set spell")
-vim.cmd("set linebreak")
+vim.opt_local.wrap = true
+vim.opt_local.spell = true
+vim.opt_local.linebreak = true
 
 require("otter").activate()
 
