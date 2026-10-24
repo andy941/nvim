@@ -14,6 +14,11 @@ return {
 					height = 1.0,
 				},
 			},
+			tools = {
+				antigravity = {
+					cmd = { "agy" },
+				},
+			},
 		},
 		nes = { enabled = false },
 	},
