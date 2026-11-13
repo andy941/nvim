@@ -53,6 +53,13 @@ vim.opt.winborder = "rounded"
 -- diff enhancements
 vim.opt.fillchars:append({ diff = " " })
 
+-- Diff filler lines blend into the window background (colorscheme agnostic)
+local function clear_diff_filler()
+	vim.api.nvim_set_hl(0, "DiffDelete", { link = "Normal" })
+end
+clear_diff_filler()
+vim.api.nvim_create_autocmd("ColorScheme", { callback = clear_diff_filler })
+
 vim.opt.foldenable = false
 vim.wo[0][0].foldexpr = "v:lua.vim.treesitter.foldexpr()"
 vim.wo[0][0].foldmethod = "expr"
