@@ -28,6 +28,11 @@ return {
 					return vim.o.lines - vim.o.cmdheight
 				end,
 				border = "none",
+				-- snacks re-applies the zen style's winhighlight on every resize (which would drop
+				-- sidekick's own mapping), so declare the full mapping here to survive it.
+				wo = {
+					winhighlight = "Normal:SidekickChat,NormalNC:SidekickChat,NormalFloat:SidekickChat,EndOfBuffer:SidekickChat,SignColumn:SidekickChat",
+				},
 				-- opaque backdrop in the exact Normal bg: the whole screen becomes one flat color
 				-- and the terminal text appears to float over it. (snacks blends bg->black by
 				-- `blend`, so blend = 0 yields bg itself; bg defaults to black, hence set it.)
