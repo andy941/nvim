@@ -4,6 +4,13 @@ return {
 	commit = "f09ff9413652e3c06a6817ba6284591c00121fe0",
 	pin = true,
 	cmd = "Octo",
+	keys = {
+		{
+			"<leader>PR",
+			"<cmd>Octo search is:pr is:open review-requested:@me<cr>",
+			desc = "Octo: PRs awaiting my review",
+		},
+	},
 	dependencies = {
 		"nvim-lua/plenary.nvim",
 		"nvim-telescope/telescope.nvim",
@@ -23,6 +30,14 @@ return {
 
 			suppress_missing_scope = { projects_v2 = true },
 		})
+
+		-- `gh pr checkout` runs async and Octo only reports on completion; announce the start.
+		local octo_utils = require("octo.utils")
+		local orig_checkout_pr = octo_utils.checkout_pr
+		octo_utils.checkout_pr = function(pr_number, ...)
+			vim.notify(("Octo: checking out PR #%s ..."):format(tostring(pr_number)), vim.log.levels.INFO)
+			return orig_checkout_pr(pr_number, ...)
+		end
 
 		-- Added files: show them as plain files (no all-green diff). The right side is the
 		-- real buffer (use_local_fs), so threads/signs still work.
