@@ -49,10 +49,22 @@ return {
 		},
 		styles = {
 			zen = {
-				backdrop = { transparent = false },
+				-- opaque backdrop. With blend = 0 snacks uses `bg` as is (it blends Normal -> bg by
+				-- `blend`), so `bg` must be the Normal bg; it is kept in sync below.
+				backdrop = { transparent = false, blend = 0 },
 			},
 		},
 	},
+	config = function(_, opts)
+		require("snacks").setup(opts)
+
+		-- every zen window gets a backdrop in exactly the editor background (colorscheme agnostic)
+		local function sync_zen_backdrop()
+			Snacks.config.styles.zen.backdrop.bg = Snacks.util.color("Normal", "bg")
+		end
+		sync_zen_backdrop()
+		vim.api.nvim_create_autocmd("ColorScheme", { callback = sync_zen_backdrop })
+	end,
 
 	keys = {
 		{

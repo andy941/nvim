@@ -33,10 +33,7 @@ return {
 				wo = {
 					winhighlight = "Normal:SidekickChat,NormalNC:SidekickChat,NormalFloat:SidekickChat,EndOfBuffer:SidekickChat,SignColumn:SidekickChat",
 				},
-				-- opaque backdrop in the exact Normal bg: the whole screen becomes one flat color
-				-- and the terminal text appears to float over it. (snacks blends bg->black by
-				-- `blend`, so blend = 0 yields bg itself; bg defaults to black, hence set it.)
-				backdrop = { transparent = false, bg = Snacks.util.color("Normal", "bg"), blend = 0 },
+				-- backdrop: inherited from the global zen style (opaque, Normal bg; see snacks.lua)
 			})
 			self.win = win.win
 			vim.w[self.win].sidekick_cli = self.tool
