@@ -53,12 +53,29 @@ vim.opt.winborder = "rounded"
 -- diff enhancements
 vim.opt.fillchars:append({ diff = " " })
 
--- Diff filler lines blend into the window background (colorscheme agnostic)
-local function clear_diff_filler()
-	vim.api.nvim_set_hl(0, "DiffDelete", { link = "Normal" })
+-- Diff filler lines blend into the window background (colorscheme agnostic).
+-- Done per diff window instead of redefining DiffDelete globally, because plugins like
+-- diffview read DiffDelete's colours for their own deletion highlights. Windows that already
+-- remap DiffDelete (diffview) are left alone.
+local function blank_diff_filler(win)
+	if not vim.api.nvim_win_is_valid(win) or not vim.wo[win].diff then
+		return
+	end
+	local winhl = vim.wo[win].winhighlight
+	if winhl:find("DiffDelete:", 1, true) then
+		return
+	end
+	vim.wo[win].winhighlight = (winhl == "" and "" or winhl .. ",") .. "DiffDelete:Normal"
 end
-clear_diff_filler()
-vim.api.nvim_create_autocmd("ColorScheme", { callback = clear_diff_filler })
+-- OptionSet doesn't fire for 'diff', but DiffUpdated fires after :diffthis (also inside
+-- nvim_buf_call, as Octo does it).
+vim.api.nvim_create_autocmd("DiffUpdated", {
+	callback = function()
+		for _, win in ipairs(vim.api.nvim_tabpage_list_wins(0)) do
+			blank_diff_filler(win)
+		end
+	end,
+})
 
 vim.opt.foldenable = false
 vim.wo[0][0].foldexpr = "v:lua.vim.treesitter.foldexpr()"
