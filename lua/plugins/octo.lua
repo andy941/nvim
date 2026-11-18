@@ -64,11 +64,22 @@ return {
 		local constants = require("octo.constants")
 		local function apply_review_hl()
 			for _, ns in ipairs({ constants.OCTO_REVIEW_LEFT_HIGHLIGHT_NS, constants.OCTO_REVIEW_RIGHT_HIGHLIGHT_NS }) do
+				-- blank filler lines: the winhighlight mapping from settings.lua is ignored on
+				-- windows that have a highlight namespace, so override DiffDelete in the namespace
+				vim.api.nvim_set_hl(ns, "DiffDelete", { link = "Normal" })
 				for _, name in ipairs({ "DiffChange", "DiffText" }) do
 					local hl = vim.api.nvim_get_hl(0, { name = name, link = false })
 					vim.api.nvim_set_hl(ns, name, hl)
 				end
 			end
+			-- Vim draws lines that only exist in the left (old) buffer as "added" (DiffAdd). Draw
+			-- them with the colorscheme's DiffDelete instead. Read it without link=false first:
+			-- that resolves through the current window's winhighlight (DiffDelete:Normal).
+			local del = vim.api.nvim_get_hl(0, { name = "DiffDelete" })
+			if del.link then
+				del = vim.api.nvim_get_hl(0, { name = "DiffDelete", link = false })
+			end
+			vim.api.nvim_set_hl(constants.OCTO_REVIEW_LEFT_HIGHLIGHT_NS, "DiffAdd", del)
 		end
 		local Layout = require("octo.reviews.layout").Layout
 		local orig_init_layout = Layout.init_layout
@@ -78,6 +89,23 @@ return {
 			return ret
 		end
 		vim.api.nvim_create_autocmd("ColorScheme", { callback = apply_review_hl })
+
+		-- Octo defines its own groups (OctoNormal, OctoStatusLine, ...) once at setup and only
+		-- when they don't exist yet. `:colorscheme` clears them (they stay "existing" but empty),
+		-- so the file panel etc. lose their colours. Re-run Octo's own setup on ColorScheme, with
+		-- hlexists() reporting "missing" for the call so it redefines every group.
+		vim.api.nvim_create_autocmd("ColorScheme", {
+			callback = function()
+				vim.fn.hlexists = function()
+					return 0
+				end
+				local ok, err = pcall(require("octo.ui.colors").setup)
+				vim.fn.hlexists = nil -- drop the override; vim.fn regenerates the real function
+				if not ok then
+					vim.notify("Octo: failed to refresh highlights: " .. tostring(err), vim.log.levels.WARN)
+				end
+			end,
+		})
 
 		-- Toggle diff highlighting for the current file in a review
 		vim.keymap.set("n", "<leader>cd", function()
